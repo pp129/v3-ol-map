@@ -1,0 +1,69 @@
+<script setup lang="ts">
+import { VectorSourceOptions, VMap, WFSOptions, FeatureStyle, OlMapEvent } from "@/packages";
+
+const view: VMap["view"] = {
+  zoom: 11,
+  center: [118.12582777425764, 24.637526109241485],
+};
+type JSONFeature = {
+  options: WFSOptions["options"];
+  geoJSONSource: VectorSourceOptions;
+  geoJsonStyle: FeatureStyle;
+};
+const jsonFeature: JSONFeature = {
+  options: {
+    featureNS: "http://218.5.80.6:6600/geoserver/xiaqu/ows",
+    featureTypes: ["xiaqu:PaiChuSouXQ_polygon"],
+    srsName: "EPSG:4326",
+    featurePrefix: "xiaqu",
+  },
+  geoJSONSource: {
+    // url: "http://27.154.234.238:3398/admin-api/Features/xiamen_jjzd/JointFeature?ak=3a772a1c9c1245d5905a6f7cd522bbf5&returnGeometry=true&f=geojson",
+    url: "http://218.5.80.6:6600/geoserver/xiaqu/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=xiaqu:PaiChuSouXQ_polygon&&outputFormat=application/json",
+    featureFormat: "GeoJSON",
+  },
+  geoJsonStyle: {
+    fill: {
+      color: "rgb(198, 226, 255,0.6)",
+    },
+    stroke: {
+      color: "rgb(51, 126, 204)",
+      width: 2,
+    },
+    text: {
+      text: "",
+      font: "16px sans-serif",
+      fill: {
+        color: "#fff",
+      },
+      stroke: {
+        color: "#000",
+        width: 3,
+      },
+    },
+    styleFunction: function (feature, resolution, map, style) {
+      const textStyle = style.getText(); // 获取文本样式
+      if (textStyle) {
+        const labelKey = "NAME";
+        const text_ = feature.get(labelKey); // 设置文本内容
+        textStyle.setText(text_); // 更新文本样式
+        style.setText(textStyle);
+      }
+      return style; // 返回样式
+    },
+  },
+};
+const handleClick = (evt: OlMapEvent, feature: any) => {
+  console.log("feature:", feature);
+};
+</script>
+
+<template>
+  <ol-map :view="view">
+    <ol-vector :feature-style="jsonFeature.geoJsonStyle" @singleclick="handleClick">
+      <ol-wfs :options="jsonFeature.options"></ol-wfs>
+    </ol-vector>
+  </ol-map>
+</template>
+
+<style scoped></style>
