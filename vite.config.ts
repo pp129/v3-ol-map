@@ -46,7 +46,6 @@ export default defineConfig(({ command, mode }): any => {
       alias: {
         "@": resolve(__dirname, "src"),
       },
-      extensions: [".ts", ".json", ".vue"],
     },
     plugins: [vue()],
     optimizeDeps: {
