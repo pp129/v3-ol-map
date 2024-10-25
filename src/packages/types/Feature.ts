@@ -1,8 +1,8 @@
-import { Position, GeoJSON as Geo, Feature as GeoFeature, FeatureCollection as GeoFeatureCollection } from "geojson";
-
-export declare type GeoJSON = Geo;
-export declare type GeoJSONFeatureCollection = GeoFeatureCollection;
-export declare type GeoJSONFeature = GeoFeature;
+export declare type Position = import("geojson").Position;
+export declare type GeoJSON = import("geojson").GeoJSON;
+export declare type FeatureCollection = import("geojson").FeatureCollection;
+export declare type GeoJSONFeature = import("geojson").Feature;
+export declare type FeatureLike = import("ol/Feature").FeatureLike;
 
 export declare type GeoCircle = {
   center: number[];

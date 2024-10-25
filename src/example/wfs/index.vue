@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VectorSourceOptions, VMap, WFSOptions, FeatureStyle, OlMapEvent } from "@/packages";
+import { VectorSourceOptions, VMap, WFSOptions, FeatureStyle, OlMapEvent, FeatureLike } from "@/packages";
 
 const view: VMap["view"] = {
   zoom: 11,
@@ -53,8 +53,8 @@ const jsonFeature: JSONFeature = {
     },
   },
 };
-const handleClick = (evt: OlMapEvent, feature: any) => {
-  console.log("feature:", feature);
+const handleClick = (evt: OlMapEvent, feature: FeatureLike) => {
+  console.log("feature:", feature?.getGeometry());
 };
 </script>
 

@@ -22,8 +22,9 @@ const build = (env: string) => {
         fileName: (format: string) => `v3-ol-map.${format}.js`,
       },
       rollupOptions: {
-        external: ["vue"],
+        external: ["vue", "vue-router"],
         output: {
+          exports: "named",
           globals: {
             vue: "Vue",
           },
@@ -63,7 +64,7 @@ export default defineConfig(({ command, mode }): any => {
       include: ["core-js"],
     },
     esbuild: {
-      drop: mode === "build" ? ["console", "debugger"] : [],
+      drop: command === "build" ? ["console", "debugger"] : [],
     },
     build: build(mode),
   };

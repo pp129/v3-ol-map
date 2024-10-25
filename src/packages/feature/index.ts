@@ -35,7 +35,7 @@ import {
   GeoMultiPolygon,
   GeoPoint,
   GeoPolygon,
-} from "../types/Feature";
+} from "../types";
 import { setFeatureStyle } from "../utils/style.ts";
 
 const OlFeature = defineComponent({
@@ -285,7 +285,7 @@ const OlFeature = defineComponent({
         if (layer.value.getSource()) source = (layer.value.getSource() as Cluster<Feature>).getSource();
       }
       if (sourceFeatures.value) {
-        source?.removeFeatures(sourceFeatures.value);
+        source?.removeFeatures(sourceFeatures.value ?? []);
       }
       if (!value) return;
       addFeatures();

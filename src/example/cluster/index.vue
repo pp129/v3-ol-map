@@ -5,7 +5,7 @@ import cluster1 from "@/assets/images/cluster1.png";
 import cluster2 from "@/assets/images/cluster2.png";
 import cluster3 from "@/assets/images/cluster3.png";
 import cluster4 from "@/assets/images/cluster4.png";
-import { ClusterLayerOptions, OlFeatureInstance, VMap, GeoJSONFeature, GeoJSONFeatureCollection } from "@/packages";
+import { ClusterLayerOptions, OlFeatureInstance, VMap, GeoJSONFeature, FeatureCollection } from "@/packages";
 
 const view: VMap["view"] = {
   zoom: 8,
@@ -53,7 +53,7 @@ const clusterStyle: ClusterLayerOptions["clusterStyle"] = [
     },
   },
 ];
-const clusterJson = ref<GeoJSONFeatureCollection>();
+const clusterJson = ref<FeatureCollection>();
 type clusterPointInfo = {
   id: number;
   name?: string;
