@@ -24,9 +24,9 @@
     /*"types": ["element-plus/global"],*/
 
     /* alias */
-    "baseUrl": ".",
+    "baseUrl": "",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
     },
 
     "typeRoots": [
@@ -35,13 +35,11 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "packages",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "declarations.d.ts",
     "src/**/*.d.ts",
-    "src/packages/types/**/*.ts",
+    "declarations.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -2,8 +2,12 @@
   "name": "v3-ol-map",
   "private": false,
   "version": "1.0.0",
+  "type": "module",
   "main": "lib/v3-ol-map.umd.js",
+  "types": "lib/index.d.ts",
   "files": [
+    "package.json",
+    "README.md",
     "lib"
   ],
   "scripts": {
@@ -41,6 +45,7 @@
     "prettier": "3.2.5",
     "typescript": "~5.4.5",
     "vite": "^5.4.9",
+    "vite-plugin-dts": "^4.3.0",
     "vue-tsc": "^2.1.6"
   }
 }

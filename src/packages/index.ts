@@ -25,16 +25,7 @@ const components = [
   { name: "OlOverview", component: OlOverview },
 ];
 
-export * from "./types/Map";
-export * from "./types/Tile";
-export * from "./types/Vector";
-export * from "./types/WFS";
-export * from "./types/Style";
-export * from "./types/Heatmap";
-export * from "./types/Feature";
-export * from "./types/Cluster";
-export * from "./types/Overlay";
-export * from "./types/Overview";
+export * from "./types";
 
 export { utils, OlMap, OlTile, OlVector, OlWfs, OlWms, OlHeatmap, OlFeature, OlCluster, OlOverlay, OlOverview };
 
@@ -117,3 +108,18 @@ const install = (app: App, options?: installOptions) => {
 export default {
   install,
 };
+
+declare module "vue" {
+  export interface GlobalComponents {
+    OlMap: (typeof import("./map/index.vue"))["default"];
+    OlTile: (typeof import("./layers/tile/index.vue"))["default"];
+    OlVector: (typeof import("./layers/vector/index.vue"))["default"];
+    OlWfs: (typeof import("./layers/wfs/index.vue"))["default"];
+    OlWms: (typeof import("./layers/wms/index.vue"))["default"];
+    OlHeatmap: (typeof import("./layers/heatmap/index.vue"))["default"];
+    OlFeature: (typeof import("./feature/index"))["default"];
+    OlCluster: (typeof import("./layers/cluster/index.vue"))["default"];
+    OlOverlay: (typeof import("./overlay/index.vue"))["default"];
+    OlOverview: (typeof import("./controls/OverviewMap.vue"))["default"];
+  }
+}

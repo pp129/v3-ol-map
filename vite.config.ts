@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
 const build = (env: string) => {
@@ -43,11 +44,21 @@ export default defineConfig(({ command, mode }): any => {
     },
     publicDir: mode === "lib" ? false : "public",
     resolve: {
-      alias: {
-        "@": resolve(__dirname, "src"),
-      },
+      extensions: [".ts", ".vue", ".js", ".json", ".css", ".node", ".sass"],
+      alias: [
+        {
+          find: "@",
+          replacement: resolve(__dirname, "src"),
+        },
+      ],
     },
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      dts({
+        // 这里定义了需要生成d.ts文件的目录，如果有多个目录，可以使用数组
+        include: ["src/packages/**/*.{vue,ts}"],
+      }),
+    ],
     optimizeDeps: {
       include: ["core-js"],
     },
