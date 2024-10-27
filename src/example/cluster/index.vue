@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue";
 import icon from "@/assets/vue.svg";
-import cluster1 from "@/assets/images/cluster1.png";
-import cluster2 from "@/assets/images/cluster2.png";
-import cluster3 from "@/assets/images/cluster3.png";
 import cluster4 from "@/assets/images/cluster4.png";
 import { ClusterLayerOptions, OlFeatureInstance, VMap, GeoJSONFeature, FeatureCollection } from "@/packages";
 
@@ -18,41 +15,11 @@ const layerStyle: ClusterLayerOptions["layerStyle"] = {
     scale: 0.6,
   },
 };
-const clusterStyle: ClusterLayerOptions["clusterStyle"] = [
-  {
-    min: 0, //自定义该聚合样式的点数量最小值，可省略
-    max: 50, //自定义该聚合样式的点数量最大值，可省略
-    icon: {
-      src: cluster1, //该聚合样式图标
-    },
+const clusterStyle: ClusterLayerOptions["clusterStyle"] = {
+  icon: {
+    src: cluster4, //该聚合样式图标
   },
-  {
-    min: 50, //自定义该聚合样式的点数量最小值，可省略
-    max: 100, //自定义该聚合样式的点数量最大值，可省略
-    icon: {
-      src: cluster2, //该聚合样式图标
-    },
-    text: {
-      fill: {
-        color: "red",
-      },
-    },
-  },
-  {
-    min: 100, //自定义该聚合样式的点数量最小值，可省略
-    max: 200, //自定义该聚合样式的点数量最大值，可省略
-    icon: {
-      src: cluster3, //该聚合样式图标
-    },
-  },
-  {
-    min: 200, //自定义该聚合样式的点数量最小值，可省略
-    max: 1000, //自定义该聚合样式的点数量最大值，可省略
-    icon: {
-      src: cluster4, //该聚合样式图标
-    },
-  },
-];
+};
 const clusterJson = ref<FeatureCollection>();
 type clusterPointInfo = {
   id: number;
@@ -107,29 +74,21 @@ const showClusterItem = (id: number) => {
   }
 };
 
+let loaded = ref(false);
+
 // 随机聚合点
 const getClusterData = () => {
   let features: GeoJSONFeature[] = [];
-  for (let i = 0; i < 800; i++) {
-    features[i] = {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: mockCoordinates(),
-      },
-      properties: {
-        id: `random-${i + 1}`,
-        name: `聚合要素-${i + 1}`,
-      },
-    };
-  }
-  clusterJson.value = { type: "FeatureCollection", features };
-};
-// 生成厦门岛范围的随机经纬度
-const mockCoordinates = () => {
-  const x = 118.06 + Math.random() / 7;
-  const y = 24.43 + Math.random() / 7;
-  return [x, y];
+  fetch(
+    "http://172.16.34.132:8222/geoserver/test/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=test:camera_30w&outputFormat=application/json&maxFeatures=20000",
+  )
+    .then(res => res.json())
+    .then((data: any) => {
+      console.log(data);
+      features = data.features;
+      clusterJson.value = { type: "FeatureCollection", features };
+      loaded.value = true;
+    });
 };
 
 onMounted(() => {
@@ -139,7 +98,9 @@ onMounted(() => {
 
 <template>
   <ol-map :view="view" @dblclick="clusterOverlay.position = undefined">
+    <ol-tile tile-type="BAIDU"></ol-tile>
     <ol-cluster
+      v-if="loaded"
       :z-index="2"
       class-name="layer-cluster"
       :layer-style="layerStyle"

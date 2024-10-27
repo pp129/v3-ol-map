@@ -1,6 +1,7 @@
 import type { App } from "vue";
 import OlMap from "./map/index.vue";
 import OlTile from "./layers/tile/index.vue";
+import OlImage from "./layers/image/index.vue";
 import OlVector from "./layers/vector/index.vue";
 import OlWfs from "./layers/wfs/index.vue";
 import OlWms from "./layers/wms/index.vue";
@@ -15,6 +16,7 @@ import * as utils from "./utils";
 const components = [
   { name: "OlMap", component: OlMap },
   { name: "OlTile", component: OlTile },
+  { name: "OlImage", component: OlImage },
   { name: "OlVector", component: OlVector },
   { name: "OlWfs", component: OlWfs },
   { name: "OlWms", component: OlWms },
@@ -27,7 +29,7 @@ const components = [
 
 export * from "./types";
 
-export { utils, OlMap, OlTile, OlVector, OlWfs, OlWms, OlHeatmap, OlFeature, OlCluster, OlOverlay, OlOverview };
+export { utils, OlMap, OlTile,OlImage, OlVector, OlWfs, OlWms, OlHeatmap, OlFeature, OlCluster, OlOverlay, OlOverview };
 
 type TDT = {
   ak: string;
@@ -113,6 +115,7 @@ declare module "vue" {
   export interface GlobalComponents {
     OlMap: (typeof import("./map/index.vue"))["default"];
     OlTile: (typeof import("./layers/tile/index.vue"))["default"];
+    OlImage: (typeof import("./layers/image/index.vue"))["default"];
     OlVector: (typeof import("./layers/vector/index.vue"))["default"];
     OlWfs: (typeof import("./layers/wfs/index.vue"))["default"];
     OlWms: (typeof import("./layers/wms/index.vue"))["default"];

@@ -4,24 +4,45 @@ import OlMap from "@/packages/lib";
 import { WMSOptions } from "@/packages/types/Tile";
 import TileGrid from "ol/tilegrid/TileGrid.js";
 import type { Layer, Tile } from "ol/layer";
-import { TileWMS } from "ol/source.js";
+import { ImageWMS, TileWMS } from "ol/source.js";
 import MapBrowserEvent from "ol/MapBrowserEvent";
+import ImageLayer from "ol/layer/Image";
 
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
-const layer = inject("ParentTileLayer") as ShallowRef<Layer | Tile>;
+const layer = inject("ParentTileLayer") as ShallowRef<ImageLayer<import("ol/source/Image.js").default> | Tile | Layer>;
 
 const props = withDefaults(defineProps<WMSOptions>(), {});
-let tileGrid;
-if (props.tileGrid) {
-  tileGrid = new TileGrid(props.tileGrid);
-}
-const wmsOpt = { ...props, tileGrid };
-const source = new TileWMS(wmsOpt);
+
 const emit = defineEmits(["singleclick"]);
-onMounted(() => {
+
+const init = () => {
   if (layer.value) {
-    layer.value.setSource(source);
+    console.log(layer.value.constructor.name);
+    let tileGrid;
+    let source: ImageWMS | TileWMS;
+    if (props.tileGrid) {
+      tileGrid = new TileGrid(props.tileGrid);
+    }
+    if (layer.value.constructor.name === "ImageLayer") {
+      const wmsOpt = { ...props, tileGrid };
+      console.log(wmsOpt);
+      source = new ImageWMS(wmsOpt);
+      (layer.value as ImageLayer<import("ol/source/Image.js").default>).setSource(source);
+    } else if (layer.value.constructor.name === "Tile") {
+      const wmsOpt = { ...props, tileGrid };
+      source = new TileWMS(wmsOpt);
+      (layer.value as Tile).setSource(source);
+    }
+
+    map.on("pointermove", function (evt) {
+      if (evt.dragging) {
+        return;
+      }
+      const data: any = layer.value.getData(evt.pixel);
+      const hit = data && data[3] > 0; // transparent pixels have zero for data[3]
+      map.getTargetElement().style.cursor = hit ? "pointer" : "";
+    });
     map.on("singleclick", (evt: MapBrowserEvent<UIEvent>) => {
       const view = map.getView();
       const viewResolution = view.getResolution();
@@ -39,6 +60,9 @@ onMounted(() => {
       }
     });
   }
+};
+onMounted(() => {
+  init();
 });
 </script>
 

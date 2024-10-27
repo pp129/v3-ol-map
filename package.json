@@ -1,7 +1,7 @@
 {
   "name": "v3-ol-map",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "lib/v3-ol-map.umd.js",
   "types": "lib/index.d.ts",

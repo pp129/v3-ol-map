@@ -1,28 +1,49 @@
 <script setup lang="ts">
-import { OlMapEvent, SourceWMS } from "@/packages";
-
-const wms: SourceWMS = {
-  url: "http://218.5.80.6:6600/geoserver/nd/wms",
+import { OlMapEvent, SourceImageWMSOptions, VMap } from "@/packages";
+const view: VMap["view"] = {
+  zoom: 12,
+  center: [118.11022, 24.490474],
+  smoothExtentConstraint: true,
+  constrainResolution: true,
+};
+const wms: SourceImageWMSOptions = {
+  url: "http://172.16.34.132:8222/geoserver/test/wms",
   params: {
-    VERSION: "1.1.1",
+    VERSION: "1.3.0",
     FORMAT: "image/png",
     STYLES: "",
-    LAYERS: "nd:nd_layer",
-    TILED: true,
+    LAYERS: "test:camera_30w",
   },
   serverType: "geoserver",
+  ratio: 1,
+  crossOrigin: "anonymous",
 };
 
 const handleClick = (e: OlMapEvent, data: any) => {
-  console.log(data);
+  if (data) {
+    const { features } = data;
+    if (features && features.length > 0) {
+      const feature = features[0];
+      const { properties } = feature;
+      console.log(properties);
+    }
+  }
 };
 </script>
 
 <template>
-  <ol-map>
-    <ol-tile>
-      <ol-wms :url="wms.url" :params="wms.params" :server-type="wms.serverType" @singleclick="handleClick"></ol-wms>
-    </ol-tile>
+  <ol-map :view="view">
+    <ol-tile tile-type="TDT" :z-index="0"></ol-tile>
+    <ol-image :z-index="1">
+      <ol-wms
+        :url="wms.url"
+        :ratio="wms.ratio"
+        :cross-origin="wms.crossOrigin"
+        :params="wms.params"
+        :server-type="wms.serverType"
+        @singleclick="handleClick"
+      ></ol-wms>
+    </ol-image>
   </ol-map>
 </template>
 
