@@ -10,6 +10,7 @@ import type { Options as TileWMSOptions } from "ol/source/TileWMS";
 import type { Options as ImageWMSOptions } from "ol/source/ImageWMS";
 import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
 import type { Options as ImageTileOptions } from "ol/layer/BaseImage";
+
 export enum enumTile {
   TDT = "TDT",
   TDT_SATELLITE = "TDT_SATELLITE",
@@ -24,7 +25,7 @@ export enum enumTile {
   CUSTOMER = "CUSTOMER",
 }
 
-export type TileType = keyof typeof enumTile | string;
+export declare type TileType = keyof typeof enumTile;
 
 type TileLayer = Omit<TileOptions<TileSourceType>, "source">;
 
@@ -33,6 +34,10 @@ export interface BaseTileProps extends TileLayer {
   layerId?: string;
   source?: SourceOptions | XYZOptions;
 }
+
+export declare type BaseTileSourceOptions = BaseTileProps["source"];
+
+export declare type BaseTileOptions = BaseTileProps;
 
 type WebGLTileLayer = Omit<Options, "source" | "style">;
 export interface WebGLTileOptions extends WebGLTileLayer {

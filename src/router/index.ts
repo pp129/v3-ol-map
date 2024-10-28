@@ -31,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/example/heatmap/index.vue"),
   },
   {
+    name: "tiff",
+    path: "/tiff",
+    component: () => import("@/example/tiff/index.vue"),
+  },
+  {
     name: "cluster",
     path: "/cluster",
     component: () => import("@/example/cluster/index.vue"),

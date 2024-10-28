@@ -6,6 +6,7 @@ import OlVector from "./layers/vector/index.vue";
 import OlWfs from "./layers/wfs/index.vue";
 import OlWms from "./layers/wms/index.vue";
 import OlHeatmap from "./layers/heatmap/index.vue";
+import OlTiff from "./layers/tiff/index.vue";
 import OlFeature from "./feature";
 import OlCluster from "./layers/cluster/index.vue";
 import OlOverlay from "./overlay/index.vue";
@@ -21,6 +22,7 @@ const components = [
   { name: "OlWfs", component: OlWfs },
   { name: "OlWms", component: OlWms },
   { name: "OlHeatmap", component: OlHeatmap },
+  { name: "OlTiff", component: OlTiff },
   { name: "OlFeature", component: OlFeature },
   { name: "OlCluster", component: OlCluster },
   { name: "OlOverlay", component: OlOverlay },
@@ -29,7 +31,7 @@ const components = [
 
 export * from "./types";
 
-export { utils, OlMap, OlTile,OlImage, OlVector, OlWfs, OlWms, OlHeatmap, OlFeature, OlCluster, OlOverlay, OlOverview };
+export { utils, OlMap, OlTile,OlImage, OlVector, OlWfs, OlWms, OlHeatmap,OlTiff, OlFeature, OlCluster, OlOverlay, OlOverview };
 
 type TDT = {
   ak: string;
@@ -120,6 +122,7 @@ declare module "vue" {
     OlWfs: (typeof import("./layers/wfs/index.vue"))["default"];
     OlWms: (typeof import("./layers/wms/index.vue"))["default"];
     OlHeatmap: (typeof import("./layers/heatmap/index.vue"))["default"];
+    OlTiff: (typeof import("./layers/tiff/index.vue"))["default"];
     OlFeature: (typeof import("./feature/index"))["default"];
     OlCluster: (typeof import("./layers/cluster/index.vue"))["default"];
     OlOverlay: (typeof import("./overlay/index.vue"))["default"];
