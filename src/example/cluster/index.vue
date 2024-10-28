@@ -22,8 +22,8 @@ const clusterStyle: ClusterLayerOptions["clusterStyle"] = {
 };
 const clusterJson = ref<FeatureCollection>();
 type clusterPointInfo = {
-  id: number;
-  name?: string;
+  device_code: string;
+  NAME?: string;
 };
 interface OverlayClusterOptions {
   cluster?: boolean;
@@ -35,8 +35,8 @@ const clusterOverlay = <OverlayClusterOptions>reactive({
   cluster: false,
   list: [],
   info: {
-    id: 0,
-    name: "",
+    device_code: "",
+    NAME: "",
   },
   position: undefined,
 });
@@ -53,6 +53,7 @@ const onClickClusterLayer = (evt: any, feature: any) => {
       if (count <= 10) {
         const children = clusterRef.value?.getLeaves(id, Infinity);
         if (children) {
+          console.log("children", children);
           clusterOverlay.list = children.map((child: any) => {
             return child.properties;
           });
@@ -66,8 +67,8 @@ const onClickClusterLayer = (evt: any, feature: any) => {
     }
   }
 };
-const showClusterItem = (id: number) => {
-  const feature = clusterJson.value?.features.find((x: any) => x.properties.id === id);
+const showClusterItem = (code: string) => {
+  const feature = clusterJson.value?.features.find((x: any) => x.properties.device_code === code);
   if (feature) {
     clusterOverlay.info = feature.properties as clusterPointInfo;
     clusterOverlay.cluster = false;
@@ -116,7 +117,9 @@ onMounted(() => {
       :position="clusterOverlay.position"
     >
       <ul v-if="clusterOverlay.list.length > 0">
-        <li v-for="item in clusterOverlay.list" :key="item.id" @click="showClusterItem(item.id)">{{ item.id }}</li>
+        <li v-for="item in clusterOverlay.list" :key="item.device_code" @click="showClusterItem(item.device_code)">
+          {{ item.NAME }}
+        </li>
       </ul>
       <span v-else>尝试点击聚合数&le;10的点，显示聚合点位列表</span>
     </ol-overlay>

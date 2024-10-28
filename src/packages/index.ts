@@ -11,6 +11,8 @@ import OlFeature from "./feature";
 import OlCluster from "./layers/cluster/index.vue";
 import OlOverlay from "./overlay/index.vue";
 import OlOverview from "./controls/OverviewMap.vue";
+import OlDraw from "./interaction/draw";
+import OlMeasure from "./interaction/measure";
 
 import * as utils from "./utils";
 
@@ -27,11 +29,29 @@ const components = [
   { name: "OlCluster", component: OlCluster },
   { name: "OlOverlay", component: OlOverlay },
   { name: "OlOverview", component: OlOverview },
+  { name: "OlDraw", component: OlDraw },
+  { name: "OlMeasure", component: OlMeasure },
 ];
 
 export * from "./types";
 
-export { utils, OlMap, OlTile,OlImage, OlVector, OlWfs, OlWms, OlHeatmap,OlTiff, OlFeature, OlCluster, OlOverlay, OlOverview };
+export {
+  utils,
+  OlMap,
+  OlTile,
+  OlImage,
+  OlVector,
+  OlWfs,
+  OlWms,
+  OlHeatmap,
+  OlTiff,
+  OlFeature,
+  OlCluster,
+  OlOverlay,
+  OlOverview,
+  OlDraw,
+  OlMeasure,
+};
 
 type TDT = {
   ak: string;
@@ -127,5 +147,7 @@ declare module "vue" {
     OlCluster: (typeof import("./layers/cluster/index.vue"))["default"];
     OlOverlay: (typeof import("./overlay/index.vue"))["default"];
     OlOverview: (typeof import("./controls/OverviewMap.vue"))["default"];
+    OlDraw: (typeof import("./interaction/draw"))["default"];
+    OlMeasure: (typeof import("./interaction/measure"))["default"];
   }
 }

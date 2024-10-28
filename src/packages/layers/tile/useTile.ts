@@ -269,7 +269,7 @@ const tileLayer = ($props: BaseTileProps) => {
       });
     } else {
       // unref(VMap).map.setLayers([layer.value]);
-      console.log(unref(VMap).map);
+      // console.log(unref(VMap).map);
       unref(VMap).map?.addLayer(layer.value);
     }
   };

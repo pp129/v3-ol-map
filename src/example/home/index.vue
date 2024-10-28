@@ -1,20 +1,54 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { OlMapInstance, VMap } from "@/packages";
+import { useRouter } from "vue-router";
 
-const mapContainer = ref<OlMapInstance>();
-const view: VMap["view"] = {
-  zoom: 12,
-  center: [118.11022, 24.490474],
-  smoothExtentConstraint: true,
-  constrainResolution: true,
-};
+const router = useRouter();
+const routes = router.getRoutes();
+
+const routesToDisplay = routes.filter(route => route.name && route.name !== "home" && !route.meta.hidden);
 </script>
 
 <template>
-  <ol-map ref="mapContainer" class="mapContainer" :view="view">
-    <ol-tile :z-index="0" tile-type="BAIDU" :preload="Infinity"></ol-tile>
-  </ol-map>
+  <div class="home">
+    <div v-for="item in routesToDisplay" :key="item.name" class="demo">
+      <p class="title">{{ item.meta.title }}</p>
+      <br />
+      <span class="description"> {{ item.meta.description }} </span>
+      <br />
+      <span class="route"
+        >&Map;<router-link :to="item.path"> {{ item.path }} </router-link></span
+      >
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.home {
+  height: 100%;
+  background-color: #f0f0f0;
+  display: grid;
+  /*grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+.demo {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+.description {
+  font-size: 16px;
+  color: #666;
+}
+.route {
+  font-size: 16px;
+  color: #666;
+}
+</style>
