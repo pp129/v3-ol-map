@@ -114,6 +114,24 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "vector",
+    path: "/vector",
+    component: () => import("@/example/vector/index.vue"),
+    meta: {
+      title: "矢量图层+撒点+点击弹框",
+      description: "矢量图层+撒点+点击弹框交互示例",
+    },
+  },
+  {
+    name: "featureStyle",
+    path: "/featureStyle",
+    component: () => import("@/example/featureStyle/index.vue"),
+    meta: {
+      title: "自定义图标样式",
+      description: "通过styleFunction动态显示",
+    },
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/example/test/index.vue"),

@@ -23,7 +23,6 @@ const routesToDisplay = routes.filter(route => route.name && route.name !== "hom
 
 <style scoped>
 .home {
-  height: 100%;
   background-color: #f0f0f0;
   display: grid;
   /*grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/

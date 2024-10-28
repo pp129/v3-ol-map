@@ -1,8 +1,12 @@
+import { SimpleGeometry } from "ol/geom";
+
 export declare type Position = import("geojson").Position;
 export declare type GeoJSON = import("geojson").GeoJSON;
 export declare type FeatureCollection = import("geojson").FeatureCollection;
 export declare type GeoJSONFeature = import("geojson").Feature;
 export declare type FeatureLike = import("ol/Feature").FeatureLike;
+export declare type Feature = import("ol/Feature").default;
+export declare type FeatureWithGeometry = import("ol/Feature").default<SimpleGeometry>;
 
 export declare type GeoCircle = {
   center: number[];
