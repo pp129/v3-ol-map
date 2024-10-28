@@ -34,6 +34,7 @@ onMounted(() => {
     ...props,
     source: undefined,
   });
+  layer.value.set("layerTypeName", "ImageLayer");
   provide("ParentTileLayer", layer);
   map.addLayer(layer.value);
   render.value = true;

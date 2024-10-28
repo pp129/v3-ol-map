@@ -254,6 +254,7 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   const addTileLayer = (group?: boolean) => {
     if (!layer.value) return;
+    layer.value.set("layerTypeName", "TileLayer");
     layer.value.set("base", true); // 设置为底图
     if (props.zIndex) {
       layer.value.setZIndex(props.zIndex);

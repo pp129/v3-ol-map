@@ -18,22 +18,23 @@ const emit = defineEmits(["singleclick"]);
 
 const init = () => {
   if (layer.value) {
-    console.log(layer.value.constructor.name);
+    const layerTypeName = layer.value?.get("layerTypeName");
     let tileGrid;
-    let source: ImageWMS | TileWMS;
+    let source: ImageWMS | TileWMS | undefined;
     if (props.tileGrid) {
       tileGrid = new TileGrid(props.tileGrid);
     }
-    if (layer.value.constructor.name === "ImageLayer") {
+    if (layerTypeName === "ImageLayer") {
       const wmsOpt = { ...props, tileGrid };
-      console.log(wmsOpt);
       source = new ImageWMS(wmsOpt);
       (layer.value as ImageLayer<import("ol/source/Image.js").default>).setSource(source);
-    } else if (layer.value.constructor.name === "Tile") {
+    } else if (layerTypeName === "TileLayer") {
       const wmsOpt = { ...props, tileGrid };
       source = new TileWMS(wmsOpt);
       (layer.value as Tile).setSource(source);
     }
+
+    if (!source) return;
 
     map.on("pointermove", function (evt) {
       if (evt.dragging) {
@@ -47,7 +48,7 @@ const init = () => {
       const view = map.getView();
       const viewResolution = view.getResolution();
       if (!viewResolution) return;
-      const url = source.getFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection().getCode(), {
+      const url = source?.getFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection().getCode(), {
         INFO_FORMAT: "application/json",
       });
       if (url) {
