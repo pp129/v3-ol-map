@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-// import "../polyfill/polyfill";
 import "@/style.css";
 import App from "@/App.vue";
 import router from "@/router";

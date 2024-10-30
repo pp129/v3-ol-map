@@ -13,3 +13,4 @@ export * from "./Vector";
 export * from "./WFS";
 export * from "./WMS";
 export * from "./Path";
+export * from "./Route";

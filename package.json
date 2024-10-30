@@ -1,7 +1,7 @@
 {
   "name": "v3-ol-map",
   "private": false,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "lib/v3-ol-map.umd.js",
   "module": "lib/v3-ol-map.es.js",
   "types": "es/index.d.ts",
@@ -20,10 +20,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "clean:dist": "rimraf dist",
-    "build:lib": "npm run clean:lib && vue-tsc && vite build --mode lib",
-    "clean:lib": "rimraf lib",
-    "build": "npm run clean:dist && vue-tsc && vite build --mode production",
+    "build:lib": "vue-tsc && vite build --mode lib",
+    "build": "vue-tsc && vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint ./src/**/*.vue ./src/**/*.ts",
     "fix": "eslint *.ts ./src/**/*.vue ./src/*.ts ./src/**/*.ts --fix"
@@ -34,6 +32,7 @@
     "nanoid": "^5.0.7",
     "ol": "^10.1.0",
     "proj4": "^2.12.1",
+    "qs": "^6.13.0",
     "simplify-js": "^1.2.4",
     "supercluster": "^8.0.1",
     "vue": "^3.5.12"
@@ -42,6 +41,7 @@
     "@types/geojson": "^7946.0.14",
     "@types/node": "20.12.12",
     "@types/proj4": "^2.5.5",
+    "@types/qs": "^6.9.16",
     "@types/supercluster": "^7.1.3",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",

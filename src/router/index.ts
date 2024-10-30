@@ -141,6 +141,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "route",
+    path: "/route",
+    component: () => import("@/example/route/index.vue"),
+    meta: {
+      title: "路径规划",
+      description: "路径规划示例，支持arcgis和graphhopper",
+    },
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/example/test/index.vue"),

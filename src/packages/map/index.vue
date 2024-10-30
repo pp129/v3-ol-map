@@ -80,11 +80,23 @@ const init = () => {
 };
 
 let cursor = ref("");
+let forceCursor = ref("");
+const setCursor = (type: string) => {
+  forceCursor.value = type;
+};
 
 // 绑定事件
 const eventBinding = () => {
   // 鼠标移动事件 图层有要素时显示手型
   map.value?.map.on("pointermove", (evt: MapObjectEventTypes<UIEvent>) => {
+    if (forceCursor.value) {
+      cursor.value = forceCursor.value;
+      return;
+    }
+    if (evt.dragging) {
+      cursor.value = "";
+      return;
+    }
     const pixel = map.value?.map.getEventPixel(evt.originalEvent);
     if (pixel) {
       const hit = map.value?.map.hasFeatureAtPixel(pixel);
@@ -139,11 +151,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   dispose();
 });
-defineExpose(<ExposeMap>{
+defineExpose({
   map: map.value?.map,
   getMap,
   getLayerById,
   panTo,
+  setCursor: setCursor,
 });
 provide("VMap", map);
 </script>
