@@ -1,4 +1,4 @@
-import { AnimationOptions } from "ol/View";
+import OlMap from "../map/index.vue";
 import MapBrowserEvent from "ol/MapBrowserEvent";
 
 type defMapOptions = Omit<import("ol/Map").MapOptions, "controls" | "interactions" | "view">;
@@ -11,14 +11,11 @@ export interface VMap extends defMapOptions {
 
 export declare type OlMapEvent = MapBrowserEvent<UIEvent>;
 
-declare const _default: import("vue").DefineComponent<
-  {},
-  {
-    map: import("../lib/index").default;
-    getMap: () => import("ol/Map").default | void;
-    getLayerById: (id: string) => import("ol/layer/Base").default | void;
-    panTo: (param: AnimationOptions) => void;
-  }
->;
+export declare type ExposeMap = {
+  map: import("ol/Map").default;
+  getMap: () => import("ol/Map").default;
+  getLayerById: (id: string) => import("ol/layer/Base").default;
+  panTo: (params: import("ol/View").AnimationOptions) => void;
+};
 
-export declare type OlMapInstance = InstanceType<typeof _default>;
+export declare type OlMapInstance = InstanceType<typeof OlMap>;

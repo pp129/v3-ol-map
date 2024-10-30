@@ -2,6 +2,7 @@
 /node_modules
 /public
 /lib
+/es
 tsconfig.json
 *.svg
 *.png

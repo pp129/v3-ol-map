@@ -1,12 +1,16 @@
-import { SimpleGeometry } from "ol/geom";
+import OlFeature from "../feature/index";
 
 export declare type Position = import("geojson").Position;
 export declare type GeoJSON = import("geojson").GeoJSON;
 export declare type FeatureCollection = import("geojson").FeatureCollection;
+export declare type GeoJSONGeometryLineString = import("geojson").LineString;
 export declare type GeoJSONFeature = import("geojson").Feature;
-export declare type FeatureLike = import("ol/Feature").FeatureLike;
-export declare type Feature = import("ol/Feature").default;
-export declare type FeatureWithGeometry = import("ol/Feature").default<SimpleGeometry>;
+export declare type GeoJSONFeatureLineString = import("geojson").Feature<GeoJSONGeometryLineString>;
+
+// export declare type FeatureWithGeometry = import("ol/Feature").default<SimpleGeometry>;
+// export declare type SimpleGeometry = import("ol/geom/SimpleGeometry").default;
+
+export * from "ol/Feature";
 
 export declare type GeoCircle = {
   center: number[];
@@ -65,16 +69,9 @@ export interface GeoJsonReadOptions {
   featureProjection?: import("ol/proj/Projection").Options;
 }
 
-declare const _default: import("vue").DefineComponent<
-  {},
-  {
-    getLeaves: (
-      clusterId: number,
-      limit?: number,
-      offset?: number,
-    ) => Array<import("supercluster").PointFeature<import("supercluster").AnyProps>>;
-  }
->;
+export declare type ExposeFeature = {
+  getLeaves: (id: number, limit: number) => Array<import("supercluster").PointFeature<import("supercluster").AnyProps>>;
+};
 
 // 为实例提供类型提示
-export declare type OlFeatureInstance = InstanceType<typeof _default>;
+export declare type OlFeatureInstance = InstanceType<typeof OlFeature>;

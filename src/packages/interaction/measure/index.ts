@@ -8,7 +8,7 @@ import VectorLayer from "ol/layer/Vector";
 import Draw from "ol/interaction/Draw";
 import OlMap from "@/packages/lib";
 import type { FeatureLike } from "ol/Feature";
-import type { MeasureType } from "@/packages/types/Measure";
+import type { ExposeMeasure, MeasureType } from "@/packages/types/Measure";
 import type VectorSource from "ol/source/Vector";
 
 const OlMeasure = defineComponent({
@@ -284,8 +284,13 @@ const OlMeasure = defineComponent({
 
     expose({
       clear: clearSource,
-      setActive,
+      setActive: setActive,
     });
+
+    return {
+      clear: clearSource,
+      setActive: setActive,
+    } as ExposeMeasure;
   },
   render() {
     return null;

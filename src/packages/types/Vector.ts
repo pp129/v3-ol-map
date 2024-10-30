@@ -1,15 +1,14 @@
-import VectorSource, { FeatureClassOrArrayOfRenderFeatures, Options as SourceOptions } from "ol/source/Vector";
+import { FeatureClassOrArrayOfRenderFeatures, Options as SourceOptions } from "ol/source/Vector";
 import VectorLayer, { Options as LayerOptions } from "ol/layer/Vector";
 import { DefaultStyle } from "ol/style/flat";
 import * as Format from "ol/format.js";
 import FeatureFormat from "ol/format/Feature";
 import { Options as EsriJSONOptions } from "ol/format/EsriJSON";
 import { Options as GeoJSONOptions } from "ol/format/GeoJSON";
-import { ImageInformationResponse } from "ol/format/IIIFInfo";
 import { Options } from "ol/proj/Projection";
 import { WriteGetFeatureOptions } from "ol/format/WFS";
 import type { FeatureStyle } from "@/packages/types/Style";
-// import BaseVector from "ol/BaseVector.js";
+import Vector from "../layers/vector/index.vue";
 
 type defaultVectorOptions = Omit<LayerOptions, "source" | "style">;
 
@@ -35,14 +34,11 @@ export interface VectorLayerOptions extends defaultVectorOptions {
   modify?: boolean;
 }
 
-declare const _default: import("vue").DefineComponent<
-  {},
-  {
-    getLayer: () => VectorLayer;
-    getFeatureById: (id: string) => FeatureClassOrArrayOfRenderFeatures<import("ol/Feature").FeatureLike> | null;
-    removeFeatureById: (id: string) => void;
-    getSource: () => VectorSource;
-  }
->;
+export interface ExposeVector {
+  getFeatureById: (id: string) => import("ol/Feature").default | undefined;
+  removeFeatureById: (id: string) => void;
+  getSource: () => import("ol/source/Vector").default | undefined;
+  getLayer: () => VectorLayer | undefined;
+}
 
-export declare type OlVectorInstance = InstanceType<typeof _default>;
+export declare type OlVectorInstance = InstanceType<typeof Vector>;

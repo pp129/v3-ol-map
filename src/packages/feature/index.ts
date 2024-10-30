@@ -36,6 +36,7 @@ import {
   GeoPoint,
   GeoPolygon,
 } from "../types";
+import { ExposeFeature } from "../types";
 import { setFeatureStyle } from "../utils/style.ts";
 
 const OlFeature = defineComponent({
@@ -269,11 +270,11 @@ const OlFeature = defineComponent({
     };
 
     // SuperCluster 获取 聚合点位下的子集
-    const getLeaves = (id: number, limit: number) => {
+    const getLeaves = (id: number, limit?: number, offset?: number) => {
       if (!clusters) {
         throw new Error("SuperCluster is not initialized");
       } else {
-        return clusters.getLeaves(id, limit);
+        return clusters.getLeaves(id, limit, offset);
       }
     };
 
@@ -314,8 +315,12 @@ const OlFeature = defineComponent({
     });
 
     expose({
-      getLeaves,
+      getLeaves: getLeaves,
     });
+
+    return <ExposeFeature>{
+      getLeaves: getLeaves,
+    };
   },
   render() {
     return null;

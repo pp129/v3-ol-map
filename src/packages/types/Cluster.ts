@@ -1,7 +1,5 @@
+import OlCluster from "../layers/cluster/index.vue";
 import type Feature from "ol/Feature";
-import type { Options as LayerOptions } from "ol/layer/Vector";
-import type { Options as SourceOptions } from "ol/source/Vector";
-import type { Options } from "ol/source/Cluster";
 import type { AnyProps, Options as SuperClusterOptions } from "supercluster";
 import type { StyleOptions } from "./Style.ts";
 
@@ -9,11 +7,15 @@ export interface ClusterStyle extends StyleOptions {
   min?: number;
   max?: number;
 }
-export interface ClusterLayerOptions extends Omit<LayerOptions, "source"> {
+export interface Options extends Omit<import("ol/layer/Vector").Options, "source"> {
   layerId?: string;
-  source?: SourceOptions;
-  clusterOptions?: Options<Feature>;
+  source?: import("ol/source/Vector").Options;
+  clusterOptions?: import("ol/source/Cluster").Options<Feature>;
   clusterStyle?: ClusterStyle | ClusterStyle[];
-  layerStyle?: LayerOptions["style"] | StyleOptions;
+  layerStyle?: import("ol/layer/Vector").Options["style"] | StyleOptions;
   superCluster?: SuperClusterOptions<AnyProps, AnyProps> | undefined;
 }
+
+export declare type ClusterLayerOptions = Options;
+
+export declare type OlClusterInstance = InstanceType<typeof OlCluster>;

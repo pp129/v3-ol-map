@@ -13,6 +13,7 @@ import OlOverlay from "./overlay/index.vue";
 import OlOverview from "./controls/OverviewMap.vue";
 import OlDraw from "./interaction/draw";
 import OlMeasure from "./interaction/measure";
+import OlPath from "./path";
 
 import * as utils from "./utils";
 
@@ -31,6 +32,7 @@ const components = [
   { name: "OlOverview", component: OlOverview },
   { name: "OlDraw", component: OlDraw },
   { name: "OlMeasure", component: OlMeasure },
+  { name: "OlPath", component: OlPath },
 ];
 
 export * from "./types";
@@ -51,6 +53,7 @@ export {
   OlOverview,
   OlDraw,
   OlMeasure,
+  OlPath,
 };
 
 type TDT = {
@@ -133,21 +136,23 @@ export default {
   install,
 };
 
+// GlobalComponents for Volar
 declare module "vue" {
   export interface GlobalComponents {
-    OlMap: (typeof import("./map/index.vue"))["default"];
-    OlTile: (typeof import("./layers/tile/index.vue"))["default"];
-    OlImage: (typeof import("./layers/image/index.vue"))["default"];
-    OlVector: (typeof import("./layers/vector/index.vue"))["default"];
-    OlWfs: (typeof import("./layers/wfs/index.vue"))["default"];
-    OlWms: (typeof import("./layers/wms/index.vue"))["default"];
-    OlHeatmap: (typeof import("./layers/heatmap/index.vue"))["default"];
-    OlTiff: (typeof import("./layers/tiff/index.vue"))["default"];
-    OlFeature: (typeof import("./feature/index"))["default"];
-    OlCluster: (typeof import("./layers/cluster/index.vue"))["default"];
-    OlOverlay: (typeof import("./overlay/index.vue"))["default"];
-    OlOverview: (typeof import("./controls/OverviewMap.vue"))["default"];
-    OlDraw: (typeof import("./interaction/draw"))["default"];
-    OlMeasure: (typeof import("./interaction/measure"))["default"];
+    OlMap: typeof OlMap;
+    OlTile: typeof OlTile;
+    OlImage: typeof OlImage;
+    OlVector: typeof OlVector;
+    OlWfs: typeof OlWfs;
+    OlWms: typeof OlWms;
+    OlHeatmap: typeof OlHeatmap;
+    OlTiff: typeof OlTiff;
+    OlFeature: typeof OlFeature;
+    OlCluster: typeof OlCluster;
+    OlOverlay: typeof OlOverlay;
+    OlOverview: typeof OlOverview;
+    OlDraw: typeof OlDraw;
+    OlMeasure: typeof OlMeasure;
+    OlPath: typeof OlPath;
   }
 }

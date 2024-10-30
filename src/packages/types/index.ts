@@ -1,6 +1,7 @@
 export * from "./Cluster";
 export * from "./Draw";
 export * from "./Feature";
+export * from "./Geom";
 export * from "./Heatmap";
 export * from "./Map";
 export * from "./Measure";
@@ -10,3 +11,5 @@ export * from "./Style";
 export * from "./Tile";
 export * from "./Vector";
 export * from "./WFS";
+export * from "./WMS";
+export * from "./Path";

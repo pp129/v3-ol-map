@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject, onMounted, ShallowRef, unref } from "vue";
 import OlMap from "@/packages/lib";
-import { WMSOptions } from "@/packages/types/Tile";
+import { WMSOptions } from "@/packages/types/WMS";
 import TileGrid from "ol/tilegrid/TileGrid.js";
 import type { Layer, Tile } from "ol/layer";
 import { ImageWMS, TileWMS } from "ol/source.js";

@@ -132,6 +132,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "path",
+    path: "/path",
+    component: () => import("@/example/path/index.vue"),
+    meta: {
+      title: "轨迹回放",
+      description: "轨迹回放示例",
+    },
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/example/test/index.vue"),

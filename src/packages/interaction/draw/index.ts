@@ -8,6 +8,7 @@ import { Geometry } from "ol/geom";
 import type VectorLayer from "ol/layer/Vector";
 import type VectorSource from "ol/source/Vector";
 import type { DrawType } from "@/packages/types/Draw";
+import { ExposeDraw } from "../../types";
 
 const OlDraw = defineComponent({
   name: "OlDraw",
@@ -143,9 +144,10 @@ const OlDraw = defineComponent({
     onMounted(() => {
       init();
     });
+
     expose({
       clear: clearSource,
-      setActive,
+      setActive: setActive,
     });
 
     // 如果pin属性为true，则渲染Pin组件（兴趣点、兴趣区域）
@@ -179,9 +181,12 @@ const OlDraw = defineComponent({
         return null;
       }
     };
+
     return {
       render,
-    };
+      clear: clearSource,
+      setActive: setActive,
+    } as ExposeDraw;
   },
   render() {
     return this.render();

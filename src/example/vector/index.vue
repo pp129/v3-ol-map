@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref, shallowRef } from "vue";
 import {
   FeatureGeometry,
   GeoJSON,
   GeoJSONFeature,
   VectorLayerOptions,
   VMap,
-  FeatureWithGeometry,
+  SimpleGeometry,
   utils,
   Position,
+  OlVectorInstance,
 } from "@/packages";
 import icon from "@/assets/vue.svg";
 import cluster2 from "@/assets/images/cluster2.png";
@@ -163,9 +164,9 @@ let info = reactive({
   name: "",
 });
 let position = ref<Position>();
-const onClickLayer = (evt: any, feature: FeatureWithGeometry) => {
+const onClickLayer = (evt: any, feature?: any) => {
   if (feature) {
-    const geom = feature.getGeometry();
+    const geom = feature.getGeometry() as SimpleGeometry;
     if (geom) {
       const type = geom.getType();
       info.name = feature.get("name");
@@ -185,9 +186,12 @@ const handleDblclick = () => {
   getVectorData();
   showTips.value = false;
 };
+const vectorRef = shallowRef<OlVectorInstance>();
 const onSourceReady = () => {
   if (!mapInit.value) showTips.value = true;
   mapInit.value = true;
+  const layer = vectorRef.value?.getLayer();
+  console.log(layer?.getSource());
 };
 onMounted(() => {
   getVectorData();
@@ -197,7 +201,13 @@ onMounted(() => {
 <template>
   <ol-map :view="view" @dblclick="handleDblclick">
     <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
-    <ol-vector :layer-style="layerStyle" :z-index="1" @singleclick="onClickLayer" @sourceready="onSourceReady">
+    <ol-vector
+      ref="vector"
+      :layer-style="layerStyle"
+      :z-index="1"
+      @singleclick="onClickLayer"
+      @sourceready="onSourceReady"
+    >
       <ol-feature :geo-json="geojson" :geometries="geometryData" />
     </ol-vector>
     <ol-overlay :position="position" :class="['overlay']" positioning="bottom-center" :offset="[0, -20]">

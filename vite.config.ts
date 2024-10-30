@@ -15,10 +15,9 @@ const build = (env: string) => {
     return {
       outDir: "lib",
       lib: {
-        target: "esnext",
         entry: resolve(__dirname, "src/packages/index.ts"),
         name: "v3-ol-map",
-        formats: ["umd"],
+        formats: ["umd", "es", "cjs"],
         fileName: (format: string) => `v3-ol-map.${format}.js`,
       },
       rollupOptions: {
@@ -58,6 +57,9 @@ export default defineConfig(({ command, mode }): any => {
       dts({
         // 这里定义了需要生成d.ts文件的目录，如果有多个目录，可以使用数组
         include: ["src/packages/**/*.{vue,ts}"],
+        // 如果指定了outputDir，生成的d.ts文件会放在这个目录下
+        outDir: "es",
+        tsconfigPath: "tsconfig.json",
       }),
     ],
     optimizeDeps: {

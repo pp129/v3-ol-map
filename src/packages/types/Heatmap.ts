@@ -1,7 +1,7 @@
-import { Options } from "ol/layer/Heatmap";
-import { Options as SourceOptions } from "ol/source/Vector";
-
-export interface HeatmapOptions extends Omit<Options, "source"> {
+import OlHeatmap from "../layers/heatmap/index.vue";
+export interface HeatmapOptions extends Omit<import("ol/layer/Heatmap").Options, "source"> {
   layerId?: string;
-  source?: SourceOptions;
+  source?: import("ol/source/Vector").Options;
 }
+
+export declare type OlHeatmapInstance = InstanceType<typeof OlHeatmap>;

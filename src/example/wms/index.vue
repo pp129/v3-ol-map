@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { OlMapEvent, SourceImageWMSOptions, VMap } from "@/packages";
+
 const view: VMap["view"] = {
   zoom: 12,
   center: [118.11022, 24.490474],
@@ -18,7 +19,6 @@ const wms: SourceImageWMSOptions = {
   ratio: 1,
   crossOrigin: "anonymous",
 };
-
 const handleClick = (e: OlMapEvent, data: any) => {
   if (data) {
     const { features } = data;

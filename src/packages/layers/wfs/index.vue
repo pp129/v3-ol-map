@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { inject, onMounted, Ref, ShallowRef, unref } from "vue";
-import OlMap from "@/packages/lib";
+import { inject, onMounted, ShallowRef, unref } from "vue";
 import VectorLayer from "ol/layer/Vector.js";
 import { WFS, GeoJSON } from "ol/format.js";
 import type { WFSOptions } from "@/packages/types/WFS";
 
-const VMap = inject("VMap") as OlMap;
-const map = unref(VMap).map;
 const layer = inject("ParentLayer") as ShallowRef<VectorLayer>;
 
 const props = withDefaults(defineProps<WFSOptions>(), {
@@ -42,7 +39,6 @@ const addFeatures = () => {
         const source = unref(layer)?.getSource();
         if (source) source.addFeatures(features);
       }
-      // map.getView().fit(vectorSource.getExtent());
     });
 };
 

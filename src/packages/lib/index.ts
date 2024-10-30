@@ -3,7 +3,7 @@ import { Map, View } from "ol";
 import { defaults as defaultInteractions } from "ol/interaction.js";
 import { defaults as defaultControls } from "ol/control.js";
 import definedProjection from "../utils/projection.ts";
-import { VMap } from "../types/Map";
+import { VMap } from "../types";
 
 class OlMap {
   map: Map; // 地图对象

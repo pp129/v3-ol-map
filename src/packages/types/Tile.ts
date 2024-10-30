@@ -5,9 +5,6 @@ import type ImageSourceType from "ol/source/Image";
 import type { Options as SourceOptions } from "ol/source/Tile";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
 import type { Options as XYZOptions } from "ol/source/XYZ";
-import type { Options as TileGridOptions } from "ol/tilegrid/TileGrid";
-import type { Options as TileWMSOptions } from "ol/source/TileWMS";
-import type { Options as ImageWMSOptions } from "ol/source/ImageWMS";
 import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
 import type { Options as ImageTileOptions } from "ol/layer/BaseImage";
 
@@ -44,19 +41,6 @@ export interface WebGLTileOptions extends WebGLTileLayer {
   source: GeoTIFFOptions;
   layerStyle?: Options["style"];
 }
-
-export type SourceTileWMS = Omit<TileWMSOptions, "tileGrid">;
-export type SourceImageWMS = Omit<ImageWMSOptions, "tileGrid" | "params">;
-
-export interface SourceTileWMSOptions extends SourceTileWMS {
-  tileGrid?: TileGridOptions;
-}
-export interface SourceImageWMSOptions extends SourceImageWMS {
-  tileGrid?: TileGridOptions;
-  params: SourceTileWMS["params"];
-}
-
-export declare type WMSOptions = SourceTileWMSOptions | SourceImageWMSOptions;
 
 type ImageLayer = Omit<ImageTileOptions<ImageSourceType>, "source">;
 export interface ImageLayerOptions extends ImageLayer {

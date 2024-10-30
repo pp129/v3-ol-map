@@ -1,13 +1,22 @@
 {
   "name": "v3-ol-map",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.10",
   "main": "lib/v3-ol-map.umd.js",
-  "types": "lib/index.d.ts",
+  "module": "lib/v3-ol-map.es.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./lib/v3-ol-map.es.js",
+      "require": "./lib/v3-ol-map.umd.js"
+    }
+  },
   "files": [
     "package.json",
     "README.md",
-    "lib"
+    "lib",
+    "es"
   ],
   "scripts": {
     "dev": "vite",
@@ -20,13 +29,14 @@
     "fix": "eslint *.ts ./src/**/*.vue ./src/*.ts ./src/**/*.ts --fix"
   },
   "dependencies": {
+    "@turf/turf": "^7.1.0",
     "core-js": "^3.38.1",
     "nanoid": "^5.0.7",
     "ol": "^10.1.0",
     "proj4": "^2.12.1",
+    "simplify-js": "^1.2.4",
     "supercluster": "^8.0.1",
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.14",
@@ -45,6 +55,7 @@
     "typescript": "~5.4.5",
     "vite": "^5.4.9",
     "vite-plugin-dts": "^4.3.0",
+    "vue-router": "^4.4.5",
     "vue-tsc": "^2.1.6"
   }
 }
