@@ -8,9 +8,8 @@ import OlMap from "../../lib";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
 import type { installOptions } from "../../index.ts";
-import type { BaseTileProps } from "../../types/Tile";
+import type { BaseTileProps, TileType } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
-import type { TileType } from "../../types/Tile";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
 const tileLayer = ($props: BaseTileProps) => {
@@ -57,6 +56,7 @@ const tileLayer = ($props: BaseTileProps) => {
           initTileGeoTiff();
           break;
         case "CUSTOMER":
+        case "XYZ":
           initTileCustomer();
           break;
         default:
@@ -85,7 +85,7 @@ const tileLayer = ($props: BaseTileProps) => {
 
   // 自定义XYZ
   const initTileCustomer = (init: boolean = true) => {
-    layer.value = tileRender(props, props.source as XYZOptions);
+    layer.value = tileRender(props, props.source);
     if (init) {
       addToMap();
     } else {

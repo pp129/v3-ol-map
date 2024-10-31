@@ -2,7 +2,6 @@ import type { Options as TileOptions } from "ol/layer/BaseTile";
 import type { Options } from "ol/layer/WebGLTile";
 import type TileSourceType from "ol/source/Tile";
 import type ImageSourceType from "ol/source/Image";
-import type { Options as SourceOptions } from "ol/source/Tile";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
 import type { Options as XYZOptions } from "ol/source/XYZ";
 import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
@@ -26,10 +25,20 @@ export declare type TileType = keyof typeof enumTile;
 
 type TileLayer = Omit<TileOptions<TileSourceType>, "source">;
 
+export declare type TileGridOptions = import("ol/tilegrid/TileGrid").Options;
+
+export interface SourceXYZ extends Omit<XYZOptions, "tileGrid"> {
+  tileGrid?: TileGridOptions | undefined;
+}
+
+export interface SourceOptions extends Omit<import("ol/source/Tile").Options, "tileGrid"> {
+  tileGrid?: TileGridOptions | undefined;
+}
+
 export interface BaseTileProps extends TileLayer {
   tileType?: TileType;
   layerId?: string;
-  source?: SourceOptions | XYZOptions;
+  source?: SourceOptions | SourceXYZ | undefined;
 }
 
 export declare type BaseTileSourceOptions = BaseTileProps["source"];
@@ -43,6 +52,7 @@ export interface WebGLTileOptions extends WebGLTileLayer {
 }
 
 type ImageLayer = Omit<ImageTileOptions<ImageSourceType>, "source">;
+
 export interface ImageLayerOptions extends ImageLayer {
   source?: ImageStaticOptions | undefined;
 }

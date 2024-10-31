@@ -1,25 +1,32 @@
 import TileLayer from "ol/layer/Tile.js";
 import GeoTIFFLayer from "ol/layer/WebGLTile.js";
 import { GeoTIFF, XYZ } from "ol/source.js";
-import type { Options as tileGridOptions } from "ol/tilegrid/TileGrid.js";
 import TileGrid from "ol/tilegrid/TileGrid.js";
 import type { Options as XYZOptions } from "ol/source/XYZ";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
-import type { BaseTileProps } from "../../types/Tile";
+import type { BaseTileProps, TileGridOptions } from "../../types";
+
+const getTileGrid = (sourceOptions: BaseTileProps["source"]) => {
+  let tileGridOption: TileGridOptions | undefined = undefined;
+  if (sourceOptions?.tileGrid !== undefined) {
+    tileGridOption = sourceOptions.tileGrid;
+    return new TileGrid(tileGridOption);
+  } else {
+    return undefined;
+  }
+};
 
 // 通用XYZ图层加载
-const tileRender = (layerOptions: BaseTileProps, sourceOptions: XYZOptions) => {
-  let tileGrid: tileGridOptions | undefined = undefined;
-  if (sourceOptions.tileGrid) {
-    tileGrid = { resolutions: [], ...sourceOptions.tileGrid };
-  }
+
+const tileRender = (layerOptions: BaseTileProps, sourceOptions: BaseTileProps["source"]) => {
+  const tileGrid = getTileGrid(sourceOptions);
+  const XYZOptions: XYZOptions = {
+    ...sourceOptions,
+    tileGrid: tileGrid,
+  };
   return new TileLayer({
     ...layerOptions,
-    source: new XYZ({
-      wrapX: false,
-      tileGrid: tileGrid ? new TileGrid({ ...tileGrid }) : undefined,
-      ...sourceOptions,
-    }),
+    source: new XYZ(XYZOptions),
   });
 };
 
