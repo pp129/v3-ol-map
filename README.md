@@ -5,25 +5,30 @@
 > [![vue3](https://img.shields.io/badge/vue-^3.5-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme)
 > [![ol](https://img.shields.io/badge/OpenLayers-^10-20c3aa)](https://openlayers.org/)
 
-功能上基本基本和vue3版本的[v-ol-map](https://github.com/pp129/vue-openlayers-map)一致。
+功能上基本和vue2版本的[v-ol-map](https://github.com/pp129/vue-openlayers-map)一致。
 
 - 地图 ol-mao
 - 鹰眼 ol-overview
 - 图层
     - 矢量图层 ol-vector
+      - WFS图层 ol-wfs
     - 瓦片图层 ol-tile
     - 图像图层 ol-image
+      - WMS图层 ol-wms
+    - TIFF图层 ol-tiff
     - 热力图 ol-heatmap
     - 聚合图层 ol-cluster
     - ~~图形图层~~
+- 图层要素 ol-feature
 - 弹框 ol-overlay
 - 路径规划 ol-route
 - 结合echarts
 - 轨迹动画 ol-path
-- 绘制 [v-draw](https://pp129.github.io/vue-openlayers-map/components/DRAW.html)
-- 测量 [v-measure](https://pp129.github.io/vue-openlayers-map/components/MEASURE.html)
+- 绘制 ol-draw
+- 测量 ol-measure
+- 兴趣点/面 ol-pin
 
-__相较于v-ol-map,暂不支持的设置和功能:__
+__相较于v-ol-map,暂不支持的设置或功能:__
 
 * 通过设置`city`属性直接定位到城市中心点。（不打算支持了，占用太大体积了）
 * `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
