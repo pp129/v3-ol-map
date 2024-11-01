@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw, RouteMeta } from "vue-router";
+import { createRouter, RouteRecordRaw, RouteMeta, createWebHashHistory } from "vue-router";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -188,7 +188,7 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 }),
-  history: createWebHistory(import.meta.env.VITE_BASE_URL),
+  history: createWebHashHistory(import.meta.env.VITE_BASE_URL),
   routes: routes,
 });
 
