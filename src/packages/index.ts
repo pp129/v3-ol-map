@@ -15,6 +15,7 @@ import OlDraw from "./interaction/draw";
 import OlMeasure from "./interaction/measure";
 import OlPath from "./path";
 import OlRoute from "./route/index.vue";
+import OlEcharts from "./echarts/index.vue";
 
 import * as utils from "./utils";
 
@@ -35,6 +36,7 @@ const components = [
   { name: "OlMeasure", component: OlMeasure },
   { name: "OlPath", component: OlPath },
   { name: "OlRoute", component: OlRoute },
+  { name: "OlEcharts", component: OlEcharts },
 ];
 
 export * from "./types";
@@ -57,6 +59,7 @@ export {
   OlMeasure,
   OlPath,
   OlRoute,
+  OlEcharts,
 };
 
 type TDT = {
@@ -158,5 +161,6 @@ declare module "vue" {
     OlMeasure: typeof OlMeasure;
     OlPath: typeof OlPath;
     OlRoute: typeof OlRoute;
+    OlEcharts: typeof OlEcharts;
   }
 }

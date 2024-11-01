@@ -1,7 +1,7 @@
 {
   "name": "v3-ol-map",
   "private": false,
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "lib/v3-ol-map.umd.js",
   "module": "lib/v3-ol-map.es.js",
   "types": "es/index.d.ts",
@@ -31,6 +31,7 @@
     "core-js": "^3.38.1",
     "nanoid": "^5.0.7",
     "ol": "^10.1.0",
+    "ol-echarts": "^4.0.1",
     "proj4": "^2.12.1",
     "qs": "^6.13.0",
     "simplify-js": "^1.2.4",

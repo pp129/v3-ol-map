@@ -4,22 +4,19 @@ import { nanoid } from "nanoid";
 import { inject, onBeforeUnmount, onMounted, provide, ref, shallowRef, unref, watch, watchEffect } from "vue";
 import { createDefaultStyle } from "ol/style/flat.js";
 import VectorLayer from "ol/layer/Vector.js";
-import VectorSource, { Options as SourceOptions, VectorSourceEvent } from "ol/source/Vector.js";
+import VectorSource, { Options as SourceOptions } from "ol/source/Vector.js";
 import OlMap from "@/packages/lib";
 import MapObjectEventTypes from "ol/MapBrowserEvent";
 import { unByKey } from "ol/Observable.js";
 import { Modify } from "ol/interaction.js";
-import type { Layer } from "ol/layer";
-import type { Pixel } from "ol/pixel";
-import { ExposeVector, VectorLayerOptions } from "@/packages/types/Vector";
 import * as Format from "ol/format.js";
 import { Projection } from "ol/proj.js";
 import { setFeatureStyle } from "@/packages/utils/style.ts";
-import Feature, { FeatureLike } from "ol/Feature";
+import Feature from "ol/Feature";
 import { FeatureStyle } from "@/packages/types/Style";
-import { ObjectEvent } from "ol/Object";
-import { Geometry } from "ol/geom";
-import { ModifyEvent } from "ol/interaction/Modify";
+import type { Layer } from "ol/layer";
+import type { Pixel } from "ol/pixel";
+import { ExposeVector, VectorLayerOptions } from "@/packages/types/Vector";
 
 const props = withDefaults(defineProps<VectorLayerOptions>(), {
   layerId: `vector-layer-${nanoid()}`,

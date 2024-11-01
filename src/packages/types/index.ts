@@ -14,3 +14,4 @@ export * from "./WFS";
 export * from "./WMS";
 export * from "./Path";
 export * from "./Route";
+export * from "./Echarts";

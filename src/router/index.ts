@@ -150,6 +150,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "echarts",
+    path: "/echarts",
+    component: () => import("@/example/echarts/index.vue"),
+    meta: {
+      title: "echarts",
+      description: "echarts示例，基于ol-echarts",
+    },
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/example/test/index.vue"),
