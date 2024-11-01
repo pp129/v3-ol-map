@@ -36,6 +36,7 @@ const build = (env: string) => {
 };
 export default defineConfig(({ command, mode }): any => {
   return {
+    base: "./",
     server: {
       host: "0.0.0.0",
       https: false,
