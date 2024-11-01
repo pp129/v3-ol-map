@@ -17,7 +17,7 @@ const setWeight = (feature: any) => {
 };
 let heatmapJson = ref<GeoJSON>();
 const heatmapData = (i: number) => {
-  fetch(`/lonlat${i}.json`)
+  fetch(`${import.meta.env.VITE_BASE_URL}/heatmap/lonlat${i}.json`)
     .then(res => res.json())
     .then(data => {
       // 对象数组{value:number}[]中value的最大值
