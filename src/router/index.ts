@@ -60,6 +60,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "modifyFeature",
+    path: "/modifyFeature",
+    component: () => import("@/example/modifyFeature/index.vue"),
+    meta: {
+      title: "可编辑要素",
+      description: "可编辑要素示例",
+    },
+  },
+  {
     name: "wfs",
     path: "/wfs",
     component: () => import("@/example/wfs/index.vue"),

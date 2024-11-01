@@ -83,10 +83,10 @@ watch(
 const metersPerUnit = map.getView().getProjection().getMetersPerUnit();
 const modifyEventsHandler = (modify: Modify) => {
   modify.on("modifyend", event => {
-    emit("modifyend", event, metersPerUnit);
+    emit("modifyend", { ...event, metersPerUnit });
   });
   modify.on("modifystart", event => {
-    emit("modifystart", event, metersPerUnit);
+    emit("modifystart", { ...event, metersPerUnit });
   });
 };
 const setModify = () => {
