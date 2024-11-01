@@ -24,12 +24,39 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "tile",
+    path: "/tile",
+    component: () => import("@/example/tile/index.vue"),
+    meta: {
+      title: "瓦片图层",
+      description: "加载瓦片图层，图层切换示例",
+    },
+  },
+  {
     name: "vectorJson",
     path: "/vectorJson",
     component: () => import("@/example/vectorJson/index.vue"),
     meta: {
       title: "vectorLayer + Geojson",
       description: "矢量图层直接请求geojson格式数据并绘制",
+    },
+  },
+  {
+    name: "vector",
+    path: "/vector",
+    component: () => import("@/example/vector/index.vue"),
+    meta: {
+      title: "矢量图层+撒点+点击弹框",
+      description: "矢量图层+撒点+点击弹框交互示例",
+    },
+  },
+  {
+    name: "featureStyle",
+    path: "/featureStyle",
+    component: () => import("@/example/featureStyle/index.vue"),
+    meta: {
+      title: "自定义图标样式",
+      description: "通过styleFunction动态显示",
     },
   },
   {
@@ -111,24 +138,6 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: "标记/兴趣点/兴趣面",
       description: "标记示例",
-    },
-  },
-  {
-    name: "vector",
-    path: "/vector",
-    component: () => import("@/example/vector/index.vue"),
-    meta: {
-      title: "矢量图层+撒点+点击弹框",
-      description: "矢量图层+撒点+点击弹框交互示例",
-    },
-  },
-  {
-    name: "featureStyle",
-    path: "/featureStyle",
-    component: () => import("@/example/featureStyle/index.vue"),
-    meta: {
-      title: "自定义图标样式",
-      description: "通过styleFunction动态显示",
     },
   },
   {

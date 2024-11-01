@@ -14,9 +14,7 @@ const props = withDefaults(defineProps<EchartsOptions>(), {
 });
 const emit = defineEmits(["load"]);
 const init = () => {
-  console.log(props.chartOptions);
   layer.value = new EChartsLayer(props.chartOptions, props.options);
-  console.log(layer.value);
   layer.value.on("load", () => {
     rendered.value = true;
     emit("load");

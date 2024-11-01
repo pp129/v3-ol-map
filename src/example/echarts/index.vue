@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { OptionsTypes } from "@/packages";
 
 let echartsOptions = ref<any>();
+const options: OptionsTypes = {
+  hideOnMoving: false,
+  forcedPrecomposeRerender: false,
+};
 const getEchartsOptions = () => {
   const geoCoordMap: any = {
     上海: [121.4648, 31.2891],
@@ -271,7 +276,7 @@ onMounted(() => {
 <template>
   <ol-map>
     <ol-tile tile-type="BAIDU"></ol-tile>
-    <ol-echarts :chart-options="echartsOptions"></ol-echarts>
+    <ol-echarts :chart-options="echartsOptions" :options="options"></ol-echarts>
   </ol-map>
 </template>
 

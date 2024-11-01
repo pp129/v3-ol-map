@@ -3,7 +3,7 @@ import { ProjectionLike } from "ol/proj";
 
 declare type Nullable<T> = T | null;
 declare type NoDef<T> = T | undefined;
-interface OptionsTypes {
+export interface OptionsTypes {
   source?: ProjectionLike;
   destination?: ProjectionLike;
   forcedRerender?: boolean;

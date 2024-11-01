@@ -19,26 +19,25 @@ export enum enumTile {
   AMAP_SATELLITE = "AMAP_SATELLITE",
   GEOTIFF = "GEOTIFF",
   CUSTOMER = "CUSTOMER",
+  XYZ = "XYZ",
 }
 
 export declare type TileType = keyof typeof enumTile;
 
-type TileLayer = Omit<TileOptions<TileSourceType>, "source">;
+type TileLayerOptions = Omit<TileOptions<TileSourceType>, "source">;
 
 export declare type TileGridOptions = import("ol/tilegrid/TileGrid").Options;
 
-export interface SourceXYZ extends Omit<XYZOptions, "tileGrid"> {
+export declare type SourceXYZ = Omit<XYZOptions, "tileGrid">;
+
+export interface SourceOptions extends Omit<import("ol/source/Tile").Options, "tileGrid">, SourceXYZ {
   tileGrid?: TileGridOptions | undefined;
 }
 
-export interface SourceOptions extends Omit<import("ol/source/Tile").Options, "tileGrid"> {
-  tileGrid?: TileGridOptions | undefined;
-}
-
-export interface BaseTileProps extends TileLayer {
+export interface BaseTileProps extends TileLayerOptions {
   tileType?: TileType;
   layerId?: string;
-  source?: SourceOptions | SourceXYZ | undefined;
+  source?: SourceOptions | undefined;
 }
 
 export declare type BaseTileSourceOptions = BaseTileProps["source"];

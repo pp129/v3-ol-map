@@ -23,17 +23,17 @@ const routesToDisplay = routes.filter(route => route.name && route.name !== "hom
 
 <style scoped>
 .home {
+  overflow: auto;
+  height: calc(100% - 40px);
   background-color: #f0f0f0;
   display: grid;
-  /*grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-gap: 20px;
   padding: 20px;
 }
 .demo {
+  height: 180px;
   background-color: #fff;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

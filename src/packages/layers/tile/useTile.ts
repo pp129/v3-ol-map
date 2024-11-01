@@ -68,8 +68,7 @@ const tileLayer = ($props: BaseTileProps) => {
     }
   };
 
-  const resetTile = (tileType: TileType) => {
-    props.tileType = tileType;
+  const resetTile = () => {
     // 清除所有底图
     const baseLayer = map
       .getLayers()

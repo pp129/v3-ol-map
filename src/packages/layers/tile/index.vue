@@ -16,7 +16,7 @@ watch(
   () => props.tileType,
   (nVal, oVal) => {
     if (nVal && oVal && nVal.toUpperCase() !== oVal.toUpperCase()) {
-      resetTile(nVal);
+      resetTile();
     }
   },
   {
@@ -28,7 +28,7 @@ watch(
   () => props.source,
   nVal => {
     if (nVal && props.tileType) {
-      resetTile(props.tileType);
+      resetTile();
     }
   },
   {
