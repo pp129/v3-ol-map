@@ -1,4 +1,4 @@
-import OlOverview from "../controls/OverviewMap.vue";
+import OlOverview from "../controls/OverviewMap/index.vue";
 import type { Options } from "ol/control/OverviewMap";
 import type { BaseTileProps } from "../index.ts";
 

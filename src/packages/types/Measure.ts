@@ -1,4 +1,4 @@
-import OlMeasure from "../interaction/measure";
+import OlMeasure from "../interaction/measure/measure";
 
 export type MeasureType = "length" | "area" | "" | undefined | null;
 

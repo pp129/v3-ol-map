@@ -4,6 +4,10 @@ import VectorLayer from "ol/layer/Vector.js";
 import { WFS, GeoJSON } from "ol/format.js";
 import type { WFSOptions } from "@/packages/types/WFS";
 
+defineOptions({
+  name: "OlWfs",
+});
+
 const layer = inject("ParentLayer") as ShallowRef<VectorLayer>;
 
 const props = withDefaults(defineProps<WFSOptions>(), {

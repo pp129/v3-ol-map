@@ -4,6 +4,10 @@ import useTileLayer from "./useTile";
 import { nanoid } from "nanoid";
 import type { BaseTileProps } from "@/packages/types/Tile";
 
+defineOptions({
+  name: "OlTile",
+});
+
 const props = withDefaults(defineProps<BaseTileProps>(), {
   // tileType: "TDT",
   layerId: `tile-layer-${nanoid()}`,

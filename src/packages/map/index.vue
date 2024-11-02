@@ -8,6 +8,10 @@ import BaseLayer from "ol/layer/Base";
 import type { ExposeMap, VMap } from "@/packages/types/Map";
 import type { AnimationOptions } from "ol/View";
 
+defineOptions({
+  name: "OlMap",
+});
+
 /**
  * 属性继承：ol/Map
  * https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html

@@ -6,6 +6,10 @@ import OlMap from "@/packages/lib";
 import type { OverlayOptions } from "@/packages/types/Overlay";
 import type { Options } from "ol/Overlay";
 
+defineOptions({
+  name: "OlOverlay",
+});
+
 const props = withDefaults(defineProps<OverlayOptions>(), {
   overlayId: `overlay-${nanoid()}`,
   data: () => {

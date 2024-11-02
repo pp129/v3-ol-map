@@ -1,4 +1,4 @@
-import OlDraw from "../interaction/draw";
+import OlDraw from "../interaction/draw/draw";
 import { Options } from "ol/interaction/Draw";
 
 type ExtendType = "Rectangle" | "Square" | "" | undefined | null;

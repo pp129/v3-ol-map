@@ -1,4 +1,4 @@
-import OlFeature from "../feature/index";
+import OlFeature from "../feature/feature";
 
 export declare type Position = import("geojson").Position;
 export declare type GeoJSON = import("geojson").GeoJSON;

@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { nanoid } from "nanoid";
-import useTileLayer from "@/packages/layers/tile/useTile";
-import { OverviewMapOptions } from "@/packages/types/Overview";
+import useTileLayer from "../../layers/tile/useTile";
+import { OverviewMapOptions } from "../../types/Overview";
+
+defineOptions({
+  name: "OlOverview",
+});
 
 const props = withDefaults(defineProps<OverviewMapOptions>(), {
   tileType: "TDT",

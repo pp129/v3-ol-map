@@ -10,6 +10,10 @@ import type { Pixel } from "ol/pixel";
 import { unByKey } from "ol/Observable.js";
 import type { HeatmapOptions } from "@/packages/types/Heatmap";
 
+defineOptions({
+  name: "OlHeatmap",
+});
+
 const props = withDefaults(defineProps<HeatmapOptions>(), {
   layerId: `vector-layer-${nanoid()}`,
   visible: true,

@@ -4,6 +4,10 @@ import { inject, onBeforeUnmount, onMounted, ref, shallowRef, unref, watch } fro
 import OlMap from "@/packages/lib";
 import { EchartsOptions } from "@/packages";
 
+defineOptions({
+  name: "OlEcharts",
+});
+
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
 let layer = shallowRef<EChartsLayer>();

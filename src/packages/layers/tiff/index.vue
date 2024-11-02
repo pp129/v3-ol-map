@@ -7,6 +7,10 @@ import GeoTIFFLayer from "ol/layer/WebGLTile";
 import { WebGLTileOptions } from "@/packages/types/Tile";
 import OlMap from "@/packages/lib";
 
+defineOptions({
+  name: "OlTiff",
+});
+
 const props = withDefaults(defineProps<WebGLTileOptions>(), {
   layerId: `tile-layer-${nanoid()}`,
   visible: true,

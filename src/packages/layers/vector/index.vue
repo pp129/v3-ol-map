@@ -18,6 +18,10 @@ import type { Layer } from "ol/layer";
 import type { Pixel } from "ol/pixel";
 import { ExposeVector, VectorLayerOptions } from "@/packages/types/Vector";
 
+defineOptions({
+  name: "OlVector",
+});
+
 const props = withDefaults(defineProps<VectorLayerOptions>(), {
   layerId: `vector-layer-${nanoid()}`,
   visible: true,

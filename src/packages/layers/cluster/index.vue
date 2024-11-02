@@ -18,6 +18,10 @@ import type { Layer } from "ol/layer";
 import type { Pixel } from "ol/pixel";
 import type { ClusterLayerOptions, ClusterStyle } from "@/packages/types/Cluster";
 
+defineOptions({
+  name: "OlCluster",
+});
+
 const props = withDefaults(defineProps<ClusterLayerOptions>(), {
   layerId: `vector-layer-${nanoid()}`,
   visible: true,

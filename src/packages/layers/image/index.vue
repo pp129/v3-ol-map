@@ -6,6 +6,10 @@ import OlMap from "@/packages/lib";
 import ImageLayer from "ol/layer/Image";
 import useBaseLayer from "@/packages/layers/baseLayer";
 
+defineOptions({
+  name: "OlImage",
+});
+
 const props = withDefaults(defineProps<ImageLayerOptions>(), {
   layerId: `tile-layer-${nanoid()}`,
   visible: true,

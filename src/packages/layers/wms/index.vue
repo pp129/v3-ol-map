@@ -8,6 +8,10 @@ import { ImageWMS, TileWMS } from "ol/source.js";
 import MapBrowserEvent from "ol/MapBrowserEvent";
 import ImageLayer from "ol/layer/Image";
 
+defineOptions({
+  name: "OlWms",
+});
+
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
 const layer = inject("ParentTileLayer") as ShallowRef<ImageLayer<import("ol/source/Image.js").default> | Tile | Layer>;

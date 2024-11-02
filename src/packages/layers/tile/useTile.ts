@@ -7,15 +7,15 @@ import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
-import type { installOptions } from "../../index.ts";
-import type { BaseTileProps, TileType } from "../../types";
+import type { ConfigProviderContext } from "../../index.ts";
+import type { BaseTileProps } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
-  const $OlMapConfig = inject("$OlMapConfig") as installOptions;
+  const $OlMapConfig = inject("$OlMapConfig") as ConfigProviderContext;
   let props = $props;
 
   // 默认属性

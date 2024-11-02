@@ -12,6 +12,10 @@ import type { OlVectorInstance, VectorLayerOptions } from "@/packages";
 import type { FeatureStyle } from "@/packages/types/Style";
 import { unByKey } from "ol/Observable.js";
 
+defineOptions({
+  name: "OlRoute",
+});
+
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
 
