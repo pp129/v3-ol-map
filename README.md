@@ -8,6 +8,7 @@
 功能上基本和vue2版本的[v-ol-map](https://github.com/pp129/vue-openlayers-map)一致。
 
 - 地图 ol-mao
+- 配置项 ol-config
 - 鹰眼 ol-overview
 - 图层
     - 矢量图层 ol-vector

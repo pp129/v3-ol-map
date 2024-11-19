@@ -2,7 +2,7 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://pp129.github.io/v3-ol-map",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "main": "lib/v3-ol-map.umd.js",
   "module": "lib/v3-ol-map.es.js",
   "types": "es/index.d.ts",

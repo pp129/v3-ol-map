@@ -41,7 +41,7 @@ export default defineConfig(({ command, mode }): any => {
     server: {
       host: "0.0.0.0",
       https: false,
-      port: 8081,
+      port: 8080,
       open: true,
     },
     publicDir: mode === "lib" ? false : "public",

@@ -17,6 +17,7 @@ import OlMeasure from "./interaction/measure/index.ts";
 import OlPath from "./path/index.ts";
 import OlRoute from "./route/index.ts";
 import OlEcharts from "./echarts/index.ts";
+import OlConfig from "./config/index.ts";
 
 const components: Plugin[] = [
   OlMap,
@@ -36,6 +37,7 @@ const components: Plugin[] = [
   OlPath,
   OlRoute,
   OlEcharts,
+  OlConfig,
 ];
 
 type TDT = {
@@ -60,15 +62,15 @@ type AMap = {
   Satellite_Label?: string;
 };
 export declare const configProviderProps: {
-  TDT: TDT;
-  Baidu: Baidu;
-  AMap: AMap;
+  tdt: TDT;
+  baidu: Baidu;
+  amap: AMap;
 };
 
 export declare type ConfigProviderProps = ExtractPropTypes<typeof configProviderProps>;
 
 const defaultOptions: ConfigProviderProps = {
-  TDT: {
+  tdt: {
     ak: "",
     Normal: "https://t0.tianditu.gov.cn/DataServer?T=vec_w&X={x}&Y={y}&L={z}&tk=",
     Normal_Label: "https://t0.tianditu.gov.cn/DataServer?T=cva_w&X={x}&Y={y}&L={z}&tk=",
@@ -77,7 +79,7 @@ const defaultOptions: ConfigProviderProps = {
     Terrain: "https://t0.tianditu.gov.cn/DataServer?T=ter_w&X={x}&Y={y}&L={z}&tk=",
     Terrain_Label: "https://t0.tianditu.gov.cn/DataServer?T=cta_w&X={x}&Y={y}&L={z}&tk=",
   },
-  Baidu: {
+  baidu: {
     ak: "",
     Normal:
       "https://maponline1.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=1&udt=20220113&from=jsapi2_0",
@@ -86,7 +88,7 @@ const defaultOptions: ConfigProviderProps = {
     midnight:
       "http://api0.map.bdimg.com/customimage/tile?&x={x}&y={y}&z={z}&udt=20220819&scale=1&customid=midnight&ak=",
   },
-  AMap: {
+  amap: {
     Normal: "http://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
     Satellite: "http://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
     Satellite_Label: "http://webst01.is.autonavi.com/appmaptile?style=8&x={x}&y={y}&z={z}",
@@ -105,32 +107,31 @@ export const makeInstaller = (components: Plugin[] = []) => {
     let config: ConfigProviderProps = defaultOptions;
     if (options) {
       app.config.globalProperties.$OlMapConfig = options;
-      if (options.TDT) {
-        config.TDT = {
-          ...defaultOptions.TDT,
-          ...options.TDT,
+      if (options.tdt) {
+        config.tdt = {
+          ...defaultOptions.tdt,
+          ...options.tdt,
         };
       }
-      if (options.Baidu) {
-        config.Baidu = {
-          ...defaultOptions.Baidu,
-          ...options.Baidu,
+      if (options.baidu) {
+        config.baidu = {
+          ...defaultOptions.baidu,
+          ...options.baidu,
         };
       }
-      config.AMap = {
-        ...defaultOptions.AMap,
-        ...options.AMap,
+      config.amap = {
+        ...defaultOptions.amap,
+        ...options.amap,
       };
     }
     app.provide("$OlMapConfig", {
-      TDT: config.TDT,
-      Baidu: config.Baidu,
-      AMap: config.AMap,
+      TDT: config.tdt,
+      Baidu: config.tdt,
+      AMap: config.tdt,
     });
   };
 
   return {
-    version: "1.0.0",
     install,
   };
 };

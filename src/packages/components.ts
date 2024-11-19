@@ -15,6 +15,7 @@ import OlMeasure from "./interaction/measure/measure.ts";
 import OlPath from "./path/path.ts";
 import OlRoute from "./route/index.vue";
 import OlEcharts from "./echarts/index.vue";
+import OlConfig from "./config/index.vue";
 
 export {
   OlMap,
@@ -34,6 +35,7 @@ export {
   OlPath,
   OlRoute,
   OlEcharts,
+  OlConfig,
 };
 
 // GlobalComponents for Volar
@@ -56,5 +58,6 @@ declare module "vue" {
     OlPath: typeof OlPath;
     OlRoute: typeof OlRoute;
     OlEcharts: typeof OlEcharts;
+    OlConfig: typeof OlConfig;
   }
 }

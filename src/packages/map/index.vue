@@ -5,7 +5,7 @@ import MapObjectEventTypes from "ol/MapBrowserEvent";
 import { panTo as PanTo } from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
 import BaseLayer from "ol/layer/Base";
-import type { ExposeMap, VMap } from "@/packages/types/Map";
+import type { VMap } from "@/packages/types/Map";
 import type { AnimationOptions } from "ol/View";
 
 defineOptions({

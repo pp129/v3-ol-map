@@ -7,7 +7,7 @@ import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
-import type { ConfigProviderContext } from "../../index.ts";
+import { defaultOlMapConfig, type ConfigProviderContext } from "../../index.ts";
 import type { BaseTileProps } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
@@ -15,7 +15,9 @@ import BaseLayer from "ol/layer/Base";
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
-  const $OlMapConfig = inject("$OlMapConfig") as ConfigProviderContext;
+  const configProvider = inject("ConfigProvide") as ConfigProviderContext;
+  const $OlMapConfig = configProvider || (inject("$OlMapConfig") as ConfigProviderContext);
+  console.log("$OlMapConfig", $OlMapConfig);
   let props = $props;
 
   // 默认属性
@@ -101,17 +103,8 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 天地图-矢量图-带标注
   const initTileTD = (style?: string) => {
-    let Normal,
-      Normal_Label,
-      Satellite,
-      Satellite_Label,
-      Terrain,
-      Terrain_Label,
-      ak = "";
-    const { TDT } = $OlMapConfig;
-    if (TDT) {
-      ({ Normal, Normal_Label, Satellite, Satellite_Label, Terrain, Terrain_Label, ak } = TDT);
-    }
+    const TDT = { ...defaultOlMapConfig.tdt, ...$OlMapConfig.tdt };
+    let { Normal, Normal_Label, Satellite, Satellite_Label, Terrain, Terrain_Label, ak } = TDT;
     try {
       if (!ak) {
         throw new Error("请配置天地图ak!");
@@ -127,12 +120,12 @@ const tileLayer = ($props: BaseTileProps) => {
     if (!style || style === "Normal") {
       const layerVec = tileRender(layerOptions, {
         ...sourceOptions,
-        url: Normal + ak,
+        url: (Normal || "") + ak,
       });
       layerVec.set("base", true);
       const layerCva = tileRender(layerOptions, {
         ...sourceOptions,
-        url: Normal_Label + ak,
+        url: (Normal_Label || "") + ak,
       });
       layerCva.set("base", true);
       layer.value = new LayerGroup({ layers: [layerVec, layerCva] });
@@ -140,24 +133,24 @@ const tileLayer = ($props: BaseTileProps) => {
       if (style === "Satellite") {
         const layerVec = tileRender(layerOptions, {
           ...sourceOptions,
-          url: Satellite + ak,
+          url: (Satellite || "") + ak,
         });
         layerVec.set("base", true);
         const layerCva = tileRender(layerOptions, {
           ...sourceOptions,
-          url: Satellite_Label + ak,
+          url: (Satellite_Label || "") + ak,
         });
         layerCva.set("base", true);
         layer.value = new LayerGroup({ layers: [layerVec, layerCva] });
       } else if (style === "Terrain") {
         const layerVec = tileRender(layerOptions, {
           ...sourceOptions,
-          url: Terrain + ak,
+          url: (Terrain || "") + ak,
         });
         layerVec.set("base", true);
         const layerCva = tileRender(layerOptions, {
           ...sourceOptions,
-          url: Terrain_Label + ak,
+          url: (Terrain_Label || "") + ak,
         });
         layerCva.set("base", true);
         layer.value = new LayerGroup({ layers: [layerVec, layerCva] });
@@ -167,15 +160,8 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 百度地图
   const initTileBaidu = (style?: string) => {
-    let Normal,
-      Satellite,
-      Satellite_Label,
-      midnight,
-      ak = "";
-    const { Baidu } = $OlMapConfig;
-    if (Baidu) {
-      ({ Normal, Satellite, Satellite_Label, midnight, ak } = Baidu);
-    }
+    const Baidu = { ...defaultOlMapConfig.baidu, ...$OlMapConfig.baidu };
+    let { Normal, Satellite, Satellite_Label, midnight, ak } = Baidu;
     if (!style || style === "Normal") {
       if (Normal) {
         layer.value = baiduRender(props, props.source as XYZOptions, Normal);
@@ -206,11 +192,8 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 高德地图
   const initTileAMap = (style?: string) => {
-    let Normal, Satellite, Satellite_Label;
-    const { AMap } = $OlMapConfig;
-    if (AMap) {
-      ({ Normal, Satellite, Satellite_Label } = AMap);
-    }
+    const AMap = { ...defaultOlMapConfig.amap, ...$OlMapConfig.amap };
+    let { Normal, Satellite, Satellite_Label } = AMap;
     if (!style || style === "Normal") {
       const sourceOptions = {
         ...props.source,

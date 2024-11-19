@@ -177,6 +177,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "config",
+    path: "/config",
+    component: () => import("@/example/config/index.vue"),
+    meta: {
+      title: "配置项",
+      description: "配置项示例",
+    },
+  },
+  {
     path: "/test",
     name: "test",
     component: () => import("@/example/test/index.vue"),
