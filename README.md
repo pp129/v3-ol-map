@@ -2,8 +2,8 @@
 
 > vue3 OpenLayers组件
 > 
-> [![vue3](https://img.shields.io/badge/vue-^3.5-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme)
-> [![ol](https://img.shields.io/badge/OpenLayers-^10-20c3aa)](https://openlayers.org/)
+> [![vue3](https://img.shields.io/badge/vue-v3.4.27-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme)
+> [![ol](https://img.shields.io/badge/OpenLayers-v10-20c3aa)](https://openlayers.org/)
 
 功能上基本和vue2版本的[v-ol-map](https://github.com/pp129/vue-openlayers-map)一致。
 
@@ -31,8 +31,8 @@
 
 __相较于v-ol-map,暂不支持的设置或功能:__
 
-* 通过设置`city`属性直接定位到城市中心点。（不打算支持了，占用太大体积了）
 * `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
+* 图形图层组件
 
 ## 安装
 

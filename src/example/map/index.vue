@@ -5,7 +5,7 @@ import { OlMapInstance, VMap } from "@/packages";
 const mapContainer = ref<OlMapInstance>();
 const view: VMap["view"] = {
   zoom: 12,
-  center: [118.11022, 24.490474],
+  city: "厦门",
   smoothExtentConstraint: true,
   constrainResolution: true,
 };

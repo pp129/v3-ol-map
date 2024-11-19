@@ -4,6 +4,7 @@ import { defaults as defaultInteractions } from "ol/interaction.js";
 import { defaults as defaultControls } from "ol/control.js";
 import definedProjection from "../utils/projection.ts";
 import { VMap } from "../types";
+import { getCenterByCity } from "../utils/city.ts";
 
 class OlMap {
   map: Map; // 地图对象
@@ -17,7 +18,10 @@ class OlMap {
       constrainResolution: false,
       projection: "EPSG:4326",
     };
-    const viewOption = { ...viewDefaultOption, ...option.view };
+    let viewOption: VMap["view"] = { ...viewDefaultOption, ...option.view };
+    if (viewOption?.city) {
+      viewOption.center = getCenterByCity(viewOption.city) || viewOption.center || viewDefaultOption.center;
+    }
     const view = new View(viewOption);
     // 生成地图
     this.map = new Map({
