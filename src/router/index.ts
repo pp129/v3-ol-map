@@ -33,6 +33,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "ocean",
+    path: "/ocean",
+    component: () => import("@/example/ocean/index.vue"),
+    meta: {
+      title: "海图",
+      description: "加载海图示例",
+    },
+  },
+  {
     name: "vectorJson",
     path: "/vectorJson",
     component: () => import("@/example/vectorJson/index.vue"),
