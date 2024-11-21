@@ -50,9 +50,25 @@ pnpm install v3-ol-map
 
 ## 使用
 
-```vue
+### 完整引入
+
+```ts
+// main.ts
+import { createApp } from 'vue'
+import VOlMap from "v3-ol-map";
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(VOlMap)
+app.mount('#app')
+```
+
+### 按需引入
+
+```html
 <script setup>
-import { OlMap, OlTile } from "v-3-ol-map";
+import { OlMap, OlTile } from "v3-ol-map";
 </script>
 
 <template>
@@ -64,6 +80,43 @@ import { OlMap, OlTile } from "v-3-ol-map";
 </template>
 ```
 
+## 配置
+
+### 全局配置
+
+```ts
+// main.ts
+import { createApp } from 'vue'
+import VOlMap from "v3-ol-map";
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(VOlMap, {
+ tdt: {
+    ak: "88e2f1d5ab64a7477a7361edd6b5f68a", // 天地图ak
+  },
+});
+```
+
+### 使用组件
+
+```html
+<script setup lang="ts">
+const config = {
+   ak: "316cf152e80bd8a121b23746a5803c8b",
+};
+</script>
+
+<template>
+   <ol-config :tdt="config">
+      <ol-map target="map1" class="map" width="50%">
+        <ol-tile tile-type="TDT"></ol-tile>
+      </ol-map>
+    </ol-config>
+</template>
+```
+
 ## 组件
 
 一点设计思路：__尽量使用`ol`原生api，通过`props`传递参数。__ 例如：
@@ -72,7 +125,7 @@ import { OlMap, OlTile } from "v-3-ol-map";
 
 但是！又例如`Map`的`view`属性值其实是一个独立的类，通过原生代码实现是这样的:
 
-```vue
+```html
 <script setup lang="ts">
 import { Map } from "ol";
 import { View } from "ol/View";
@@ -95,7 +148,7 @@ const map = new Map({
 
 我们希望可以直接解构View，直接把View类的`Options`，直接当成`ol-map`的参数值，这样代码看起来会简洁很多，所以组件中实现如下：
 
-```vue
+```html
 <script setup lang="ts">
 import { OlMap, VMap } from "v-3-ol-map";
 
@@ -118,7 +171,7 @@ const view:VMap["view"] = {
 
 其他类似的设计在各组件中都有体现，如`ol-vector`、`ol-tile`组件的`source`属性，甚至会对`source`属性进行二次解构，例如将`source.tileGrid`的`Options`作为`source.tileGrid`的属性值传递。
 
-```vue
+```html
 <script setup lang="ts">
 import { OlMap, VMap, OlTile } from "v-3-ol-map";
 
