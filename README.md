@@ -1,7 +1,7 @@
 # v3-ol-map
 
 > vue3 OpenLayers组件
-> 
+>
 > [![vue3](https://img.shields.io/badge/vue-v3.4.27-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme)
 > [![ol](https://img.shields.io/badge/OpenLayers-v10-20c3aa)](https://openlayers.org/)
 
@@ -11,15 +11,15 @@
 - 配置项 ol-config
 - 鹰眼 ol-overview
 - 图层
-    - 矢量图层 ol-vector
-      - WFS图层 ol-wfs
-    - 瓦片图层 ol-tile
-    - 图像图层 ol-image
-      - WMS图层 ol-wms
-    - TIFF图层 ol-tiff
-    - 热力图 ol-heatmap
-    - 聚合图层 ol-cluster
-    - ~~图形图层~~
+  - 矢量图层 ol-vector
+    - WFS图层 ol-wfs
+  - 瓦片图层 ol-tile
+  - 图像图层 ol-image
+    - WMS图层 ol-wms
+  - TIFF图层 ol-tiff
+  - 热力图 ol-heatmap
+  - 聚合图层 ol-cluster
+  - ~~图形图层~~
 - 图层要素 ol-feature
 - 弹框 ol-overlay
 - 路径规划 ol-route
@@ -31,8 +31,8 @@
 
 __相较于v-ol-map,暂不支持的设置或功能:__
 
-* `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
-* 图形图层组件
+- `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
+- 图形图层组件
 
 ## 安装
 
@@ -103,6 +103,7 @@ const view:VMap["view"] = {
   center: [0, 0],
   zoom: 2,
 }
+</script>
 
 <template>
    <ol-map :view="view" />
@@ -111,9 +112,9 @@ const view:VMap["view"] = {
 
 可以理解成组件做了这样的操作：
 
-* 组件接收参数：`props: { Y: as PropType<import("ol/X/Y").Options> }`
-* 重组类`new X({Y:new Y(props.Y)})`
-* 使用：`const options = {y: ... }` `<ol-x :y="options.y" />`
+- 组件接收参数：`props: { Y: as PropType<import("ol/X/Y").Options> }`
+- 重组类`new X({Y:new Y(props.Y)})`
+- 使用：`const options = {y: ... }` `<ol-x :y="options.y" />`
 
 其他类似的设计在各组件中都有体现，如`ol-vector`、`ol-tile`组件的`source`属性，甚至会对`source`属性进行二次解构，例如将`source.tileGrid`的`Options`作为`source.tileGrid`的属性值传递。
 
@@ -141,5 +142,5 @@ const source = {
 
 可能发生了以下问题：
 
-* 组件接收参数：`props: { Y as PropType<import("ol/X/Y").Options extends Z= import("ol/X/Y/Z").Options> }`
-* 问题：类`ol/X/Y`中包含属性`Z`的值接受的是一个类，`new X({Y:new Y({...props.Y,Z:new Z(props.Y.Z)})})`，但是组件没有解构并重组参数，所以`props.Y.Z`没有生效。
+- 组件接收参数：`props: { Y as PropType<import("ol/X/Y").Options extends Z= import("ol/X/Y/Z").Options> }`
+- 问题：类`ol/X/Y`中包含属性`Z`的值接受的是一个类，`new X({Y:new Y({...props.Y,Z:new Z(props.Y.Z)})})`，但是组件没有解构并重组参数，所以`props.Y.Z`没有生效。
