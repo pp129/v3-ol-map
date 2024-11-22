@@ -117,7 +117,7 @@ const config = {
 </template>
 ```
 
-## 组件
+## 说明
 
 一点设计思路：__尽量使用`ol`原生api，通过`props`传递参数。__ 例如：
 

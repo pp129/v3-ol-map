@@ -1,4 +1,4 @@
-import { ref, inject, unref, provide, watchEffect, shallowRef } from "vue";
+import { ref, inject, unref, provide, watchEffect, shallowRef, Ref } from "vue";
 import tileRender, { baiduRender, geotiffRender, tempTileRender } from "./tileRender";
 import useBaseLayer from "../baseLayer";
 import { Group as LayerGroup, Layer } from "ol/layer.js";
@@ -12,20 +12,21 @@ import type { BaseTileProps } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
+
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
   const configProvider = inject("ConfigProvide") as ConfigProviderContext;
   const $OlMapConfig = configProvider || (inject("$OlMapConfig") as ConfigProviderContext);
-  console.log("$OlMapConfig", $OlMapConfig);
   let props = $props;
 
   // 默认属性
 
-  let layer = shallowRef<Layer | TileLayer | LayerGroup>();
+  let layer = shallowRef<Layer | TileLayer | LayerGroup | null>(null);
   let overviewMap = shallowRef<boolean | undefined>(false);
   let OverviewMapOptions = ref<OverviewMapOptions>();
   provide("ParentTileLayer", layer);
+
   const init = async (isOverviewMap?: boolean) => {
     overviewMap.value = isOverviewMap;
     if (props.tileType) {
@@ -70,28 +71,17 @@ const tileLayer = ($props: BaseTileProps) => {
     }
   };
 
-  const resetTile = () => {
+  const resetTile = (layer: Layer | TileLayer | LayerGroup) => {
     // 清除所有底图
-    const baseLayer = map
-      .getLayers()
-      .getArray()
-      .filter((layer: BaseLayer) => layer.get("base"));
-    if (baseLayer && baseLayer.length > 0) {
-      baseLayer.forEach((layer: BaseLayer) => {
-        map.removeLayer(layer);
-      });
-    }
+    map.removeLayer(layer);
     init().then();
   };
 
   // 自定义XYZ
-  const initTileCustomer = (init: boolean = true) => {
+  const initTileCustomer = () => {
     layer.value = tileRender(props, props.source);
-    if (init) {
-      addToMap();
-    } else {
-      unref(VMap).map.setLayers([layer.value]);
-    }
+    console.log("xyz layer", layer.value);
+    addToMap();
   };
   const initTile = (init: boolean = true) => {
     layer.value = tempTileRender(props);
@@ -245,15 +235,14 @@ const tileLayer = ($props: BaseTileProps) => {
     }
     if (group) {
       // unref(VMap).map.setLayerGroup(layer.value as LayerGroup);
+      layer.value.set("group", true);
       const layerGroup = layer.value as LayerGroup;
       const layers = layerGroup.getLayers().getArray();
       layers.forEach(layer => {
-        unref(VMap).map.addLayer(layer);
+        map?.addLayer(layer);
       });
     } else {
-      // unref(VMap).map.setLayers([layer.value]);
-      // console.log(unref(VMap).map);
-      unref(VMap).map?.addLayer(layer.value);
+      map?.addLayer(layer.value);
     }
   };
   const addOverviewMap = () => {
@@ -273,8 +262,25 @@ const tileLayer = ($props: BaseTileProps) => {
     layer.value?.setVisible(visible);
   };
 
+  const getLayer = () => {
+    return layer.value;
+  };
+
+  const clearTile = () => {
+    if (layer.value?.get("group")) {
+      const layerGroup = layer.value as LayerGroup;
+      const layers = layerGroup.getLayers().getArray();
+      layers.forEach(layer => {
+        map?.removeLayer(layer);
+      });
+    } else {
+      map?.removeLayer(layer.value as Layer);
+    }
+    layer.value = null;
+  };
+
   watchEffect(() => {
-    useBaseLayer(layer.value, props);
+    if (layer.value) useBaseLayer(layer.value, props);
   });
 
   return {
@@ -282,6 +288,8 @@ const tileLayer = ($props: BaseTileProps) => {
     resetTile,
     setOverviewMapOptions,
     setLayerVisible,
+    getLayer,
+    clearTile,
   };
 };
 

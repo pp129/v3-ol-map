@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import useTileLayer from "./useTile";
 import { nanoid } from "nanoid";
 import type { BaseTileProps } from "@/packages/types/Tile";
@@ -14,13 +14,14 @@ const props = withDefaults(defineProps<BaseTileProps>(), {
   visible: true,
   source: undefined,
 });
-const { init, resetTile } = useTileLayer(props);
+const { init, resetTile, getLayer, clearTile } = useTileLayer(props);
 let render = ref(false);
 watch(
   () => props.tileType,
   (nVal, oVal) => {
     if (nVal && oVal && nVal.toUpperCase() !== oVal.toUpperCase()) {
-      resetTile();
+      const layer = getLayer();
+      if (layer) resetTile(layer);
     }
   },
   {
@@ -32,7 +33,8 @@ watch(
   () => props.source,
   nVal => {
     if (nVal && props.tileType) {
-      resetTile();
+      const layer = getLayer();
+      if (layer) resetTile(layer);
     }
   },
   {
@@ -44,6 +46,9 @@ onMounted(() => {
   init().then(() => {
     render.value = true;
   });
+});
+onUnmounted(() => {
+  clearTile();
 });
 </script>
 
