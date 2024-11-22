@@ -8,6 +8,7 @@ import OlHeatmap from "./layers/heatmap/index.vue";
 import OlTiff from "./layers/tiff/index.vue";
 import OlFeature from "./feature/feature.ts";
 import OlCluster from "./layers/cluster/index.vue";
+import OlWind from "./layers/wind/index.vue";
 import OlOverlay from "./overlay/index.vue";
 import OlOverview from "./controls/OverviewMap/index.vue";
 import OlDraw from "./interaction/draw/draw.ts";
@@ -22,6 +23,7 @@ export {
   OlTile,
   OlImage,
   OlVector,
+  OlWind,
   OlWfs,
   OlWms,
   OlHeatmap,
@@ -45,6 +47,7 @@ declare module "vue" {
     OlTile: typeof OlTile;
     OlImage: typeof OlImage;
     OlVector: typeof OlVector;
+    OlWind: typeof OlWind;
     OlWfs: typeof OlWfs;
     OlWms: typeof OlWms;
     OlHeatmap: typeof OlHeatmap;

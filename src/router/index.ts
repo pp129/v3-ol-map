@@ -186,6 +186,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "wind",
+    path: "/wind",
+    component: () => import("@/example/wind/index.vue"),
+    meta: {
+      title: "风场",
+      description: "风场示例，基于ol-wind",
+    },
+  },
+  {
     name: "config",
     path: "/config",
     component: () => import("@/example/config/index.vue"),

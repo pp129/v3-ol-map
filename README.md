@@ -19,11 +19,11 @@
   - TIFF图层 ol-tiff
   - 热力图 ol-heatmap
   - 聚合图层 ol-cluster
-  - ~~图形图层~~
 - 图层要素 ol-feature
 - 弹框 ol-overlay
 - 路径规划 ol-route
 - 结合echarts ol-echarts (基于[ol-echarts](https://github.com/sakitam-fdd/ol3Echarts)实现)
+- 风场 ol-wind （基于[ol-wind](https://github.com/sakitam-fdd/wind-layer/tree/master/packages/ol)实现）
 - 轨迹动画 ol-path
 - 绘制 ol-draw
 - 测量 ol-measure

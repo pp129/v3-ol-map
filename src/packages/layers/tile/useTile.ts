@@ -1,4 +1,4 @@
-import { ref, inject, unref, provide, watchEffect, shallowRef, Ref } from "vue";
+import { ref, inject, unref, provide, watchEffect, shallowRef } from "vue";
 import tileRender, { baiduRender, geotiffRender, tempTileRender } from "./tileRender";
 import useBaseLayer from "../baseLayer";
 import { Group as LayerGroup, Layer } from "ol/layer.js";
@@ -237,7 +237,7 @@ const tileLayer = ($props: BaseTileProps) => {
       // unref(VMap).map.setLayerGroup(layer.value as LayerGroup);
       layer.value.set("group", true);
       const layerGroup = layer.value as LayerGroup;
-      const layers = layerGroup.getLayers().getArray();
+      const layers: BaseLayer[] = layerGroup.getLayers().getArray();
       layers.forEach(layer => {
         map?.addLayer(layer);
       });
@@ -269,7 +269,7 @@ const tileLayer = ($props: BaseTileProps) => {
   const clearTile = () => {
     if (layer.value?.get("group")) {
       const layerGroup = layer.value as LayerGroup;
-      const layers = layerGroup.getLayers().getArray();
+      const layers: BaseLayer[] = layerGroup.getLayers().getArray();
       layers.forEach(layer => {
         map?.removeLayer(layer);
       });

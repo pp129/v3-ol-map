@@ -4,6 +4,7 @@ import OlMap from "./map/index.ts";
 import OlTile from "./layers/tile/index.ts";
 import OlImage from "./layers/image/index.ts";
 import OlVector from "./layers/vector/index.ts";
+import OlWind from "./layers/wind/index.ts";
 import OlWfs from "./layers/wfs/index.ts";
 import OlWms from "./layers/wms/index.ts";
 import OlHeatmap from "./layers/heatmap/index.ts";
@@ -24,6 +25,7 @@ const components: Plugin[] = [
   OlTile,
   OlImage,
   OlVector,
+  OlWind,
   OlWfs,
   OlWms,
   OlHeatmap,
