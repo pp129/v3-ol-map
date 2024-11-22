@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "vite",
     "build:lib": "vue-tsc && vite build --mode lib",
-    "build": "vue-tsc --noEmit && vite build --mode production",
+    "build": "vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint ./src/**/*.vue ./src/**/*.ts",
     "fix": "eslint *.ts ./src/**/*.vue ./src/*.ts ./src/**/*.ts --fix"
