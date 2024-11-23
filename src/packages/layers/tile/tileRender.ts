@@ -1,8 +1,9 @@
 import TileLayer from "ol/layer/Tile.js";
 import GeoTIFFLayer from "ol/layer/WebGLTile.js";
-import { GeoTIFF, XYZ } from "ol/source.js";
+import { GeoTIFF, XYZ, OSM } from "ol/source.js";
 import TileGrid from "ol/tilegrid/TileGrid.js";
 import type { Options as XYZOptions } from "ol/source/XYZ";
+import type { Options as OSMOptions } from "ol/source/OSM";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
 import type { BaseTileProps, TileGridOptions } from "../../types";
 
@@ -80,6 +81,16 @@ const geotiffRender = (layerOptions: BaseTileProps, sourceOptions?: GeoTIFFOptio
   return new GeoTIFFLayer(layerOpt);
 };
 
+const OSMRender = (layerOptions: BaseTileProps, sourceOptions: BaseTileProps["source"]) => {
+  const Options: OSMOptions = {
+    ...sourceOptions,
+  };
+  return new TileLayer({
+    ...layerOptions,
+    source: new OSM(Options),
+  });
+};
+
 export default tileRender;
 
-export { baiduRender, geotiffRender, tempTileRender };
+export { baiduRender, geotiffRender, tempTileRender, OSMRender };

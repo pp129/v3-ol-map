@@ -1,5 +1,5 @@
 import { ref, inject, unref, provide, watchEffect, shallowRef } from "vue";
-import tileRender, { baiduRender, geotiffRender, tempTileRender } from "./tileRender";
+import tileRender, { baiduRender, geotiffRender, OSMRender, tempTileRender } from "./tileRender";
 import useBaseLayer from "../baseLayer";
 import { Group as LayerGroup, Layer } from "ol/layer.js";
 import { OverviewMap } from "ol/control.js";
@@ -33,6 +33,9 @@ const tileLayer = ($props: BaseTileProps) => {
       switch (props.tileType.toUpperCase()) {
         case "TDT":
           initTileTD();
+          break;
+        case "OSM":
+          initTileOSM();
           break;
         case "TDT_SATELLITE":
           initTileTD("Satellite");
@@ -147,6 +150,16 @@ const tileLayer = ($props: BaseTileProps) => {
       }
     }
     addToMap(true);
+  };
+  // OSM
+  const initTileOSM = () => {
+    const layerOptions = { ...props };
+    const sourceOptions = {
+      ...props.source,
+      projection: "EPSG:3857",
+    };
+    layer.value = OSMRender(layerOptions, sourceOptions);
+    addToMap();
   };
   // 百度地图
   const initTileBaidu = (style?: string) => {

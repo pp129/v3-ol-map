@@ -1,4 +1,4 @@
-import { FeatureClassOrArrayOfRenderFeatures, Options as SourceOptions } from "ol/source/Vector";
+import { Options as SourceOptions } from "ol/source/Vector";
 import VectorLayer, { Options as LayerOptions } from "ol/layer/Vector";
 import { DefaultStyle } from "ol/style/flat";
 import * as Format from "ol/format.js";

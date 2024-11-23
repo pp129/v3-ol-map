@@ -2,7 +2,7 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://pp129.github.io/v3-ol-map",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "main": "lib/v3-ol-map.umd.js",
   "module": "lib/v3-ol-map.es.js",
   "types": "es/index.d.ts",
@@ -38,7 +38,8 @@
     "qs": "^6.13.0",
     "simplify-js": "^1.2.4",
     "supercluster": "^8.0.1",
-    "vue": "^3.4.27"
+    "vue": "^3.4.27",
+    "wind-core": "^1.1.8"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.14",

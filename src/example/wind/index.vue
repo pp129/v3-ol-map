@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { FieldOptions, WindOptions } from "@/packages";
-import { onBeforeMount, ref } from "vue";
+import { FieldOptions, OlWindInstance, WindLayer, WindLayerEvent, WindOptions } from "@/packages";
+import { onBeforeMount, ref, shallowRef } from "vue";
+
+const windLayer = shallowRef<OlWindInstance>();
 let data = ref();
 let load = ref(false);
 const windOptions: WindOptions = {
@@ -29,6 +31,17 @@ const fieldOptions: FieldOptions = {
   wrapX: true,
   // flipY: true,
 };
+const osm = {
+  url: "//{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+};
+const onLayerMount = (layer: WindLayer) => {
+  console.log("onLayerMount", layer);
+};
+const handleClick = (e: WindLayerEvent) => {
+  console.log(e.data);
+  const data = windLayer.value?.getData();
+  console.log(data);
+};
 onBeforeMount(async () => {
   data.value = await fetch("https://blog.sakitam.com/wind-layer/data/wind.json")
     .then(res => {
@@ -43,7 +56,16 @@ onBeforeMount(async () => {
 
 <template>
   <ol-map>
-    <ol-tile tile-type="TDT"></ol-tile>
-    <ol-wind v-if="load" :data="data" :wind-options="windOptions" :field-options="fieldOptions"></ol-wind>
+    <ol-tile tile-type="OSM" :source="osm"></ol-tile>
+    <ol-wind
+      v-if="load"
+      ref="windLayer"
+      :data="data"
+      :wind-options="windOptions"
+      :field-options="fieldOptions"
+      :visible="true"
+      @mount="onLayerMount"
+      @singleclick="handleClick"
+    ></ol-wind>
   </ol-map>
 </template>

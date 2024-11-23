@@ -1,9 +1,31 @@
 import { IOptions, IField } from "wind-core";
+import { Options as LayerOptions } from "ol/layer/Vector";
+import OlWind from "../layers/wind/index.vue";
+import MapBrowserEvent from "ol/MapBrowserEvent";
+
+type defaultVectorOptions = Omit<LayerOptions, "source" | "style">;
 
 export declare type WindOptions = Partial<IOptions>;
 export declare type FieldOptions = Partial<IField>;
+export declare type WindLayer = import("ol-wind").WindLayer;
 
-export interface WindLayerOptions {
+export declare interface WindLayerEvent extends MapBrowserEvent<UIEvent> {
+  data: {
+    u: number;
+    v: number;
+    m: number;
+    directionTo: number;
+    directionFrom: number;
+    windLevel: string;
+    windDirection: string | undefined;
+  } | null;
+}
+
+export interface WindLayerOptions extends defaultVectorOptions {
+  /**
+   * 图层id
+   */
+  layerId?: string;
   /**
    * 风场数据
    */
@@ -22,3 +44,5 @@ export interface WindLayerOptions {
    */
   fieldOptions?: FieldOptions;
 }
+
+export declare type OlWindInstance = InstanceType<typeof OlWind>;

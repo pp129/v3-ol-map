@@ -4,6 +4,7 @@ import type TileSourceType from "ol/source/Tile";
 import type ImageSourceType from "ol/source/Image";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
 import type { Options as XYZOptions } from "ol/source/XYZ";
+import type { Options as OSMOptions } from "ol/source/OSM";
 import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
 import type { Options as ImageTileOptions } from "ol/layer/BaseImage";
 
@@ -20,6 +21,7 @@ export enum enumTile {
   GEOTIFF = "GEOTIFF",
   CUSTOMER = "CUSTOMER",
   XYZ = "XYZ",
+  OSM = "OSM",
 }
 
 export declare type TileType = keyof typeof enumTile;
@@ -30,7 +32,7 @@ export declare type TileGridOptions = import("ol/tilegrid/TileGrid").Options;
 
 export declare type SourceXYZ = Omit<XYZOptions, "tileGrid">;
 
-export interface SourceOptions extends Omit<import("ol/source/Tile").Options, "tileGrid">, SourceXYZ {
+export interface SourceOptions extends Omit<import("ol/source/Tile").Options, "tileGrid">, SourceXYZ, OSMOptions {
   tileGrid?: TileGridOptions | undefined;
 }
 
