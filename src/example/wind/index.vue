@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { FieldOptions, OlWindInstance, WindLayer, WindLayerEvent, WindOptions } from "@/packages";
-import { onBeforeMount, ref, shallowRef } from "vue";
+import { FieldOptions, OlWindInstance, Position, WindLayer, WindLayerEvent, WindOptions, WindData } from "@/packages";
+import { onBeforeMount, Reactive, reactive, Ref, ref, shallowRef } from "vue";
 
 const windLayer = shallowRef<OlWindInstance>();
 let data = ref();
@@ -37,10 +37,23 @@ const osm = {
 const onLayerMount = (layer: WindLayer) => {
   console.log("onLayerMount", layer);
 };
-const handleClick = (e: WindLayerEvent) => {
-  console.log(e.data);
+let position = ref<Position>();
+type Info = Reactive<Partial<WindData>>;
+let windowInfo = <Info>reactive({
+  m: 0,
+  windLevel: "",
+  windDirection: "",
+});
+const handleMove = (e: WindLayerEvent) => {
+  const windData = e.data;
   const data = windLayer.value?.getData();
   console.log(data);
+  windowInfo = {
+    m: windData?.m,
+    windLevel: windData?.windLevel,
+    windDirection: windData?.windDirection,
+  };
+  position.value = e.coordinate;
 };
 onBeforeMount(async () => {
   data.value = await fetch("https://blog.sakitam.com/wind-layer/data/wind.json")
@@ -65,7 +78,65 @@ onBeforeMount(async () => {
       :field-options="fieldOptions"
       :visible="true"
       @mount="onLayerMount"
-      @singleclick="handleClick"
+      @pointermove="handleMove"
     ></ol-wind>
+    <ol-overlay :position="position" :class="['overlay']" positioning="bottom-center" :offset="[0, -20]">
+      <!--      <i class="close" @click="position = undefined">&times;</i>-->
+      <div class="content">
+        风速：{{ windowInfo.m }}
+        <br />
+        风级：{{ windowInfo.windLevel }}
+        <br />
+        风向：{{ windowInfo.windDirection }}
+      </div>
+    </ol-overlay>
   </ol-map>
 </template>
+
+<style scoped>
+.overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.overlay .content {
+  z-index: 1;
+}
+.overlay .close {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.tips {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  font-size: 16px;
+  color: #000;
+}
+.nested-enter-active,
+.nested-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(100%) translateX(-50%);
+  opacity: 0;
+}
+</style>

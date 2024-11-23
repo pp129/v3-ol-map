@@ -9,16 +9,17 @@ export declare type WindOptions = Partial<IOptions>;
 export declare type FieldOptions = Partial<IField>;
 export declare type WindLayer = import("ol-wind").WindLayer;
 
+export declare type WindData = {
+  u: number;
+  v: number;
+  m: number;
+  directionTo: number;
+  directionFrom: number;
+  windLevel: string;
+  windDirection: string | undefined;
+} | null;
 export declare interface WindLayerEvent extends MapBrowserEvent<UIEvent> {
-  data: {
-    u: number;
-    v: number;
-    m: number;
-    directionTo: number;
-    directionFrom: number;
-    windLevel: string;
-    windDirection: string | undefined;
-  } | null;
+  data: WindData;
 }
 
 export interface WindLayerOptions extends defaultVectorOptions {

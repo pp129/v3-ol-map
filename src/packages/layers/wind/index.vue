@@ -3,7 +3,7 @@ import OlMap from "@/packages/lib";
 import Map from "ol/Map";
 import { WindLayer } from "ol-wind";
 import { inject, onMounted, onUnmounted, shallowRef, unref, watch, watchEffect } from "vue";
-import { WindLayerEvent, WindLayerOptions } from "@/packages/types/Wind";
+import { WindData, WindLayerEvent, WindLayerOptions } from "@/packages/types/Wind";
 import { Vector, Field } from "wind-core";
 import useBaseLayer from "@/packages/layers/baseLayer";
 import MapBrowserEvent from "ol/MapBrowserEvent";
@@ -18,10 +18,10 @@ const props = withDefaults(defineProps<WindLayerOptions>(), {
   forceRender: true,
 });
 const layer = shallowRef<WindLayer | null>();
-// const emits = defineEmits(["mount", "singleclick"]);
 const emits = defineEmits<{
   (e: "mount", layer: WindLayer): void;
   (e: "singleclick", evt: WindLayerEvent): void;
+  (e: "pointermove", evt: WindLayerEvent): void;
 }>();
 
 // 根据风速进行等级信息分类
@@ -124,42 +124,48 @@ const init = () => {
 
   layer.value.setMap(map);
   map.on("singleclick", (evt: MapBrowserEvent<UIEvent>) => {
-    //@ts-ignore
-    const field: Field = layer.value?.field;
-    const vector = field.valueAt(evt.coordinate[0], evt.coordinate[1]);
-    if (vector) {
-      const { u, v, m } = vector;
-      const data = new Vector(u, v);
-      emits("singleclick", <WindLayerEvent>{
-        ...evt,
-        data: {
-          u,
-          v,
-          m, // 风速 等价data.magnitude()
-          /**
-           * 流体方向 （这里指风向，范围为0-360º）
-           * N is 0º and E is 90º
-           * @returns {Number}
-           */
-          directionTo: data.directionTo(),
-          /**
-           * Angle in degrees (0 to 360º) From x-->
-           * N is 0º and E is 90º
-           * @returns {Number}
-           */
-          directionFrom: data.directionFrom(),
-          windLevel: `${gps_getWindyLevel(m)}级`,
-          windDirection: gps_getWindyDirection(data.directionFrom()),
-        },
-      });
-    } else {
-      emits("singleclick", <WindLayerEvent>{
-        ...evt,
-        data: null,
-      });
-    }
+    const data = eventHandler(evt);
+    const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
+    emits("singleclick", <WindLayerEvent>{ ...event, data });
+  });
+  map.on("pointermove", (evt: MapBrowserEvent<UIEvent>) => {
+    const data = eventHandler(evt);
+    const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
+    emits("pointermove", <WindLayerEvent>{ ...event, data });
   });
   emits("mount", layer.value);
+};
+
+const eventHandler = (evt: MapBrowserEvent<UIEvent>): WindData => {
+  console.log(evt);
+  //@ts-ignore
+  const field: Field = layer.value?.field;
+  const vector = field.valueAt(evt.coordinate[0], evt.coordinate[1]);
+  if (vector) {
+    const { u, v, m } = vector;
+    const data = new Vector(u, v);
+    return {
+      u,
+      v,
+      m, // 风速 等价data.magnitude()
+      /**
+       * 流体方向 （这里指风向，范围为0-360º）
+       * N is 0º and E is 90º
+       * @returns {Number}
+       */
+      directionTo: data.directionTo(),
+      /**
+       * Angle in degrees (0 to 360º) From x-->
+       * N is 0º and E is 90º
+       * @returns {Number}
+       */
+      directionFrom: data.directionFrom(),
+      windLevel: `${gps_getWindyLevel(m)}级`,
+      windDirection: gps_getWindyDirection(data.directionFrom()),
+    };
+  } else {
+    return null;
+  }
 };
 
 watch(
