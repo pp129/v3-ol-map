@@ -61,6 +61,11 @@ export default defineConfig(()=> {
       server: {
         open: true,
       },
+      build: {
+        rollupOptions: {
+          external: ["v3-ol-map"]
+        }
+      }
     },
   }
 });
