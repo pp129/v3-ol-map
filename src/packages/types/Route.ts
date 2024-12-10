@@ -1,6 +1,6 @@
 import OlRoute from "../route/index.vue";
 import type { Feature, FeatureCollection, LineString, Point, Position } from "geojson";
-import type { FeatureStyle, VectorLayerOptions } from "../types";
+import type { FeatureStyle, VectorLayerOptions } from ".";
 
 type spatialReference = {
   wkid?: number | string;

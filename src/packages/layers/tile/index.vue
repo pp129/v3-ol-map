@@ -21,7 +21,10 @@ watch(
   (nVal, oVal) => {
     if (nVal && oVal && nVal.toUpperCase() !== oVal.toUpperCase()) {
       const layer = getLayer();
-      if (layer) resetTile(layer);
+      if (layer) {
+        console.log("layer", layer);
+        resetTile(layer);
+      }
     }
   },
   {

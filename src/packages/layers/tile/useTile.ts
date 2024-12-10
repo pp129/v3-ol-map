@@ -1,14 +1,14 @@
 import { ref, inject, unref, provide, watchEffect, shallowRef } from "vue";
-import tileRender, { baiduRender, geotiffRender, OSMRender, tempTileRender } from "./tileRender";
-import useBaseLayer from "../baseLayer";
+import tileRender, { baiduRender, geotiffRender, OSMRender, tempTileRender } from "./tileRender.ts";
+import useBaseLayer from "../baseLayer/index.ts";
 import { Group as LayerGroup, Layer } from "ol/layer.js";
 import { OverviewMap } from "ol/control.js";
 import type TileLayer from "ol/layer/Tile";
-import OlMap from "../../lib";
+import OlMap from "../../lib/index.ts";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
 import { defaultOlMapConfig, type ConfigProviderContext } from "../../index.ts";
-import type { BaseTileProps } from "../../types";
+import type { BaseTileProps } from "../../types/index.ts";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
@@ -74,10 +74,17 @@ const tileLayer = ($props: BaseTileProps) => {
     }
   };
 
-  const resetTile = (layer: Layer | TileLayer | LayerGroup) => {
+  const resetTile = async (layer: Layer | TileLayer | LayerGroup) => {
     // 清除所有底图
-    map.removeLayer(layer);
-    init().then();
+    if (layer && layer.get("group")) {
+      const layers = (layer as LayerGroup).getLayers().getArray();
+      layers.forEach(tile => {
+        map.removeLayer(tile);
+      });
+    } else {
+      map.removeLayer(layer);
+    }
+    await init();
   };
 
   // 自定义XYZ

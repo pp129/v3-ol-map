@@ -34,6 +34,8 @@ __相较于v-ol-map,暂不支持的设置或功能:__
 - `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
 - 图形图层组件
 
+## [示例](https://v3-ol-map.netlify.app/)
+
 ## 安装
 
 npm安装

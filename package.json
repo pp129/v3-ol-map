@@ -1,18 +1,10 @@
 {
   "name": "v3-ol-map",
   "private": false,
-  "homepage": "https://pp129.github.io/v3-ol-map",
-  "version": "0.0.27",
+  "homepage": "https://github.com/pp129/v3-ol-map",
+  "version": "0.0.30",
   "main": "lib/v3-ol-map.umd.js",
-  "module": "lib/v3-ol-map.es.js",
   "types": "es/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./es/index.d.ts",
-      "import": "./lib/v3-ol-map.es.js",
-      "require": "./lib/v3-ol-map.umd.js"
-    }
-  },
   "files": [
     "package.json",
     "README.md",
@@ -24,8 +16,11 @@
     "build:lib": "vue-tsc && vite build --mode lib",
     "build": "vite build --mode production",
     "preview": "vite preview",
-    "lint": "eslint ./src/**/*.vue ./src/**/*.ts",
-    "fix": "eslint *.ts ./src/**/*.vue ./src/*.ts ./src/**/*.ts --fix"
+    "lint": "eslint ./packages/**/*.vue ./packages/**/*.ts",
+    "fix": "eslint *.ts ./packages/**/*.vue ./packages/*.ts ./packages/**/*.ts --fix",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@turf/turf": "^7.1.0",
@@ -59,6 +54,7 @@
     "typescript": "~5.4.5",
     "vite": "^5.4.9",
     "vite-plugin-dts": "^4.3.0",
+    "vitepress": "^1.5.0",
     "vue-router": "^4.4.5",
     "vue-tsc": "^2.1.6"
   }

@@ -17,7 +17,7 @@ const build = (env: string) => {
       lib: {
         entry: resolve(__dirname, "src/packages/index.ts"),
         name: "v3-ol-map",
-        formats: ["umd", "es", "cjs"],
+        formats: ["umd"],
         fileName: (format: string) => `v3-ol-map.${format}.js`,
       },
       rollupOptions: {
