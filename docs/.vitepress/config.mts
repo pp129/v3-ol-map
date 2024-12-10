@@ -63,7 +63,7 @@ export default defineConfig(()=> {
       },
       build: {
         rollupOptions: {
-          external: ["v3-ol-map","v3-ol-map/lib/v3-ol-map.css"]
+          external: ["v3-ol-map"]
         }
       }
     },
