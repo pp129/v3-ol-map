@@ -7,7 +7,7 @@ export default defineConfig(()=> {
   globalThis.crypto ??= crypto;
 
   return {
-    base: "/v3-ol-map/",
+    base: "/",
     lang: "zh-CN",
     title: "v3-ol-map",
     description: "vue3+openLayers组件",

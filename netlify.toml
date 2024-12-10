@@ -1,7 +1,7 @@
 [build]
 base = "/"
-publish = "dist"
-command = "pnpm run build"
+publish = "docs/.vitepress/dist"
+command = "pnpm run docs:preview"
 
 [build.environment]
 NODE_VERSION = "18"
