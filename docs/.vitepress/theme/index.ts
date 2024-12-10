@@ -1,6 +1,6 @@
 import DefaultTheme from "vitepress/theme";
 import OlMap from "v3-ol-map";
-// import "v3-ol-map/lib/v3-ol-map.css";
+import "v3-ol-map/lib/v3-ol-map.css";
 import "./index.css";
 import Preview from "../components/preview/index.vue";
 
