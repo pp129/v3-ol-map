@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount } from "vue";
+import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject } from "vue";
 import OlMap from "@/packages/lib";
 import MapObjectEventTypes from "ol/MapBrowserEvent";
 import { panTo as PanTo } from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
 import BaseLayer from "ol/layer/Base";
-import type { VMap } from "@/packages/types/Map";
+import type { View, VMap } from "@/packages/types/Map";
 import type { AnimationOptions } from "ol/View";
+import { ConfigProviderContext } from "@/packages";
 
 defineOptions({
   name: "OlMap",
 });
+
+const configProvider = inject("ConfigProvide") as ConfigProviderContext;
+const $OlMapConfig = configProvider || (inject("$OlMapConfig") as ConfigProviderContext);
 
 /**
  * 属性继承：ol/Map
@@ -72,7 +76,20 @@ const emit: any = defineEmits([
 ]);
 const init = () => {
   return new Promise((resolve, reject) => {
-    map.value = new OlMap({ ...props });
+    const view: View | undefined = { ...$OlMapConfig.map?.view };
+    const controls: VMap["controls"] | undefined = { ...$OlMapConfig.map?.controls };
+    const interactions: VMap["interactions"] | undefined = { ...$OlMapConfig.map?.interactions };
+    let options: VMap = { ...props };
+    if (view && Object.keys(view).length > 0) {
+      if (!options.view || Object.keys(options.view).length <= 0) options.view = view;
+    }
+    if (controls && Object.keys(controls).length > 0) {
+      if (!options.controls || Object.keys(options.controls).length <= 0) options.controls = controls;
+    }
+    if (interactions && Object.keys(interactions).length > 0) {
+      if (!options.interactions || Object.keys(options.interactions).length <= 0) options.interactions = interactions;
+    }
+    map.value = new OlMap({ ...options });
     if (map.value.map) {
       resolve("success");
       load.value = true;

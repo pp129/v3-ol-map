@@ -3,6 +3,7 @@ import "@/style.css";
 import App from "@/App.vue";
 import router from "@/router";
 import olMap from "./packages/index.ts";
+
 const app = createApp(App);
 app.use(router);
 // app.use(olMap); // 不配置TDTak加载不了在线天地图
@@ -12,6 +13,12 @@ app.use(olMap, {
   },
   baidu: {
     ak: "5ieMMexWmzB9jivTq6oCRX9j",
+  },
+  map: {
+    view: {
+      zoom: 8,
+      center: [118.125827, 24.637526],
+    },
   },
 });
 app.mount("#app");

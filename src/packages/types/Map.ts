@@ -4,7 +4,7 @@ import { ViewOptions } from "ol/View";
 
 type defMapOptions = Omit<import("ol/Map").MapOptions, "controls" | "interactions" | "view">;
 
-interface View extends ViewOptions {
+export interface View extends ViewOptions {
   city?: string;
 }
 

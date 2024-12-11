@@ -19,6 +19,7 @@ import OlPath from "./path/index.ts";
 import OlRoute from "./route/index.ts";
 import OlEcharts from "./echarts/index.ts";
 import OlConfig from "./config/index.ts";
+import { VMap } from "./types";
 
 const components: Plugin[] = [
   OlMap,
@@ -64,6 +65,7 @@ type AMap = {
   Satellite_Label?: string;
 };
 export declare const configProviderProps: {
+  map: VMap;
   tdt: TDT;
   baidu: Baidu;
   amap: AMap;
@@ -125,8 +127,10 @@ export const makeInstaller = (components: Plugin[] = []) => {
         ...defaultOptions.amap,
         ...options.amap,
       };
+      config.map = { ...options.map };
     }
     app.provide("$OlMapConfig", {
+      map: config.map,
       TDT: config.tdt,
       Baidu: config.tdt,
       AMap: config.tdt,
