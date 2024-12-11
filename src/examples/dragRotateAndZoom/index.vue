@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const controls = {
+import { VMap } from "@/packages";
+
+const controls: VMap["controls"] = {
   zoom: true,
   rotate: true,
 };

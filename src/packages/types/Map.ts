@@ -1,6 +1,7 @@
 import OlMap from "../map/index.vue";
 import MapBrowserEvent from "ol/MapBrowserEvent";
 import { ViewOptions } from "ol/View";
+import { DefaultsOptions } from "ol/control/defaults";
 
 type defMapOptions = Omit<import("ol/Map").MapOptions, "controls" | "interactions" | "view">;
 
@@ -9,7 +10,7 @@ export interface View extends ViewOptions {
 }
 
 export interface VMap extends defMapOptions {
-  controls?: import("ol/interaction/defaults").DefaultsOptions;
+  controls?: import("ol/control/defaults").DefaultsOptions;
   interactions?: import("ol/interaction/defaults").DefaultsOptions;
   view?: View;
 }
