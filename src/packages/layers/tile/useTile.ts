@@ -8,7 +8,7 @@ import OlMap from "../../lib/index.ts";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
 import { defaultOlMapConfig, type ConfigProviderContext } from "../../index.ts";
-import type { BaseTileProps } from "../../types/index.ts";
+import type { BaseTileProps } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
@@ -24,6 +24,7 @@ const tileLayer = ($props: BaseTileProps) => {
 
   let layer = shallowRef<Layer | TileLayer | LayerGroup | null>(null);
   let overviewMap = shallowRef<boolean | undefined>(false);
+  let overviewMapTarget = shallowRef<OverviewMap>();
   let OverviewMapOptions = ref<OverviewMapOptions>();
   provide("ParentTileLayer", layer);
 
@@ -267,15 +268,21 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   const addOverviewMap = () => {
     if (!layer.value) return;
-    const overviewMap = new OverviewMap({
+    overviewMapTarget.value = new OverviewMap({
       ...OverviewMapOptions.value,
       layers: [layer.value],
     });
-    overviewMap.setMap(unref(VMap).map);
+    overviewMapTarget.value.setMap(unref(VMap).map);
   };
   const setOverviewMapOptions = async (options: OverviewMapOptions) => {
     OverviewMapOptions.value = options;
     return Promise.resolve();
+  };
+  const resetOverviewMap = () => {
+    if (overviewMapTarget.value) {
+      unref(VMap).map.removeControl(overviewMapTarget.value);
+      addOverviewMap();
+    }
   };
 
   const setLayerVisible = (visible: boolean) => {
@@ -307,6 +314,7 @@ const tileLayer = ($props: BaseTileProps) => {
     init,
     resetTile,
     setOverviewMapOptions,
+    resetOverviewMap,
     setLayerVisible,
     getLayer,
     clearTile,

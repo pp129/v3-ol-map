@@ -11,6 +11,12 @@ export default {
       tdt: {
         ak: "88e2f1d5ab64a7477a7361edd6b5f68a", // 天地图ak
       },
+      map: {
+        view: {
+          zoom: 8,
+          center: [118.125827, 24.637526],
+        },
+      },
     });
     app.component("preview", Preview);
   },

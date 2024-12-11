@@ -13,8 +13,12 @@ import OlFeature from "./feature/index.ts";
 import OlCluster from "./layers/cluster/index.ts";
 import OlOverlay from "./overlay/index.ts";
 import OlOverview from "./controls/OverviewMap/index.ts";
+import OlZoomSlider from "./controls/ZoomSlider/index.ts";
+import OlFullScreen from "./controls/FullScreen/index.ts";
+import OlScaleLine from "./controls/ScaleLine/index.ts";
 import OlDraw from "./interaction/draw/index.ts";
 import OlMeasure from "./interaction/measure/index.ts";
+import OlDragRotateAndZoom from "./interaction/DragRotateAndZoom/index.ts";
 import OlPath from "./path/index.ts";
 import OlRoute from "./route/index.ts";
 import OlEcharts from "./echarts/index.ts";
@@ -35,8 +39,12 @@ const components: Plugin[] = [
   OlCluster,
   OlOverlay,
   OlOverview,
+  OlZoomSlider,
+  OlFullScreen,
+  OlScaleLine,
   OlDraw,
   OlMeasure,
+  OlDragRotateAndZoom,
   OlPath,
   OlRoute,
   OlEcharts,

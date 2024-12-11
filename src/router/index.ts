@@ -123,12 +123,12 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    name: "overview",
-    path: "/overview",
-    component: () => import("@/examples/overview/index.vue"),
+    name: "controls",
+    path: "/controls",
+    component: () => import("@/examples/controls/index.vue"),
     meta: {
-      title: "鹰眼",
-      description: "鹰眼示例",
+      title: "controls",
+      description: "控制类示例集合",
     },
   },
   {
@@ -147,6 +147,15 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: "测量",
       description: "测量示例",
+    },
+  },
+  {
+    name: "dragRotateAndZoom",
+    path: "/dragRotateAndZoom",
+    component: () => import("@/examples/dragRotateAndZoom/index.vue"),
+    meta: {
+      title: "拖拽旋转和缩放",
+      description: "拖拽旋转和缩放",
     },
   },
   {

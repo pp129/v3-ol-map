@@ -11,8 +11,12 @@ import OlCluster from "./layers/cluster/index.vue";
 import OlWind from "./layers/wind/index.vue";
 import OlOverlay from "./overlay/index.vue";
 import OlOverview from "./controls/OverviewMap/index.vue";
+import OlZoomSlider from "./controls/ZoomSlider/index.vue";
+import OlFullScreen from "./controls/FullScreen/index.vue";
+import OlScaleLine from "./controls/ScaleLine/index.vue";
 import OlDraw from "./interaction/draw/draw.ts";
 import OlMeasure from "./interaction/measure/measure.ts";
+import OlDragRotateAndZoom from "./interaction/DragRotateAndZoom/index.vue";
 import OlPath from "./path/path.ts";
 import OlRoute from "./route/index.vue";
 import OlEcharts from "./echarts/index.vue";
@@ -32,8 +36,12 @@ export {
   OlCluster,
   OlOverlay,
   OlOverview,
+  OlZoomSlider,
+  OlFullScreen,
+  OlScaleLine,
   OlDraw,
   OlMeasure,
+  OlDragRotateAndZoom,
   OlPath,
   OlRoute,
   OlEcharts,
@@ -56,8 +64,12 @@ declare module "vue" {
     OlCluster: typeof OlCluster;
     OlOverlay: typeof OlOverlay;
     OlOverview: typeof OlOverview;
+    OlZoomSlider: typeof OlZoomSlider;
+    OlFullScreen: typeof OlFullScreen;
+    OlScaleLine: typeof OlScaleLine;
     OlDraw: typeof OlDraw;
     OlMeasure: typeof OlMeasure;
+    OlDragRotateAndZoom: typeof OlDragRotateAndZoom;
     OlPath: typeof OlPath;
     OlRoute: typeof OlRoute;
     OlEcharts: typeof OlEcharts;

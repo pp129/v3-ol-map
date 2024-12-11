@@ -9,7 +9,11 @@
 
 - 地图 ol-mao
 - 配置项 ol-config
-- 鹰眼 ol-overview
+- 控制类 controls
+  - 鹰眼 ol-overview
+  - 比例尺 ol-scale-line
+  - 全屏 ol-full-screen
+  - 缩放滚轮 ol-zoom-slider
 - 图层
   - 矢量图层 ol-vector
     - WFS图层 ol-wfs
@@ -25,8 +29,10 @@
 - 结合echarts ol-echarts (基于[ol-echarts](https://github.com/sakitam-fdd/ol3Echarts)实现)
 - 风场 ol-wind （基于[ol-wind](https://github.com/sakitam-fdd/wind-layer/tree/master/packages/ol)实现）
 - 轨迹动画 ol-path
-- 绘制 ol-draw
-- 测量 ol-measure
+- 交互类 interaction
+  - 绘制 ol-draw
+  - 测量 ol-measure
+  - 拖拽旋转和缩放 ol-drag-rotate-and-zoom
 - 兴趣点/面 ol-pin
 
 __相较于v-ol-map,暂不支持的设置或功能:__
