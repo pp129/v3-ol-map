@@ -10,6 +10,7 @@ html.dark .shiki span {
 
 .shiki {
   padding: 18px 24px;
+  font-size: 12px;
 }
 
 a {
@@ -29,7 +30,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.3em 0.6em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;

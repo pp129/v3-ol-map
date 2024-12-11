@@ -22,27 +22,41 @@ export default defineConfig(()=> {
         {
           text: "Examples",
           items: [
-            { text: "配置项", link: "/ol-config" },
-            { text: "地图", link: "/ol-map" },
-            { text: "鹰眼图", link: "/ol-overview" },
+            { text: "配置项", link: "/examples/ol-config" },
+            { text: "地图", link: "/examples/ol-map" },
+            {
+              text: "控制类组件",
+              items: [
+                { text: "鹰眼图", link: "/examples/ol-overview" },
+                { text: "其他", link: "/examples/other-controls" },
+              ]
+            },
+            {
+              text: "交互类组件",
+              items: [
+                { text: "拖拽旋转和缩放", link: "/examples/ol-drag-rotate-and-zoom" },
+                { text: "测量", link: "/examples/ol-measure" },
+                { text: "绘制", link: "/examples/ol-draw" },
+              ]
+            },
             {
               text: "图层",
               items: [
-                { text: "栅格图层", link: "/ol-tile" },
-                { text: "矢量图层", link: "/ol-vector" },
-                { text: "WFS图层", link: "/ol-wfs" },
-                { text: "WMS图层", link: "/ol-wms" },
-                { text: "GeoTIFF图层", link: "/ol-tiff" },
-                { text: "聚合图层", link: "/ol-cluster" },
-                { text: "热力图", link: "/ol-heatmap" },
-                { text: "风场图", link: "/ol-wind" },
-                { text: "结合echarts", link: "/ol-echarts" },
+                { text: "栅格图层", link: "/examples/ol-tile" },
+                { text: "矢量图层", link: "/examples/ol-vector" },
+                { text: "WFS图层", link: "/examples/ol-wfs" },
+                { text: "WMS图层", link: "/examples/ol-wms" },
+                { text: "GeoTIFF图层", link: "/examples/ol-tiff" },
+                { text: "聚合图层", link: "/examples/ol-cluster" },
+                { text: "热力图", link: "/examples/ol-heatmap" },
+                { text: "风场图", link: "/examples/ol-wind" },
+                { text: "结合echarts", link: "/examples/ol-echarts" },
               ],
             },
-            { text: "轨迹回放", link: "/ol-path" },
-            { text: "路径规划", link: "/ol-route" },
-            { text: "要素", link: "/ol-feature" },
-            { text: "弹框", link: "/ol-overlay" },
+            { text: "要素", link: "/examples/ol-feature" },
+            { text: "弹框", link: "/examples/ol-overlay" },
+            { text: "轨迹回放", link: "/examples/ol-path" },
+            { text: "路径规划", link: "/examples/ol-route" },
           ],
         },
         {

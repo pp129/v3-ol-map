@@ -68,7 +68,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <ol-map>
+  <ol-map :view="{zoom: 3}">
     <ol-tile tile-type="OSM" :source="osm"></ol-tile>
     <ol-wind
       v-if="load"

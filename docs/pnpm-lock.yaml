@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       v3-ol-map:
-        specifier: ^0.0.31
-        version: 0.0.31(echarts@5.5.1)
+        specifier: ^0.0.32
+        version: 0.0.32(echarts@5.5.1)
     devDependencies:
       vitepress:
         specifier: ^1.5.0
@@ -1293,8 +1293,8 @@ packages:
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
 
-  v3-ol-map@0.0.31:
-    resolution: {integrity: sha512-Pnrz8HgOYGaJxi5NoYapF7Pdv3nS46WKnycQfTKK5qB3zOE6qYrjd1NPuoX/EpcRDFQ8L0YDgHaCPRh1ZZ+qAg==}
+  v3-ol-map@0.0.32:
+    resolution: {integrity: sha512-SgGIWZtBvNmBsAAWDlFL1EnVPTkLAVkh8kfGfQszQWEf2m+z7uJx6jCuqOgovXZdxqlSW1HbcvvmlOr5/MU0Rg==}
 
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
@@ -3441,7 +3441,7 @@ snapshots:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
 
-  v3-ol-map@0.0.31(echarts@5.5.1):
+  v3-ol-map@0.0.32(echarts@5.5.1):
     dependencies:
       '@turf/turf': 7.1.0
       nanoid: 5.0.9
