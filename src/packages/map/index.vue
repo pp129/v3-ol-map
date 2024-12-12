@@ -173,7 +173,9 @@ onBeforeUnmount(() => {
   dispose();
 });
 defineExpose({
-  map: map.value?.map,
+  map: () => {
+    return map.value?.map;
+  },
   getMap,
   getLayerById,
   panTo,

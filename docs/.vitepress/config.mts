@@ -28,6 +28,7 @@ export default defineConfig(()=> {
               text: "控制类组件",
               items: [
                 { text: "鹰眼图", link: "/examples/ol-overview" },
+                { text: "鼠标位置", link: "/examples/ol-mouse-position" },
                 { text: "其他", link: "/examples/other-controls" },
               ]
             },
@@ -44,6 +45,7 @@ export default defineConfig(()=> {
               items: [
                 { text: "栅格图层", link: "/examples/ol-tile" },
                 { text: "矢量图层", link: "/examples/ol-vector" },
+                { text: "WebGLVector图层", link: "/examples/ol-webgl-vector" },
                 { text: "WFS图层", link: "/examples/ol-wfs" },
                 { text: "WMS图层", link: "/examples/ol-wms" },
                 { text: "GeoTIFF图层", link: "/examples/ol-tiff" },

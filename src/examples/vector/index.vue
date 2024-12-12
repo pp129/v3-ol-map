@@ -202,7 +202,7 @@ onMounted(() => {
   <ol-map :view="view" @dblclick="handleDblclick">
     <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
     <ol-vector
-      ref="vector"
+      ref="vectorRef"
       :layer-style="layerStyle"
       :z-index="1"
       @singleclick="onClickLayer"

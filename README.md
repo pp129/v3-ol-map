@@ -17,6 +17,7 @@
   - 鼠标位置 ol-mouse-position
 - 图层
   - 矢量图层 ol-vector
+  - 基于WebGL的矢量图层 ol-webgl-vector
     - WFS图层 ol-wfs
   - 瓦片图层 ol-tile
   - 图像图层 ol-image

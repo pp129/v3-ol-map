@@ -2,7 +2,7 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://github.com/pp129/v3-ol-map",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "main": "lib/v3-ol-map.umd.js",
   "types": "es/index.d.ts",
   "files": [
@@ -25,7 +25,7 @@
   "dependencies": {
     "@turf/turf": "^7.1.0",
     "nanoid": "^5.0.7",
-    "ol": "^10.1.0",
+    "ol": "^10.3.1",
     "ol-echarts": "^4.0.1",
     "ol-wind": "^1.1.9",
     "pinyin-pro": "^3.26.0",

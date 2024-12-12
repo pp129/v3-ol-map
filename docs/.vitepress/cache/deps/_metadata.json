@@ -1,55 +1,55 @@
 {
-  "hash": "19b5d634",
+  "hash": "c3f5cc98",
   "configHash": "41a05184",
-  "lockfileHash": "61dd0971",
-  "browserHash": "1794704e",
+  "lockfileHash": "b78f96f3",
+  "browserHash": "e80ec242",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/.pnpm/vue@3.5.13/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "6d2756d9",
+      "fileHash": "3611248d",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/.pnpm/@vue+devtools-api@7.6.7/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "94469a74",
+      "fileHash": "a55feac0",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/.pnpm/@vueuse+core@11.3.0_vue@3.5.13/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "3be3cd3c",
+      "fileHash": "16266ca7",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../node_modules/.pnpm/@vueuse+integrations@11.3.0_focus-trap@7.6.2_vue@3.5.13/node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "9a11d3a4",
+      "fileHash": "d90342c4",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../node_modules/.pnpm/mark.js@8.11.1/node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "8f18d53e",
+      "fileHash": "120f5804",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../node_modules/.pnpm/minisearch@7.1.1/node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "09295725",
+      "fileHash": "43bfb091",
       "needsInterop": false
     },
     "v3-ol-map": {
-      "src": "../../../node_modules/.pnpm/v3-ol-map@0.0.32_echarts@5.5.1/node_modules/v3-ol-map/lib/v3-ol-map.umd.js",
+      "src": "../../../node_modules/.pnpm/v3-ol-map@0.0.35_echarts@5.5.1/node_modules/v3-ol-map/lib/v3-ol-map.umd.js",
       "file": "v3-ol-map.js",
-      "fileHash": "012e5182",
+      "fileHash": "c504504a",
       "needsInterop": true
     },
     "shiki": {
       "src": "../../../node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/index.mjs",
       "file": "shiki.js",
-      "fileHash": "3c02dbf0",
+      "fileHash": "22325a17",
       "needsInterop": false
     }
   },

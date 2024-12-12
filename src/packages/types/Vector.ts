@@ -8,7 +8,7 @@ import { Options as GeoJSONOptions } from "ol/format/GeoJSON";
 import { Options } from "ol/proj/Projection";
 import { WriteGetFeatureOptions } from "ol/format/WFS";
 import type { FeatureStyle } from "@/packages/types/Style";
-import Vector from "../layers/vector/index.vue";
+import OlVector from "../layers/vector/index.vue";
 
 type defaultVectorOptions = Omit<LayerOptions, "source" | "style">;
 
@@ -26,10 +26,12 @@ export interface VectorSourceOptions extends SourceOptions {
   formatOptions?: FormatOptions;
   wfsOptions?: WriteGetFeatureOptions;
 }
+
+export declare type WebGLStyle = import("ol/style/webgl.js").WebGLStyle;
 export interface VectorLayerOptions extends defaultVectorOptions {
   layerId?: string;
   source?: VectorSourceOptions;
-  layerStyle?: LayerOptions["style"] | DefaultStyle;
+  layerStyle?: LayerOptions["style"] | DefaultStyle | WebGLStyle;
   featureStyle?: FeatureStyle;
   modify?: boolean;
 }
@@ -41,4 +43,4 @@ export interface ExposeVector {
   getLayer: () => VectorLayer | undefined;
 }
 
-export declare type OlVectorInstance = InstanceType<typeof Vector>;
+export declare type OlVectorInstance = InstanceType<typeof OlVector>;

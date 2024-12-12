@@ -60,6 +60,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "webGLVector",
+    path: "/webGLVector",
+    component: () => import("@/examples/webGLVector/index.vue"),
+    meta: {
+      title: "WebGLVectorLayer",
+      description: "基于WebGLVector渲染路况数据",
+    },
+  },
+  {
     name: "featureStyle",
     path: "/featureStyle",
     component: () => import("@/examples/featureStyle/index.vue"),

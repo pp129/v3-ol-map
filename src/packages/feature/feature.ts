@@ -35,8 +35,8 @@ import {
   GeoMultiPolygon,
   GeoPoint,
   GeoPolygon,
-} from "../types/index.ts";
-import { ExposeFeature } from "../types/index.ts";
+} from "../types";
+import { ExposeFeature } from "../types";
 import { setFeatureStyle } from "../utils/style.ts";
 
 const OlFeature = defineComponent({
@@ -285,9 +285,10 @@ const OlFeature = defineComponent({
         // 如果是聚合图层，获取聚合图层的source
         if (layer.value.getSource()) source = (layer.value.getSource() as Cluster<Feature>).getSource();
       }
-      if (sourceFeatures.value) {
-        source?.removeFeatures(sourceFeatures.value ?? []);
-      }
+      // if (sourceFeatures.value) {
+      //   source?.removeFeatures(sourceFeatures.value ?? []);
+      // }
+      source?.clear();
       if (!value) return;
       addFeatures();
     };

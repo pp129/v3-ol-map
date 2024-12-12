@@ -15,7 +15,7 @@ importers:
         specifier: ^5.0.7
         version: 5.0.9
       ol:
-        specifier: ^10.1.0
+        specifier: ^10.3.1
         version: 10.3.1
       ol-echarts:
         specifier: ^4.0.1

@@ -9,10 +9,13 @@ const view: VMap["view"] = {
   smoothExtentConstraint: true,
   constrainResolution: true,
 };
+const handleClick = () => {
+  console.log(mapContainer.value);
+};
 </script>
 
 <template>
-  <ol-map ref="mapContainer" class="mapContainer" :view="view">
+  <ol-map ref="mapContainer" class="mapContainer" :view="view" @singleclick="handleClick">
     <ol-tile :z-index="0" tile-type="BAIDU" :preload="Infinity"></ol-tile>
   </ol-map>
 </template>
