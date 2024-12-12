@@ -14,6 +14,7 @@
   - 比例尺 ol-scale-line
   - 全屏 ol-full-screen
   - 缩放滚轮 ol-zoom-slider
+  - 鼠标位置 ol-mouse-position
 - 图层
   - 矢量图层 ol-vector
     - WFS图层 ol-wfs

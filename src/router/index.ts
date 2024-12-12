@@ -132,6 +132,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "mousePosition",
+    path: "/mousePosition",
+    component: () => import("@/examples/mousePosition/index.vue"),
+    meta: {
+      title: "mousePosition",
+      description: "鼠标移过位置经纬度",
+    },
+  },
+  {
     name: "draw",
     path: "/draw",
     component: () => import("@/examples/draw/index.vue"),

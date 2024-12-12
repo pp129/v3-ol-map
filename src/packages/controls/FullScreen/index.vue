@@ -24,10 +24,6 @@ watchEffect(() => {
   if (fullScreen.value) map.removeControl(fullScreen.value);
   init();
 });
-
-onMounted(() => {
-  init();
-});
 </script>
 
 <template>

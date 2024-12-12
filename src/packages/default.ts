@@ -16,6 +16,7 @@ import OlOverview from "./controls/OverviewMap/index.ts";
 import OlZoomSlider from "./controls/ZoomSlider/index.ts";
 import OlFullScreen from "./controls/FullScreen/index.ts";
 import OlScaleLine from "./controls/ScaleLine/index.ts";
+import OlMousePosition from "./controls/MousePosition/index.ts";
 import OlDraw from "./interaction/draw/index.ts";
 import OlMeasure from "./interaction/measure/index.ts";
 import OlDragRotateAndZoom from "./interaction/DragRotateAndZoom/index.ts";
@@ -42,6 +43,7 @@ const components: Plugin[] = [
   OlZoomSlider,
   OlFullScreen,
   OlScaleLine,
+  OlMousePosition,
   OlDraw,
   OlMeasure,
   OlDragRotateAndZoom,

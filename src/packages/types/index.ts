@@ -11,6 +11,7 @@ export * from "./ZoomSlider";
 export * from "./FullScreen";
 export * from "./ScaleLine";
 export * from "./DragRotateAndZoom";
+export * from "./MousePosition";
 export * from "./Style";
 export * from "./Tile";
 export * from "./Vector";

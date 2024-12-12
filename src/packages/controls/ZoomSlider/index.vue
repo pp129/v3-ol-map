@@ -26,10 +26,6 @@ watchEffect(() => {
   if (zoomSlider.value) map.removeControl(zoomSlider.value);
   init();
 });
-
-onMounted(() => {
-  init();
-});
 </script>
 
 <template>

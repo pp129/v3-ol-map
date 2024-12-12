@@ -23,9 +23,6 @@ watchEffect(() => {
   if (scaleLine.value) map.removeControl(scaleLine.value);
   init();
 });
-onMounted(() => {
-  init();
-});
 </script>
 
 <template>

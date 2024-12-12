@@ -16,13 +16,9 @@ const props = withDefaults(defineProps<OverviewMapOptions>(), {
   collapsible: true,
 });
 
-const { init, setOverviewMapOptions, resetOverviewMap } = useTileLayer(props);
+const { init, setOverviewMapOptions } = useTileLayer(props);
 
 watchEffect(() => {
-  resetOverviewMap();
-});
-
-onMounted(() => {
   setOverviewMapOptions({
     ...props,
   }).then(() => {

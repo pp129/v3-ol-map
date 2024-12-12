@@ -14,6 +14,7 @@ import OlOverview from "./controls/OverviewMap/index.vue";
 import OlZoomSlider from "./controls/ZoomSlider/index.vue";
 import OlFullScreen from "./controls/FullScreen/index.vue";
 import OlScaleLine from "./controls/ScaleLine/index.vue";
+import OlMousePosition from "./controls/MousePosition/index.vue";
 import OlDraw from "./interaction/draw/draw.ts";
 import OlMeasure from "./interaction/measure/measure.ts";
 import OlDragRotateAndZoom from "./interaction/DragRotateAndZoom/index.vue";
@@ -39,6 +40,7 @@ export {
   OlZoomSlider,
   OlFullScreen,
   OlScaleLine,
+  OlMousePosition,
   OlDraw,
   OlMeasure,
   OlDragRotateAndZoom,
@@ -67,6 +69,7 @@ declare module "vue" {
     OlZoomSlider: typeof OlZoomSlider;
     OlFullScreen: typeof OlFullScreen;
     OlScaleLine: typeof OlScaleLine;
+    OlMousePosition: typeof OlMousePosition;
     OlDraw: typeof OlDraw;
     OlMeasure: typeof OlMeasure;
     OlDragRotateAndZoom: typeof OlDragRotateAndZoom;
