@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { OlMap, OlTile, OlMousePosition } from "v3-ol-map";
 
 const projection = ref("EPSG:4326");
 const coordinateFormat = ref(6);

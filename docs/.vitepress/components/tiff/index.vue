@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VMap, WebGLTileOptions } from "v3-ol-map";
+import { OlMap, OlTile, OlTiff, VMap, WebGLTileOptions } from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 16,

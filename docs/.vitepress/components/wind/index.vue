@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { onBeforeMount, Reactive, reactive, ref, shallowRef } from "vue";
-import { FieldOptions, OlWindInstance, Position, WindLayer, WindLayerEvent, WindOptions, WindData } from "v3-ol-map";
+import {
+  OlMap,
+  OlTile,
+  OlWind,
+  OlOverlay,
+  FieldOptions, OlWindInstance, Position, WindLayer, WindLayerEvent, WindOptions, WindData } from "v3-ol-map";
 
 const windLayer = shallowRef<OlWindInstance>();
 let data = ref();

@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue";
-import { ClusterLayerOptions, OlFeatureInstance, VMap, GeoJSONFeature, FeatureCollection } from "v3-ol-map";
+import {
+  OlMap,
+  OlCluster,
+  OlTile,
+  OlFeature,
+  OlOverlay,
+  ClusterLayerOptions,
+  OlFeatureInstance,
+  VMap,
+  GeoJSONFeature,
+  FeatureCollection,
+} from "v3-ol-map";
 
 
 const view: VMap["view"] = {

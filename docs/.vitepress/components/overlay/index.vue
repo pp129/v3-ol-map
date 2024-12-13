@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue";
 import {
+  OlMap,
+  OlTile,
+  OlVector,
+  OlFeature,
+  OlOverlay,
   GeoJSON,
   GeoJSONFeature,
   VectorLayerOptions,

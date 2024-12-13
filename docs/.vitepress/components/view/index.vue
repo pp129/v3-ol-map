@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { OlMapInstance, VMap } from "v3-ol-map";
+import { OlMap, OlTile, OlMapInstance, VMap } from "v3-ol-map";
 
 const mapContainer = ref<OlMapInstance>();
 const view: VMap["view"] = {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { OverviewMapOptions } from "v3-ol-map";
+import { OverviewMapOptions, OlMap, OlTile, OlOverview } from "v3-ol-map";
 
 const overviewMapOptions: OverviewMapOptions = {
   collapseLabel: "\u00BB",
@@ -12,11 +12,9 @@ const overviewMapOptions: OverviewMapOptions = {
   <ol-map>
     <ol-tile tile-type="BAIDU"></ol-tile>
     <ol-overview
-      tile-type="AMAP"
+      tile-type="BAIDU"
       :collapse-label="overviewMapOptions.collapseLabel"
       :label="overviewMapOptions.label"
     ></ol-overview>
   </ol-map>
 </template>
-
-<style scoped></style>

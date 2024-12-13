@@ -1,6 +1,6 @@
 import { FeatureStyle, VectorLayerOptions, WebGLStyle } from "../types";
 import { inject, ref, shallowRef, unref, watch } from "vue";
-import { Modify } from "ol/interaction";
+import { Modify, Select, Translate } from "ol/interaction";
 import VectorLayer, { Options as LayerOptions } from "ol/layer/Vector";
 import OlMap from "../lib";
 import VectorSource, { Options as SourceOptions } from "ol/source/Vector";
@@ -24,6 +24,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
   let webGLLayer = shallowRef<WebGLVectorLayer>();
   let source = shallowRef<VectorSource>();
   let modifyObj = shallowRef<Modify | undefined>(undefined);
+  let translateObj = shallowRef<Translate | undefined>(undefined);
   let eventRender = ref<any[]>([]);
   const eventList: ["singleclick", "pointermove"] = ["singleclick", "pointermove"];
   let layerReady = ref(false);
@@ -45,8 +46,20 @@ const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
       emit("modifystart", { ...event, metersPerUnit });
     });
   };
+
+  const translateEventsHandler = (translate: Translate) => {
+    translate.on("translateend", event => {
+      emit("translateend", { ...event, metersPerUnit });
+    });
+    translate.on("translatestart", event => {
+      emit("translatestart", { ...event, metersPerUnit });
+    });
+    translate.on("translating", event => {
+      emit("translating", { ...event, metersPerUnit });
+    });
+  };
   const setModify = () => {
-    if (layer && props.modify) {
+    if (layer.value && props.modify) {
       modifyObj.value = new Modify({
         hitDetection: layer.value,
         source: source.value,
@@ -54,6 +67,20 @@ const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
       });
       map.addInteraction(modifyObj.value);
       modifyEventsHandler(modifyObj.value);
+    }
+  };
+
+  const setTranslate = () => {
+    if (layer.value && props.translate) {
+      const select = new Select({
+        layers: [layer.value],
+      });
+      map.addInteraction(select);
+      translateObj.value = new Translate({
+        features: select.getFeatures(),
+      });
+      map.addInteraction(translateObj.value);
+      translateEventsHandler(translateObj.value);
     }
   };
 
@@ -135,6 +162,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
     if (source.value) {
       setTimeout(() => {
         setModify();
+        setTranslate();
       }, 0);
     }
     layer.on("sourceready", evt => {

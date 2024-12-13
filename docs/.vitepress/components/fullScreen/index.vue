@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { OlMap, OlTile, OlFullScreen } from "v3-ol-map";
+
 const controls = {
   zoom: true,
 };

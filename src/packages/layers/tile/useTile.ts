@@ -7,7 +7,7 @@ import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib/index.ts";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
-import { defaultOlMapConfig, type ConfigProviderContext } from "../../index.ts";
+import { defaultOlMapConfig, type ConfigProviderContext, ConfigProviderProps } from "../../index.ts";
 import type { BaseTileProps } from "../../types";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
@@ -16,8 +16,8 @@ import BaseLayer from "ol/layer/Base";
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
-  const configProvider = inject("ConfigProvide") as ConfigProviderContext;
-  const $OlMapConfig = configProvider || (inject("$OlMapConfig") as ConfigProviderContext);
+  const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide");
+  const $OlMapConfig = configProvider ?? (inject("$OlMapConfig") as ConfigProviderContext);
   let props = $props;
 
   // 默认属性
@@ -104,7 +104,7 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 天地图-矢量图-带标注
   const initTileTD = (style?: string) => {
-    const TDT = { ...defaultOlMapConfig.tdt, ...$OlMapConfig.tdt };
+    const TDT = { ...defaultOlMapConfig.tdt, ...$OlMapConfig?.tdt };
     let { Normal, Normal_Label, Satellite, Satellite_Label, Terrain, Terrain_Label, ak } = TDT;
     try {
       if (!ak) {
@@ -171,7 +171,7 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 百度地图
   const initTileBaidu = (style?: string) => {
-    const Baidu = { ...defaultOlMapConfig.baidu, ...$OlMapConfig.baidu };
+    const Baidu = { ...defaultOlMapConfig.baidu, ...$OlMapConfig?.baidu };
     let { Normal, Satellite, Satellite_Label, midnight, ak } = Baidu;
     if (!style || style === "Normal") {
       if (Normal) {
@@ -203,7 +203,7 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   // 高德地图
   const initTileAMap = (style?: string) => {
-    const AMap = { ...defaultOlMapConfig.amap, ...$OlMapConfig.amap };
+    const AMap = { ...defaultOlMapConfig.amap, ...$OlMapConfig?.amap };
     let { Normal, Satellite, Satellite_Label } = AMap;
     if (!style || style === "Normal") {
       const sourceOptions = {

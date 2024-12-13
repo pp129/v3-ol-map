@@ -193,6 +193,9 @@ const onSourceReady = () => {
   const layer = vectorRef.value?.getLayer();
   console.log(layer?.getSource());
 };
+const translateend = (evt: any) => {
+  console.log(evt);
+};
 onMounted(() => {
   getVectorData();
 });
@@ -208,7 +211,17 @@ onMounted(() => {
       @singleclick="onClickLayer"
       @sourceready="onSourceReady"
     >
-      <ol-feature :geo-json="geojson" :geometries="geometryData" />
+      <ol-feature :geo-json="geojson" />
+    </ol-vector>
+    <ol-vector
+      :layer-style="layerStyle"
+      :z-index="1"
+      :translate="true"
+      @singleclick="onClickLayer"
+      @sourceready="onSourceReady"
+      @translateend="translateend"
+    >
+      <ol-feature :geometries="geometryData" />
     </ol-vector>
     <ol-overlay :position="position" :class="['overlay']" positioning="bottom-center" :offset="[0, -20]">
       <i class="close" @click="position = undefined">&times;</i>

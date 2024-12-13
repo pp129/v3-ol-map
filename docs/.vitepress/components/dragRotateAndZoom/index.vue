@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VMap } from "v3-ol-map";
+import { VMap, OlMap, OlTile, OlDragRoateAndZoom } from "v3-ol-map";
 
 const controls: VMap["controls"] = {
   zoom: true,
@@ -14,5 +14,3 @@ const rotate = -Math.PI / 8;
     <ol-drag-rotate-and-zoom></ol-drag-rotate-and-zoom>
   </ol-map>
 </template>
-
-<style scoped></style>

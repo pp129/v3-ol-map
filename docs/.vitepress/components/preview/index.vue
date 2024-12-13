@@ -17,7 +17,7 @@ const state = reactive({
 
 const html = async (comp: string) => {
   //@ts-ignore
-  const code = await import(`../../components/${comp}/index.vue?raw`);
+  const code = await import(`@comp/${comp}/index.vue?raw`);
   return codeToHtml(code.default, {
     themes: {
       light: "github-light",

@@ -2,7 +2,7 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://github.com/pp129/v3-ol-map",
-  "version": "0.0.35",
+  "version": "0.0.39",
   "main": "lib/v3-ol-map.umd.js",
   "types": "es/index.d.ts",
   "files": [
@@ -23,6 +23,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@duannx/vue-client-only": "^1.0.3",
     "@turf/turf": "^7.1.0",
     "nanoid": "^5.0.7",
     "ol": "^10.3.1",

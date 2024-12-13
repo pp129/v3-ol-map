@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { OptionsTypes } from "v3-ol-map";
+import { OptionsTypes, OlMap, OlTile, OlEcharts } from "v3-ol-map";
 
 let echartsOptions = ref<any>();
 const options: OptionsTypes = {

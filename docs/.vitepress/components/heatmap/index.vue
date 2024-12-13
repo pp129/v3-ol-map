@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { GeoJSON, VMap } from "v3-ol-map";
+import { OlMap, OlTile, OlHeatmap, OlFeature, GeoJSON, VMap } from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 11,

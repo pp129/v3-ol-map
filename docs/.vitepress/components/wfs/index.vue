@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VMap, WFSOptions, FeatureStyle } from "v3-ol-map";
+import { OlMap, OlVector, OlWfs, VMap, WFSOptions, FeatureStyle } from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 11,

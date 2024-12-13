@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { FeatureGeometry, GeoCircle, VectorLayerOptions } from "v3-ol-map";
+import {
+  OlMap,
+  OlVector,
+  OlFeature,
+  FeatureGeometry,
+  GeoCircle,
+  VectorLayerOptions
+} from "v3-ol-map";
 import { ref } from "vue";
 
 const layerStyle: VectorLayerOptions["layerStyle"] = {

@@ -34,6 +34,7 @@ export interface VectorLayerOptions extends defaultVectorOptions {
   layerStyle?: LayerOptions["style"] | DefaultStyle | WebGLStyle;
   featureStyle?: FeatureStyle;
   modify?: boolean;
+  translate?: boolean;
 }
 
 export interface ExposeVector {

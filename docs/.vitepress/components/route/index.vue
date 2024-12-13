@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { nextTick, reactive, ref, shallowRef, watch } from "vue";
-import { FeatureStyle, OlMapInstance, OlRouteInstance, RouteOptions, StopPoint, VMap } from "v3-ol-map";
+import {
+  OlMap,
+  OlTile,
+  OlRoute,
+  FeatureStyle,
+  OlMapInstance,
+  OlRouteInstance,
+  RouteOptions,
+  StopPoint,
+  VMap
+} from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 12,

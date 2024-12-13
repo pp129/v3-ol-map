@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { FeatureGeometry, FeatureStyle, VMap } from "v3-ol-map";
+import {
+  OlMap,
+  OlTile,
+  OlVector,
+  OlFeature,
+  FeatureGeometry,
+  FeatureStyle,
+  VMap
+} from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 13,

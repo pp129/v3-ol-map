@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import { GeoJSON, SourceXYZ, VMap, VectorLayerOptions } from "v3-ol-map";
+import { OlMap, OlTile, SourceXYZ, VMap } from "v3-ol-map";
+
 const view: VMap["view"] = {
   zoom: 11,
   center: [118.12582777425764, 24.637526109241485],
@@ -25,29 +26,6 @@ const handleSelect = () => {
     source.value.projection = "EPSG:3857";
   }
 };
-const layerStyle: VectorLayerOptions["layerStyle"] = {
-  "text-value": ["get", "name"],
-  "text-fill-color": "white",
-  "text-background-fill-color": "orange",
-  "text-offset-y": 28,
-  "text-padding": [2, 8, 2, 8],
-  "icon-src": "https://raw.githubusercontent.com/pp129/v3-ol-map/refs/heads/main/src/assets/images/cluster2.png",
-};
-let geojson = ref<GeoJSON>({
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [118.11022, 24.490474],
-      },
-      properties: {
-        name: "测试点",
-      },
-    },
-  ],
-});
 </script>
 
 <template>
@@ -57,12 +35,8 @@ let geojson = ref<GeoJSON>({
         {{ item.label }}
       </option>
     </select>
-
     <ol-tile tile-type="XYZ" :source="source" :z-index="1"></ol-tile>
     <ol-tile v-if="tileType === 'ocean-land'" tile-type="TDT" :z-index="0"></ol-tile>
-    <ol-vector :layer-style="layerStyle" :z-index="2">
-      <ol-feature :geo-json="geojson"></ol-feature>
-    </ol-vector>
   </ol-map>
 </template>
 

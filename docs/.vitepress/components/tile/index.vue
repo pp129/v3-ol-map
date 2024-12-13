@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import { SourceOptions, TileType, VMap } from "v3-ol-map";
+import { OlMap, OlTile, SourceOptions, TileType, VMap } from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 11,

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref } from "vue";
-import { SourceOptions, TileType, VMap } from "@/packages";
-
+import type { SourceOptions, TileType, VMap } from "@/packages";
 const view: VMap["view"] = {
   zoom: 11,
   center: [118.12582777425764, 24.637526109241485],

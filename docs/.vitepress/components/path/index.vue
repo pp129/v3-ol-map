@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref, shallowRef } from "vue";
-import { OlMapInstance, OlPathInstance, PathOptions, VMap } from "v3-ol-map";
+import {
+  OlMap,
+  OlTile,
+  OlPath,
+  OlMapInstance,
+  OlPathInstance,
+  PathOptions,
+  VMap
+} from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 10,

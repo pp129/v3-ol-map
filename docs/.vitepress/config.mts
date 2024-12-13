@@ -1,11 +1,13 @@
 import { defineConfig } from "vitepress";
 import crypto from "node:crypto";
 import { Worker } from "node:worker_threads";
+import { resolve } from "path";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig(()=> {
   globalThis.Worker ??= Worker;
   globalThis.crypto ??= crypto;
-
+  console.log(__dirname);
   return {
     base: "/",
     lang: "zh-CN",
@@ -16,7 +18,7 @@ export default defineConfig(()=> {
       nav: [
         { text: "Home", link: "/" },
         { text: "Examples", link: "/markdown-examples" },
-        { text: "API", link: "/api-examples" },
+        // { text: "API", link: "/api-examples" },
       ],
       sidebar: [
         {
@@ -61,9 +63,9 @@ export default defineConfig(()=> {
             { text: "路径规划", link: "/examples/ol-route" },
           ],
         },
-        {
-          text: "API",
-        },
+        // {
+        //   text: "API",
+        // },
       ],
       socialLinks: [{ icon: "github", link: "https://github.com/pp129/v3-ol-map" }],
       outline: {
@@ -76,6 +78,15 @@ export default defineConfig(()=> {
     vite: {
       server: {
         open: true,
+      },
+      resolve: {
+        extensions: [".ts", ".vue", ".js", ".json", ".css", ".node", ".sass", "md"],
+        alias: [
+          {
+            find: "@comp",
+            replacement: resolve(__dirname, "components"),
+          },
+        ],
       }
     },
   }

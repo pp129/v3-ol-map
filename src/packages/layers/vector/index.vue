@@ -37,6 +37,9 @@ const emit: any = defineEmits([
   "addfeature",
   "modifyend",
   "modifystart",
+  "translateend",
+  "translatestart",
+  "translating",
   "change",
 ]);
 

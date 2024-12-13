@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { OlMapEvent, SourceImageWMSOptions, VMap } from "v3-ol-map";
+import {
+  OlMap,
+  OlTile,
+  OlImage,
+  OlWms,
+  OlMapEvent,
+  SourceImageWMSOptions,
+  VMap
+} from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 12,

@@ -13,8 +13,8 @@ defineOptions({
   name: "OlMap",
 });
 
-const configProvider = inject("ConfigProvide") as ConfigProviderContext;
-const $OlMapConfig = configProvider || (inject("$OlMapConfig") as ConfigProviderContext);
+const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide");
+const $OlMapConfig = configProvider ?? (inject("$OlMapConfig") as ConfigProviderContext);
 
 /**
  * 属性继承：ol/Map
@@ -76,9 +76,11 @@ const emit: any = defineEmits([
 ]);
 const init = () => {
   return new Promise((resolve, reject) => {
-    const view: View | undefined = { ...$OlMapConfig.map?.view };
-    const controls: VMap["controls"] | undefined = { ...$OlMapConfig.map?.controls };
-    const interactions: VMap["interactions"] | undefined = { ...$OlMapConfig.map?.interactions };
+    const view: View | undefined = $OlMapConfig ? { ...$OlMapConfig.map?.view } : undefined;
+    const controls: VMap["controls"] | undefined = $OlMapConfig ? { ...$OlMapConfig.map?.controls } : undefined;
+    const interactions: VMap["interactions"] | undefined = $OlMapConfig
+      ? { ...$OlMapConfig.map?.interactions }
+      : undefined;
     let options: VMap = { ...props };
     if (view && Object.keys(view).length > 0) {
       if (!options.view || Object.keys(options.view).length <= 0) options.view = view;

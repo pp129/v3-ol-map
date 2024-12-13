@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { MeasureType, OlMeasureInstance } from "v3-ol-map";
+import { OlMap, OlVector, OlMeasure, MeasureType, OlMeasureInstance } from "v3-ol-map";
 
 let measureType = ref<MeasureType>("");
 const measureTypeOptions = ["length", "area"];

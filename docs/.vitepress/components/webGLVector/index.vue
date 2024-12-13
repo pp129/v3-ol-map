@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, shallowRef } from "vue";
-import { OlMapInstance } from "v3-ol-map";
+import { OlMapInstance, OlMap, OlTile, OlWebglVector, OlFeature } from "v3-ol-map";
 
 const mapRef = shallowRef<OlMapInstance>();
 const url =

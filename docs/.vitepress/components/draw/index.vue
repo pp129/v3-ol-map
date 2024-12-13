@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { DrawType, OlDrawInstance, VectorLayerOptions } from "v3-ol-map";
+import {
+  OlMap,
+  OlDraw,
+  OlVector,
+  DrawType,
+  OlDrawInstance,
+  VectorLayerOptions
+} from "v3-ol-map";
 
 const drawStyle: VectorLayerOptions["layerStyle"] = {
   "fill-color": "rgba(255, 255, 255, 0.2)",
