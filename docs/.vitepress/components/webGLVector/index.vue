@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref, shallowRef } from "vue";
+import { onMounted, shallowRef } from "vue";
 import { OlMapInstance, OlMap, OlTile, OlWebglVector, OlFeature } from "v3-ol-map";
 
 const mapRef = shallowRef<OlMapInstance>();
-const url =
-  "/JointApi/Features/gd_route_clean/JointFeature?ak=3a772a1c9c1245d5905a6f7cd522bbf5";
+const url = "/JointApi/Features/gd_route_clean/JointFeature?ak=3a772a1c9c1245d5905a6f7cd522bbf5";
 const colors = ["#4fd27d", "#ffd045", "#e80e0e", "#b40000", "#8f979c"];
 const style = {
   "stroke-color": [
