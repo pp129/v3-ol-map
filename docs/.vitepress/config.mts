@@ -18,7 +18,6 @@ export default defineConfig(() => {
       nav: [
         { text: "Home", link: "/" },
         { text: "组件", link: "/markdown-examples" },
-        // { text: "API", link: "/api-examples" },
       ],
       sidebar: [
         {
@@ -70,6 +69,7 @@ export default defineConfig(() => {
       socialLinks: [{ icon: "github", link: "https://github.com/pp129/v3-ol-map" }],
       outline: {
         label: "页面导航",
+        level: [2, 3],
       },
       search: {
         provider: "local",
