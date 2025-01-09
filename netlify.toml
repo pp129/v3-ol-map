@@ -19,8 +19,8 @@ for = "/_translations/*"
 x-robots-tag = "noindex"
 
 [[redirects]]
-  from = "/JointApi/*"
-  to = "http://36.248.238.35:8888/:splat"
+  from = "/admin-api/*"
+  to = "http://36.248.238.35:8888/admin-api/:splat"
   status = 200
 
 [[redirects]]
