@@ -16,12 +16,20 @@ export default defineConfig(() => {
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
-        { text: "Home", link: "/" },
-        { text: "组件", link: "/markdown-examples" },
+        // { text: "Home", link: "/" },
+        { text: "指南", link: "/guide/install" },
+        { text: "组件", link: "/examples/ol-config" },
       ],
       sidebar: [
         {
-          text: "Examples",
+          text: "指南",
+          items: [
+            { text: "安装", link: "/guide/install" },
+            { text: "开始", link: "/guide/start" },
+          ],
+        },
+        {
+          text: "组件",
           items: [
             { text: "配置项", link: "/examples/ol-config" },
             { text: "地图", link: "/examples/ol-map" },

@@ -8,11 +8,12 @@ hero:
   tagline: 
   actions:
     - theme: brand
+      text: 指南
+      link: /guide/install
+    - theme: alt
       text: 组件
-      link: /markdown-examples
-#    - theme: alt
-#      text: API
-#      link: /api-examples
+      link: /examples/ol-config
+
 
 features:
   - title: 图层
