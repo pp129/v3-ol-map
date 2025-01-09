@@ -35,14 +35,23 @@ const build = (env: string) => {
   }
 };
 export default defineConfig(({ command, mode }): any => {
-  const { VITE_BASE_URL } = loadEnv(mode, process.cwd());
+  const { VITE_BASE_URL, VITE_JOINT_API_URL } = loadEnv(mode, process.cwd());
   return {
     base: VITE_BASE_URL,
     server: {
-      host: "0.0.0.0",
-      https: false,
+      host: "localhost",
       port: 8080,
       open: true,
+      proxy: {
+        [VITE_JOINT_API_URL]: {
+          target: "http://36.248.238.35:8888/admin-api",
+          changeOrigin: true,
+          rewrite: (path: string) => {
+            const regex = new RegExp(`${VITE_JOINT_API_URL}`, "g");
+            return path.replace(regex, "");
+          },
+        },
+      },
     },
     publicDir: mode === "lib" ? false : "public",
     resolve: {

@@ -4,7 +4,7 @@ import { OlMapInstance } from "@/packages";
 
 const mapRef = shallowRef<OlMapInstance>();
 const url =
-  "http://36.248.238.35:8888/admin-api/Features/gd_route_clean/JointFeature?ak=f5ce622f301640a7a1d9b7d7e1ac5f6b";
+  import.meta.env.VITE_JOINT_API_URL + "/Features/gd_route_clean/JointFeature?ak=" + import.meta.env.VITE_JOINT_AK;
 const colors = ["#4fd27d", "#ffd045", "#e80e0e", "#b40000", "#8f979c"];
 const style = {
   "stroke-color": [

@@ -4,7 +4,7 @@ import { Worker } from "node:worker_threads";
 import { resolve } from "path";
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(()=> {
+export default defineConfig(() => {
   globalThis.Worker ??= Worker;
   globalThis.crypto ??= crypto;
   console.log(__dirname);
@@ -32,7 +32,7 @@ export default defineConfig(()=> {
                 { text: "鹰眼图", link: "/examples/ol-overview" },
                 { text: "鼠标位置", link: "/examples/ol-mouse-position" },
                 { text: "其他", link: "/examples/other-controls" },
-              ]
+              ],
             },
             {
               text: "交互类组件",
@@ -40,7 +40,7 @@ export default defineConfig(()=> {
                 { text: "拖拽旋转和缩放", link: "/examples/ol-drag-rotate-and-zoom" },
                 { text: "测量", link: "/examples/ol-measure" },
                 { text: "绘制", link: "/examples/ol-draw" },
-              ]
+              ],
             },
             {
               text: "图层",
@@ -78,6 +78,16 @@ export default defineConfig(()=> {
     vite: {
       server: {
         open: true,
+        proxy: {
+          "/JointApi": {
+            target: "http://36.248.238.35:8888/admin-api",
+            changeOrigin: true,
+            rewrite: (path: string) => {
+              const regex = new RegExp("/JointApi", "g");
+              return path.replace(regex, "");
+            },
+          },
+        },
       },
       resolve: {
         extensions: [".ts", ".vue", ".js", ".json", ".css", ".node", ".sass", "md"],
@@ -87,7 +97,7 @@ export default defineConfig(()=> {
             replacement: resolve(__dirname, "components"),
           },
         ],
-      }
+      },
     },
-  }
+  };
 });

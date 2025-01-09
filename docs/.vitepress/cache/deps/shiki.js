@@ -6,57 +6,57 @@ import {
   __publicField
 } from "./chunk-MZRSZR5A.js";
 
-// node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/langs.mjs
+// docs/node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/langs.mjs
 var bundledLanguagesInfo = [
   {
     "id": "abap",
     "name": "ABAP",
-    "import": () => import("./abap-DNGOVCM5.js")
+    "import": () => import("./abap-WKUP5IMA.js")
   },
   {
     "id": "actionscript-3",
     "name": "ActionScript",
-    "import": () => import("./actionscript-3-K3F62XTP.js")
+    "import": () => import("./actionscript-3-7LRQ5OIQ.js")
   },
   {
     "id": "ada",
     "name": "Ada",
-    "import": () => import("./ada-QFX3GXYJ.js")
+    "import": () => import("./ada-4SXME56N.js")
   },
   {
     "id": "angular-html",
     "name": "Angular HTML",
-    "import": () => import("./angular-html-HNTEDUYZ.js")
+    "import": () => import("./angular-html-JWFR3ARB.js")
   },
   {
     "id": "angular-ts",
     "name": "Angular TypeScript",
-    "import": () => import("./angular-ts-BAJEAKZZ.js")
+    "import": () => import("./angular-ts-ANEPUSKI.js")
   },
   {
     "id": "apache",
     "name": "Apache Conf",
-    "import": () => import("./apache-3NDHAGA2.js")
+    "import": () => import("./apache-US3WCO6V.js")
   },
   {
     "id": "apex",
     "name": "Apex",
-    "import": () => import("./apex-7MDQCIRJ.js")
+    "import": () => import("./apex-YNFVRKPR.js")
   },
   {
     "id": "apl",
     "name": "APL",
-    "import": () => import("./apl-5IPNGPEN.js")
+    "import": () => import("./apl-BQ47BRA5.js")
   },
   {
     "id": "applescript",
     "name": "AppleScript",
-    "import": () => import("./applescript-DPMGUWMJ.js")
+    "import": () => import("./applescript-RZZI72OJ.js")
   },
   {
     "id": "ara",
     "name": "Ara",
-    "import": () => import("./ara-A7XELHS4.js")
+    "import": () => import("./ara-NVXX3TYJ.js")
   },
   {
     "id": "asciidoc",
@@ -64,27 +64,27 @@ var bundledLanguagesInfo = [
     "aliases": [
       "adoc"
     ],
-    "import": () => import("./asciidoc-NC7RY7K4.js")
+    "import": () => import("./asciidoc-QNKMYLEA.js")
   },
   {
     "id": "asm",
     "name": "Assembly",
-    "import": () => import("./asm-23KAKJDU.js")
+    "import": () => import("./asm-VJXATCXU.js")
   },
   {
     "id": "astro",
     "name": "Astro",
-    "import": () => import("./astro-SKXIIEUC.js")
+    "import": () => import("./astro-D2LNXSEW.js")
   },
   {
     "id": "awk",
     "name": "AWK",
-    "import": () => import("./awk-DPWTABDI.js")
+    "import": () => import("./awk-JLXELSSN.js")
   },
   {
     "id": "ballerina",
     "name": "Ballerina",
-    "import": () => import("./ballerina-NVVHOYBX.js")
+    "import": () => import("./ballerina-A6HPVUPS.js")
   },
   {
     "id": "bat",
@@ -92,12 +92,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "batch"
     ],
-    "import": () => import("./bat-XWZLNDXM.js")
+    "import": () => import("./bat-JA6X7BAS.js")
   },
   {
     "id": "beancount",
     "name": "Beancount",
-    "import": () => import("./beancount-YQAKFGKQ.js")
+    "import": () => import("./beancount-4YUYRTXU.js")
   },
   {
     "id": "berry",
@@ -105,22 +105,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "be"
     ],
-    "import": () => import("./berry-7UVVAIUX.js")
+    "import": () => import("./berry-SLAE2OFL.js")
   },
   {
     "id": "bibtex",
     "name": "BibTeX",
-    "import": () => import("./bibtex-BIEZPNA3.js")
+    "import": () => import("./bibtex-FAOWU46X.js")
   },
   {
     "id": "bicep",
     "name": "Bicep",
-    "import": () => import("./bicep-7BQBR5WG.js")
+    "import": () => import("./bicep-DZLM5TVE.js")
   },
   {
     "id": "blade",
     "name": "Blade",
-    "import": () => import("./blade-WOLSFGIB.js")
+    "import": () => import("./blade-OCAXB2UG.js")
   },
   {
     "id": "bsl",
@@ -128,12 +128,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "1c"
     ],
-    "import": () => import("./bsl-6M5YWMKG.js")
+    "import": () => import("./bsl-PLSIWEIR.js")
   },
   {
     "id": "c",
     "name": "C",
-    "import": () => import("./c-QOVZXAFT.js")
+    "import": () => import("./c-QUTPPPBI.js")
   },
   {
     "id": "cadence",
@@ -141,17 +141,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "cdc"
     ],
-    "import": () => import("./cadence-DBHLRWLO.js")
+    "import": () => import("./cadence-OYZ4R245.js")
   },
   {
     "id": "cairo",
     "name": "Cairo",
-    "import": () => import("./cairo-BULMF25G.js")
+    "import": () => import("./cairo-6TSPNTG4.js")
   },
   {
     "id": "clarity",
     "name": "Clarity",
-    "import": () => import("./clarity-5XFEWZDT.js")
+    "import": () => import("./clarity-L6WVZ3ZU.js")
   },
   {
     "id": "clojure",
@@ -159,22 +159,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "clj"
     ],
-    "import": () => import("./clojure-QZK2L66J.js")
+    "import": () => import("./clojure-66F22P75.js")
   },
   {
     "id": "cmake",
     "name": "CMake",
-    "import": () => import("./cmake-6EXKWCDK.js")
+    "import": () => import("./cmake-P76JXGXJ.js")
   },
   {
     "id": "cobol",
     "name": "COBOL",
-    "import": () => import("./cobol-E3FIVOTY.js")
+    "import": () => import("./cobol-BWIEDUND.js")
   },
   {
     "id": "codeowners",
     "name": "CODEOWNERS",
-    "import": () => import("./codeowners-2SKUQMIU.js")
+    "import": () => import("./codeowners-422A33G3.js")
   },
   {
     "id": "codeql",
@@ -182,7 +182,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "ql"
     ],
-    "import": () => import("./codeql-2Y47OXU2.js")
+    "import": () => import("./codeql-PDNYRI7F.js")
   },
   {
     "id": "coffee",
@@ -190,7 +190,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "coffeescript"
     ],
-    "import": () => import("./coffee-MHHCZRSV.js")
+    "import": () => import("./coffee-VANXGHOG.js")
   },
   {
     "id": "common-lisp",
@@ -198,12 +198,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "lisp"
     ],
-    "import": () => import("./common-lisp-ETH273XK.js")
+    "import": () => import("./common-lisp-F7O4ZWK2.js")
   },
   {
     "id": "coq",
     "name": "Coq",
-    "import": () => import("./coq-VNHU57CC.js")
+    "import": () => import("./coq-PC4TASUL.js")
   },
   {
     "id": "cpp",
@@ -211,12 +211,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "c++"
     ],
-    "import": () => import("./cpp-57POMOMV.js")
+    "import": () => import("./cpp-O6TFMRIS.js")
   },
   {
     "id": "crystal",
     "name": "Crystal",
-    "import": () => import("./crystal-THT7MKJY.js")
+    "import": () => import("./crystal-S6XUSTB4.js")
   },
   {
     "id": "csharp",
@@ -225,22 +225,22 @@ var bundledLanguagesInfo = [
       "c#",
       "cs"
     ],
-    "import": () => import("./csharp-5ICSBGCU.js")
+    "import": () => import("./csharp-3SBTLIR7.js")
   },
   {
     "id": "css",
     "name": "CSS",
-    "import": () => import("./css-B6YCY7KF.js")
+    "import": () => import("./css-NEUMBOAF.js")
   },
   {
     "id": "csv",
     "name": "CSV",
-    "import": () => import("./csv-TRZ7XNC5.js")
+    "import": () => import("./csv-QEQFAGZZ.js")
   },
   {
     "id": "cue",
     "name": "CUE",
-    "import": () => import("./cue-6WBOPOAN.js")
+    "import": () => import("./cue-QHU7WATO.js")
   },
   {
     "id": "cypher",
@@ -248,32 +248,32 @@ var bundledLanguagesInfo = [
     "aliases": [
       "cql"
     ],
-    "import": () => import("./cypher-OQKZRFL4.js")
+    "import": () => import("./cypher-EZHKJ2MD.js")
   },
   {
     "id": "d",
     "name": "D",
-    "import": () => import("./d-UNF4X5OW.js")
+    "import": () => import("./d-LX4QNV6W.js")
   },
   {
     "id": "dart",
     "name": "Dart",
-    "import": () => import("./dart-2JJ5ASBC.js")
+    "import": () => import("./dart-VJNFRWIQ.js")
   },
   {
     "id": "dax",
     "name": "DAX",
-    "import": () => import("./dax-2VOVCSB5.js")
+    "import": () => import("./dax-IVJCF5UN.js")
   },
   {
     "id": "desktop",
     "name": "Desktop",
-    "import": () => import("./desktop-QE4SYVWW.js")
+    "import": () => import("./desktop-UVO54QZF.js")
   },
   {
     "id": "diff",
     "name": "Diff",
-    "import": () => import("./diff-A4GU3YKI.js")
+    "import": () => import("./diff-5F47TVE4.js")
   },
   {
     "id": "docker",
@@ -281,32 +281,32 @@ var bundledLanguagesInfo = [
     "aliases": [
       "dockerfile"
     ],
-    "import": () => import("./docker-AM4HVQBX.js")
+    "import": () => import("./docker-E5P4HJMN.js")
   },
   {
     "id": "dotenv",
     "name": "dotEnv",
-    "import": () => import("./dotenv-W4IH4334.js")
+    "import": () => import("./dotenv-EET27LMF.js")
   },
   {
     "id": "dream-maker",
     "name": "Dream Maker",
-    "import": () => import("./dream-maker-7BOW4FHU.js")
+    "import": () => import("./dream-maker-HBN5JRSS.js")
   },
   {
     "id": "edge",
     "name": "Edge",
-    "import": () => import("./edge-5YNO5TF6.js")
+    "import": () => import("./edge-5XB7TWAF.js")
   },
   {
     "id": "elixir",
     "name": "Elixir",
-    "import": () => import("./elixir-6T42L22B.js")
+    "import": () => import("./elixir-H5W4KGNW.js")
   },
   {
     "id": "elm",
     "name": "Elm",
-    "import": () => import("./elm-XKO6NH3V.js")
+    "import": () => import("./elm-GWWBU5JG.js")
   },
   {
     "id": "emacs-lisp",
@@ -314,12 +314,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "elisp"
     ],
-    "import": () => import("./emacs-lisp-XOSOVJ6Q.js")
+    "import": () => import("./emacs-lisp-J4WVENB7.js")
   },
   {
     "id": "erb",
     "name": "ERB",
-    "import": () => import("./erb-QDU3UAZU.js")
+    "import": () => import("./erb-XMLMRCEJ.js")
   },
   {
     "id": "erlang",
@@ -327,17 +327,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "erl"
     ],
-    "import": () => import("./erlang-IW5Y3TYM.js")
+    "import": () => import("./erlang-5FC32EQA.js")
   },
   {
     "id": "fennel",
     "name": "Fennel",
-    "import": () => import("./fennel-CIBXDFCU.js")
+    "import": () => import("./fennel-SXS4FCVQ.js")
   },
   {
     "id": "fish",
     "name": "Fish",
-    "import": () => import("./fish-GZHQOXPE.js")
+    "import": () => import("./fish-HTBWHF6O.js")
   },
   {
     "id": "fluent",
@@ -345,7 +345,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "ftl"
     ],
-    "import": () => import("./fluent-KK7UVGHW.js")
+    "import": () => import("./fluent-XN4MLTEE.js")
   },
   {
     "id": "fortran-fixed-form",
@@ -355,7 +355,7 @@ var bundledLanguagesInfo = [
       "for",
       "f77"
     ],
-    "import": () => import("./fortran-fixed-form-W22BTJ5N.js")
+    "import": () => import("./fortran-fixed-form-5TY6HO7F.js")
   },
   {
     "id": "fortran-free-form",
@@ -367,7 +367,7 @@ var bundledLanguagesInfo = [
       "f08",
       "f18"
     ],
-    "import": () => import("./fortran-free-form-EE5RJ3Y4.js")
+    "import": () => import("./fortran-free-form-QGOLXEWB.js")
   },
   {
     "id": "fsharp",
@@ -376,47 +376,47 @@ var bundledLanguagesInfo = [
       "f#",
       "fs"
     ],
-    "import": () => import("./fsharp-FBJVKBTH.js")
+    "import": () => import("./fsharp-NR4S4M7R.js")
   },
   {
     "id": "gdresource",
     "name": "GDResource",
-    "import": () => import("./gdresource-D6WOUJSZ.js")
+    "import": () => import("./gdresource-4XOYKX5N.js")
   },
   {
     "id": "gdscript",
     "name": "GDScript",
-    "import": () => import("./gdscript-47YXVYMO.js")
+    "import": () => import("./gdscript-J6IKTWP4.js")
   },
   {
     "id": "gdshader",
     "name": "GDShader",
-    "import": () => import("./gdshader-6AKCQGNQ.js")
+    "import": () => import("./gdshader-A7F4DPKV.js")
   },
   {
     "id": "genie",
     "name": "Genie",
-    "import": () => import("./genie-JSMQG3IX.js")
+    "import": () => import("./genie-ZFRZKZPU.js")
   },
   {
     "id": "gherkin",
     "name": "Gherkin",
-    "import": () => import("./gherkin-WP2RXNA5.js")
+    "import": () => import("./gherkin-TV7SJWNA.js")
   },
   {
     "id": "git-commit",
     "name": "Git Commit Message",
-    "import": () => import("./git-commit-T2LKEIQ2.js")
+    "import": () => import("./git-commit-I3KY6H55.js")
   },
   {
     "id": "git-rebase",
     "name": "Git Rebase Message",
-    "import": () => import("./git-rebase-TWRXWP3M.js")
+    "import": () => import("./git-rebase-63GKSEHK.js")
   },
   {
     "id": "gleam",
     "name": "Gleam",
-    "import": () => import("./gleam-I3L6XMB4.js")
+    "import": () => import("./gleam-UY3IFQ4H.js")
   },
   {
     "id": "glimmer-js",
@@ -424,7 +424,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "gjs"
     ],
-    "import": () => import("./glimmer-js-GFFDHFNE.js")
+    "import": () => import("./glimmer-js-42ZXYSKD.js")
   },
   {
     "id": "glimmer-ts",
@@ -432,22 +432,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "gts"
     ],
-    "import": () => import("./glimmer-ts-LGAUIBZF.js")
+    "import": () => import("./glimmer-ts-JYP4U25M.js")
   },
   {
     "id": "glsl",
     "name": "GLSL",
-    "import": () => import("./glsl-M2EVDBLT.js")
+    "import": () => import("./glsl-RKAQFULX.js")
   },
   {
     "id": "gnuplot",
     "name": "Gnuplot",
-    "import": () => import("./gnuplot-VO2TEWZM.js")
+    "import": () => import("./gnuplot-A2W2PCBL.js")
   },
   {
     "id": "go",
     "name": "Go",
-    "import": () => import("./go-3ZNIJD2I.js")
+    "import": () => import("./go-QHPY7FKF.js")
   },
   {
     "id": "graphql",
@@ -455,22 +455,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "gql"
     ],
-    "import": () => import("./graphql-55V3L7YM.js")
+    "import": () => import("./graphql-IKMMUMUA.js")
   },
   {
     "id": "groovy",
     "name": "Groovy",
-    "import": () => import("./groovy-UUFKIIXT.js")
+    "import": () => import("./groovy-GUYPH34H.js")
   },
   {
     "id": "hack",
     "name": "Hack",
-    "import": () => import("./hack-YV57DGGM.js")
+    "import": () => import("./hack-HP7CXMOS.js")
   },
   {
     "id": "haml",
     "name": "Ruby Haml",
-    "import": () => import("./haml-CMELED5U.js")
+    "import": () => import("./haml-UGSUVTRN.js")
   },
   {
     "id": "handlebars",
@@ -478,7 +478,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "hbs"
     ],
-    "import": () => import("./handlebars-EE3A7WZH.js")
+    "import": () => import("./handlebars-WOYT6LR3.js")
   },
   {
     "id": "haskell",
@@ -486,57 +486,57 @@ var bundledLanguagesInfo = [
     "aliases": [
       "hs"
     ],
-    "import": () => import("./haskell-23EVQPCI.js")
+    "import": () => import("./haskell-VNQW7OV5.js")
   },
   {
     "id": "haxe",
     "name": "Haxe",
-    "import": () => import("./haxe-NTPWLT4V.js")
+    "import": () => import("./haxe-3WO47IQF.js")
   },
   {
     "id": "hcl",
     "name": "HashiCorp HCL",
-    "import": () => import("./hcl-D7EWGTJQ.js")
+    "import": () => import("./hcl-ZEXJ5BOX.js")
   },
   {
     "id": "hjson",
     "name": "Hjson",
-    "import": () => import("./hjson-QECOOK3N.js")
+    "import": () => import("./hjson-VJ7KAKJ5.js")
   },
   {
     "id": "hlsl",
     "name": "HLSL",
-    "import": () => import("./hlsl-NL5LY4IX.js")
+    "import": () => import("./hlsl-7Y3O6FOB.js")
   },
   {
     "id": "html",
     "name": "HTML",
-    "import": () => import("./html-3POP7BJE.js")
+    "import": () => import("./html-5LD3U7XX.js")
   },
   {
     "id": "html-derivative",
     "name": "HTML (Derivative)",
-    "import": () => import("./html-derivative-C2HGZOL5.js")
+    "import": () => import("./html-derivative-5SRXAJF5.js")
   },
   {
     "id": "http",
     "name": "HTTP",
-    "import": () => import("./http-P7UJZJWU.js")
+    "import": () => import("./http-YXIN56TF.js")
   },
   {
     "id": "hxml",
     "name": "HXML",
-    "import": () => import("./hxml-7GXKBJ3J.js")
+    "import": () => import("./hxml-642EZPOL.js")
   },
   {
     "id": "hy",
     "name": "Hy",
-    "import": () => import("./hy-CEXD646S.js")
+    "import": () => import("./hy-PVTDKIMC.js")
   },
   {
     "id": "imba",
     "name": "Imba",
-    "import": () => import("./imba-ELUHIUS7.js")
+    "import": () => import("./imba-GRUBJEJD.js")
   },
   {
     "id": "ini",
@@ -544,12 +544,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "properties"
     ],
-    "import": () => import("./ini-FCT3JHDW.js")
+    "import": () => import("./ini-4MVY5DRF.js")
   },
   {
     "id": "java",
     "name": "Java",
-    "import": () => import("./java-GPVZM44L.js")
+    "import": () => import("./java-QLSJRU2K.js")
   },
   {
     "id": "javascript",
@@ -557,42 +557,42 @@ var bundledLanguagesInfo = [
     "aliases": [
       "js"
     ],
-    "import": () => import("./javascript-NM3R4BB4.js")
+    "import": () => import("./javascript-B4RD6RWE.js")
   },
   {
     "id": "jinja",
     "name": "Jinja",
-    "import": () => import("./jinja-44XCMIEL.js")
+    "import": () => import("./jinja-GNY2TEOR.js")
   },
   {
     "id": "jison",
     "name": "Jison",
-    "import": () => import("./jison-GCR7FGW6.js")
+    "import": () => import("./jison-7FGRLORH.js")
   },
   {
     "id": "json",
     "name": "JSON",
-    "import": () => import("./json-HQTGC4CL.js")
+    "import": () => import("./json-4QYUVZBL.js")
   },
   {
     "id": "json5",
     "name": "JSON5",
-    "import": () => import("./json5-4DO2BYV2.js")
+    "import": () => import("./json5-MOIMCOPG.js")
   },
   {
     "id": "jsonc",
     "name": "JSON with Comments",
-    "import": () => import("./jsonc-55AOIQ5Q.js")
+    "import": () => import("./jsonc-O3MIOZVY.js")
   },
   {
     "id": "jsonl",
     "name": "JSON Lines",
-    "import": () => import("./jsonl-LGC3XPVL.js")
+    "import": () => import("./jsonl-7TGL3KSM.js")
   },
   {
     "id": "jsonnet",
     "name": "Jsonnet",
-    "import": () => import("./jsonnet-RRVHJHN5.js")
+    "import": () => import("./jsonnet-MRNVTWMA.js")
   },
   {
     "id": "jssm",
@@ -600,12 +600,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "fsl"
     ],
-    "import": () => import("./jssm-IHQ6YWAL.js")
+    "import": () => import("./jssm-BPHHQSIT.js")
   },
   {
     "id": "jsx",
     "name": "JSX",
-    "import": () => import("./jsx-7PEWBEM7.js")
+    "import": () => import("./jsx-SYUCJQV5.js")
   },
   {
     "id": "julia",
@@ -613,7 +613,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "jl"
     ],
-    "import": () => import("./julia-LETNERD3.js")
+    "import": () => import("./julia-5LVQS6HW.js")
   },
   {
     "id": "kotlin",
@@ -622,7 +622,7 @@ var bundledLanguagesInfo = [
       "kt",
       "kts"
     ],
-    "import": () => import("./kotlin-VFPS3XZP.js")
+    "import": () => import("./kotlin-U5RMYHGD.js")
   },
   {
     "id": "kusto",
@@ -630,12 +630,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "kql"
     ],
-    "import": () => import("./kusto-4XSOLO4D.js")
+    "import": () => import("./kusto-TKMGFK4H.js")
   },
   {
     "id": "latex",
     "name": "LaTeX",
-    "import": () => import("./latex-AFV6SY6Z.js")
+    "import": () => import("./latex-KU3B45D3.js")
   },
   {
     "id": "lean",
@@ -643,37 +643,37 @@ var bundledLanguagesInfo = [
     "aliases": [
       "lean4"
     ],
-    "import": () => import("./lean-YCNVZXPP.js")
+    "import": () => import("./lean-HYAABYUX.js")
   },
   {
     "id": "less",
     "name": "Less",
-    "import": () => import("./less-HF7XAZVM.js")
+    "import": () => import("./less-IKL7VI4V.js")
   },
   {
     "id": "liquid",
     "name": "Liquid",
-    "import": () => import("./liquid-BESSOZGD.js")
+    "import": () => import("./liquid-56366PVD.js")
   },
   {
     "id": "log",
     "name": "Log file",
-    "import": () => import("./log-FMQJEGZH.js")
+    "import": () => import("./log-MYY6K2HK.js")
   },
   {
     "id": "logo",
     "name": "Logo",
-    "import": () => import("./logo-GET5AXWA.js")
+    "import": () => import("./logo-EQT35DGY.js")
   },
   {
     "id": "lua",
     "name": "Lua",
-    "import": () => import("./lua-AX63KNUX.js")
+    "import": () => import("./lua-GRREQVUH.js")
   },
   {
     "id": "luau",
     "name": "Luau",
-    "import": () => import("./luau-XG6DZVY3.js")
+    "import": () => import("./luau-JSN6IVHP.js")
   },
   {
     "id": "make",
@@ -681,7 +681,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "makefile"
     ],
-    "import": () => import("./make-FQIEC4AJ.js")
+    "import": () => import("./make-XNA45MTR.js")
   },
   {
     "id": "markdown",
@@ -689,27 +689,27 @@ var bundledLanguagesInfo = [
     "aliases": [
       "md"
     ],
-    "import": () => import("./markdown-HQSJNHDP.js")
+    "import": () => import("./markdown-M4LJ3UL7.js")
   },
   {
     "id": "marko",
     "name": "Marko",
-    "import": () => import("./marko-GQVZ6XV2.js")
+    "import": () => import("./marko-RMF5SX36.js")
   },
   {
     "id": "matlab",
     "name": "MATLAB",
-    "import": () => import("./matlab-6WXRGOFO.js")
+    "import": () => import("./matlab-ZWIFQ2BY.js")
   },
   {
     "id": "mdc",
     "name": "MDC",
-    "import": () => import("./mdc-M7UBZ3XJ.js")
+    "import": () => import("./mdc-IHOQJF6M.js")
   },
   {
     "id": "mdx",
     "name": "MDX",
-    "import": () => import("./mdx-OTQUHRQC.js")
+    "import": () => import("./mdx-JWW6LYKE.js")
   },
   {
     "id": "mermaid",
@@ -717,7 +717,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "mmd"
     ],
-    "import": () => import("./mermaid-6MF4KWOZ.js")
+    "import": () => import("./mermaid-KCHXPW2B.js")
   },
   {
     "id": "mipsasm",
@@ -725,17 +725,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "mips"
     ],
-    "import": () => import("./mipsasm-XIIAPTLW.js")
+    "import": () => import("./mipsasm-F2A6IQTC.js")
   },
   {
     "id": "mojo",
     "name": "Mojo",
-    "import": () => import("./mojo-V2PRVSNW.js")
+    "import": () => import("./mojo-EIUKPDPF.js")
   },
   {
     "id": "move",
     "name": "Move",
-    "import": () => import("./move-FYBVCCIY.js")
+    "import": () => import("./move-YTEYFSEA.js")
   },
   {
     "id": "narrat",
@@ -743,7 +743,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "nar"
     ],
-    "import": () => import("./narrat-IXXUAYKG.js")
+    "import": () => import("./narrat-GRIYVESJ.js")
   },
   {
     "id": "nextflow",
@@ -751,22 +751,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "nf"
     ],
-    "import": () => import("./nextflow-6FMCRN7D.js")
+    "import": () => import("./nextflow-PAYTWWII.js")
   },
   {
     "id": "nginx",
     "name": "Nginx",
-    "import": () => import("./nginx-UWOQS7HP.js")
+    "import": () => import("./nginx-U7RKBC55.js")
   },
   {
     "id": "nim",
     "name": "Nim",
-    "import": () => import("./nim-CDFSPUO6.js")
+    "import": () => import("./nim-6KKVPF3E.js")
   },
   {
     "id": "nix",
     "name": "Nix",
-    "import": () => import("./nix-NCHY2ONH.js")
+    "import": () => import("./nix-OIJDDMNO.js")
   },
   {
     "id": "nushell",
@@ -774,7 +774,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "nu"
     ],
-    "import": () => import("./nushell-W7ORIQ24.js")
+    "import": () => import("./nushell-JNTSUK7K.js")
   },
   {
     "id": "objective-c",
@@ -782,37 +782,37 @@ var bundledLanguagesInfo = [
     "aliases": [
       "objc"
     ],
-    "import": () => import("./objective-c-CZPMAYPT.js")
+    "import": () => import("./objective-c-R7X5MVYO.js")
   },
   {
     "id": "objective-cpp",
     "name": "Objective-C++",
-    "import": () => import("./objective-cpp-2DNUGYJQ.js")
+    "import": () => import("./objective-cpp-U2LLV7WG.js")
   },
   {
     "id": "ocaml",
     "name": "OCaml",
-    "import": () => import("./ocaml-PELBDF4R.js")
+    "import": () => import("./ocaml-45TATFKT.js")
   },
   {
     "id": "pascal",
     "name": "Pascal",
-    "import": () => import("./pascal-SME5T3ZY.js")
+    "import": () => import("./pascal-EWUSOCMB.js")
   },
   {
     "id": "perl",
     "name": "Perl",
-    "import": () => import("./perl-VNI74V6G.js")
+    "import": () => import("./perl-KQ2XLDXF.js")
   },
   {
     "id": "php",
     "name": "PHP",
-    "import": () => import("./php-IBOE3AYM.js")
+    "import": () => import("./php-SVQLERVF.js")
   },
   {
     "id": "plsql",
     "name": "PL/SQL",
-    "import": () => import("./plsql-4A5EWEA4.js")
+    "import": () => import("./plsql-5M76MQGV.js")
   },
   {
     "id": "po",
@@ -821,17 +821,17 @@ var bundledLanguagesInfo = [
       "pot",
       "potx"
     ],
-    "import": () => import("./po-YRVQTVGP.js")
+    "import": () => import("./po-KM37MGFS.js")
   },
   {
     "id": "postcss",
     "name": "PostCSS",
-    "import": () => import("./postcss-KUAJTMW6.js")
+    "import": () => import("./postcss-TKQHNMGX.js")
   },
   {
     "id": "powerquery",
     "name": "PowerQuery",
-    "import": () => import("./powerquery-JKTLJUKV.js")
+    "import": () => import("./powerquery-PN74AR3G.js")
   },
   {
     "id": "powershell",
@@ -840,17 +840,17 @@ var bundledLanguagesInfo = [
       "ps",
       "ps1"
     ],
-    "import": () => import("./powershell-565W5KVS.js")
+    "import": () => import("./powershell-XVYOFHET.js")
   },
   {
     "id": "prisma",
     "name": "Prisma",
-    "import": () => import("./prisma-HT7254U3.js")
+    "import": () => import("./prisma-HLKRLVSA.js")
   },
   {
     "id": "prolog",
     "name": "Prolog",
-    "import": () => import("./prolog-DRL7TSWR.js")
+    "import": () => import("./prolog-52X5ZQP6.js")
   },
   {
     "id": "proto",
@@ -858,7 +858,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "protobuf"
     ],
-    "import": () => import("./proto-UMEC735X.js")
+    "import": () => import("./proto-PN4SQ7PB.js")
   },
   {
     "id": "pug",
@@ -866,17 +866,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "jade"
     ],
-    "import": () => import("./pug-4UFZEPJJ.js")
+    "import": () => import("./pug-2BC4WW6R.js")
   },
   {
     "id": "puppet",
     "name": "Puppet",
-    "import": () => import("./puppet-ACWFXI4Q.js")
+    "import": () => import("./puppet-G7MG4FYL.js")
   },
   {
     "id": "purescript",
     "name": "PureScript",
-    "import": () => import("./purescript-L5RGGMRJ.js")
+    "import": () => import("./purescript-PARVLPX5.js")
   },
   {
     "id": "python",
@@ -884,32 +884,32 @@ var bundledLanguagesInfo = [
     "aliases": [
       "py"
     ],
-    "import": () => import("./python-TXF4S7FL.js")
+    "import": () => import("./python-3QXZ2WYQ.js")
   },
   {
     "id": "qml",
     "name": "QML",
-    "import": () => import("./qml-R42CJOO7.js")
+    "import": () => import("./qml-7F3BVNZ6.js")
   },
   {
     "id": "qmldir",
     "name": "QML Directory",
-    "import": () => import("./qmldir-QGYPZRI4.js")
+    "import": () => import("./qmldir-6YX7AXIC.js")
   },
   {
     "id": "qss",
     "name": "Qt Style Sheets",
-    "import": () => import("./qss-ZR2ZNEXG.js")
+    "import": () => import("./qss-QWR2OKT7.js")
   },
   {
     "id": "r",
     "name": "R",
-    "import": () => import("./r-6QN5VO6J.js")
+    "import": () => import("./r-Y6QMAVVP.js")
   },
   {
     "id": "racket",
     "name": "Racket",
-    "import": () => import("./racket-RSXGRENU.js")
+    "import": () => import("./racket-RHILH76N.js")
   },
   {
     "id": "raku",
@@ -917,17 +917,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "perl6"
     ],
-    "import": () => import("./raku-ZHGNVW6B.js")
+    "import": () => import("./raku-X6TW5RUE.js")
   },
   {
     "id": "razor",
     "name": "ASP.NET Razor",
-    "import": () => import("./razor-ZTT52J5N.js")
+    "import": () => import("./razor-N3SJANKI.js")
   },
   {
     "id": "reg",
     "name": "Windows Registry Script",
-    "import": () => import("./reg-YL2XSYSM.js")
+    "import": () => import("./reg-7JMEKJCP.js")
   },
   {
     "id": "regexp",
@@ -935,22 +935,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "regex"
     ],
-    "import": () => import("./regexp-TLU5PL2M.js")
+    "import": () => import("./regexp-5BMD6W6C.js")
   },
   {
     "id": "rel",
     "name": "Rel",
-    "import": () => import("./rel-SZBPEJQ7.js")
+    "import": () => import("./rel-62NSQZZK.js")
   },
   {
     "id": "riscv",
     "name": "RISC-V",
-    "import": () => import("./riscv-XU62MV26.js")
+    "import": () => import("./riscv-7VPDHOTQ.js")
   },
   {
     "id": "rst",
     "name": "reStructuredText",
-    "import": () => import("./rst-TVNUTJ2V.js")
+    "import": () => import("./rst-LCDI6BH3.js")
   },
   {
     "id": "ruby",
@@ -958,7 +958,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "rb"
     ],
-    "import": () => import("./ruby-TMPFI2GG.js")
+    "import": () => import("./ruby-7AU7YWVU.js")
   },
   {
     "id": "rust",
@@ -966,32 +966,32 @@ var bundledLanguagesInfo = [
     "aliases": [
       "rs"
     ],
-    "import": () => import("./rust-TL2GGZZ4.js")
+    "import": () => import("./rust-WDSIFYYN.js")
   },
   {
     "id": "sas",
     "name": "SAS",
-    "import": () => import("./sas-FK7FSITY.js")
+    "import": () => import("./sas-45VIWQJZ.js")
   },
   {
     "id": "sass",
     "name": "Sass",
-    "import": () => import("./sass-QSEATBLS.js")
+    "import": () => import("./sass-XCWTLQID.js")
   },
   {
     "id": "scala",
     "name": "Scala",
-    "import": () => import("./scala-EUENP6QE.js")
+    "import": () => import("./scala-C6OLILE4.js")
   },
   {
     "id": "scheme",
     "name": "Scheme",
-    "import": () => import("./scheme-HIRCTHXU.js")
+    "import": () => import("./scheme-RB44QQ57.js")
   },
   {
     "id": "scss",
     "name": "SCSS",
-    "import": () => import("./scss-MVYA3EWI.js")
+    "import": () => import("./scss-TLFIOQSN.js")
   },
   {
     "id": "sdbl",
@@ -999,7 +999,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "1c-query"
     ],
-    "import": () => import("./sdbl-XGVTHBGE.js")
+    "import": () => import("./sdbl-D7UZIHYQ.js")
   },
   {
     "id": "shaderlab",
@@ -1007,7 +1007,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "shader"
     ],
-    "import": () => import("./shaderlab-L53BWL52.js")
+    "import": () => import("./shaderlab-GSAMFK6C.js")
   },
   {
     "id": "shellscript",
@@ -1018,7 +1018,7 @@ var bundledLanguagesInfo = [
       "shell",
       "zsh"
     ],
-    "import": () => import("./shellscript-HI5VHYFK.js")
+    "import": () => import("./shellscript-TTLME6OU.js")
   },
   {
     "id": "shellsession",
@@ -1026,17 +1026,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "console"
     ],
-    "import": () => import("./shellsession-GXL4OCYS.js")
+    "import": () => import("./shellsession-D3HLD6LE.js")
   },
   {
     "id": "smalltalk",
     "name": "Smalltalk",
-    "import": () => import("./smalltalk-O4NEGT6J.js")
+    "import": () => import("./smalltalk-Y53PQ2CW.js")
   },
   {
     "id": "solidity",
     "name": "Solidity",
-    "import": () => import("./solidity-2ZPHQ6VY.js")
+    "import": () => import("./solidity-W4PZCQHN.js")
   },
   {
     "id": "soy",
@@ -1044,12 +1044,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "closure-templates"
     ],
-    "import": () => import("./soy-AT2JYTLY.js")
+    "import": () => import("./soy-XSGRXMBD.js")
   },
   {
     "id": "sparql",
     "name": "SPARQL",
-    "import": () => import("./sparql-BF6JVKVX.js")
+    "import": () => import("./sparql-7ALPXOYX.js")
   },
   {
     "id": "splunk",
@@ -1057,22 +1057,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "spl"
     ],
-    "import": () => import("./splunk-GDJ7HQU3.js")
+    "import": () => import("./splunk-5P4KUM4G.js")
   },
   {
     "id": "sql",
     "name": "SQL",
-    "import": () => import("./sql-QOO2U4M4.js")
+    "import": () => import("./sql-BMXAKWXO.js")
   },
   {
     "id": "ssh-config",
     "name": "SSH Config",
-    "import": () => import("./ssh-config-VXXLSPSV.js")
+    "import": () => import("./ssh-config-BLTWYAVH.js")
   },
   {
     "id": "stata",
     "name": "Stata",
-    "import": () => import("./stata-TJVC4O3M.js")
+    "import": () => import("./stata-TIRF7Q7R.js")
   },
   {
     "id": "stylus",
@@ -1080,27 +1080,27 @@ var bundledLanguagesInfo = [
     "aliases": [
       "styl"
     ],
-    "import": () => import("./stylus-7O5HT3DH.js")
+    "import": () => import("./stylus-27LLBMEU.js")
   },
   {
     "id": "svelte",
     "name": "Svelte",
-    "import": () => import("./svelte-34V46GZF.js")
+    "import": () => import("./svelte-H2F23NKD.js")
   },
   {
     "id": "swift",
     "name": "Swift",
-    "import": () => import("./swift-6P22HXO3.js")
+    "import": () => import("./swift-R3OG2LDD.js")
   },
   {
     "id": "system-verilog",
     "name": "SystemVerilog",
-    "import": () => import("./system-verilog-ARU6YU2H.js")
+    "import": () => import("./system-verilog-QJWYL5DF.js")
   },
   {
     "id": "systemd",
     "name": "Systemd Units",
-    "import": () => import("./systemd-5QFPBQR7.js")
+    "import": () => import("./systemd-F3X5XGVO.js")
   },
   {
     "id": "talonscript",
@@ -1108,22 +1108,22 @@ var bundledLanguagesInfo = [
     "aliases": [
       "talon"
     ],
-    "import": () => import("./talonscript-5VQLW2MD.js")
+    "import": () => import("./talonscript-IJOWHU7F.js")
   },
   {
     "id": "tasl",
     "name": "Tasl",
-    "import": () => import("./tasl-MGAECU6S.js")
+    "import": () => import("./tasl-ZCWSJEOB.js")
   },
   {
     "id": "tcl",
     "name": "Tcl",
-    "import": () => import("./tcl-Z4OLGXFX.js")
+    "import": () => import("./tcl-UMIJURLV.js")
   },
   {
     "id": "templ",
     "name": "Templ",
-    "import": () => import("./templ-FQND2NJA.js")
+    "import": () => import("./templ-PZSQZQ7X.js")
   },
   {
     "id": "terraform",
@@ -1132,17 +1132,17 @@ var bundledLanguagesInfo = [
       "tf",
       "tfvars"
     ],
-    "import": () => import("./terraform-E7LYY24X.js")
+    "import": () => import("./terraform-AMCM4HIB.js")
   },
   {
     "id": "tex",
     "name": "TeX",
-    "import": () => import("./tex-67ZZMIVI.js")
+    "import": () => import("./tex-CKTOK46B.js")
   },
   {
     "id": "toml",
     "name": "TOML",
-    "import": () => import("./toml-UUAIBEIG.js")
+    "import": () => import("./toml-SG7FISC2.js")
   },
   {
     "id": "ts-tags",
@@ -1150,27 +1150,27 @@ var bundledLanguagesInfo = [
     "aliases": [
       "lit"
     ],
-    "import": () => import("./ts-tags-D6N5PE6U.js")
+    "import": () => import("./ts-tags-L6QWCGNC.js")
   },
   {
     "id": "tsv",
     "name": "TSV",
-    "import": () => import("./tsv-Z257SSDA.js")
+    "import": () => import("./tsv-HUUATSMS.js")
   },
   {
     "id": "tsx",
     "name": "TSX",
-    "import": () => import("./tsx-TRHLZLFG.js")
+    "import": () => import("./tsx-B34WGLWD.js")
   },
   {
     "id": "turtle",
     "name": "Turtle",
-    "import": () => import("./turtle-4KYH7F2L.js")
+    "import": () => import("./turtle-DOS3YNWX.js")
   },
   {
     "id": "twig",
     "name": "Twig",
-    "import": () => import("./twig-QMIRO44O.js")
+    "import": () => import("./twig-Y7RWLGQ5.js")
   },
   {
     "id": "typescript",
@@ -1178,7 +1178,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "ts"
     ],
-    "import": () => import("./typescript-ZR4FYIJA.js")
+    "import": () => import("./typescript-K7DFJZB4.js")
   },
   {
     "id": "typespec",
@@ -1186,7 +1186,7 @@ var bundledLanguagesInfo = [
     "aliases": [
       "tsp"
     ],
-    "import": () => import("./typespec-JL27QE7G.js")
+    "import": () => import("./typespec-46ZVY7QV.js")
   },
   {
     "id": "typst",
@@ -1194,17 +1194,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "typ"
     ],
-    "import": () => import("./typst-N6FZLQ6G.js")
+    "import": () => import("./typst-K7R3LSYS.js")
   },
   {
     "id": "v",
     "name": "V",
-    "import": () => import("./v-QIMET7QO.js")
+    "import": () => import("./v-R5QF3UPX.js")
   },
   {
     "id": "vala",
     "name": "Vala",
-    "import": () => import("./vala-PWXE37BL.js")
+    "import": () => import("./vala-FSJ7OWXO.js")
   },
   {
     "id": "vb",
@@ -1212,17 +1212,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "cmd"
     ],
-    "import": () => import("./vb-EXB6X5MR.js")
+    "import": () => import("./vb-MHCO2MCI.js")
   },
   {
     "id": "verilog",
     "name": "Verilog",
-    "import": () => import("./verilog-B2KVGT5C.js")
+    "import": () => import("./verilog-PZE7QFRG.js")
   },
   {
     "id": "vhdl",
     "name": "VHDL",
-    "import": () => import("./vhdl-4C23FKTP.js")
+    "import": () => import("./vhdl-PYDASBS7.js")
   },
   {
     "id": "viml",
@@ -1231,17 +1231,17 @@ var bundledLanguagesInfo = [
       "vim",
       "vimscript"
     ],
-    "import": () => import("./viml-DKPUGESP.js")
+    "import": () => import("./viml-MTQFIZAW.js")
   },
   {
     "id": "vue",
     "name": "Vue",
-    "import": () => import("./vue-EJOCZ46R.js")
+    "import": () => import("./vue-IKTSPQTL.js")
   },
   {
     "id": "vue-html",
     "name": "Vue HTML",
-    "import": () => import("./vue-html-LOD7UN6L.js")
+    "import": () => import("./vue-html-GIJJ4KZN.js")
   },
   {
     "id": "vyper",
@@ -1249,12 +1249,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "vy"
     ],
-    "import": () => import("./vyper-7QD52MXD.js")
+    "import": () => import("./vyper-U7ZHJ2GF.js")
   },
   {
     "id": "wasm",
     "name": "WebAssembly",
-    "import": () => import("./wasm-VTJUAUHS.js")
+    "import": () => import("./wasm-JZ6NAZD7.js")
   },
   {
     "id": "wenyan",
@@ -1262,12 +1262,12 @@ var bundledLanguagesInfo = [
     "aliases": [
       "文言"
     ],
-    "import": () => import("./wenyan-EJCEPXRL.js")
+    "import": () => import("./wenyan-G7GJ3EZT.js")
   },
   {
     "id": "wgsl",
     "name": "WGSL",
-    "import": () => import("./wgsl-ZF7ZVWSN.js")
+    "import": () => import("./wgsl-G637XW5T.js")
   },
   {
     "id": "wikitext",
@@ -1276,7 +1276,7 @@ var bundledLanguagesInfo = [
       "mediawiki",
       "wiki"
     ],
-    "import": () => import("./wikitext-QYNQOQSQ.js")
+    "import": () => import("./wikitext-75XOZR6Y.js")
   },
   {
     "id": "wolfram",
@@ -1284,17 +1284,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "wl"
     ],
-    "import": () => import("./wolfram-UUBBSFFO.js")
+    "import": () => import("./wolfram-2PSICWFS.js")
   },
   {
     "id": "xml",
     "name": "XML",
-    "import": () => import("./xml-GEO7HQKR.js")
+    "import": () => import("./xml-FOOIFWDJ.js")
   },
   {
     "id": "xsl",
     "name": "XSL",
-    "import": () => import("./xsl-W3YITCBD.js")
+    "import": () => import("./xsl-4GIVD65E.js")
   },
   {
     "id": "yaml",
@@ -1302,17 +1302,17 @@ var bundledLanguagesInfo = [
     "aliases": [
       "yml"
     ],
-    "import": () => import("./yaml-3AMKBXAJ.js")
+    "import": () => import("./yaml-BVBPYLNF.js")
   },
   {
     "id": "zenscript",
     "name": "ZenScript",
-    "import": () => import("./zenscript-JFGZUNNT.js")
+    "import": () => import("./zenscript-UESOYTPO.js")
   },
   {
     "id": "zig",
     "name": "Zig",
-    "import": () => import("./zig-366TJQ5N.js")
+    "import": () => import("./zig-JEKPCIZM.js")
   }
 ];
 var bundledLanguagesBase = Object.fromEntries(bundledLanguagesInfo.map((i) => [i.id, i.import]));
@@ -1325,336 +1325,336 @@ var bundledLanguages = {
   ...bundledLanguagesAlias
 };
 
-// node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/themes.mjs
+// docs/node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/themes.mjs
 var bundledThemesInfo = [
   {
     "id": "andromeeda",
     "displayName": "Andromeeda",
     "type": "dark",
-    "import": () => import("./andromeeda-JI6PC5P5.js")
+    "import": () => import("./andromeeda-PTZT6IO3.js")
   },
   {
     "id": "aurora-x",
     "displayName": "Aurora X",
     "type": "dark",
-    "import": () => import("./aurora-x-HHIECX4G.js")
+    "import": () => import("./aurora-x-FX6AOMZI.js")
   },
   {
     "id": "ayu-dark",
     "displayName": "Ayu Dark",
     "type": "dark",
-    "import": () => import("./ayu-dark-USMBU2N5.js")
+    "import": () => import("./ayu-dark-T4VYOBDO.js")
   },
   {
     "id": "catppuccin-frappe",
     "displayName": "Catppuccin Frappé",
     "type": "dark",
-    "import": () => import("./catppuccin-frappe-OUFRP2S6.js")
+    "import": () => import("./catppuccin-frappe-QAZEYZWY.js")
   },
   {
     "id": "catppuccin-latte",
     "displayName": "Catppuccin Latte",
     "type": "light",
-    "import": () => import("./catppuccin-latte-HZ6NZX6I.js")
+    "import": () => import("./catppuccin-latte-GOMLPLKH.js")
   },
   {
     "id": "catppuccin-macchiato",
     "displayName": "Catppuccin Macchiato",
     "type": "dark",
-    "import": () => import("./catppuccin-macchiato-6WPOVILW.js")
+    "import": () => import("./catppuccin-macchiato-FPII5ICC.js")
   },
   {
     "id": "catppuccin-mocha",
     "displayName": "Catppuccin Mocha",
     "type": "dark",
-    "import": () => import("./catppuccin-mocha-64EGOOOR.js")
+    "import": () => import("./catppuccin-mocha-SNJ2YGQA.js")
   },
   {
     "id": "dark-plus",
     "displayName": "Dark Plus",
     "type": "dark",
-    "import": () => import("./dark-plus-C4VJI4TU.js")
+    "import": () => import("./dark-plus-4PXZVYBU.js")
   },
   {
     "id": "dracula",
     "displayName": "Dracula Theme",
     "type": "dark",
-    "import": () => import("./dracula-FXMRBO4P.js")
+    "import": () => import("./dracula-TYEWKESC.js")
   },
   {
     "id": "dracula-soft",
     "displayName": "Dracula Theme Soft",
     "type": "dark",
-    "import": () => import("./dracula-soft-7GHTORLL.js")
+    "import": () => import("./dracula-soft-72NOD6QK.js")
   },
   {
     "id": "everforest-dark",
     "displayName": "Everforest Dark",
     "type": "dark",
-    "import": () => import("./everforest-dark-KYUFJ4PW.js")
+    "import": () => import("./everforest-dark-RCRT2LRS.js")
   },
   {
     "id": "everforest-light",
     "displayName": "Everforest Light",
     "type": "light",
-    "import": () => import("./everforest-light-OUU5SESD.js")
+    "import": () => import("./everforest-light-M6HPO353.js")
   },
   {
     "id": "github-dark",
     "displayName": "GitHub Dark",
     "type": "dark",
-    "import": () => import("./github-dark-IZ5JBOOF.js")
+    "import": () => import("./github-dark-VXV5O3QN.js")
   },
   {
     "id": "github-dark-default",
     "displayName": "GitHub Dark Default",
     "type": "dark",
-    "import": () => import("./github-dark-default-EVF2HP6P.js")
+    "import": () => import("./github-dark-default-HAA5G5UZ.js")
   },
   {
     "id": "github-dark-dimmed",
     "displayName": "GitHub Dark Dimmed",
     "type": "dark",
-    "import": () => import("./github-dark-dimmed-BDXKUCZO.js")
+    "import": () => import("./github-dark-dimmed-BB2Z3S5W.js")
   },
   {
     "id": "github-dark-high-contrast",
     "displayName": "GitHub Dark High Contrast",
     "type": "dark",
-    "import": () => import("./github-dark-high-contrast-3B5VMGC2.js")
+    "import": () => import("./github-dark-high-contrast-5R7M4NKU.js")
   },
   {
     "id": "github-light",
     "displayName": "GitHub Light",
     "type": "light",
-    "import": () => import("./github-light-2JAUFPQF.js")
+    "import": () => import("./github-light-CLQ2UM2M.js")
   },
   {
     "id": "github-light-default",
     "displayName": "GitHub Light Default",
     "type": "light",
-    "import": () => import("./github-light-default-JWMGRYLP.js")
+    "import": () => import("./github-light-default-GF5WMGW7.js")
   },
   {
     "id": "github-light-high-contrast",
     "displayName": "GitHub Light High Contrast",
     "type": "light",
-    "import": () => import("./github-light-high-contrast-ZFJPEKQT.js")
+    "import": () => import("./github-light-high-contrast-24LS2SPB.js")
   },
   {
     "id": "houston",
     "displayName": "Houston",
     "type": "dark",
-    "import": () => import("./houston-TO7CVZQL.js")
+    "import": () => import("./houston-S33FELPI.js")
   },
   {
     "id": "kanagawa-dragon",
     "displayName": "Kanagawa Dragon",
     "type": "dark",
-    "import": () => import("./kanagawa-dragon-ANN7C4VG.js")
+    "import": () => import("./kanagawa-dragon-3YPVIF7F.js")
   },
   {
     "id": "kanagawa-lotus",
     "displayName": "Kanagawa Lotus",
     "type": "light",
-    "import": () => import("./kanagawa-lotus-LDKQOLRK.js")
+    "import": () => import("./kanagawa-lotus-K6HVSXJX.js")
   },
   {
     "id": "kanagawa-wave",
     "displayName": "Kanagawa Wave",
     "type": "dark",
-    "import": () => import("./kanagawa-wave-CBFAJNFU.js")
+    "import": () => import("./kanagawa-wave-ABYXZLOZ.js")
   },
   {
     "id": "laserwave",
     "displayName": "LaserWave",
     "type": "dark",
-    "import": () => import("./laserwave-CYRJVLLO.js")
+    "import": () => import("./laserwave-IYCZYIAA.js")
   },
   {
     "id": "light-plus",
     "displayName": "Light Plus",
     "type": "light",
-    "import": () => import("./light-plus-U4JQL64M.js")
+    "import": () => import("./light-plus-OW3AJDFB.js")
   },
   {
     "id": "material-theme",
     "displayName": "Material Theme",
     "type": "dark",
-    "import": () => import("./material-theme-WG77NGJ5.js")
+    "import": () => import("./material-theme-6S3MM6L2.js")
   },
   {
     "id": "material-theme-darker",
     "displayName": "Material Theme Darker",
     "type": "dark",
-    "import": () => import("./material-theme-darker-RGMY55JJ.js")
+    "import": () => import("./material-theme-darker-PIMJRT6X.js")
   },
   {
     "id": "material-theme-lighter",
     "displayName": "Material Theme Lighter",
     "type": "light",
-    "import": () => import("./material-theme-lighter-2J6DDAQP.js")
+    "import": () => import("./material-theme-lighter-R3SO2WVQ.js")
   },
   {
     "id": "material-theme-ocean",
     "displayName": "Material Theme Ocean",
     "type": "dark",
-    "import": () => import("./material-theme-ocean-RIDIVEY5.js")
+    "import": () => import("./material-theme-ocean-MM55JYW7.js")
   },
   {
     "id": "material-theme-palenight",
     "displayName": "Material Theme Palenight",
     "type": "dark",
-    "import": () => import("./material-theme-palenight-A4BS5BCB.js")
+    "import": () => import("./material-theme-palenight-LDDD2ICS.js")
   },
   {
     "id": "min-dark",
     "displayName": "Min Dark",
     "type": "dark",
-    "import": () => import("./min-dark-P4OHPDT4.js")
+    "import": () => import("./min-dark-Z3IZGB7T.js")
   },
   {
     "id": "min-light",
     "displayName": "Min Light",
     "type": "light",
-    "import": () => import("./min-light-FH6PCDAA.js")
+    "import": () => import("./min-light-BCHTJVWM.js")
   },
   {
     "id": "monokai",
     "displayName": "Monokai",
     "type": "dark",
-    "import": () => import("./monokai-TN4YUE4V.js")
+    "import": () => import("./monokai-BAIFRKK2.js")
   },
   {
     "id": "night-owl",
     "displayName": "Night Owl",
     "type": "dark",
-    "import": () => import("./night-owl-W6KNOIP4.js")
+    "import": () => import("./night-owl-K7UBUK7I.js")
   },
   {
     "id": "nord",
     "displayName": "Nord",
     "type": "dark",
-    "import": () => import("./nord-FZ3O6FWN.js")
+    "import": () => import("./nord-E6JTKICX.js")
   },
   {
     "id": "one-dark-pro",
     "displayName": "One Dark Pro",
     "type": "dark",
-    "import": () => import("./one-dark-pro-FFPDKV2P.js")
+    "import": () => import("./one-dark-pro-A5JCATM5.js")
   },
   {
     "id": "one-light",
     "displayName": "One Light",
     "type": "light",
-    "import": () => import("./one-light-AGKP6LZJ.js")
+    "import": () => import("./one-light-UIAO3KU2.js")
   },
   {
     "id": "plastic",
     "displayName": "Plastic",
     "type": "dark",
-    "import": () => import("./plastic-K4OC5C24.js")
+    "import": () => import("./plastic-EYQG3PN4.js")
   },
   {
     "id": "poimandres",
     "displayName": "Poimandres",
     "type": "dark",
-    "import": () => import("./poimandres-W3CBO3H4.js")
+    "import": () => import("./poimandres-KETQWTQN.js")
   },
   {
     "id": "red",
     "displayName": "Red",
     "type": "dark",
-    "import": () => import("./red-55OOUKPA.js")
+    "import": () => import("./red-R72HUAH7.js")
   },
   {
     "id": "rose-pine",
     "displayName": "Rosé Pine",
     "type": "dark",
-    "import": () => import("./rose-pine-VLTRVJM4.js")
+    "import": () => import("./rose-pine-C7EWLZMV.js")
   },
   {
     "id": "rose-pine-dawn",
     "displayName": "Rosé Pine Dawn",
     "type": "light",
-    "import": () => import("./rose-pine-dawn-JH4BJBAN.js")
+    "import": () => import("./rose-pine-dawn-5LXNUNXE.js")
   },
   {
     "id": "rose-pine-moon",
     "displayName": "Rosé Pine Moon",
     "type": "dark",
-    "import": () => import("./rose-pine-moon-XZRIB362.js")
+    "import": () => import("./rose-pine-moon-XSSDZ5CM.js")
   },
   {
     "id": "slack-dark",
     "displayName": "Slack Dark",
     "type": "dark",
-    "import": () => import("./slack-dark-FXN24GPB.js")
+    "import": () => import("./slack-dark-SPMFFNJC.js")
   },
   {
     "id": "slack-ochin",
     "displayName": "Slack Ochin",
     "type": "light",
-    "import": () => import("./slack-ochin-7BS5RX2N.js")
+    "import": () => import("./slack-ochin-FDKQYX4P.js")
   },
   {
     "id": "snazzy-light",
     "displayName": "Snazzy Light",
     "type": "light",
-    "import": () => import("./snazzy-light-KMEQ3BT4.js")
+    "import": () => import("./snazzy-light-TZBHXVJY.js")
   },
   {
     "id": "solarized-dark",
     "displayName": "Solarized Dark",
     "type": "dark",
-    "import": () => import("./solarized-dark-2EIUHR2V.js")
+    "import": () => import("./solarized-dark-WZFEKYUG.js")
   },
   {
     "id": "solarized-light",
     "displayName": "Solarized Light",
     "type": "light",
-    "import": () => import("./solarized-light-6ZKMP5C3.js")
+    "import": () => import("./solarized-light-4RU3JIG2.js")
   },
   {
     "id": "synthwave-84",
     "displayName": "Synthwave '84",
     "type": "dark",
-    "import": () => import("./synthwave-84-7SDFDNYS.js")
+    "import": () => import("./synthwave-84-OSDSPTUX.js")
   },
   {
     "id": "tokyo-night",
     "displayName": "Tokyo Night",
     "type": "dark",
-    "import": () => import("./tokyo-night-PUVSKQIC.js")
+    "import": () => import("./tokyo-night-PFSQVPE6.js")
   },
   {
     "id": "vesper",
     "displayName": "Vesper",
     "type": "dark",
-    "import": () => import("./vesper-NIFEELHK.js")
+    "import": () => import("./vesper-PBLVKAHY.js")
   },
   {
     "id": "vitesse-black",
     "displayName": "Vitesse Black",
     "type": "dark",
-    "import": () => import("./vitesse-black-JCB4VS4C.js")
+    "import": () => import("./vitesse-black-OQRA3TJ4.js")
   },
   {
     "id": "vitesse-dark",
     "displayName": "Vitesse Dark",
     "type": "dark",
-    "import": () => import("./vitesse-dark-WUP7CWFB.js")
+    "import": () => import("./vitesse-dark-J7C2JT7G.js")
   },
   {
     "id": "vitesse-light",
     "displayName": "Vitesse Light",
     "type": "light",
-    "import": () => import("./vitesse-light-NG3BPUL7.js")
+    "import": () => import("./vitesse-light-MDMSH6BF.js")
   }
 ];
 var bundledThemes = Object.fromEntries(bundledThemesInfo.map((i) => [i.id, i.import]));
 
-// node_modules/.pnpm/@shikijs+types@1.24.2/node_modules/@shikijs/types/dist/index.mjs
+// docs/node_modules/.pnpm/@shikijs+types@1.24.2/node_modules/@shikijs/types/dist/index.mjs
 var ShikiError = class extends Error {
   constructor(message) {
     super(message);
@@ -1662,7 +1662,7 @@ var ShikiError = class extends Error {
   }
 };
 
-// node_modules/.pnpm/@shikijs+engine-oniguruma@1.24.2/node_modules/@shikijs/engine-oniguruma/dist/index.mjs
+// docs/node_modules/.pnpm/@shikijs+engine-oniguruma@1.24.2/node_modules/@shikijs/engine-oniguruma/dist/index.mjs
 var ShikiError2 = class extends Error {
   constructor(message) {
     super(message);
@@ -2103,7 +2103,7 @@ async function createOnigurumaEngine(options) {
   };
 }
 
-// node_modules/.pnpm/@shikijs+core@1.24.2/node_modules/@shikijs/core/dist/shared/core.DVV8c4RZ.mjs
+// docs/node_modules/.pnpm/@shikijs+core@1.24.2/node_modules/@shikijs/core/dist/shared/core.DVV8c4RZ.mjs
 var emitDeprecation = false;
 function enableDeprecationWarnings(value = true) {
   emitDeprecation = value;
@@ -2113,7 +2113,7 @@ function warnDeprecated(message) {
     console.trace(`[SHIKI DEPRECATE]: ${message}`);
 }
 
-// node_modules/.pnpm/@shikijs+vscode-textmate@9.3.1/node_modules/@shikijs/vscode-textmate/dist/index.mjs
+// docs/node_modules/.pnpm/@shikijs+vscode-textmate@9.3.1/node_modules/@shikijs/vscode-textmate/dist/index.mjs
 function clone(something) {
   return doClone(something);
 }
@@ -5203,7 +5203,7 @@ var Registry = class {
 };
 var INITIAL = StateStackImpl.NULL;
 
-// node_modules/.pnpm/html-void-elements@3.0.0/node_modules/html-void-elements/index.js
+// docs/node_modules/.pnpm/html-void-elements@3.0.0/node_modules/html-void-elements/index.js
 var htmlVoidElements = [
   "area",
   "base",
@@ -5227,7 +5227,7 @@ var htmlVoidElements = [
   "wbr"
 ];
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/schema.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/schema.js
 var Schema = class {
   /**
    * @constructor
@@ -5247,7 +5247,7 @@ Schema.prototype.property = {};
 Schema.prototype.normal = {};
 Schema.prototype.space = null;
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/merge.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/merge.js
 function merge(definitions, space) {
   const property = {};
   const normal = {};
@@ -5259,12 +5259,12 @@ function merge(definitions, space) {
   return new Schema(property, normal, space);
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/normalize.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/normalize.js
 function normalize(value) {
   return value.toLowerCase();
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/info.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/info.js
 var Info = class {
   /**
    * @constructor
@@ -5287,7 +5287,7 @@ Info.prototype.commaOrSpaceSeparated = false;
 Info.prototype.mustUseProperty = false;
 Info.prototype.defined = false;
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/types.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/types.js
 var types_exports = {};
 __export(types_exports, {
   boolean: () => boolean,
@@ -5310,7 +5310,7 @@ function increment() {
   return 2 ** ++powers;
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/defined-info.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/defined-info.js
 var checks = Object.keys(types_exports);
 var DefinedInfo = class extends Info {
   /**
@@ -5339,7 +5339,7 @@ function mark(values, key2, value) {
   }
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/create.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/create.js
 var own = {}.hasOwnProperty;
 function create(definition) {
   const property = {};
@@ -5365,7 +5365,7 @@ function create(definition) {
   return new Schema(property, normal, definition.space);
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xlink.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xlink.js
 var xlink = create({
   space: "xlink",
   transform(_, prop) {
@@ -5382,7 +5382,7 @@ var xlink = create({
   }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xml.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xml.js
 var xml = create({
   space: "xml",
   transform(_, prop) {
@@ -5391,17 +5391,17 @@ var xml = create({
   properties: { xmlLang: null, xmlBase: null, xmlSpace: null }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/case-sensitive-transform.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/case-sensitive-transform.js
 function caseSensitiveTransform(attributes, attribute) {
   return attribute in attributes ? attributes[attribute] : attribute;
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/case-insensitive-transform.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/util/case-insensitive-transform.js
 function caseInsensitiveTransform(attributes, property) {
   return caseSensitiveTransform(attributes, property.toLowerCase());
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xmlns.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/xmlns.js
 var xmlns = create({
   space: "xmlns",
   attributes: { xmlnsxlink: "xmlns:xlink" },
@@ -5409,7 +5409,7 @@ var xmlns = create({
   properties: { xmlns: null, xmlnsXLink: null }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/aria.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/aria.js
 var aria = create({
   transform(_, prop) {
     return prop === "role" ? prop : "aria-" + prop.slice(4).toLowerCase();
@@ -5467,7 +5467,7 @@ var aria = create({
   }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/html.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/html.js
 var html = create({
   space: "html",
   attributes: {
@@ -5831,7 +5831,7 @@ var html = create({
   }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/svg.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/svg.js
 var svg = create({
   space: "svg",
   attributes: {
@@ -6393,7 +6393,7 @@ var svg = create({
   }
 });
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/find.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/lib/find.js
 var valid = /^data[-\w.:]+$/i;
 var dash = /-[a-z]/g;
 var cap = /[A-Z]/g;
@@ -6429,11 +6429,11 @@ function camelcase($0) {
   return $0.charAt(1).toUpperCase();
 }
 
-// node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/index.js
+// docs/node_modules/.pnpm/property-information@6.5.0/node_modules/property-information/index.js
 var html2 = merge([xml, xlink, xmlns, aria, html], "html");
 var svg2 = merge([xml, xlink, xmlns, aria, svg], "svg");
 
-// node_modules/.pnpm/zwitch@2.0.4/node_modules/zwitch/index.js
+// docs/node_modules/.pnpm/zwitch@2.0.4/node_modules/zwitch/index.js
 var own2 = {}.hasOwnProperty;
 function zwitch(key2, options) {
   const settings = options || {};
@@ -6454,7 +6454,7 @@ function zwitch(key2, options) {
   return one2;
 }
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/core.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/core.js
 var defaultSubsetRegex = /["&'<>`]/g;
 var surrogatePairsRegex = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 var controlCharactersRegex = (
@@ -6504,21 +6504,21 @@ function charactersToExpression(subset) {
   return new RegExp("(?:" + groups.join("|") + ")", "g");
 }
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-hexadecimal.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-hexadecimal.js
 var hexadecimalRegex = /[\dA-Fa-f]/;
 function toHexadecimal(code, next, omit) {
   const value = "&#x" + code.toString(16).toUpperCase();
   return omit && next && !hexadecimalRegex.test(String.fromCharCode(next)) ? value : value + ";";
 }
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-decimal.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-decimal.js
 var decimalRegex = /\d/;
 function toDecimal(code, next, omit) {
   const value = "&#" + String(code);
   return omit && next && !decimalRegex.test(String.fromCharCode(next)) ? value : value + ";";
 }
 
-// node_modules/.pnpm/character-entities-legacy@3.0.0/node_modules/character-entities-legacy/index.js
+// docs/node_modules/.pnpm/character-entities-legacy@3.0.0/node_modules/character-entities-legacy/index.js
 var characterEntitiesLegacy = [
   "AElig",
   "AMP",
@@ -6628,7 +6628,7 @@ var characterEntitiesLegacy = [
   "yuml"
 ];
 
-// node_modules/.pnpm/character-entities-html4@2.1.0/node_modules/character-entities-html4/index.js
+// docs/node_modules/.pnpm/character-entities-html4@2.1.0/node_modules/character-entities-html4/index.js
 var characterEntitiesHtml4 = {
   nbsp: " ",
   iexcl: "¡",
@@ -6884,7 +6884,7 @@ var characterEntitiesHtml4 = {
   euro: "€"
 };
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/constant/dangerous.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/constant/dangerous.js
 var dangerous = [
   "cent",
   "copy",
@@ -6896,7 +6896,7 @@ var dangerous = [
   "times"
 ];
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-named.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/to-named.js
 var own3 = {}.hasOwnProperty;
 var characters = {};
 var key;
@@ -6919,7 +6919,7 @@ function toNamed(code, next, omit, attribute) {
   return "";
 }
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/format-smart.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/util/format-smart.js
 function formatSmart(code, next, options) {
   let numeric = toHexadecimal(code, next, options.omitOptionalSemicolons);
   let named;
@@ -6940,12 +6940,12 @@ function formatSmart(code, next, options) {
   return named && (!options.useShortestReferences || named.length < numeric.length) ? named : numeric;
 }
 
-// node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/index.js
+// docs/node_modules/.pnpm/stringify-entities@4.0.4/node_modules/stringify-entities/lib/index.js
 function stringifyEntities(value, options) {
   return core(value, Object.assign({ format: formatSmart }, options));
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/comment.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/comment.js
 var htmlCommentRegex = /^>|^->|<!--|-->|--!>|<!-$/g;
 var bogusCommentEntitySubset = [">"];
 var commentEntitySubset = ["<", ">"];
@@ -6966,12 +6966,12 @@ function comment(node, _1, _2, state) {
   }
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/doctype.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/doctype.js
 function doctype(_1, _2, _3, state) {
   return "<!" + (state.settings.upperDoctype ? "DOCTYPE" : "doctype") + (state.settings.tightDoctype ? "" : " ") + "html>";
 }
 
-// node_modules/.pnpm/ccount@2.0.1/node_modules/ccount/index.js
+// docs/node_modules/.pnpm/ccount@2.0.1/node_modules/ccount/index.js
 function ccount(value, character) {
   const source = String(value);
   if (typeof character !== "string") {
@@ -6986,7 +6986,7 @@ function ccount(value, character) {
   return count;
 }
 
-// node_modules/.pnpm/comma-separated-tokens@2.0.3/node_modules/comma-separated-tokens/index.js
+// docs/node_modules/.pnpm/comma-separated-tokens@2.0.3/node_modules/comma-separated-tokens/index.js
 function stringify(values, options) {
   const settings = options || {};
   const input = values[values.length - 1] === "" ? [...values, ""] : values;
@@ -6995,12 +6995,12 @@ function stringify(values, options) {
   ).trim();
 }
 
-// node_modules/.pnpm/space-separated-tokens@2.0.2/node_modules/space-separated-tokens/index.js
+// docs/node_modules/.pnpm/space-separated-tokens@2.0.2/node_modules/space-separated-tokens/index.js
 function stringify2(values) {
   return values.join(" ").trim();
 }
 
-// node_modules/.pnpm/hast-util-whitespace@3.0.0/node_modules/hast-util-whitespace/lib/index.js
+// docs/node_modules/.pnpm/hast-util-whitespace@3.0.0/node_modules/hast-util-whitespace/lib/index.js
 var re = /[ \t\n\f\r]/g;
 function whitespace(thing) {
   return typeof thing === "object" ? thing.type === "text" ? empty(thing.value) : false : empty(thing);
@@ -7009,7 +7009,7 @@ function empty(value) {
   return value.replace(re, "") === "";
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/util/siblings.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/util/siblings.js
 var siblingAfter = siblings(1);
 var siblingBefore = siblings(-1);
 var emptyChildren = [];
@@ -7029,7 +7029,7 @@ function siblings(increment2) {
   }
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/omission.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/omission.js
 var own4 = {}.hasOwnProperty;
 function omission(handlers) {
   return omit;
@@ -7038,7 +7038,7 @@ function omission(handlers) {
   }
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/closing.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/closing.js
 var closing = omission({
   body,
   caption: headOrColgroupOrCaption,
@@ -7125,7 +7125,7 @@ function cells(_, index, parent) {
   return !next || next.type === "element" && (next.tagName === "td" || next.tagName === "th");
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/opening.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/omission/opening.js
 var opening = omission({
   body: body2,
   colgroup,
@@ -7169,7 +7169,7 @@ function tbody2(node, index, parent) {
   return Boolean(head2 && head2.type === "element" && head2.tagName === "tr");
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/element.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/element.js
 var constants = {
   // See: <https://html.spec.whatwg.org/#attribute-name-state>.
   name: [
@@ -7296,7 +7296,7 @@ function serializeAttribute(state, key2, value) {
   return name + (result ? "=" + result : result);
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/text.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/text.js
 var textEntitySubset = ["<", "&"];
 function text(node, _, parent, state) {
   return parent && parent.type === "element" && (parent.tagName === "script" || parent.tagName === "style") ? node.value : stringifyEntities(
@@ -7307,17 +7307,17 @@ function text(node, _, parent, state) {
   );
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/raw.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/raw.js
 function raw(node, index, parent, state) {
   return state.settings.allowDangerousHtml ? node.value : text(node, index, parent, state);
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/root.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/root.js
 function root(node, _1, _2, state) {
   return state.all(node);
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/index.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/handle/index.js
 var handle = zwitch("type", {
   invalid,
   unknown,
@@ -7334,7 +7334,7 @@ function unknown(node_) {
   throw new Error("Cannot compile unknown node `" + node.type + "`");
 }
 
-// node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/index.js
+// docs/node_modules/.pnpm/hast-util-to-html@9.0.3/node_modules/hast-util-to-html/lib/index.js
 var emptyOptions = {};
 var emptyCharacterReferences = {};
 var emptyChildren2 = [];
@@ -7390,7 +7390,7 @@ function all(parent) {
   return results.join("");
 }
 
-// node_modules/.pnpm/oniguruma-to-es@0.7.0/node_modules/oniguruma-to-es/dist/index.mjs
+// docs/node_modules/.pnpm/oniguruma-to-es@0.7.0/node_modules/oniguruma-to-es/dist/index.mjs
 var cp = String.fromCodePoint;
 var r = String.raw;
 var envSupportsDuplicateNames = (() => {
@@ -10778,7 +10778,7 @@ function toRegExp(pattern, options) {
   return new RegExp(result.pattern, result.flags);
 }
 
-// node_modules/.pnpm/@shikijs+engine-javascript@1.24.2/node_modules/@shikijs/engine-javascript/dist/index.mjs
+// docs/node_modules/.pnpm/@shikijs+engine-javascript@1.24.2/node_modules/@shikijs/engine-javascript/dist/index.mjs
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key2, value) => key2 in obj ? __defProp(obj, key2, { enumerable: true, configurable: true, writable: true, value }) : obj[key2] = value;
 var __publicField2 = (obj, key2, value) => {
@@ -10903,7 +10903,7 @@ function createJavaScriptRegexEngine(options = {}) {
   };
 }
 
-// node_modules/.pnpm/@shikijs+core@1.24.2/node_modules/@shikijs/core/dist/index.mjs
+// docs/node_modules/.pnpm/@shikijs+core@1.24.2/node_modules/@shikijs/core/dist/index.mjs
 function createOnigurumaEngine2(options) {
   warnDeprecated("import `createOnigurumaEngine` from `@shikijs/engine-oniguruma` or `shiki/engine/oniguruma` instead");
   return createOnigurumaEngine(options);
@@ -13121,17 +13121,17 @@ function createCssVariablesTheme(options = {}) {
   return theme;
 }
 
-// node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/wasm-dynamic-K7LwWlz7.js
+// docs/node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/wasm-dynamic-K7LwWlz7.js
 var getWasmInlined = async (info) => {
   warnDeprecated('`getWasmInlined` is deprecated. Use `import("shiki/wasm")` instead.');
-  return import("./wasm-O24F7X6A.js").then((wasm) => wasm.default(info));
+  return import("./wasm-SOOEQLET.js").then((wasm) => wasm.default(info));
 };
 
-// node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/bundle-full.mjs
+// docs/node_modules/.pnpm/shiki@1.24.2/node_modules/shiki/dist/bundle-full.mjs
 var createHighlighter = createdBundledHighlighter({
   langs: bundledLanguages,
   themes: bundledThemes,
-  engine: () => createOnigurumaEngine(import("./wasm-O24F7X6A.js"))
+  engine: () => createOnigurumaEngine(import("./wasm-SOOEQLET.js"))
 });
 var {
   codeToHtml: codeToHtml2,
