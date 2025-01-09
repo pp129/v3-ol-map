@@ -3,7 +3,7 @@ import { onMounted, shallowRef } from "vue";
 import { OlMapInstance, OlMap, OlTile, OlWebglVector, OlFeature } from "v3-ol-map";
 
 const mapRef = shallowRef<OlMapInstance>();
-const url = "/admin-api/Features/gd_route_clean/JointFeature?ak=f5ce622f301640a7a1d9b7d7e1ac5f6b";
+const url = "/admin-api/admin-api/Features/gd_route_clean/JointFeature?ak=f5ce622f301640a7a1d9b7d7e1ac5f6b";
 const colors = ["#4fd27d", "#ffd045", "#e80e0e", "#b40000", "#8f979c"];
 const style = {
   "stroke-color": [
