@@ -3,6 +3,7 @@ import DefaultTheme from "vitepress/theme";
 import "v3-ol-map/lib/v3-ol-map.css";
 import "./index.css";
 import Preview from "../components/preview/index.vue";
+import DocsIframe from "../components/docsIframe/index.vue";
 
 export default {
   ...DefaultTheme,
@@ -19,5 +20,6 @@ export default {
     //   },
     // });
     app.component("preview", Preview);
+    app.component("docsIframe", DocsIframe);
   },
 };

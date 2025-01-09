@@ -9,15 +9,15 @@ import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
 import type { Options as ImageTileOptions } from "ol/layer/BaseImage";
 
 export enum enumTile {
-  TDT = "TDT",
-  TDT_SATELLITE = "TDT_SATELLITE",
-  TDT_TERRAIN = "TDT_TERRAIN",
+  TDT = "天地图",
+  TDT_SATELLITE = "天地图-卫星影像",
+  TDT_TERRAIN = "天地图-地形图",
   MAPBOX = "MAPBOX",
-  BAIDU = "BAIDU",
-  BAIDU_SATELLITE = "BAIDU_SATELLITE",
-  BAIDU_MIDNIGHT = "BAIDU_MIDNIGHT",
-  AMAP = "AMAP",
-  AMAP_SATELLITE = "AMAP_SATELLITE",
+  BAIDU = "百度-矢量",
+  BAIDU_SATELLITE = "百度-卫星影像",
+  BAIDU_MIDNIGHT = "百度-午夜蓝",
+  AMAP = "高德-矢量",
+  AMAP_SATELLITE = "高德-卫星影像",
   GEOTIFF = "GEOTIFF",
   CUSTOMER = "CUSTOMER",
   XYZ = "XYZ",

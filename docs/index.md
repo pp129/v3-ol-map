@@ -8,7 +8,7 @@ hero:
   tagline: 
   actions:
     - theme: brand
-      text: Examples
+      text: 组件
       link: /markdown-examples
 #    - theme: alt
 #      text: API
