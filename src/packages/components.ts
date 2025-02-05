@@ -3,6 +3,7 @@ import OlTile from "./layers/tile/index.vue";
 import OlImage from "./layers/image/index.vue";
 import OlVector from "./layers/vector/index.vue";
 import OlWebglVector from "./layers/WebGLVector/index.vue";
+import OlVectorTile from "./layers/vectorTile/index.vue";
 import OlWfs from "./layers/wfs/index.vue";
 import OlWms from "./layers/wms/index.vue";
 import OlHeatmap from "./layers/heatmap/index.vue";
@@ -30,6 +31,7 @@ export {
   OlImage,
   OlVector,
   OlWebglVector,
+  OlVectorTile,
   OlWind,
   OlWfs,
   OlWms,
@@ -60,6 +62,7 @@ declare module "vue" {
     OlImage: typeof OlImage;
     OlVector: typeof OlVector;
     OlWebglVector: typeof OlWebglVector;
+    OlVectorTile: typeof OlVectorTile;
     OlWind: typeof OlWind;
     OlWfs: typeof OlWfs;
     OlWms: typeof OlWms;

@@ -2,6 +2,9 @@ import { getCenter, getWidth, getHeight, getTopLeft, getTopRight } from "ol/exte
 import { Circle, Geometry, LineString, Polygon } from "ol/geom";
 import Map from "ol/map";
 import { AnimationOptions } from "ol/View";
+import { GeoJSON } from "ol/format";
+import { ReadOptions } from "ol/format/Feature";
+import { Options } from "ol/format/GeoJSON";
 
 export const validObjKey = (obj: any, key: string): boolean => {
   if (obj && Object.prototype.hasOwnProperty.call(obj, key)) {
@@ -88,7 +91,7 @@ export const panTo = (map: Map, param: AnimationOptions) => {
   map.getView().animate(param);
 };
 
-interface flyAnimationOptions extends AnimationOptions {
+export interface flyAnimationOptions extends AnimationOptions {
   flyZoom?: number;
 }
 export const flyTo = (map: Map, param: flyAnimationOptions) => {
@@ -124,4 +127,15 @@ export const flyTo = (map: Map, param: flyAnimationOptions) => {
     },
     callback,
   );
+};
+
+export interface ReadFeaturesOptions {
+  source: any;
+  format?: Options;
+  options?: ReadOptions;
+}
+
+export const readFeatures = (options: ReadFeaturesOptions) => {
+  const format = new GeoJSON({ ...options.format });
+  return format.readFeatures(options.source, { ...options.options });
 };

@@ -5,6 +5,7 @@ import OlTile from "./layers/tile/index.ts";
 import OlImage from "./layers/image/index.ts";
 import OlVector from "./layers/vector/index.ts";
 import OlWebglVector from "./layers/WebGLVector/index.ts";
+import OlVectorTile from "./layers/vectorTile/index.ts";
 import OlWind from "./layers/wind/index.ts";
 import OlWfs from "./layers/wfs/index.ts";
 import OlWms from "./layers/wms/index.ts";
@@ -33,6 +34,7 @@ const components: Plugin[] = [
   OlImage,
   OlVector,
   OlWebglVector,
+  OlVectorTile,
   OlWind,
   OlWfs,
   OlWms,

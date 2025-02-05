@@ -1,6 +1,6 @@
 import type { App } from "vue";
 import component from "./index.vue";
 
-const install = (Vue: App) => Vue.component(component.name || "OlWebglVector", component);
+const install = (Vue: App) => Vue.component(component.name || "OlVectorTile", component);
 
 export default install;

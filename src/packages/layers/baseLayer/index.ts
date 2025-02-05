@@ -4,6 +4,7 @@ import ImageLayer from "ol/layer/Image";
 import Static from "ol/source/ImageStatic";
 import GeoTIFFLayer from "ol/layer/WebGLTile";
 import VectorLayer from "ol/layer/Vector";
+import VectorTileLayer from "ol/layer/VectorTile";
 import { Group as LayerGroup, Heatmap, Layer } from "ol/layer";
 import type TileLayer from "ol/layer/Tile";
 import { WindLayer } from "ol-wind";
@@ -18,6 +19,7 @@ const useBaseLayer = (
     | GeoTIFFLayer
     | Layer
     | TileLayer
+    | VectorTileLayer
     | LayerGroup
     | WindLayer
     | undefined

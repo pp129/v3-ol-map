@@ -32,11 +32,11 @@ const getData = async () => {
   const zoom = view?.getZoom();
   const mapSize = mapRef.value?.map()?.getSize();
   if (!zoom) return;
-  if (zoom < 15) {
+  if (zoom < 14) {
     form.append("where", "roadclass in (1,2,3)");
-  } else if (zoom >= 15 && zoom < 17) {
+  } else if (zoom >= 14 && zoom < 16) {
     form.append("where", "roadclass in (1,2,3,4)");
-  } else if (zoom >= 17) {
+  } else if (zoom >= 16) {
     form.append("where", "roadclass in (1,2,3,4,5)");
   }
   const extent = view?.calculateExtent(mapSize);
@@ -65,10 +65,6 @@ const getData = async () => {
     });
 };
 
-const onChangeZoom = () => {
-  init();
-};
-
 let data = shallowRef();
 
 const init = () => {
@@ -83,7 +79,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <ol-map ref="mapRef" :view="{ zoom: 13, city: '厦门' }" @changeZoom="onChangeZoom">
+  <ol-map ref="mapRef" :view="{ zoom: 13, city: '厦门' }" @changeZoom="init">
     <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
     <ol-webgl-vector :layer-style="style" :z-index="1">
       <ol-feature :geo-json="data"></ol-feature>

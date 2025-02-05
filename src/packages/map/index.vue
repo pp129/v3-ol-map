@@ -2,7 +2,7 @@
 import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject } from "vue";
 import OlMap from "@/packages/lib";
 import MapObjectEventTypes from "ol/MapBrowserEvent";
-import { panTo as PanTo } from "@/packages/utils";
+import { panTo as PanTo, readFeatures, flyTo as FlyTo, flyAnimationOptions } from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
 import BaseLayer from "ol/layer/Base";
 import type { View, VMap } from "@/packages/types/Map";
@@ -166,6 +166,9 @@ const getMap = () => {
 const panTo = (params: AnimationOptions) => {
   if (map.value?.map) PanTo(map.value?.map, params);
 };
+const flyTo = (params: flyAnimationOptions) => {
+  if (map.value?.map) FlyTo(map.value?.map, params);
+};
 onMounted(() => {
   init().then(() => {
     eventBinding();
@@ -181,7 +184,9 @@ defineExpose({
   getMap,
   getLayerById,
   panTo,
-  setCursor: setCursor,
+  flyTo,
+  readFeatures,
+  setCursor,
 });
 provide("VMap", map);
 </script>

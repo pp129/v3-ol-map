@@ -57,3 +57,9 @@ type ImageLayer = Omit<ImageTileOptions<ImageSourceType>, "source">;
 export interface ImageLayerOptions extends ImageLayer {
   source?: ImageStaticOptions | undefined;
 }
+
+type VectorTileLayer = Omit<import("ol/layer/VectorTile").Options, "source" | "style">;
+export interface VectorTileOptions extends VectorTileLayer {
+  source?: import("ol/source/VectorTile").Options | undefined;
+  layerStyle?: import("ol/layer/VectorTile").Options["style"];
+}

@@ -69,6 +69,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "vectorTile",
+    path: "/vectorTile",
+    component: () => import("@/examples/vectorTile/index.vue"),
+    meta: {
+      title: "vectorTile",
+      description: "基于vectorTile渲染路况数据",
+    },
+  },
+  {
     name: "featureStyle",
     path: "/featureStyle",
     component: () => import("@/examples/featureStyle/index.vue"),
