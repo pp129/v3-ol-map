@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, shallowRef, ref } from "vue";
+import { onMounted, shallowRef, ref, computed } from "vue";
 import { OlMapInstance } from "@/packages";
 import LinkFix from "@/examples/webGLVector/fix.ts";
 
@@ -30,6 +30,9 @@ const fixStyle = {
 };
 let switchValue = ref(false);
 let zoom = ref<number | undefined>(15);
+const enableFix = computed(() => {
+  return zoom.value && zoom.value >= 15;
+});
 const getData = async () => {
   const form = new FormData();
   form.append("f", "geojson");
@@ -85,7 +88,7 @@ const init = () => {
 const onChange = () => {
   const view = mapRef.value?.map()?.getView();
   zoom.value = view?.getZoom();
-  if (!zoom.value || zoom.value < 15) {
+  if (!enableFix.value) {
     switchValue.value = false;
   }
   fixData.value = undefined;
@@ -106,14 +109,8 @@ onMounted(() => {
 <template>
   <div class="container">
     <div class="switch">
-      <input
-        v-model="switchValue"
-        type="checkbox"
-        name="switch"
-        :disabled="!zoom || zoom < 15"
-        @change="onChange"
-      />路口填补
-      <p v-show="!zoom || zoom < 15">小层级下要素过多，进行填补计算会很卡</p>
+      <input v-model="switchValue" type="checkbox" name="switch" :disabled="!enableFix" @change="onChange" />路口填补
+      <p v-show="!enableFix">小层级下要素过多，进行填补计算会很卡</p>
     </div>
     <ol-map ref="mapRef" :view="{ zoom: 15, city: '厦门' }" @changeZoom="init">
       <ol-webgl-vector :layer-style="style" :z-index="1">
