@@ -1,48 +1,14 @@
 # v3-ol-map
 
+[![vue3](https://img.shields.io/badge/vue-v3.4.27-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme) [![ol](https://img.shields.io/badge/OpenLayers-v10-20c3aa)](https://openlayers.org/)
+
 > vue3 OpenLayers组件
->
-> [![vue3](https://img.shields.io/badge/vue-v3.4.27-8A2BE2)](https://github.com/vuejs/core/tree/main/packages/vue#readme)
-> [![ol](https://img.shields.io/badge/OpenLayers-v10-20c3aa)](https://openlayers.org/)
 
-功能上基本和vue2版本的[v-ol-map](https://github.com/pp129/vue-openlayers-map)一致。
+vue2版本：[v-ol-map](https://github.com/pp129/vue-openlayers-map)
 
-- 地图 ol-mao
-- 配置项 ol-config
-- 控制类 controls
-  - 鹰眼 ol-overview
-  - 比例尺 ol-scale-line
-  - 全屏 ol-full-screen
-  - 缩放滚轮 ol-zoom-slider
-  - 鼠标位置 ol-mouse-position
-- 图层
-  - 矢量图层 ol-vector
-  - 基于WebGL的矢量图层 ol-webgl-vector
-    - WFS图层 ol-wfs
-  - 瓦片图层 ol-tile
-  - 图像图层 ol-image
-    - WMS图层 ol-wms
-  - TIFF图层 ol-tiff
-  - 热力图 ol-heatmap
-  - 聚合图层 ol-cluster
-- 图层要素 ol-feature
-- 弹框 ol-overlay
-- 路径规划 ol-route
-- 结合echarts ol-echarts (基于[ol-echarts](https://github.com/sakitam-fdd/ol3Echarts)实现)
-- 风场 ol-wind （基于[ol-wind](https://github.com/sakitam-fdd/wind-layer/tree/master/packages/ol)实现）
-- 轨迹动画 ol-path
-- 交互类 interaction
-  - 绘制 ol-draw
-  - 测量 ol-measure
-  - 拖拽旋转和缩放 ol-drag-rotate-and-zoom
-- 兴趣点/面 ol-pin
+## 文档与示例
 
-__相较于v-ol-map,暂不支持的设置或功能:__
-
-- `tile`组件`tile-type`移除部分类型，[具体支持类型查看(文档待补充...)](#v3-ol-map)。
-- 图形图层组件
-
-## [示例](https://v3-ol-map.netlify.app/)
+[文档地址](https://v3-ol-map.netlify.app/)
 
 ## 安装
 
@@ -90,50 +56,13 @@ import { OlMap, OlTile } from "v3-ol-map";
 </template>
 ```
 
-## 配置
-
-### 全局配置
-
-```ts
-// main.ts
-import { createApp } from 'vue'
-import VOlMap from "v3-ol-map";
-import App from './App.vue'
-
-const app = createApp(App)
-
-app.use(VOlMap, {
- tdt: {
-    ak: "88e2f1d5ab64a7477a7361edd6b5f68a", // 天地图ak
-  },
-});
-```
-
-### 使用组件
-
-```html
-<script setup lang="ts">
-const config = {
-   ak: "316cf152e80bd8a121b23746a5803c8b",
-};
-</script>
-
-<template>
-   <ol-config :tdt="config">
-      <ol-map target="map1" class="map" width="50%">
-        <ol-tile tile-type="TDT"></ol-tile>
-      </ol-map>
-    </ol-config>
-</template>
-```
-
 ## 说明
 
 一点设计思路：__尽量使用`ol`原生api，通过`props`传递参数。__ 例如：
 
 把`ol/Map`的属性直接作为`ol-map`组件的属性，把`ol/Map`的方法作为`ol-map`组件的方法。
 
-但是！又例如`Map`的`view`属性值其实是一个独立的类，通过原生代码实现是这样的:
+> 但是！`view`属性值其实是一个独立的类，通过原生代码实现是这样的:
 
 ```html
 <script setup lang="ts">
@@ -147,7 +76,7 @@ const view = new View({
 
 const map = new Map({
   target: "map",
-  view: view,
+  view: view, // 注意这里view其实是一个类
 });
 </script>
 
@@ -162,6 +91,7 @@ const map = new Map({
 <script setup lang="ts">
 import { OlMap, VMap } from "v-3-ol-map";
 
+// 抽出ol.View的Options
 const view:VMap["view"] = {
   center: [0, 0],
   zoom: 2,
@@ -173,19 +103,15 @@ const view:VMap["view"] = {
 </template>
 ```
 
-可以理解成组件做了这样的操作：
-
-- 组件接收参数：`props: { Y: as PropType<import("ol/X/Y").Options> }`
-- 重组类`new X({Y:new Y(props.Y)})`
-- 使用：`const options = {y: ... }` `<ol-x :y="options.y" />`
-
-其他类似的设计在各组件中都有体现，如`ol-vector`、`ol-tile`组件的`source`属性，甚至会对`source`属性进行二次解构，例如将`source.tileGrid`的`Options`作为`source.tileGrid`的属性值传递。
+类似的设计在各组件中都有体现，如`ol-vector`、`ol-tile`组件的`source`属性，甚至会对`source`属性进行二次解构，例如将`source.tileGrid`的`Options`作为`source.tileGrid`的属性值传递。
 
 ```html
 <script setup lang="ts">
 import { OlMap, VMap, OlTile } from "v-3-ol-map";
 
+// 一次解构：抽出ol/source/Tile的Options
 const source = {
+  // 二次解构：抽出ol/tilegrid/TileGrid的Options
   tileGrid: {
     origin: [0, 0],
   }
@@ -202,8 +128,3 @@ const source = {
 ### 可能的问题
 
 需要解构的类很多，组件还没有完全实现，所以在使用中遇到没生效的参数可能就是组件内部没有解构并重组参数造成的。
-
-可能发生了以下问题：
-
-- 组件接收参数：`props: { Y as PropType<import("ol/X/Y").Options extends Z= import("ol/X/Y/Z").Options> }`
-- 问题：类`ol/X/Y`中包含属性`Z`的值接受的是一个类，`new X({Y:new Y({...props.Y,Z:new Z(props.Y.Z)})})`，但是组件没有解构并重组参数，所以`props.Y.Z`没有生效。
