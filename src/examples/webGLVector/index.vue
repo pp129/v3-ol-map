@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, shallowRef } from "vue";
+import { onMounted, shallowRef, ref } from "vue";
 import { OlMapInstance } from "@/packages";
+import LinkFix from "@/examples/webGLVector/fix.ts";
 
 const mapRef = shallowRef<OlMapInstance>();
 const url =
@@ -21,8 +22,14 @@ const style = {
     colors[4],
     ["*", ["get", "state"], colors[0]],
   ],
+  "stroke-width": 1.5,
+};
+const fixStyle = {
+  "stroke-color": "#ff00ff",
   "stroke-width": 2,
 };
+let switchValue = ref(false);
+let zoom = ref<number | undefined>(15);
 const getData = async () => {
   const form = new FormData();
   form.append("f", "geojson");
@@ -66,11 +73,29 @@ const getData = async () => {
 };
 
 let data = shallowRef();
+let fixData = shallowRef();
 
 const init = () => {
   getData().then(res => {
     data.value = res;
+    onChange();
   });
+};
+
+const onChange = () => {
+  const view = mapRef.value?.map()?.getView();
+  zoom.value = view?.getZoom();
+  if (!zoom.value || zoom.value < 15) {
+    switchValue.value = false;
+  }
+  fixData.value = undefined;
+  if (switchValue.value) {
+    const linkFixData = new LinkFix(data.value.features);
+    fixData.value = {
+      type: "FeatureCollection",
+      features: linkFixData.TMCLINKPOBJ,
+    };
+  }
 };
 
 onMounted(() => {
@@ -79,12 +104,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <ol-map ref="mapRef" :view="{ zoom: 13, city: '厦门' }" @changeZoom="init">
-    <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
-    <ol-webgl-vector :layer-style="style" :z-index="1">
-      <ol-feature :geo-json="data"></ol-feature>
-    </ol-webgl-vector>
-  </ol-map>
+  <div class="container">
+    <div class="switch">
+      <input
+        v-model="switchValue"
+        type="checkbox"
+        name="switch"
+        :disabled="!zoom || zoom < 15"
+        @change="onChange"
+      />路口填补
+      <p v-show="!zoom || zoom < 15">小层级下要素过多，进行填补计算会很卡</p>
+    </div>
+    <ol-map ref="mapRef" :view="{ zoom: 15, city: '厦门' }" @changeZoom="init">
+      <ol-webgl-vector :layer-style="style" :z-index="1">
+        <ol-feature :geo-json="data"></ol-feature>
+      </ol-webgl-vector>
+      <ol-vector :z-index="2" :layer-style="fixStyle"> <ol-feature :geo-json="fixData"></ol-feature> </ol-vector>
+    </ol-map>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.switch {
+  position: absolute;
+  top: 30px;
+  left: 120px;
+  z-index: 1000;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 6px;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+</style>

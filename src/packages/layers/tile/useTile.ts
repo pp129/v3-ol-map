@@ -16,7 +16,7 @@ import BaseLayer from "ol/layer/Base";
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
-  const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide");
+  const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide", undefined);
   const $OlMapConfig = configProvider ?? (inject("$OlMapConfig") as ConfigProviderContext);
   let props = $props;
 

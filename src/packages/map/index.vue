@@ -13,7 +13,7 @@ defineOptions({
   name: "OlMap",
 });
 
-const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide");
+const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide", undefined);
 const $OlMapConfig = configProvider ?? (inject("$OlMapConfig") as ConfigProviderContext);
 
 /**
