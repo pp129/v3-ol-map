@@ -15,6 +15,7 @@ const app = createApp(App)
 app.use(VOlMap)
 app.mount('#app')
 ```
+
 ## 按需引用
 
 ### 按需引入
@@ -32,5 +33,3 @@ import { OlMap, OlTile } from "v3-ol-map";
   </div>
 </template>
 ```
-
-
