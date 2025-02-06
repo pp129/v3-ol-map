@@ -1,5 +1,5 @@
 import type { Feature, LineString, Position } from "geojson";
-import { gcj02towgs84 } from "@/packages/utils/transform";
+import { transform } from "../../packages/utils";
 
 // 计算2个点的长度
 function getDistance(e1: number, n1: number, e2: number, n2: number) {
@@ -227,7 +227,7 @@ export default class LinkFix {
           ];
 
           const coords = arr.map(x => {
-            return gcj02towgs84(x[0], x[1]);
+            return transform.gcj02towgs84(x[0], x[1]);
           });
           this.TMCLINKPOBJ.push({
             geometry: {

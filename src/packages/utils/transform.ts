@@ -71,7 +71,7 @@ const LL2MC = [
 const X_PI = (PI * 3000) / 180;
 
 const forEachPoint = (func: (input: any, output: any, offset: any) => void) => {
-  const transferFun = (input: string | any[], opt_output: any, opt_dimension: any) => {
+  return (input: string | any[], opt_output: any, opt_dimension: any) => {
     const len = input.length;
     const dimension = opt_dimension ? opt_dimension : 2;
     let output;
@@ -89,17 +89,13 @@ const forEachPoint = (func: (input: any, output: any, offset: any) => void) => {
     }
     return output;
   };
-  return transferFun;
 };
 
 const outOfChina = (lon: number, lat: number): boolean => {
   if (lon < 72.004 || lon > 137.8347) {
     return true;
   }
-  if (lat < 0.8293 || lat > 55.8271) {
-    return true;
-  }
-  return false;
+  return lat < 0.8293 || lat > 55.8271;
 };
 
 const delta = (wgLon: number, wgLat: number): Array<number> => {
@@ -330,13 +326,7 @@ const gcj02mc2bmerc: TransformFunction = (input, opt_output, opt_dimension) => {
   return baiduMercator.forward(output, output, opt_dimension);
 };
 
-/**
- * 百度坐标系 (BD-09) 与 火星坐标系 (GCJ-02)的转换
- * 即 百度 转 谷歌、高德
- * @param bdLon
- * @param bdLat
- * @returns {*[]}
- */
+// 百度坐标系 (BD-09) 与 火星坐标系 (GCJ-02)的转换
 const bd09togcj02 = (bdLon: number, bdLat: number) => {
   bdLon = +bdLon;
   bdLat = +bdLat;
@@ -349,13 +339,7 @@ const bd09togcj02 = (bdLon: number, bdLat: number) => {
   return [GG_LNG, GG_LAT];
 };
 
-/**
- * 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换
- * 即谷歌、高德 转 百度
- * @param lng
- * @param lat
- * @returns {*[]}
- */
+// 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换
 const gcj02tobd09 = (lng: number, lat: number) => {
   lat = +lat;
   lng = +lng;
@@ -366,28 +350,31 @@ const gcj02tobd09 = (lng: number, lat: number) => {
   return [BD_LNG, bdLat];
 };
 
-/**
- * WGS84转GCj02
- * @param lng
- * @param lat
- * @returns {*[]}
- */
-const wgs84togcj02 = function (lng: number, lat: number) {
+const inChinaLngLat = (lng: number, lat: number) => {
+  let dlat = transformlat(lng - 105.0, lat - 35.0);
+  let dlng = transformlng(lng - 105.0, lat - 35.0);
+  const radlat = (lat / 180.0) * PI;
+  let magic = Math.sin(radlat);
+  magic = 1 - OFFSET * magic * magic;
+  const sqrtmagic = Math.sqrt(magic);
+  dlat = (dlat * 180.0) / (((AXIS * (1 - OFFSET)) / (magic * sqrtmagic)) * PI);
+  dlng = (dlng * 180.0) / ((AXIS / sqrtmagic) * Math.cos(radlat) * PI);
+  const mglat = lat + dlat;
+  const mglng = lng + dlng;
+  return {
+    mglng,
+    mglat,
+  };
+};
+
+// WGS84转GCj02
+const wgs84togcj02 = (lng: number, lat: number) => {
   lat = +lat;
   lng = +lng;
   if (outOfChina(lng, lat)) {
     return [lng, lat];
   } else {
-    let dlat = transformlat(lng - 105.0, lat - 35.0);
-    let dlng = transformlng(lng - 105.0, lat - 35.0);
-    const radlat = (lat / 180.0) * PI;
-    let magic = Math.sin(radlat);
-    magic = 1 - OFFSET * magic * magic;
-    const sqrtmagic = Math.sqrt(magic);
-    dlat = (dlat * 180.0) / (((AXIS * (1 - OFFSET)) / (magic * sqrtmagic)) * PI);
-    dlng = (dlng * 180.0) / ((AXIS / sqrtmagic) * Math.cos(radlat) * PI);
-    const mglat = lat + dlat;
-    const mglng = lng + dlng;
+    const { mglng, mglat } = inChinaLngLat(lng, lat);
     return [mglng, mglat];
   }
 };
@@ -399,43 +386,23 @@ const wgs84tobd09 = (lng: number, lat: number) => {
     return [lng, lat];
   } else {
     const gcj02 = wgs84togcj02(lng, lat);
-    const bd09 = gcj02tobd09(gcj02[0], gcj02[1]);
-    return bd09;
+    return gcj02tobd09(gcj02[0], gcj02[1]);
   }
 };
 
-/**
- * GCJ02 转换为 WGS84
- * @param lng
- * @param lat
- * @returns {*[]}
- */
+// GCJ02 转换为 WGS84
 const gcj02towgs84 = (lng: number, lat: number) => {
   lat = +lat;
   lng = +lng;
   if (outOfChina(lng, lat)) {
     return [lng, lat];
   } else {
-    let dlat = transformlat(lng - 105.0, lat - 35.0);
-    let dlng = transformlng(lng - 105.0, lat - 35.0);
-    const radlat = (lat / 180.0) * PI;
-    let magic = Math.sin(radlat);
-    magic = 1 - OFFSET * magic * magic;
-    const sqrtmagic = Math.sqrt(magic);
-    dlat = (dlat * 180.0) / (((AXIS * (1 - OFFSET)) / (magic * sqrtmagic)) * PI);
-    dlng = (dlng * 180.0) / ((AXIS / sqrtmagic) * Math.cos(radlat) * PI);
-    const mglat = lat + dlat;
-    const mglng = lng + dlng;
+    const { mglng, mglat } = inChinaLngLat(lng, lat);
     return [lng * 2 - mglng, lat * 2 - mglat];
   }
 };
 
-/**
- * 百度坐标系 转换为 WGS84
- * @param lng
- * @param lat
- * @returns {number[]|*[]}
- */
+// 百度坐标系 转换为 WGS84
 const bd09towgs84 = (lng: number, lat: number) => {
   lat = +lat;
   lng = +lng;
@@ -443,8 +410,7 @@ const bd09towgs84 = (lng: number, lat: number) => {
     return [lng, lat];
   } else {
     const gcj02 = bd09togcj02(lng, lat);
-    const gps84 = gcj02towgs84(gcj02[0], gcj02[1]);
-    return gps84;
+    return gcj02towgs84(gcj02[0], gcj02[1]);
   }
 };
 
@@ -468,7 +434,7 @@ const transformlng = (lng: number, lat: number) => {
   return ret;
 };
 
-export {
+export default {
   // 投影转换
   bd09,
   gcj02,

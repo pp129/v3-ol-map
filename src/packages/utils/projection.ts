@@ -8,7 +8,7 @@ import {
 
 import { PROJECTIONS as EPSG3857_PROJECTIONS } from "ol/proj/epsg3857.js";
 import { PROJECTIONS as EPSG4326_PROJECTIONS } from "ol/proj/epsg4326.js";
-import * as projZh from "./transform";
+import projZh from "./transform";
 import proj4 from "proj4";
 import { register } from "ol/proj/proj4.js";
 

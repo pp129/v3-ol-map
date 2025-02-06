@@ -5,6 +5,7 @@ import { AnimationOptions } from "ol/View";
 import { GeoJSON } from "ol/format";
 import { ReadOptions } from "ol/format/Feature";
 import { Options } from "ol/format/GeoJSON";
+import transform from "./transform";
 
 export const validObjKey = (obj: any, key: string): boolean => {
   if (obj && Object.prototype.hasOwnProperty.call(obj, key)) {
@@ -139,3 +140,5 @@ export const readFeatures = (options: ReadFeaturesOptions) => {
   const format = new GeoJSON({ ...options.format });
   return format.readFeatures(options.source, { ...options.options });
 };
+
+export { transform };
