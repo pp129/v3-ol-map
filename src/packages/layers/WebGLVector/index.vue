@@ -13,7 +13,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<VectorLayerOptions>(), {
-  layerId: `vector-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   modify: false,
   source: undefined,
@@ -70,6 +70,8 @@ const { initWebglLayer, dispose, getFeatureById, removeFeatureById, getSource } 
 
 const init = async () => {
   const vectorLayer = await initWebglLayer();
+  const layerId = props.layerId || `webgl-layer-${nanoid()}`;
+  vectorLayer.set("id", layerId);
   layerReady.value = true;
   layer.value = vectorLayer;
 };

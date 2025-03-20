@@ -1,7 +1,9 @@
 import { ref, inject, unref, provide, watchEffect, shallowRef } from "vue";
 import tileRender, { baiduRender, geotiffRender, OSMRender, tempTileRender } from "./tileRender.ts";
 import useBaseLayer from "../baseLayer/index.ts";
-import { Group as LayerGroup, Layer } from "ol/layer.js";
+import LayerGroup from "ol/layer/Group";
+import Layer from "ol/layer/Layer";
+// import { Group as LayerGroup, Layer } from "ol/layer";
 import { OverviewMap } from "ol/control.js";
 import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib/index.ts";

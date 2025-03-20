@@ -40,7 +40,7 @@ export default defineConfig(({ command, mode }): any => {
     base: VITE_BASE_URL,
     server: {
       host: "localhost",
-      port: 8080,
+      port: 8989,
       open: true,
       proxy: {
         [VITE_JOINT_API_URL]: {

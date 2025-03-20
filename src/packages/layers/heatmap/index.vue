@@ -15,7 +15,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<HeatmapOptions>(), {
-  layerId: `vector-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   gradient: () => {
     return ["#00f", "#0ff", "#0f0", "#ff0", "#f00"];
@@ -90,7 +90,8 @@ const init = () => {
     ...props,
     source: vector_source.value,
   });
-  layer.value.set("id", props.layerId);
+  const layerId = props.layerId || `heatmap-layer-${nanoid()}`;
+  layer.value.set("id", layerId);
   map.addLayer(layer.value);
   // 绑定事件
   eventList.forEach(listenerKey => {

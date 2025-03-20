@@ -27,7 +27,7 @@ export interface VectorSourceOptions extends SourceOptions {
   wfsOptions?: WriteGetFeatureOptions;
 }
 
-export declare type WebGLStyle = import("ol/style/webgl.js").WebGLStyle;
+export declare type WebGLStyle = import("ol/style/flat.js").FlatStyleLike;
 export interface VectorLayerOptions extends defaultVectorOptions {
   layerId?: string;
   source?: VectorSourceOptions;

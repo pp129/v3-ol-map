@@ -247,6 +247,15 @@ const routes: Array<RouteRecordRaw> = [
       hidden: true,
     },
   },
+  {
+    path: "/multiMap",
+    name: "multiMap",
+    component: () => import("@/examples/multiMap/index.vue"),
+    meta: {
+      title: "多个地图",
+      description: "多个地图",
+    },
+  },
 ];
 
 const router = createRouter({

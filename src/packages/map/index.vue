@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject } from "vue";
+import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject, onBeforeMount } from "vue";
 import OlMap from "@/packages/lib";
+import { nanoid } from "nanoid";
 import MapObjectEventTypes from "ol/MapBrowserEvent";
 import { panTo as PanTo, readFeatures, flyTo as FlyTo, flyAnimationOptions } from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
@@ -29,13 +30,14 @@ interface Props extends VMap {
 }
 // 属性默认值
 const props = withDefaults(defineProps<Props>(), {
-  target: "map",
   width: "100%",
   height: "100%",
+  target: "",
 });
 // 容器DOM的id
-const targetId = computed(() => {
-  return typeof props.target === "string" ? props.target : props.target.id;
+const targetId = ref("");
+onBeforeMount(() => {
+  targetId.value = props.target || `map-${nanoid()}`;
 });
 const load = ref(false);
 let map = shallowRef<OlMap>();
@@ -81,7 +83,7 @@ const init = () => {
     const interactions: VMap["interactions"] | undefined = $OlMapConfig
       ? { ...$OlMapConfig.map?.interactions }
       : undefined;
-    let options: VMap = { ...props };
+    let options: VMap = { ...props, target: targetId.value };
     if (view && Object.keys(view).length > 0) {
       if (!options.view || Object.keys(options.view).length <= 0) options.view = view;
     }

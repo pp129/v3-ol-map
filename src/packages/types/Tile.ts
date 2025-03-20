@@ -60,6 +60,7 @@ export interface ImageLayerOptions extends ImageLayer {
 
 type VectorTileLayer = Omit<import("ol/layer/VectorTile").Options, "source" | "style">;
 export interface VectorTileOptions extends VectorTileLayer {
+  layerId?: string;
   source?: import("ol/source/VectorTile").Options | undefined;
   layerStyle?: import("ol/layer/VectorTile").Options["style"];
 }

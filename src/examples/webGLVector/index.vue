@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, shallowRef, ref, computed } from "vue";
+import { onMounted, shallowRef, ref, computed, onBeforeUnmount } from "vue";
 import { OlMapInstance } from "@/packages";
 import LinkFix from "@/examples/webGLVector/fix.ts";
 
@@ -23,11 +23,14 @@ const style = {
     ["*", ["get", "state"], colors[0]],
   ],
   "stroke-width": 1.5,
+  "text-value": ["get", "road_name"],
+  "text-placement": "line",
 };
 const fixStyle = {
   "stroke-color": "#ff00ff",
   "stroke-width": 2,
 };
+const showSwitch = ref(false);
 let switchValue = ref(false);
 let zoom = ref<number | undefined>(15);
 const enableFix = computed(() => {
@@ -77,12 +80,23 @@ const getData = async () => {
 
 let data = shallowRef();
 let fixData = shallowRef();
+const timer = ref();
 
 const init = () => {
   getData().then(res => {
     data.value = res;
     onChange();
   });
+};
+
+const reload = () => {
+  init();
+  timer.value = setTimeout(
+    () => {
+      reload();
+    },
+    1000 * 60 * 1,
+  );
 };
 
 const onChange = () => {
@@ -102,17 +116,25 @@ const onChange = () => {
 };
 
 onMounted(() => {
-  init();
+  reload();
+});
+
+onBeforeUnmount(() => {
+  if (timer.value) {
+    clearTimeout(timer.value);
+    timer.value = null;
+  }
 });
 </script>
 
 <template>
   <div class="container">
-    <div class="switch">
+    <div v-show="showSwitch" class="switch">
       <input v-model="switchValue" type="checkbox" name="switch" :disabled="!enableFix" @change="onChange" />路口填补
       <p v-show="!enableFix">小层级下要素过多，进行填补计算会很卡</p>
     </div>
-    <ol-map ref="mapRef" :view="{ zoom: 15, city: '厦门' }" @changeZoom="init">
+    <ol-map ref="mapRef" :view="{ zoom: 11, city: '厦门' }" @changeZoom="init">
+      <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
       <ol-webgl-vector :layer-style="style" :z-index="1">
         <ol-feature :geo-json="data"></ol-feature>
       </ol-webgl-vector>

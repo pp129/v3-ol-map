@@ -14,7 +14,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<VectorLayerOptions>(), {
-  layerId: `vector-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   modify: false,
   source: undefined,
@@ -71,6 +71,8 @@ watch(
 
 const init = async () => {
   const vectorLayer = await initVectorLayer();
+  const layerId = props.layerId || `vector-layer-${nanoid()}`;
+  vectorLayer.set("id", layerId);
   layerReady.value = true;
   layer.value = vectorLayer;
 };

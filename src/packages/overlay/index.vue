@@ -11,7 +11,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<OverlayOptions>(), {
-  overlayId: `overlay-${nanoid()}`,
+  overlayId: "",
   data: () => {
     return {};
   },
@@ -34,7 +34,8 @@ watch(
 );
 const init = () => {
   let element = props.element ? props.element : document.getElementById(elmId.toString());
-  const overlayOption = { ...props, ...{ id: props.overlayId, element } };
+  const id = props.overlayId || `overlay-${nanoid()}`;
+  const overlayOption = { ...props, ...{ id, element } };
   overlay.value = new Overlay(overlayOption as Options);
   const options = { ...overlayOption } as any;
   for (const i in options) {

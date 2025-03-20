@@ -10,7 +10,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<BaseTileProps>(), {
   // tileType: "TDT",
-  layerId: `tile-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   source: undefined,
 });
@@ -22,7 +22,6 @@ watch(
     if (nVal && oVal && nVal.toUpperCase() !== oVal.toUpperCase()) {
       const layer = getLayer();
       if (layer) {
-        console.log("layer", layer);
         resetTile(layer);
       }
     }
@@ -47,7 +46,12 @@ watch(
 );
 onMounted(() => {
   init().then(() => {
-    render.value = true;
+    const layer = getLayer();
+    if (layer) {
+      const layerId = props.layerId || `tile-layer-${nanoid()}`;
+      layer.set("id", layerId);
+      render.value = true;
+    }
   });
 });
 onUnmounted(() => {

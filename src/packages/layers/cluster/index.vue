@@ -23,7 +23,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<ClusterLayerOptions>(), {
-  layerId: `vector-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   clusterOptions: () => {
     return {};
@@ -214,7 +214,8 @@ const init = () => {
     });
     layer.value.set("cluster", true);
   }
-  layer.value.set("id", props.layerId);
+  const layerId = props.layerId || `vector-layer-${nanoid()}`;
+  layer.value.set("id", layerId);
   map.addLayer(layer.value);
   // 绑定事件
   eventList.forEach(listenerKey => {

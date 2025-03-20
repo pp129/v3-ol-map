@@ -12,7 +12,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<VectorTileOptions>(), {
-  layerId: `vectorTile-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
 });
 
@@ -45,6 +45,8 @@ const init = () => {
     source: source.value,
     style: props.layerStyle,
   });
+  const layerId = props.layerId || `vectorTile-layer-${nanoid()}`;
+  layer.value.set("id", layerId);
   layerReady.value = true;
   map.addLayer(layer.value);
   emit("sourceready", source.value);
