@@ -32,7 +32,7 @@ export default defineConfig(() => {
           text: "组件",
           items: [
             { text: "配置项", link: "/examples/ol-config" },
-            { text: "地图", link: "/examples/ol-map" },
+            { text: "地图", link: "/components/src/packages/map" },
             {
               text: "控制类组件",
               items: [

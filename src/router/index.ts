@@ -256,6 +256,15 @@ const routes: Array<RouteRecordRaw> = [
       description: "多个地图",
     },
   },
+  {
+    path: "/groupLayer",
+    name: "groupLayer",
+    component: () => import("@/examples/groupLayer/index.vue"),
+    meta: {
+      title: "组合图层",
+      description: "组合图层",
+    },
+  },
 ];
 
 const router = createRouter({

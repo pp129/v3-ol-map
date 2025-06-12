@@ -4,7 +4,13 @@ module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
-  extends: ["plugin:vue/vue3-recommended", "plugin:prettier/recommended"],
+  extends: [
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended"
+  ],
   rules: {
     "vue/no-v-html": 0,
     "vue/v-on-event-hyphenation": 0,

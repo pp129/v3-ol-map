@@ -5,7 +5,7 @@ import TileGrid from "ol/tilegrid/TileGrid.js";
 import type { Options as XYZOptions } from "ol/source/XYZ";
 import type { Options as OSMOptions } from "ol/source/OSM";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF";
-import type { BaseTileProps, TileGridOptions } from "../../types";
+import type { BaseTileProps, TileGridOptions } from "@/packages";
 
 const getTileGrid = (sourceOptions: BaseTileProps["source"]) => {
   let tileGridOption: TileGridOptions | undefined = undefined;

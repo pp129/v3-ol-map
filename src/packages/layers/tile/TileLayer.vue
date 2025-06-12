@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { BaseTileProps } from "@/packages/types";
-import { Tile } from "ol/layer";
-import { onMounted, shallowRef } from "vue";
-import { tempTileRender } from "./tileRender";
+import { useParent } from "@/packages/hooks/parent";
+import { useTile } from "@/packages/hooks/tile.ts";
 
-const props = withDefaults(defineProps<BaseTileProps>(), {});
-const layer = shallowRef<Tile>();
-const init = () => {
-  layer.value = tempTileRender(props);
-};
-onMounted(() => {
-  init();
+const props = withDefaults(defineProps<BaseTileProps>(), {
+  layerId: "",
+  visible: true,
 });
+
+const { getLayer } = useTile(props);
+const layer = getLayer();
+const { addLayer } = useParent();
+if (layer) addLayer(layer);
 </script>
 
 <template>

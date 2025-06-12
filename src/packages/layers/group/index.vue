@@ -1,27 +1,40 @@
 <script lang="ts" setup>
-import { inject, onMounted, provide, Ref, ref, shallowRef, unref } from "vue";
+import { inject, onMounted, provide, Ref, ref, shallowRef, unref, watchEffect } from "vue";
+import { nanoid } from "nanoid";
+import LayerGroup, { type Options } from "ol/layer/Group";
 import OlMap from "@/packages/lib";
-import Group, { Options } from "ol/layer/group";
+import useBaseLayer from "@/packages/layers/baseLayer";
 
 defineOptions({
   name: "OlGroupLayer",
 });
 
-type GroupOptions = Partial<Options>;
-const props = withDefaults(defineProps<GroupOptions>(), {});
+type GroupOptions = Partial<Options> & {
+  id?: string;
+};
+const props = withDefaults(defineProps<GroupOptions>(), {
+  id: "",
+});
 const VMap = inject<Ref<OlMap> | undefined>("VMap", undefined);
 
-const layer = shallowRef<Group>();
+const layer = shallowRef<LayerGroup>();
 let layerReady = ref(false);
 
 const init = () => {
-  layer.value = new Group(props);
+  layer.value = new LayerGroup(props);
+  const layerId = props.id ?? `group-layer-${nanoid()}`;
+  layer.value.set("id", layerId);
   if (VMap) {
     const map = unref(VMap).map;
-    map?.setLayerGroup(layer.value);
+    console.log(layer.value);
+    map?.addLayer(layer.value);
     layerReady.value = true;
   }
 };
+
+watchEffect(() => {
+  if (layer.value) useBaseLayer(layer.value, props);
+});
 
 onMounted(() => {
   init();

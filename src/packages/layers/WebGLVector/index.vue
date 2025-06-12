@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 import { createDefaultStyle } from "ol/style/flat";
 import useVectorLayer from "@/packages/hooks/vector.ts";
 import useBaseLayer from "@/packages/layers/baseLayer";
+import { useParent } from "@/packages/hooks/parent.ts";
 
 defineOptions({
   name: "OlWebglVector",
@@ -68,12 +69,14 @@ const emit: any = defineEmits([
 
 const { initWebglLayer, dispose, getFeatureById, removeFeatureById, getSource } = useVectorLayer(props, emit);
 
+const { addLayer } = useParent();
 const init = async () => {
   const vectorLayer = await initWebglLayer();
   const layerId = props.layerId || `webgl-layer-${nanoid()}`;
   vectorLayer.set("id", layerId);
   layerReady.value = true;
   layer.value = vectorLayer;
+  addLayer(layer.value);
 };
 
 defineExpose({

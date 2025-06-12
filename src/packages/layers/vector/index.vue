@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import useBaseLayer from "@/packages/layers/baseLayer";
-import { nanoid } from "nanoid";
 import { inject, onBeforeUnmount, onMounted, provide, ref, shallowRef, unref, watch, watchEffect } from "vue";
-import { createDefaultStyle } from "ol/style/flat.js";
-import OlMap from "@/packages/lib";
-import { ExposeVector, VectorLayerOptions } from "@/packages/types/Vector";
+import { nanoid } from "nanoid";
 import VectorLayer, { Options as LayerOptions } from "ol/layer/Vector";
-import { DefaultStyle } from "ol/style/flat";
-import useVectorLayer from "@/packages/hooks/vector.ts";
+import { createDefaultStyle, DefaultStyle } from "ol/style/flat";
+import OlMap from "@/packages/lib";
+import useBaseLayer from "@/packages/layers/baseLayer";
+import { VectorLayerOptions } from "@/packages/types/Vector";
+import useVectorLayer, { type VectorEmitsFnType } from "@/packages/hooks/vector.ts";
+import { useParent } from "@/packages/hooks/parent.ts";
 
 defineOptions({
   name: "OlVector",
@@ -27,23 +27,10 @@ const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
 let layer = shallowRef<VectorLayer>();
 let layerReady = ref(false);
+const { addLayer } = useParent();
 
-const emit: any = defineEmits([
-  "singleclick",
-  "pointermove",
-  "sourceready",
-  "featuresloadend",
-  "featuresloadstart",
-  "addfeature",
-  "modifyend",
-  "modifystart",
-  "translateend",
-  "translatestart",
-  "translating",
-  "change",
-]);
-
-const { initVectorLayer, dispose, getFeatureById, removeFeatureById, getSource } = useVectorLayer(props, emit);
+const emits = defineEmits<VectorEmitsFnType>();
+const { initVectorLayer, dispose, getFeatureById, removeFeatureById, getSource } = useVectorLayer(props, emits);
 
 provide("ParentLayer", layer);
 
@@ -75,6 +62,7 @@ const init = async () => {
   vectorLayer.set("id", layerId);
   layerReady.value = true;
   layer.value = vectorLayer;
+  addLayer(layer.value);
 };
 
 defineExpose({

@@ -1,6 +1,7 @@
 import type { ExtractPropTypes, InjectionKey, Ref } from "vue";
 import type { App, Plugin } from "vue";
 import OlMap from "./map/index.ts";
+import OlGroupLayer from "./layers/group/index.ts";
 import OlTile from "./layers/tile/index.ts";
 import OlImage from "./layers/image/index.ts";
 import OlVector from "./layers/vector/index.ts";
@@ -30,6 +31,7 @@ import { VMap } from "./types";
 
 const components: Plugin[] = [
   OlMap,
+  OlGroupLayer,
   OlTile,
   OlImage,
   OlVector,

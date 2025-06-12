@@ -1,4 +1,5 @@
 import OlMap from "./map/index.vue";
+import OlGroupLayer from "./layers/group/index.vue";
 import OlTile from "./layers/tile/index.vue";
 import OlImage from "./layers/image/index.vue";
 import OlVector from "./layers/vector/index.vue";
@@ -27,6 +28,7 @@ import OlConfig from "./config/index.vue";
 
 export {
   OlMap,
+  OlGroupLayer,
   OlTile,
   OlImage,
   OlVector,
@@ -58,6 +60,7 @@ export {
 declare module "vue" {
   export interface GlobalComponents {
     OlMap: typeof OlMap;
+    OlGroupLayer: typeof OlGroupLayer;
     OlTile: typeof OlTile;
     OlImage: typeof OlImage;
     OlVector: typeof OlVector;

@@ -3,17 +3,16 @@ import tileRender, { baiduRender, geotiffRender, OSMRender, tempTileRender } fro
 import useBaseLayer from "../baseLayer/index.ts";
 import LayerGroup from "ol/layer/Group";
 import Layer from "ol/layer/Layer";
-// import { Group as LayerGroup, Layer } from "ol/layer";
 import { OverviewMap } from "ol/control.js";
 import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib/index.ts";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
-import { defaultOlMapConfig, type ConfigProviderContext, ConfigProviderProps } from "../../index.ts";
-import type { BaseTileProps } from "../../types";
+import { defaultOlMapConfig, type ConfigProviderContext, type BaseTileProps } from "@/packages";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
-import Map from "ol/Map";
+import type { Map } from "ol";
 import BaseLayer from "ol/layer/Base";
+import { nanoid } from "nanoid";
 
 const tileLayer = ($props: BaseTileProps) => {
   const VMap = inject("VMap") as OlMap;
@@ -249,6 +248,8 @@ const tileLayer = ($props: BaseTileProps) => {
   };
   const addTileLayer = (group?: boolean) => {
     if (!layer.value) return;
+    const layerId = props.layerId || `tile-layer-${nanoid()}`;
+    layer.value.set("id", layerId);
     layer.value.set("layerTypeName", "TileLayer");
     layer.value.set("base", true); // 设置为底图
     if (props.zIndex) {

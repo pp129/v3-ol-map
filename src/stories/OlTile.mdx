@@ -1,0 +1,31 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+
+import * as OlTile from "./OlTile.stories";
+
+<Meta of={OlTile} />
+
+# ol-tile
+
+瓦片图层
+
+```js
+import { OlMap, OlTile } from "v-ol-map";
+```
+
+<Canvas of={OlTile.Default} />
+
+## XYZ
+
+> 自定义 XYZ 规则瓦片图层
+
+<Canvas of={OlTile.XYZ} />
+
+## Switch Tile
+
+> 切换瓦片图层
+
+<Canvas of={OlTile.Switch} />
+
+## Docs
+
+<Controls />

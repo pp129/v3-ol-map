@@ -16,9 +16,23 @@ import type { Pixel } from "ol/pixel";
 import type Layer from "ol/layer/Layer";
 import { unByKey } from "ol/Observable";
 import { DefaultStyle } from "ol/style/flat";
-import { EmitFn } from "vue";
 
-const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
+export type VectorEmitsFnType = {
+  (event: "singleclick", ...args: any[]): void;
+  (event: "pointermove", ...args: any[]): void;
+  (event: "sourceready", ...args: any[]): void;
+  (event: "featuresloadend", ...args: any[]): void;
+  (event: "featuresloadstart", ...args: any[]): void;
+  (event: "addfeature", ...args: any[]): void;
+  (event: "modifyend", ...args: any[]): void;
+  (event: "modifystart", ...args: any[]): void;
+  (event: "translateend", ...args: any[]): void;
+  (event: "translatestart", ...args: any[]): void;
+  (event: "translating", ...args: any[]): void;
+  (event: "change", ...args: any[]): void;
+};
+
+const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
   const VMap = inject("VMap") as OlMap;
   const map = unref(VMap).map;
   const metersPerUnit = map.getView().getProjection().getMetersPerUnit();
@@ -170,7 +184,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: EmitFn) => {
     layer.on("sourceready", evt => {
       emit("sourceready", evt);
     });
-    map.addLayer(layer);
+    // map.addLayer(layer);
   };
 
   const initVectorLayer = async () => {

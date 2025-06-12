@@ -5,7 +5,9 @@ import LinkFix from "@/examples/webGLVector/fix.ts";
 
 const mapRef = shallowRef<OlMapInstance>();
 const url =
-  import.meta.env.VITE_JOINT_API_URL + "/Features/gd_route_clean/JointFeature?ak=" + import.meta.env.VITE_JOINT_AK;
+  import.meta.env.VITE_JOINT_API_URL +
+  "/Features/gd_route_clean/JointFeatureXmGaode?ak=" +
+  import.meta.env.VITE_JOINT_AK;
 const colors = ["#4fd27d", "#ffd045", "#e80e0e", "#b40000", "#8f979c"];
 const style = {
   "stroke-color": [
@@ -133,7 +135,7 @@ onBeforeUnmount(() => {
       <input v-model="switchValue" type="checkbox" name="switch" :disabled="!enableFix" @change="onChange" />路口填补
       <p v-show="!enableFix">小层级下要素过多，进行填补计算会很卡</p>
     </div>
-    <ol-map ref="mapRef" :view="{ zoom: 11, city: '厦门' }" @changeZoom="init">
+    <ol-map ref="mapRef" :view="{ zoom: 12, city: '厦门' }" @changeZoom="init">
       <ol-tile tile-type="BAIDU" :z-index="0"></ol-tile>
       <ol-webgl-vector :layer-style="style" :z-index="1">
         <ol-feature :geo-json="data"></ol-feature>

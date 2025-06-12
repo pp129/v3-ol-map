@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import useTileLayer from "./useTile";
-import { nanoid } from "nanoid";
 import type { BaseTileProps } from "@/packages/types/Tile";
 
 defineOptions({
@@ -48,8 +47,6 @@ onMounted(() => {
   init().then(() => {
     const layer = getLayer();
     if (layer) {
-      const layerId = props.layerId || `tile-layer-${nanoid()}`;
-      layer.set("id", layerId);
       render.value = true;
     }
   });

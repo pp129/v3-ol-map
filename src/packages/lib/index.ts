@@ -7,7 +7,7 @@ import { VMap } from "../types";
 import { getCenterByCity } from "../utils/city.ts";
 
 class OlMap {
-  map: Map; // 地图对象
+  map: import("ol/map").default; // 地图对象
   constructor(option: VMap) {
     // 初始注册坐标系
     definedProjection();

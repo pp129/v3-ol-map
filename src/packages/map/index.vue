@@ -2,20 +2,21 @@
 import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject, onBeforeMount } from "vue";
 import OlMap from "@/packages/lib";
 import { nanoid } from "nanoid";
-import MapObjectEventTypes from "ol/MapBrowserEvent";
 import { panTo as PanTo, readFeatures, flyTo as FlyTo, flyAnimationOptions } from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
 import BaseLayer from "ol/layer/Base";
 import type { View, VMap } from "@/packages/types/Map";
 import type { AnimationOptions } from "ol/View";
-import { ConfigProviderContext } from "@/packages";
+import type Map from "ol/Map";
+import { ConfigProviderContext, defaultOlMapConfig } from "@/packages/default";
+import { OlMapEvent } from "@/packages/types/Map";
 
 defineOptions({
   name: "OlMap",
 });
 
 const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide", undefined);
-const $OlMapConfig = configProvider ?? (inject("$OlMapConfig") as ConfigProviderContext);
+const $OlMapConfig: ConfigProviderContext | undefined = configProvider ?? inject("$OlMapConfig", undefined);
 
 /**
  * 属性继承：ol/Map
@@ -48,7 +49,7 @@ const mapHeight = computed(() => {
   return typeof props.height === "number" ? `${props.height}px` : props.height;
 });
 
-const events: string[] = [
+const events = [
   "singleclick",
   "click",
   "dblclick",
@@ -61,28 +62,30 @@ const events: string[] = [
   "moveend",
   "movestart",
 ];
-const emit: any = defineEmits([
-  "load",
-  "changeZoom",
-  "singleclick",
-  "click",
-  "dblclick",
-  "pointerdrag",
-  "contextmenu",
-  "precompose",
-  "postrender",
-  "loadend",
-  "loadstart",
-  "moveend",
-  "movestart",
-]);
+
+type ChangeZoomEvtTyp = Partial<OlMapEvent & { zoom: number | undefined }>;
+export interface MapEmitsType {
+  (e: "load"): void;
+  (e: "changeZoom", evt: ChangeZoomEvtTyp, map: Map | undefined): void;
+  (e: "singleclick", evt: OlMapEvent): void;
+  (e: "click", evt: OlMapEvent): void;
+  (e: "dblclick", evt: OlMapEvent): void;
+  (e: "pointerdrag", evt: OlMapEvent): void;
+  (e: "contextmenu", evt: OlMapEvent): void;
+  (e: "precompose", evt: OlMapEvent): void;
+  (e: "postrender", evt: OlMapEvent): void;
+  (e: "loadend", evt: OlMapEvent): void;
+  (e: "loadstart", evt: OlMapEvent): void;
+  (e: "moveend", evt: OlMapEvent): void;
+  (e: "movestart", evt: OlMapEvent): void;
+}
+const emit = defineEmits<MapEmitsType>();
 const init = () => {
   return new Promise((resolve, reject) => {
-    const view: View | undefined = $OlMapConfig ? { ...$OlMapConfig.map?.view } : undefined;
-    const controls: VMap["controls"] | undefined = $OlMapConfig ? { ...$OlMapConfig.map?.controls } : undefined;
-    const interactions: VMap["interactions"] | undefined = $OlMapConfig
-      ? { ...$OlMapConfig.map?.interactions }
-      : undefined;
+    const config = $OlMapConfig || defaultOlMapConfig;
+    const view: View | undefined = $OlMapConfig ? { ...config.map?.view } : undefined;
+    const controls: VMap["controls"] | undefined = $OlMapConfig ? { ...config.map?.controls } : undefined;
+    const interactions: VMap["interactions"] | undefined = $OlMapConfig ? { ...config.map?.interactions } : undefined;
     let options: VMap = { ...props, target: targetId.value };
     if (view && Object.keys(view).length > 0) {
       if (!options.view || Object.keys(options.view).length <= 0) options.view = view;
@@ -113,7 +116,7 @@ const setCursor = (type: string) => {
 // 绑定事件
 const eventBinding = () => {
   // 鼠标移动事件 图层有要素时显示手型
-  map.value?.map.on("pointermove", (evt: MapObjectEventTypes<UIEvent>) => {
+  map.value?.map.on("pointermove", (evt: OlMapEvent) => {
     if (forceCursor.value) {
       cursor.value = forceCursor.value;
       return;
@@ -137,13 +140,13 @@ const eventBinding = () => {
   });
   // 无特殊处理的遍历绑定
   events.forEach(event => {
-    map.value?.map.on(event as any, (evt: any) => {
+    map.value?.map.on(event, (evt: any) => {
       emit(event, evt, map.value?.map);
     });
   });
 };
-const zoomEnd = (evt: MapObjectEventTypes<UIEvent>) => {
-  const params = {
+const zoomEnd = (evt: OlMapEvent) => {
+  const params: Partial<OlMapEvent> & { zoom: number | undefined } = {
     ...evt,
     zoom: map.value?.map.getView().getZoom(),
   };
@@ -180,12 +183,23 @@ onBeforeUnmount(() => {
   dispose();
 });
 defineExpose({
-  map: () => {
-    return map.value?.map;
-  },
-  getMap,
-  getLayerById,
-  panTo,
+  map: getMap,
+  /**
+   * 获取地图实例
+   */
+  getMap: getMap,
+  /**
+   * 根据图层ID获取图层对象
+   * @param {String} -id 图层ID
+   * @return {BaseLayer | undefined} 图层对象
+   */
+  getLayerById: getLayerById,
+  /**
+   * 平移到指定位置
+   * @param -AnimationOptions 动画参数
+   * @link https://openlayers.org/en/latest/apidoc/module-ol_View_Animation.html
+   */
+  panTo: panTo,
   flyTo,
   readFeatures,
   setCursor,
