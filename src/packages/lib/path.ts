@@ -3,7 +3,9 @@ import CircleStyle from "ol/style/Circle";
 import VectorLayer from "ol/layer/Vector";
 import Vector from "ol/source/Vector";
 import * as olLoadingstrategy from "ol/loadingstrategy";
-import { Feature, MapBrowserEvent } from "ol";
+// import { Feature, MapBrowserEvent } from "ol";
+import MapBrowserEvent from "ol/MapBrowserEvent";
+import Feature from "ol/Feature";
 import { LineString, Point } from "ol/geom";
 import { Group } from "ol/layer";
 import simplify from "simplify-js";
@@ -324,7 +326,7 @@ export default class vzPath {
 
     // 监听内容控制 ['singleclick', 'pointermove']
     this._traceEvent = mapObj?.on(["singleclick", "pointermove"], eve => {
-      this.eventListener(eve as MapBrowserEvent<any>);
+      this.eventListener(eve as MapBrowserEvent);
     });
 
     /**

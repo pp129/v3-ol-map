@@ -5,7 +5,7 @@ import Cluster from "ol/source/Cluster.js";
 import Supercluster from "supercluster";
 import type { ReadOptions } from "ol/format/Feature";
 import type VectorSource from "ol/source/Vector";
-import { Feature } from "ol";
+import Feature from "ol/Feature.js";
 import type VectorLayer from "ol/layer/Vector";
 import { Projection } from "ol/proj.js";
 import {

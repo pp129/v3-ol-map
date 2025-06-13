@@ -10,7 +10,7 @@ import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
 import { defaultOlMapConfig, type ConfigProviderContext, type BaseTileProps } from "@/packages";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
-import type { Map } from "ol";
+import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
 import { nanoid } from "nanoid";
 

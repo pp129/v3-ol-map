@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FieldOptions, OlWindInstance, Position, WindLayer, WindLayerEvent, WindOptions, WindData } from "@/packages";
-import { onBeforeMount, Reactive, reactive, Ref, ref, shallowRef } from "vue";
+import { onBeforeMount, reactive, ref, shallowRef } from "vue";
 
 const windLayer = shallowRef<OlWindInstance>();
 let data = ref();
@@ -38,8 +38,8 @@ const onLayerMount = (layer: WindLayer) => {
   console.log("onLayerMount", layer);
 };
 let position = ref<Position>();
-type Info = Reactive<Partial<WindData>>;
-let windowInfo = <Info>reactive({
+type Info = Partial<WindData>;
+let windowInfo: Info = reactive({
   m: 0,
   windLevel: "",
   windDirection: "",
@@ -83,11 +83,11 @@ onBeforeMount(async () => {
     <ol-overlay :position="position" :class="['overlay']" positioning="bottom-center" :offset="[0, -20]">
       <!--      <i class="close" @click="position = undefined">&times;</i>-->
       <div class="content">
-        风速：{{ windowInfo.m }}
+        风速：{{ windowInfo ? windowInfo.m : "" }}
         <br />
-        风级：{{ windowInfo.windLevel }}
+        风级：{{ windowInfo ? windowInfo.windLevel : "" }}
         <br />
-        风向：{{ windowInfo.windDirection }}
+        风向：{{ windowInfo ? windowInfo.windDirection : "" }}
       </div>
     </ol-overlay>
   </ol-map>

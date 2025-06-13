@@ -140,7 +140,9 @@ const eventBinding = () => {
   });
   // 无特殊处理的遍历绑定
   events.forEach(event => {
+    //@ts-ignore
     map.value?.map.on(event, (evt: any) => {
+      //@ts-ignore
       emit(event, evt, map.value?.map);
     });
   });

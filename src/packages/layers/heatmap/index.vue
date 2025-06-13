@@ -96,7 +96,7 @@ const init = () => {
   // 绑定事件
   eventList.forEach(listenerKey => {
     eventRender.value.push(
-      map.on(listenerKey, (evt: MapObjectEventTypes<UIEvent>) => {
+      map.on(listenerKey, (evt: MapObjectEventTypes) => {
         eventHandler(listenerKey, evt);
       }),
     );
@@ -107,7 +107,7 @@ const init = () => {
   });
 };
 
-const eventHandler = (listenerKey: string, evt: MapObjectEventTypes<UIEvent>) => {
+const eventHandler = (listenerKey: string, evt: MapObjectEventTypes) => {
   const { pixel } = evt;
   const feature = getFeatureAtPixel(pixel);
   emit(listenerKey, evt, feature);

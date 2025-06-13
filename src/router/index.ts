@@ -265,6 +265,15 @@ const routes: Array<RouteRecordRaw> = [
       description: "组合图层",
     },
   },
+  {
+    path: "/mask",
+    name: "mask",
+    component: () => import("@/examples/mask/index.vue"),
+    meta: {
+      title: "遮罩",
+      description: "遮罩",
+    },
+  },
 ];
 
 const router = createRouter({

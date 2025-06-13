@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, useTemplateRef } from "vue";
+import { onMounted, ref } from "vue";
 import { GeoJSON, VectorLayerOptions, VMap, GeoJSONFeature } from "@/packages";
 import cluster1 from "@/assets/images/cluster1.png";
 import cluster2 from "@/assets/images/cluster2.png";
@@ -161,14 +161,14 @@ const getVectorData = () => {
   };
 };
 
-const groupOpacityRef = useTemplateRef("groupOpacity");
-const layerOpacityRef = useTemplateRef("layerOpacity");
+const groupOpacityRef = ref();
+const layerOpacityRef = ref();
 
 const listener = () => {
-  groupOpacityRef.value?.addEventListener("input", e => {
+  groupOpacityRef.value?.addEventListener("input", (e: any) => {
     groupOptions.value.opacity = (e.target as HTMLInputElement).valueAsNumber;
   });
-  layerOpacityRef.value?.addEventListener("input", e => {
+  layerOpacityRef.value?.addEventListener("input", (e: any) => {
     layerOptions.value.opacity = (e.target as HTMLInputElement).valueAsNumber;
   });
 };
@@ -218,7 +218,7 @@ onMounted(() => {
           </label>
           <label>
             opacity
-            <input ref="groupOpacity" class="opacity" type="range" min="0" max="1" step="0.01" />
+            <input ref="groupOpacityRef" class="opacity" type="range" min="0" max="1" step="0.01" />
           </label>
         </fieldset>
         <ul>
@@ -251,7 +251,7 @@ onMounted(() => {
           </label>
           <label>
             opacity
-            <input ref="layerOpacity" class="opacity" type="range" min="0" max="1" step="0.01" />
+            <input ref="layerOpacityRef" class="opacity" type="range" min="0" max="1" step="0.01" />
           </label>
         </fieldset>
       </li>
