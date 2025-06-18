@@ -2,9 +2,9 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://github.com/pp129/v3-ol-map",
-  "version": "1.1.0",
-  "main": "lib/v3-ol-map.umd.js",
-  "types": "es/index.d.ts",
+  "version": "1.1.11",
+  "main": "./lib/v3-ol-map.umd.js",
+  "types": "./es/index.d.ts",
   "files": [
     "package.json",
     "README.md",
@@ -37,7 +37,7 @@
     "qs": "^6.13.0",
     "simplify-js": "^1.2.4",
     "supercluster": "^8.0.1",
-    "typescript": "^5.8.3",
+    "typescript": "^5.4.5",
     "vue": "^3.4.27",
     "wind-core": "^1.1.8"
   },

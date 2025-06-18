@@ -23,7 +23,10 @@ export type VectorEmitsFnType = {
   (event: "sourceready", ...args: any[]): void;
   (event: "featuresloadend", ...args: any[]): void;
   (event: "featuresloadstart", ...args: any[]): void;
+  (event: "featuresloaderror", ...args: any[]): void;
   (event: "addfeature", ...args: any[]): void;
+  (event: "changefeature", ...args: any[]): void;
+  (event: "removefeature", ...args: any[]): void;
   (event: "modifyend", ...args: any[]): void;
   (event: "modifystart", ...args: any[]): void;
   (event: "translateend", ...args: any[]): void;
@@ -74,6 +77,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
       emit("translating", { ...event, metersPerUnit });
     });
   };
+
   const setModify = () => {
     if (layer.value && props.modify) {
       modifyObj.value = new Modify({
@@ -187,11 +191,32 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
     // map.addLayer(layer);
   };
 
-  const initVectorLayer = async () => {
-    source.value = setSource();
+  const initSourceFeatureLisenter = () => {
     source.value?.on("addfeature", feature => {
       emit("addfeature", feature);
     });
+    // changefeature
+    source.value?.on("changefeature", feature => {
+      emit("changefeature", feature);
+    });
+    // removefeature
+    // source.value?.on("removefeature", feature => {
+    //   emit("removefeature", feature);
+    // });
+    source.value?.on("featuresloadstart", features => {
+      emit("featuresloadstart", features);
+    });
+    source.value?.on("featuresloadend", features => {
+      emit("featuresloadend", features);
+    });
+  };
+
+  const initVectorLayer = async () => {
+    source.value = setSource();
+    source.value?.on("change", e => {
+      emit("change", e);
+    });
+    initSourceFeatureLisenter();
     const styleOptions = props.layerStyle as LayerOptions["style"] | DefaultStyle;
     if (!styleOptions || Object.keys(styleOptions).length === 0) {
       console.warn(`图层-${props.layerId}没有设置样式参数【layer-style】，图层要素可能无法正常显示！`);
@@ -217,9 +242,10 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
 
   const initWebglLayer = () => {
     source.value = setSource();
-    source.value?.on("addfeature", feature => {
-      emit("addfeature", feature);
+    source.value?.on("change", e => {
+      emit("change", e);
     });
+    initSourceFeatureLisenter();
     const styleOptions = props.layerStyle as WebGLStyle;
     if (!styleOptions || Object.keys(styleOptions).length === 0) {
       console.warn(`图层-${props.layerId}没有设置样式参数【layer-style】，图层要素可能无法正常显示！`);

@@ -1,8 +1,8 @@
-import installer from "./default.ts";
+import installer from "./default";
 
-export * from "./components.ts";
-export * as utils from "./utils/index.ts";
-export * from "./types/index.ts";
-export * from "./default.ts";
+export * from "./components";
+export * as utils from "./utils";
+export * from "./types";
+export * from "./default";
 
 export default installer;

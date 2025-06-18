@@ -196,6 +196,18 @@ const onSourceReady = () => {
 const translateend = (evt: any) => {
   console.log(evt);
 };
+const onFeaturesLoadEnd = (e: any) => {
+  console.log("load end", e);
+};
+const onFeaturesLoadStart = (e: any) => {
+  console.log("load start", e);
+};
+const changefeature = (e: any) => {
+  console.log("feature change", e);
+};
+const onchange = (e: any) => {
+  console.log("change", e.target.getFeatures());
+};
 onMounted(() => {
   getVectorData();
 });
@@ -210,6 +222,10 @@ onMounted(() => {
       :z-index="1"
       @singleclick="onClickLayer"
       @sourceready="onSourceReady"
+      @featuresloadend="onFeaturesLoadEnd"
+      @featuresloadstart="onFeaturesLoadStart"
+      @changefeature="changefeature"
+      @change="onchange"
     >
       <ol-feature :geo-json="geojson" />
     </ol-vector>

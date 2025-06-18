@@ -4,8 +4,16 @@ import Map from "ol/map";
 import { AnimationOptions } from "ol/View";
 import { GeoJSON } from "ol/format";
 import { ReadOptions } from "ol/format/Feature";
-import { Options } from "ol/format/GeoJSON";
+import {
+  GeoJSONFeature,
+  GeoJSONFeatureCollection,
+  GeoJSONGeometry,
+  GeoJSONGeometryCollection,
+  Options,
+} from "ol/format/GeoJSON";
 import transform from "./transform";
+import Feature from "ol/Feature";
+import { ProjectionLike } from "ol/proj";
 
 export const validObjKey = (obj: any, key: string): boolean => {
   if (obj && Object.prototype.hasOwnProperty.call(obj, key)) {
@@ -131,7 +139,7 @@ export const flyTo = (map: Map, param: flyAnimationOptions) => {
 };
 
 export interface ReadFeaturesOptions {
-  source: any;
+  source: ArrayBuffer | Document | Element | object | string;
   format?: Options;
   options?: ReadOptions;
 }
@@ -139,6 +147,41 @@ export interface ReadFeaturesOptions {
 export const readFeatures = (options: ReadFeaturesOptions) => {
   const format = new GeoJSON({ ...options.format });
   return format.readFeatures(options.source, { ...options.options });
+};
+
+export const readFeature = (options: ReadFeaturesOptions) => {
+  const format = new GeoJSON({ ...options.format });
+  return format.readFeature(options.source, { ...options.options });
+};
+
+export const readGeometry = (options: ReadFeaturesOptions) => {
+  const format = new GeoJSON({ ...options.format });
+  return format.readGeometry(options.source, { ...options.options });
+};
+
+type WriteOptions = {
+  dataProjection?: ProjectionLike | undefined;
+  featureProjection?: ProjectionLike | undefined;
+  rightHanded?: boolean | undefined;
+  decimals?: number | undefined;
+};
+
+/**
+ * Encode an array of features as a GeoJSON object.
+ */
+export const writeFeaturesObject = (features: Feature[], options?: WriteOptions): GeoJSONFeatureCollection => {
+  return new GeoJSON().writeFeaturesObject(features, options);
+};
+
+export const writeFeatureObject = (feature: Feature, options?: WriteOptions): GeoJSONFeature => {
+  return new GeoJSON().writeFeatureObject(feature, options);
+};
+
+export const writeGeometryObject = (
+  geometry: Geometry,
+  options?: WriteOptions,
+): GeoJSONGeometry | GeoJSONGeometryCollection => {
+  return new GeoJSON().writeGeometryObject(geometry, options);
 };
 
 export { transform };
