@@ -5,10 +5,10 @@ import qs from "qs";
 import OlMap from "@/packages/lib";
 import { arrowLine } from "@/packages/lib/arrowLine";
 import { validObjKey } from "@/packages/utils";
-import type { Methods, Params, RouteFeatureJson, RouteOptions, StopPoint, Type } from "@/packages/types/Route";
+import type { Methods, Params, RouteOptions, StopPoint, Type } from "@/packages/types/Route";
 import type { Coordinate } from "ol/Coordinate";
-import type { Position } from "geojson";
-import type { OlVectorInstance, VectorLayerOptions } from "@/packages";
+import type { Position, Feature, Point } from "geojson";
+import type { OlVectorInstance, VectorLayerOptions, FeatureCollection } from "@/packages";
 import type { FeatureStyle } from "@/packages/types/Style";
 import { unByKey } from "ol/Observable.js";
 
@@ -25,21 +25,6 @@ const props = withDefaults(defineProps<RouteOptions>(), {
   arrow: 50,
 });
 
-let vectorOptions = ref<VectorLayerOptions>();
-const vectorRef = shallowRef<OlVectorInstance>();
-let startFeatureJson = ref<RouteFeatureJson>();
-let endFeatureJson = ref<RouteFeatureJson>();
-let stopsFeaturesJson = ref<RouteFeatureJson>();
-let routeFeatureJson = ref<GeoJSONFeatureLineString>();
-let startPoint = ref<Coordinate>();
-let startPointSet = ref(false);
-let endPoint = ref<Coordinate>();
-let endPointSet = ref(false);
-let stopPoint = ref<Coordinate[]>();
-let stopPointSet = ref(false);
-const ableToSetRoute = computed(() => {
-  return startPointSet.value && endPointSet.value;
-});
 const defaultEndCircleStyle: FeatureStyle = {
   circle: {
     radius: 14,
@@ -98,6 +83,61 @@ const defaultLineStringStyle = {
     width: 10,
   },
 };
+let vectorOptions = ref<VectorLayerOptions>();
+const vectorRef = shallowRef<OlVectorInstance>();
+
+let routeFeaturesCollection = ref<FeatureCollection>({
+  type: "FeatureCollection",
+  features: [],
+});
+let startFeatureJson = ref<Feature<Point>>({
+  type: "Feature",
+  geometry: {
+    type: "Point",
+    coordinates: [],
+  },
+  properties: {
+    id: "start",
+    style: props.startStyle || defaultStartCircleStyle,
+  },
+});
+let endFeatureJson = ref<Feature<Point>>({
+  type: "Feature",
+  geometry: {
+    type: "Point",
+    coordinates: [],
+  },
+  properties: {
+    id: "end",
+    style: props.endStyle || defaultEndCircleStyle,
+  },
+});
+let stopsFeaturesJson = ref<FeatureCollection>({
+  type: "FeatureCollection",
+  features: [],
+});
+let routeFeatureJson = ref<GeoJSONFeatureLineString>({
+  type: "Feature",
+  geometry: {
+    type: "LineString",
+    coordinates: [],
+  },
+  properties: {
+    id: "route",
+    style: props.lineStyle || defaultLineStringStyle,
+  },
+});
+
+let startPoint = ref<Coordinate>();
+let startPointSet = ref(false);
+let endPoint = ref<Coordinate>();
+let endPointSet = ref(false);
+let stopPoint = ref<Coordinate[]>();
+let stopPointSet = ref(false);
+const ableToSetRoute = computed(() => {
+  return startPointSet.value && endPointSet.value;
+});
+
 // 处理对ol-layer-vector组件v-bind参数的警告
 const vectorProps = () => {
   let options = { ...props } as RouteOptions;
@@ -300,42 +340,20 @@ const setStartFeature = (coordinate?: number[]) => {
   vectorRef.value?.removeFeatureById("start");
   if (coordinate) {
     startPoint.value = coordinate;
-    let style = defaultStartCircleStyle;
-    if (validObjKey(props, "startStyle") && props.startStyle) {
-      style = props.startStyle;
+    startFeatureJson.value.geometry.coordinates = coordinate;
+    if (endFeatureJson.value.geometry.coordinates.length === 0) {
+      routeFeaturesCollection.value.features = [startFeatureJson.value];
+    } else {
+      routeFeaturesCollection.value.features = [startFeatureJson.value, endFeatureJson.value];
     }
-    startFeatureJson.value = {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: coordinate,
-      },
-      properties: {
-        id: "start",
-        style,
-      },
-    };
   }
 };
 const setEndFeature = (coordinate?: number[]) => {
   vectorRef.value?.removeFeatureById("end");
   if (coordinate) {
     endPoint.value = coordinate;
-    let style = defaultEndCircleStyle;
-    if (validObjKey(props, "endStyle") && props.endStyle) {
-      style = props.endStyle;
-    }
-    endFeatureJson.value = {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: coordinate,
-      },
-      properties: {
-        id: "end",
-        style,
-      },
-    };
+    endFeatureJson.value.geometry.coordinates = coordinate;
+    routeFeaturesCollection.value.features = [startFeatureJson.value, endFeatureJson.value];
   }
 };
 const setStopFeatures = (coordinates?: StopPoint[]) => {
@@ -357,22 +375,24 @@ const setStopFeatures = (coordinates?: StopPoint[]) => {
     if (validObjKey(props, "stopsStyle") && props.stopsStyle) {
       style = props.stopsStyle;
     }
-    stopsFeaturesJson.value = {
-      type: "FeatureCollection",
-      features: coordinates.map(item => ({
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: item.coordinate,
-        },
-        properties: {
-          isStops: true,
-          id: `stop_${item.index}`,
-          style,
-        },
-      })),
-    };
-    console.log(stopsFeaturesJson.value);
+    stopsFeaturesJson.value.features = coordinates.map(item => ({
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: item.coordinate,
+      },
+      properties: {
+        isStops: true,
+        id: `stop_${item.index}`,
+        style,
+      },
+    }));
+    const stopsFeatures = stopsFeaturesJson.value.features;
+    if (endFeatureJson.value.geometry.coordinates.length === 0) {
+      routeFeaturesCollection.value.features = [startFeatureJson.value, ...stopsFeatures];
+    } else {
+      routeFeaturesCollection.value.features = [startFeatureJson.value, endFeatureJson.value, ...stopsFeatures];
+    }
   }
 };
 const setStartPoint = async (coordinate?: number[]) => {
@@ -411,20 +431,7 @@ const setRouteFeature = (route?: Position[]) => {
   });
   eventRender.value = [];
   if (route) {
-    routeFeatureJson.value = {
-      type: "Feature",
-      geometry: {
-        type: "LineString",
-        coordinates: route,
-      },
-      properties: {
-        id: "route",
-        style: {
-          ...defaultLineStringStyle,
-          ...props.lineStyle,
-        },
-      },
-    };
+    routeFeatureJson.value.geometry.coordinates = route;
     const layer = vectorRef.value?.getLayer();
     if (source && props.arrow) {
       arrowLine({
@@ -453,6 +460,17 @@ const setRouteFeature = (route?: Position[]) => {
         }),
       );
     }
+    const stopsFeatures = stopsFeaturesJson.value.features;
+    if (stopsFeatures.length > 0) {
+      routeFeaturesCollection.value.features = [
+        startFeatureJson.value,
+        endFeatureJson.value,
+        routeFeatureJson.value,
+        ...stopsFeatures,
+      ];
+    } else {
+      routeFeaturesCollection.value.features = [startFeatureJson.value, endFeatureJson.value, routeFeatureJson.value];
+    }
   }
 };
 const combinePoints = (start: Coordinate, stops: Coordinate[], end: Coordinate): Coordinate[] => {
@@ -470,16 +488,7 @@ const clear = () => {
   startPointSet.value = false;
   endPointSet.value = false;
   stopPointSet.value = false;
-  setStopFeatures();
-  setStartFeature();
-  setEndFeature();
-  setRouteFeature();
-  // routeFeatureJson.value = undefined;
-  // startFeatureJson.value = undefined;
-  // endFeatureJson.value = undefined;
-  // stopsFeaturesJson.value = undefined;
-  // const source = vectorRef.value?.getSource();
-  // if (source) source.clear();
+  routeFeaturesCollection.value.features = [];
 };
 
 defineExpose({
@@ -493,10 +502,7 @@ defineExpose({
 
 <template>
   <ol-vector ref="vectorRef" v-bind="vectorOptions">
-    <ol-feature :geo-json="startFeatureJson"></ol-feature>
-    <ol-feature :geo-json="endFeatureJson"></ol-feature>
-    <ol-feature :geo-json="stopsFeaturesJson"></ol-feature>
-    <ol-feature :geo-json="routeFeatureJson"></ol-feature>
+    <ol-feature :geo-json="routeFeaturesCollection"></ol-feature>
   </ol-vector>
 </template>
 

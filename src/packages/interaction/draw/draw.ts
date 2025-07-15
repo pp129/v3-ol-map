@@ -1,6 +1,6 @@
 import { defineComponent, h, inject, onMounted, PropType, Ref, unref, watch, shallowRef } from "vue";
 import Pin from "@/packages/interaction/pin/index.vue";
-import Draw, { createBox, createRegularPolygon, Options } from "ol/interaction/Draw";
+import Draw, { createBox, createRegularPolygon, DrawEvent, Options } from "ol/interaction/Draw";
 import OlMap from "@/packages/lib";
 import { Modify, Snap } from "ol/interaction";
 import Feature from "ol/Feature";
@@ -9,6 +9,7 @@ import type VectorLayer from "ol/layer/Vector";
 import type VectorSource from "ol/source/Vector";
 import type { DrawType } from "@/packages/types/Draw";
 import { ExposeDraw } from "../../types";
+import { ModifyEvent } from "ol/interaction/Modify";
 
 const OlDraw = defineComponent({
   name: "OlDraw",
@@ -45,8 +46,33 @@ const OlDraw = defineComponent({
       type: [Array, String] as PropType<string[] | string>,
       default: "",
     },
+    once: {
+      type: Boolean,
+      default: false,
+    },
+    options: {
+      type: Object as PropType<Partial<Options>>,
+      default: () => ({}),
+    },
   },
-  emits: ["drawend", "drawstart", "modifyend", "modifystart", "savePin"],
+  // emits: ["drawend", "drawstart", "modifyend", "modifystart", "savePin"],
+  emits: {
+    drawend(payload: DrawEvent) {
+      return payload;
+    },
+    drawstart(payload: DrawEvent) {
+      return payload;
+    },
+    modifyend(payload: ModifyEvent) {
+      return payload;
+    },
+    modifystart(payload: ModifyEvent) {
+      return payload;
+    },
+    savePin(payload: any) {
+      return payload;
+    },
+  },
   setup(props, { expose, emit }) {
     const VMap = inject("VMap") as OlMap;
     const map = unref(VMap).map;
@@ -64,6 +90,9 @@ const OlDraw = defineComponent({
         }
       });
       draw.on("drawstart", event => {
+        if (props.once) {
+          clearSource();
+        }
         emit("drawstart", event);
       });
     };
@@ -91,6 +120,7 @@ const OlDraw = defineComponent({
         if (props.type === "Rectangle") {
           drawType = "Circle";
           drawOptions = {
+            ...props.options,
             source,
             type: drawType,
             geometryFunction: createBox(), // 矩形
@@ -98,6 +128,7 @@ const OlDraw = defineComponent({
         } else if (props.type === "Square") {
           drawType = "Circle";
           drawOptions = {
+            ...props.options,
             source,
             type: drawType,
             geometryFunction: createRegularPolygon(4), // 正方形
@@ -105,6 +136,7 @@ const OlDraw = defineComponent({
         } else {
           drawType = props.type;
           drawOptions = {
+            ...props.options,
             source,
             type: drawType,
           };
@@ -136,6 +168,13 @@ const OlDraw = defineComponent({
     };
     watch(
       () => props.type,
+      () => {
+        drawFeature.value = undefined;
+        init();
+      },
+    );
+    watch(
+      () => props.once,
       () => {
         drawFeature.value = undefined;
         init();

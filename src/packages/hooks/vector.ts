@@ -43,6 +43,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
   let webGLLayer = shallowRef<WebGLVectorLayer>();
   let source = shallowRef<VectorSource>();
   let modifyObj = shallowRef<Modify | undefined>(undefined);
+  let selectObj = shallowRef<Select | undefined>(undefined);
   let translateObj = shallowRef<Translate | undefined>(undefined);
   let eventRender = ref<any[]>([]);
   const eventList: ["singleclick", "pointermove"] = ["singleclick", "pointermove"];
@@ -87,17 +88,29 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
       });
       map.addInteraction(modifyObj.value);
       modifyEventsHandler(modifyObj.value);
+
+      // selectObj.value = new Select({
+      //   layers: [layer.value],
+      // });
+      // map.addInteraction(selectObj.value);
+    }
+  };
+
+  const clearModify = () => {
+    if (modifyObj.value) {
+      map.removeInteraction(modifyObj.value);
+      modifyObj.value = undefined;
     }
   };
 
   const setTranslate = () => {
     if (layer.value && props.translate) {
-      const select = new Select({
+      selectObj.value = new Select({
         layers: [layer.value],
       });
-      map.addInteraction(select);
+      map.addInteraction(selectObj.value);
       translateObj.value = new Translate({
-        features: select.getFeatures(),
+        features: selectObj.value.getFeatures(),
       });
       map.addInteraction(translateObj.value);
       translateEventsHandler(translateObj.value);
@@ -281,6 +294,8 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
     getFeatureById,
     removeFeatureById,
     getSource,
+    setModify,
+    clearModify,
   };
 };
 

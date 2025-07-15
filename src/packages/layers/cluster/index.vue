@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, onBeforeUnmount, onMounted, provide, ref, shallowRef, unref, watchEffect } from "vue";
+import { inject, onBeforeUnmount, onMounted, provide, ref, shallowRef, unref, watchEffect, watch } from "vue";
 import useBaseLayer, { BaseLayerOptions } from "@/packages/layers/baseLayer";
 import { nanoid } from "nanoid";
 import VectorLayer from "ol/layer/Vector.js";
@@ -60,8 +60,8 @@ watchEffect(() => {
 });
 
 const clusterFeatureStyle = (style: ClusterStyle, text: string) => {
-  const textStyle = { ...style.text, ...{ text } };
-  return { ...style, ...{ text: textStyle } };
+  const textStyle = { ...style.text, text };
+  return { ...style, text: textStyle };
 };
 const init = () => {
   vector_source.value = new VectorSource({ ...props.source });

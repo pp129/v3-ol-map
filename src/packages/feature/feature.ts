@@ -1,4 +1,4 @@
-import { defineComponent, inject, onMounted, PropType, Ref, unref, watch, ref } from "vue";
+import { defineComponent, inject, onMounted, PropType, Ref, unref, watch, watchEffect, ref } from "vue";
 import GeoJSON from "ol/format/GeoJSON.js";
 import { Heatmap } from "ol/layer.js";
 import Cluster from "ol/source/Cluster.js";
@@ -293,21 +293,27 @@ const OlFeature = defineComponent({
       addFeatures();
     };
 
-    watch(
-      () => props.geoJson,
-      value => {
-        resetFeatures(value);
-      },
-      { deep: true },
-    );
+    // watch(
+    //   () => props.geoJson,
+    //   value => {
+    //     resetFeatures(value);
+    //   },
+    //   { deep: true },
+    // );
 
-    watch(
-      () => props.geometries,
-      value => {
-        resetFeatures(value);
-      },
-      { deep: true },
-    );
+    // watch(
+    //   () => props.geometries,
+    //   value => {
+    //     resetFeatures(value);
+    //   },
+    //   { deep: true },
+    // );
+
+    watchEffect(() => {
+      // console.log("OlFeature watchEffect", props.geoJson);
+      // console.log("OlFeature watchEffect", props.geometries);
+      resetFeatures(props.geoJson || props.geometries);
+    });
 
     onMounted(() => {
       if (layer) {

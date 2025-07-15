@@ -11,4 +11,7 @@ export declare type ExposeDraw = {
   setActive: (active: boolean) => void;
 };
 
+export declare type ModifyEvent = import("ol/interaction/Modify").ModifyEvent;
+export declare type DrawEvent = import("ol/interaction/Draw").DrawEvent;
+
 export declare type OlDrawInstance = InstanceType<typeof OlDraw>;

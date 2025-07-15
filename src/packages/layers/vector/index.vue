@@ -30,7 +30,8 @@ let layerReady = ref(false);
 const { addLayer } = useParent();
 
 const emits = defineEmits<VectorEmitsFnType>();
-const { initVectorLayer, dispose, getFeatureById, removeFeatureById, getSource } = useVectorLayer(props, emits);
+const { initVectorLayer, setModify, clearModify, dispose, getFeatureById, removeFeatureById, getSource } =
+  useVectorLayer(props, emits);
 
 provide("ParentLayer", layer);
 
@@ -53,6 +54,20 @@ watch(
     layer.value?.getSource()?.clear();
     if (layer.value) map.removeLayer(layer.value);
     init();
+  },
+);
+
+watch(
+  () => props.modify,
+  val => {
+    if (val) {
+      setModify();
+    } else {
+      clearModify();
+    }
+  },
+  {
+    immediate: false,
   },
 );
 

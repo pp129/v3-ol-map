@@ -19,7 +19,15 @@ const clusterStyle: ClusterLayerOptions["clusterStyle"] = {
   icon: {
     src: cluster4, //该聚合样式图标
   },
+  text: {
+    fill: {
+      color: "#fff",
+    },
+  },
 };
+const clusterOptions = ref({
+  radius: 50,
+});
 const clusterJson = ref<FeatureCollection>();
 type clusterPointInfo = {
   device_code: string;
@@ -99,6 +107,7 @@ onMounted(() => {
 
 <template>
   <ol-map :view="view" @dblclick="clusterOverlay.position = undefined">
+    <input v-model="clusterOptions.radius" class="slider" type="range" min="10" max="200" step="10" />
     <ol-tile tile-type="BAIDU"></ol-tile>
     <ol-cluster
       v-if="loaded"
@@ -106,7 +115,7 @@ onMounted(() => {
       class-name="layer-cluster"
       :layer-style="layerStyle"
       :cluster-style="clusterStyle"
-      :super-cluster="{ radius: 120 }"
+      :super-cluster="clusterOptions"
       @singleclick="onClickClusterLayer"
     >
       <ol-feature ref="clusterRef" :geo-json="clusterJson" />
@@ -126,4 +135,11 @@ onMounted(() => {
   </ol-map>
 </template>
 
-<style scoped></style>
+<style scoped>
+.slider {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 100px;
+}
+</style>

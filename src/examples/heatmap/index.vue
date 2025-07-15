@@ -50,6 +50,27 @@ const getHeatMapData = () => {
     }
   }, 1000);
 };
+const featchData = () => {
+  fetch(`${import.meta.env.VITE_BASE_URL}/heatmap/situation.json`)
+    .then(res => res.json())
+    .then(data => {
+      heatmapJson.value = {
+        type: "FeatureCollection",
+        features: [...data.result]
+          .filter(feature => feature.coordinates !== null)
+          .map(item => {
+            return {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: item.coordinates,
+              },
+              properties: item,
+            };
+          }),
+      };
+    });
+};
 
 const handleZoom = (event: any) => {
   const { zoom } = event;
@@ -60,14 +81,15 @@ const handleZoom = (event: any) => {
 };
 
 onMounted(() => {
-  getHeatMapData();
+  // getHeatMapData();
+  featchData();
 });
 </script>
 
 <template>
   <ol-map :view="view" @changeZoom="handleZoom">
     <ol-tile tile-type="BAIDU"></ol-tile>
-    <ol-heatmap :z-index="8" class-name="heatmap" :weight="setWeight" :radius="radius" :blur="blur">
+    <ol-heatmap :z-index="8" class-name="heatmap" :radius="radius" :blur="blur">
       <ol-feature :geo-json="heatmapJson" />
     </ol-heatmap>
   </ol-map>
