@@ -1,4 +1,4 @@
-import { defineComponent, inject, onMounted, PropType, Ref, unref, watch, watchEffect, ref } from "vue";
+import { defineComponent, inject, onMounted, PropType, Ref, unref, watch, ref } from "vue";
 import GeoJSON from "ol/format/GeoJSON.js";
 import { Heatmap } from "ol/layer.js";
 import Cluster from "ol/source/Cluster.js";
@@ -64,6 +64,7 @@ const OlFeature = defineComponent({
 
     // 添加feature
     const addFeatures = () => {
+      console.log("addFeatures", layer.value);
       let source = layer.value.getSource();
       if (layer.value.get("cluster")) {
         // 如果是聚合图层，获取聚合图层的source
@@ -147,6 +148,8 @@ const OlFeature = defineComponent({
     // 根据geojson添加feature
     const addFeaturesByGeoJson = (source: VectorSource, onlyType?: Type) => {
       const features = getFeaturesByGeoJson(onlyType);
+      // console.log(features);
+      console.log(source);
       if (features && features.length > 0) {
         sourceFeatures.value = features;
         source.addFeatures(features);
@@ -309,15 +312,23 @@ const OlFeature = defineComponent({
     //   { deep: true },
     // );
 
-    watchEffect(() => {
-      // console.log("OlFeature watchEffect", props.geoJson);
-      // console.log("OlFeature watchEffect", props.geometries);
-      resetFeatures(props.geoJson || props.geometries);
-    });
+    // watchEffect(() => {
+    //   resetFeatures(props.geoJson || props.geometries);
+    // });
+
+    watch(
+      [() => props.geoJson, () => props.geometries],
+      ([newFirst, newLast], [oldFirst, oldLast]) => {
+        resetFeatures(props.geoJson || props.geometries);
+      },
+      {
+        deep: true,
+      },
+    );
 
     onMounted(() => {
       if (layer) {
-        addFeatures();
+        resetFeatures(props.geoJson || props.geometries);
       }
     });
 

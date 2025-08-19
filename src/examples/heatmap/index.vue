@@ -4,7 +4,7 @@ import { GeoJSON, VMap } from "@/packages";
 
 const view: VMap["view"] = {
   zoom: 11,
-  minZoom: 11,
+  // minZoom: 11,
   center: [118.12582777425764, 24.637526109241485],
   smoothExtentConstraint: true,
   constrainResolution: true,

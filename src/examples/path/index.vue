@@ -21,7 +21,7 @@ let pathLoad = ref(true);
 const pathVisibleLabel = computed(() => (pathVisible.value ? "隐藏" : "显示"));
 let showPath = ref(false);
 const getPathData = async () => {
-  fetch("/data-6k.json")
+  fetch(`${import.meta.env.VITE_BASE_URL}/heatmap/data-6k.json`)
     .then(res => res.json())
     .then(data => {
       // console.log(data);

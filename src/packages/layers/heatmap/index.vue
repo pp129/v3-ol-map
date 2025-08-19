@@ -76,6 +76,7 @@ watch(
 watch(
   () => props.source,
   () => {
+    console.log("source change");
     vector_source.value?.clear();
     if (layer.value) map.removeLayer(layer.value);
     init();
