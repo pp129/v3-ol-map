@@ -326,7 +326,7 @@ export default class vzPath {
 
     // 监听内容控制 ['singleclick', 'pointermove']
     this._traceEvent = mapObj?.on(["singleclick", "pointermove"], eve => {
-      this.eventListener(eve as MapBrowserEvent);
+      this.eventListener(eve as MapBrowserEvent<UIEvent>);
     });
 
     /**

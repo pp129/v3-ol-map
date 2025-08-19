@@ -37,7 +37,7 @@ watchEffect(() => {
 watch(
   () => props.layerStyle,
   nVal => {
-    layer.value?.setStyle(nVal as WebGLStyle);
+    layer.value?.setStyle(nVal as any);
   },
   {
     deep: true,

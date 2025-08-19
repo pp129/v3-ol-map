@@ -18,7 +18,7 @@ export declare type WindData = {
   windLevel: string;
   windDirection: string | undefined;
 } | null;
-export declare interface WindLayerEvent extends MapBrowserEvent {
+export declare interface WindLayerEvent extends MapBrowserEvent<UIEvent> {
   data: WindData;
 }
 

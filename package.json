@@ -2,7 +2,7 @@
   "name": "v3-ol-map",
   "private": false,
   "homepage": "https://github.com/pp129/v3-ol-map",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "main": "./lib/v3-ol-map.umd.js",
   "types": "./es/index.d.ts",
   "files": [
@@ -28,7 +28,7 @@
     "@duannx/vue-client-only": "^1.0.3",
     "@turf/turf": "^7.1.0",
     "nanoid": "^5.0.7",
-    "ol": "^10.6.1",
+    "ol": "^10.4.0",
     "ol-echarts": "^4.0.1",
     "ol-ext": "^4.0.32",
     "ol-wind": "^1.1.9",

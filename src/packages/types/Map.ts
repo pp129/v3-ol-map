@@ -15,7 +15,7 @@ export declare type VMap = defMapOptions & {
   target?: string;
 };
 
-export declare type OlMapEvent = MapBrowserEvent;
+export declare type OlMapEvent = MapBrowserEvent<UIEvent>;
 
 export declare type ExposeMap = {
   map: import("ol/Map").default;

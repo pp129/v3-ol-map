@@ -220,7 +220,7 @@ const init = () => {
   // 绑定事件
   eventList.forEach(listenerKey => {
     eventRender.value.push(
-      map.on(listenerKey, (evt: MapObjectEventTypes) => {
+      map.on(listenerKey, (evt: MapObjectEventTypes<UIEvent>) => {
         eventHandler(listenerKey, evt);
       }),
     );
@@ -230,7 +230,7 @@ const init = () => {
     emit("sourceready", layer.value);
   });
 };
-const eventHandler = (listenerKey: string, evt: MapObjectEventTypes) => {
+const eventHandler = (listenerKey: string, evt: MapObjectEventTypes<UIEvent>) => {
   const { pixel } = evt;
   const feature = getFeatureAtPixel(pixel);
   emit(listenerKey, evt, feature);
