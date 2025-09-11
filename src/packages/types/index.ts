@@ -22,3 +22,4 @@ export * from "./Route";
 export * from "./Echarts";
 export * from "./Wind";
 export * from "./Mask";
+export * from "./Traffic";

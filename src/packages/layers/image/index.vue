@@ -11,7 +11,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<ImageLayerOptions>(), {
-  layerId: `tile-layer-${nanoid()}`,
+  layerId: `image-layer-${nanoid()}`,
   visible: true,
   source: () => {
     return {

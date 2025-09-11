@@ -26,6 +26,7 @@ import OlRoute from "./route/index.vue";
 import OlEcharts from "./echarts/index.vue";
 import OlConfig from "./config/index.vue";
 import OlMask from "./ext/mask/index.vue";
+import OlTraffic from "./ext/traffic/index.vue";
 
 export {
   OlMap,
@@ -56,6 +57,7 @@ export {
   OlEcharts,
   OlConfig,
   OlMask,
+  OlTraffic,
 };
 
 // GlobalComponents for Volar
@@ -89,5 +91,6 @@ declare module "vue" {
     OlEcharts: typeof OlEcharts;
     OlConfig: typeof OlConfig;
     OlMask: typeof OlMask;
+    OlTraffic: typeof OlTraffic;
   }
 }

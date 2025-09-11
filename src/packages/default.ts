@@ -28,6 +28,7 @@ import OlRoute from "./route/index.ts";
 import OlEcharts from "./echarts/index.ts";
 import OlConfig from "./config/index.ts";
 import OlMask from "./ext/mask/index.ts";
+import OlTraffic from "./ext/traffic/index.ts";
 import { VMap } from "./types";
 
 const components: Plugin[] = [
@@ -59,6 +60,7 @@ const components: Plugin[] = [
   OlEcharts,
   OlConfig,
   OlMask,
+  OlTraffic,
 ];
 
 type TDT = {

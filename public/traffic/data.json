@@ -1,0 +1,3087 @@
+{
+  "requestBeginTime": 1757573100007,
+  "totalDuration": 4,
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361087, 24.4857923387],
+          [118.1541361117, 24.4857494166]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224969",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224969,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.483080506324768,118.15901041030884,24.48303759098053]",
+        "data_version": 1757573100740,
+        "length": "4.0",
+        "roadclass": 5,
+        "state": -1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088403071",
+        "speed": "0.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541738137, 24.4849232353],
+          [118.1541630531, 24.4849983293]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264954",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264954,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15904796123505,24.482211470603943,118.15903723239899,24.48228657245636]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": -1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940918166",
+        "speed": "0.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154985751, 24.4860675191],
+          [118.1550072505, 24.4862231509]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224930",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡塘三路",
+        "gid": 10295224930,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15985798835754,24.483354091644287,118.15987944602966,24.48350965976715]",
+        "data_version": 1757573100740,
+        "length": "17.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "30.0",
+        "link_id": "5132731981940918791",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1549373749, 24.4857508804],
+          [118.1541307269, 24.4858513467]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264988",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264988,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15980970859528,24.48303759098053,118.15900504589081,24.483139514923096]",
+        "data_version": 1757573100740,
+        "length": "82.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "64.0",
+        "link_id": "5132731981940919108",
+        "speed": "46.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1526626473, 24.4860096396],
+          [118.1528669958, 24.4859617218]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264958",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264958,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15754055976868,24.48330044746399,118.15774440765381,24.48325216770172]",
+        "data_version": 1757573100740,
+        "length": "20.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "22.0",
+        "link_id": "5132731981940918298",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.153195027, 24.4859247592],
+          [118.1541361087, 24.4857923387]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282842",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295282842,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15807163715363,24.483214616775513,118.15901041030884,24.483080506324768]",
+        "data_version": 1757573100740,
+        "length": "96.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "83.0",
+        "link_id": "5132731981940918306",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1528669958, 24.4859617218],
+          [118.153195027, 24.4859247592]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243231",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295243231,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15774440765381,24.48325216770172,118.15807163715363,24.483214616775513]",
+        "data_version": 1757573100740,
+        "length": "33.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "34.0",
+        "link_id": "5132731981940918307",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541307269, 24.4858513467],
+          [118.153211155, 24.4859891715]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224934",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224934,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15900504589081,24.483139514923096,118.15808773040771,24.48327898979187]",
+        "data_version": 1757573100740,
+        "length": "94.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "102.0",
+        "link_id": "5132731981940918314",
+        "speed": "45.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1563678527, 24.4854852455],
+          [118.1565506962, 24.4854641217]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224909",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224909,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1612366437912,24.48276937007904,118.16141903400421,24.48274791240692]",
+        "data_version": 1757573100740,
+        "length": "18.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "32.0",
+        "link_id": "5132731981940916343",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1565990906, 24.4855339593],
+          [118.156367847, 24.4855657244]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224910",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224910,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16146731376648,24.48281764984131,118.1612366437912,24.482849836349487]",
+        "data_version": 1757573100740,
+        "length": "23.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "22.0",
+        "link_id": "5132731981940916345",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1560559435, 24.485527593],
+          [118.1563678527, 24.4854852455]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243234",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295243234,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16092550754547,24.48281228542328,118.1612366437912,24.48276937007904]",
+        "data_version": 1757573100740,
+        "length": "32.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "109.0",
+        "link_id": "5132731981940918312",
+        "speed": "24.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1568464732, 24.4854271109],
+          [118.1567765849, 24.4851157967]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295206282",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295206282,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16171407699585,24.482710361480713,118.16164433956146,24.482399225234985]",
+        "data_version": 1757573100740,
+        "length": "35.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "37.0",
+        "link_id": "5132731981940916320",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.156367847, 24.4855657244],
+          [118.1560290486, 24.4856187529]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243233",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295243233,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1612366437912,24.482849836349487,118.16089868545532,24.482903480529785]",
+        "data_version": 1757573100740,
+        "length": "34.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "30.0",
+        "link_id": "5132731981940918310",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1568679787, 24.4855022643],
+          [118.1565990906, 24.4855339593]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264932",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264932,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16173553466797,24.48278546333313,118.16146731376648,24.48281764984131]",
+        "data_version": 1757573100740,
+        "length": "27.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "28.0",
+        "link_id": "5132731981940916317",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1565506962, 24.4854641217],
+          [118.1568464732, 24.4854271109]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246467",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295246467,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16141903400421,24.48274791240692,118.16171407699585,24.482710361480713]",
+        "data_version": 1757573100740,
+        "length": "30.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "123.0",
+        "link_id": "5132731981940916319",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1569378704, 24.4857652911],
+          [118.1568679787, 24.4855022643]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264929",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264929,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16180527210236,24.48304831981659,118.16173553466797,24.48278546333313]",
+        "data_version": 1757573100740,
+        "length": "29.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "41.0",
+        "link_id": "5132731981940916305",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1568572481, 24.4851535025],
+          [118.1569325179, 24.4854111741]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224908",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224908,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16172480583191,24.482436776161194,118.16179990768433,24.482694268226624]",
+        "data_version": 1757573100740,
+        "length": "29.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "122.0",
+        "link_id": "5132731981940916311",
+        "speed": "41.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1627892497, 24.4815483822],
+          [118.163025817, 24.4824019064]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214817",
+      "type": "Feature",
+      "properties": {
+        "road_name": "前埔西路",
+        "gid": 10295214817,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16764175891876,24.47882115840912,118.16787779331207,24.479674100875854]",
+        "data_version": 1757573100740,
+        "length": "97.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "153.0",
+        "link_id": "5132731981940917722",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1626279518, 24.4809954549],
+          [118.1627892497, 24.4815483822]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254891",
+      "type": "Feature",
+      "properties": {
+        "road_name": "前埔西路",
+        "gid": 10295254891,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16748082637787,24.47826862335205,118.16764175891876,24.47882115840912]",
+        "data_version": 1757573100740,
+        "length": "63.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "150.0",
+        "link_id": "5132731981940916946",
+        "speed": "21.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1611218638, 24.4849200067],
+          [118.1636226151, 24.4845223115]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224979",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224979,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16597878932953,24.482195377349854,118.16847324371338,24.48179304599762]",
+        "data_version": 1757573100740,
+        "length": "256.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "252.0",
+        "link_id": "5132731981940919481",
+        "speed": "48.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1635742066, 24.4846241603],
+          [118.1611379928, 24.48498442]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224977",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224977,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16842496395111,24.481894969940186,118.16599488258362,24.48225975036621]",
+        "data_version": 1757573100740,
+        "length": "249.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "207.0",
+        "link_id": "5132731981940919462",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1576856098, 24.4824884974],
+          [118.1584331331, 24.4823074658],
+          [118.1591699101, 24.482051304]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214860",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214860,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1625509262085,24.47977066040039,118.16329658031464,24.479588270187378,118.16403150558472,24.47933077812195]",
+        "data_version": 1757573100740,
+        "length": "158.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "165.0",
+        "link_id": "5132731981940919134",
+        "speed": "36.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1579652523, 24.4825051119],
+          [118.1577017381, 24.4825582759]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254942",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254942,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16282987594604,24.47978675365448,118.16256701946259,24.479840397834778]",
+        "data_version": 1757573100740,
+        "length": "27.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "27.0",
+        "link_id": "5132731981940919245",
+        "speed": "47.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361171, 24.485674303],
+          [118.1541522777, 24.4852826685]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264938",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264938,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.482962489128113,118.15902650356293,24.48257088661194]",
+        "data_version": 1757573100740,
+        "length": "43.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088401265",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361171, 24.485674303],
+          [118.1541361117, 24.4857494166]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224967",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224967,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.482962489128113,118.15901041030884,24.48303759098053]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919422",
+        "speed": "31.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361117, 24.4857494166],
+          [118.1541361171, 24.485674303]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264994",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264994,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.48303759098053,118.15901041030884,24.482962489128113]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088403070",
+        "speed": "26.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1560290486, 24.4856187529],
+          [118.1549373749, 24.4857508804]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224960",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224960,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16089868545532,24.482903480529785,118.15980970859528,24.48303759098053]",
+        "data_version": 1757573100740,
+        "length": "111.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "264.0",
+        "link_id": "5132731981940919109",
+        "speed": "41.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361117, 24.4857494166],
+          [118.1541361087, 24.4857923387]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295265000",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295265000,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.48303759098053,118.15901041030884,24.483080506324768]",
+        "data_version": 1757573100740,
+        "length": "4.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919423",
+        "speed": "31.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541522777, 24.4852826685],
+          [118.1541361171, 24.485674303]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264937",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264937,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15902650356293,24.48257088661194,118.15901041030884,24.482962489128113]",
+        "data_version": 1757573100740,
+        "length": "43.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940917617",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541361087, 24.4857923387],
+          [118.1554052376, 24.4856390675],
+          [118.1560559435, 24.485527593]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282850",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295282850,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15901041030884,24.483080506324768,118.16027641296387,24.482924938201904,118.16092550754547,24.48281228542328]",
+        "data_version": 1757573100740,
+        "length": "196.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "209.0",
+        "link_id": "5132731981940918823",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1544105156, 24.4836896561],
+          [118.1543997726, 24.4835179479]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264923",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264923,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15928399562836,24.480977654457092,118.1592732667923,24.48080599308014]",
+        "data_version": 1757573100740,
+        "length": "18.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "25.0",
+        "link_id": "5132731981940916270",
+        "speed": "26.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1543997726, 24.4835179479],
+          [118.1544105156, 24.4836896561]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224902",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224902,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1592732667923,24.48080599308014,118.15928399562836,24.480977654457092]",
+        "data_version": 1757573100740,
+        "length": "18.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "55.0",
+        "link_id": "5132731984088399918",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1543997726, 24.4835179479],
+          [118.1543406519, 24.4830564267]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224903",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224903,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1592732667923,24.48080599308014,118.15921425819397,24.480344653129578]",
+        "data_version": 1757573100740,
+        "length": "51.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "68.0",
+        "link_id": "5132731981940916271",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1543406519, 24.4830564267],
+          [118.1543997726, 24.4835179479]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264924",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264924,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15921425819397,24.480344653129578,118.1592732667923,24.48080599308014]",
+        "data_version": 1757573100740,
+        "length": "51.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "90.0",
+        "link_id": "5132731984088399919",
+        "speed": "24.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1543406519, 24.4830564267],
+          [118.1537276028, 24.4831304236]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295242918",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295242918,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15921425819397,24.480344653129578,118.15860271453857,24.480419754981995]",
+        "data_version": 1757573100740,
+        "length": "62.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "86.0",
+        "link_id": "5132731981940918832",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.156685205, 24.4845361796],
+          [118.1568572481, 24.4851535025]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295206286",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295206286,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16155314445496,24.48181986808777,118.16172480583191,24.482436776161194]",
+        "data_version": 1757573100740,
+        "length": "70.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "95.0",
+        "link_id": "5132731981940918927",
+        "speed": "41.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1590083529, 24.48518432],
+          [118.1611218638, 24.4849200067]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246472",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295246472,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16387057304382,24.482463598251343,118.16597878932953,24.482195377349854]",
+        "data_version": 1757573100740,
+        "length": "216.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "171.0",
+        "link_id": "5132731981940918930",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1604549981, 24.4850689852],
+          [118.1599279646, 24.4851323829]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224913",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224913,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16531360149384,24.482345581054688,118.16478788852692,24.482409954071045]",
+        "data_version": 1757573100740,
+        "length": "53.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "49.0",
+        "link_id": "5132731981940917523",
+        "speed": "38.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1611379928, 24.48498442],
+          [118.1604549981, 24.4850689852]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282845",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295282845,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16599488258362,24.48225975036621,118.16531360149384,24.482345581054688]",
+        "data_version": 1757573100740,
+        "length": "69.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "62.0",
+        "link_id": "5132731981940918366",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1567765849, 24.4851157967],
+          [118.1567174457, 24.4848957118]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243237",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295243237,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16164433956146,24.482399225234985,118.16158533096313,24.482179284095764]",
+        "data_version": 1757573100740,
+        "length": "25.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "32.0",
+        "link_id": "5132731981940918619",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1566529475, 24.484412719],
+          [118.156685205, 24.4845361796]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246474",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295246474,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16152095794678,24.481696486473083,118.16155314445496,24.48181986808777]",
+        "data_version": 1757573100740,
+        "length": "14.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "16.0",
+        "link_id": "5132731981940918951",
+        "speed": "41.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1565400465, 24.4839779241],
+          [118.1566529475, 24.484412719]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246475",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295246475,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16140830516815,24.48126196861267,118.16152095794678,24.481696486473083]",
+        "data_version": 1757573100740,
+        "length": "49.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "48.0",
+        "link_id": "5132731981940918952",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1561044519, 24.4839932171],
+          [118.1564647587, 24.4839777853]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264926",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264926,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16097378730774,24.48127806186676,118.16133320331573,24.48126196861267]",
+        "data_version": 1757573100740,
+        "length": "36.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940916654",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1564647587, 24.4839777853],
+          [118.1561044519, 24.4839932171]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264927",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264927,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16133320331573,24.48126196861267,118.16097378730774,24.48127806186676]",
+        "data_version": 1757573100740,
+        "length": "36.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088400302",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1567174457, 24.4848957118],
+          [118.1564647587, 24.4839777853]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282847",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295282847,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16158533096313,24.482179284095764,118.16133320331573,24.48126196861267]",
+        "data_version": 1757573100740,
+        "length": "104.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "147.0",
+        "link_id": "5132731981940918615",
+        "speed": "39.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1575888087, 24.4825097791],
+          [118.1576856098, 24.4824884974]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214859",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214859,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16245436668396,24.47979211807251,118.1625509262085,24.47977066040039]",
+        "data_version": 1757573100740,
+        "length": "9.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "10.0",
+        "link_id": "5132731981940919133",
+        "speed": "36.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1560508057, 24.4821581954],
+          [118.1562067178, 24.4827325669]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264942",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264942,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16092014312744,24.479443430900574,118.1610757112503,24.48001742362976]",
+        "data_version": 1757573100740,
+        "length": "65.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "173.0",
+        "link_id": "5132731981940917715",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1564647587, 24.4839777853],
+          [118.1561690659, 24.4828451683]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224906",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224906,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16133320331573,24.48126196861267,118.1610381603241,24.480130076408386]",
+        "data_version": 1757573100740,
+        "length": "128.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "149.0",
+        "link_id": "5132731981940916297",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1562282213, 24.4828345467],
+          [118.1565400465, 24.4839779241]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224907",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224907,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16109716892242,24.480119347572327,118.16140830516815,24.48126196861267]",
+        "data_version": 1757573100740,
+        "length": "130.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "205.0",
+        "link_id": "5132731981940916304",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1576156932, 24.4825688469],
+          [118.1562282213, 24.4828345467]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214800",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214800,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16248118877411,24.479851126670837,118.16109716892242,24.480119347572327]",
+        "data_version": 1757573100740,
+        "length": "143.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "258.0",
+        "link_id": "5132731981940916328",
+        "speed": "30.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1562067178, 24.4827325669],
+          [118.1575888087, 24.4825097791]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254879",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254879,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1610757112503,24.48001742362976,118.16245436668396,24.47979211807251]",
+        "data_version": 1757573100740,
+        "length": "142.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "158.0",
+        "link_id": "5132731981940916329",
+        "speed": "36.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.152668005, 24.4862886426],
+          [118.1527325101, 24.4866375007]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243235",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡塘路",
+        "gid": 10295243235,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1575459241867,24.483579397201538,118.15761029720306,24.483928084373474]",
+        "data_version": 1757573100740,
+        "length": "38.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940918360",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1530336952, 24.4860103109],
+          [118.1526626435, 24.4860632922]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264961",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264961,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15791070461273,24.48330044746399,118.15754055976868,24.483354091644287]",
+        "data_version": 1757573100740,
+        "length": "38.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "190.0",
+        "link_id": "5132731981940918305",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.153211155, 24.4859891715],
+          [118.1530336952, 24.4860103109]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224935",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224935,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15808773040771,24.48327898979187,118.15791070461273,24.48330044746399]",
+        "data_version": 1757573100740,
+        "length": "18.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "60.0",
+        "link_id": "5132731981940918315",
+        "speed": "39.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154985751, 24.4860675191],
+          [118.1557171121, 24.4860581303]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282014",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295282014,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15985798835754,24.483354091644287,118.1605875492096,24.483343362808228]",
+        "data_version": 1757573100740,
+        "length": "74.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940917952",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1557171121, 24.4860581303],
+          [118.154985751, 24.4860675191]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282015",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295282015,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1605875492096,24.483343362808228,118.15985798835754,24.483354091644287]",
+        "data_version": 1757573100740,
+        "length": "74.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088401600",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1572066906, 24.4866993426],
+          [118.1570884105, 24.4862752687]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243239",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295243239,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16207349300385,24.483981728553772,118.16195547580719,24.48355793952942]",
+        "data_version": 1757573100740,
+        "length": "48.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "44.0",
+        "link_id": "5132731981940918871",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.157185206, 24.4863291003],
+          [118.1572766012, 24.486699472]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243238",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295243238,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16205203533173,24.483611583709717,118.16214323043823,24.483981728553772]",
+        "data_version": 1757573100740,
+        "length": "42.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "53.0",
+        "link_id": "5132731981940918869",
+        "speed": "30.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1570239144, 24.4857600849],
+          [118.157185206, 24.4863291003]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224920",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224920,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16189110279083,24.48304295539856,118.16205203533173,24.483611583709717]",
+        "data_version": 1757573100740,
+        "length": "65.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "73.0",
+        "link_id": "5132731981940918171",
+        "speed": "31.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1570884105, 24.4862752687],
+          [118.1569378704, 24.4857652911]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224919",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224919,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16195547580719,24.48355793952942,118.16180527210236,24.48304831981659]",
+        "data_version": 1757573100740,
+        "length": "58.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "201.0",
+        "link_id": "5132731981940918163",
+        "speed": "31.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1527004897, 24.4832036751],
+          [118.1534748606, 24.4830924074]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254910",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254910,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15757811069489,24.48049485683441,118.15835058689117,24.480382204055786]",
+        "data_version": 1757573100740,
+        "length": "79.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "125.0",
+        "link_id": "5132731981940918370",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1534909883, 24.4831621852],
+          [118.1530607812, 24.4832257881]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214810",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214810,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15836668014526,24.480451941490173,118.15793752670288,24.48051631450653]",
+        "data_version": 1757573100740,
+        "length": "44.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "61.0",
+        "link_id": "5132731981940917301",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1534748606, 24.4830924074],
+          [118.1537168527, 24.4830606556]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254890",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254890,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15835058689117,24.480382204055786,118.15859198570251,24.480350017547607]",
+        "data_version": 1757573100740,
+        "length": "24.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "29.0",
+        "link_id": "5132731981940916914",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1537276028, 24.4831304236],
+          [118.1534909883, 24.4831621852]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282523",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295282523,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15860271453857,24.480419754981995,118.15836668014526,24.480451941490173]",
+        "data_version": 1757573100740,
+        "length": "24.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "25.0",
+        "link_id": "5132731981940918830",
+        "speed": "36.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1530607812, 24.4832257881],
+          [118.1527166169, 24.483278818]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295242919",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295242919,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15793752670288,24.48051631450653,118.15759420394897,24.48056995868683]",
+        "data_version": 1757573100740,
+        "length": "35.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "39.0",
+        "link_id": "5132731981940918860",
+        "speed": "32.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1629612806, 24.4824232461],
+          [118.1625311468, 24.4810328299]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295242922",
+      "type": "Feature",
+      "properties": {
+        "road_name": "前埔西路",
+        "gid": 10295242922,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16781342029572,24.479695558547974,118.16738426685333,24.47830617427826]",
+        "data_version": 1757573100740,
+        "length": "160.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "230.0",
+        "link_id": "5132731981940919047",
+        "speed": "26.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1630150509, 24.4825467485],
+          [118.1629612806, 24.4824232461]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254952",
+      "type": "Feature",
+      "properties": {
+        "road_name": "前埔西路",
+        "gid": 10295254952,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16786706447601,24.47981894016266,118.16781342029572,24.479695558547974]",
+        "data_version": 1757573100740,
+        "length": "14.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "16.0",
+        "link_id": "5132731981940919501",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1550612644, 24.4828860556],
+          [118.156147562, 24.4827485538]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214816",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214816,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15993309020996,24.480172991752625,118.16101670265198,24.48003351688385]",
+        "data_version": 1757573100740,
+        "length": "110.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "261.0",
+        "link_id": "5132731981940917718",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.156147562, 24.4827485538],
+          [118.1558948789, 24.4817930696]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224914",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224914,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16101670265198,24.48003351688385,118.16076457500458,24.47907865047455]",
+        "data_version": 1757573100740,
+        "length": "108.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "156.0",
+        "link_id": "5132731981940917714",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1561690659, 24.4828451683],
+          [118.1548622845, 24.4829929967]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254909",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254909,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1610381603241,24.480130076408386,118.15973460674286,24.48028028011322]",
+        "data_version": 1757573100740,
+        "length": "133.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "123.0",
+        "link_id": "5132731981940918247",
+        "speed": "39.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1559540341, 24.4817824479],
+          [118.1560508057, 24.4821581954]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264995",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264995,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1608235836029,24.47906792163849,118.16092014312744,24.479443430900574]",
+        "data_version": 1757573100740,
+        "length": "43.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "53.0",
+        "link_id": "5132731981940919315",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1590191043, 24.4852433579],
+          [118.1584275405, 24.4853281012]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264980",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264980,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16388130187988,24.48252260684967,118.1632912158966,24.482608437538147]",
+        "data_version": 1757573100740,
+        "length": "60.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "57.0",
+        "link_id": "5132731981940918973",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1590997723, 24.4852327777],
+          [118.1590191043, 24.4852433579]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264981",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264981,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16396176815033,24.48251187801361,118.16388130187988,24.48252260684967]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "11.0",
+        "link_id": "5132731981940918974",
+        "speed": "38.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1599279646, 24.4851323829],
+          [118.1590997723, 24.4852327777]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264943",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264943,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16478788852692,24.482409954071045,118.16396176815033,24.48251187801361]",
+        "data_version": 1757573100740,
+        "length": "84.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "86.0",
+        "link_id": "5132731981940917789",
+        "speed": "36.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1584275447, 24.4852690833],
+          [118.1590083529, 24.48518432]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246473",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295246473,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1632912158966,24.48254942893982,118.16387057304382,24.482463598251343]",
+        "data_version": 1757573100740,
+        "length": "59.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "54.0",
+        "link_id": "5132731981940918932",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1550072505, 24.4862231509],
+          [118.1550610031, 24.4865558951]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224931",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡塘三路",
+        "gid": 10295224931,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15987944602966,24.48350965976715,118.15993309020996,24.483842253684998]",
+        "data_version": 1757573100740,
+        "length": "37.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "49.0",
+        "link_id": "5132731981940918793",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1596808097, 24.4819610472],
+          [118.1591967935, 24.4821318332]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214827",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214827,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16454112529755,24.479239583015442,118.16405832767487,24.479411244392395]",
+        "data_version": 1757573100740,
+        "length": "52.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "40.0",
+        "link_id": "5132731981940917750",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1600895356, 24.4818169482],
+          [118.1599120623, 24.4818809999]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254914",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254914,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16494882106781,24.479094743728638,118.16477179527283,24.479159116744995]",
+        "data_version": 1757573100740,
+        "length": "18.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "17.0",
+        "link_id": "5132731981940918713",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1597399738, 24.4818484868],
+          [118.1600572746, 24.4817310434]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254880",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254880,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16460013389587,24.479126930236816,118.16491663455963,24.47900891304016]",
+        "data_version": 1757573100740,
+        "length": "34.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "78.0",
+        "link_id": "5132731981940916435",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1591699101, 24.482051304],
+          [118.1597399738, 24.4818484868]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214801",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214801,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16403150558472,24.47933077812195,118.16460013389587,24.479126930236816]",
+        "data_version": 1757573100740,
+        "length": "61.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "66.0",
+        "link_id": "5132731981940916436",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1584275405, 24.4853281012],
+          [118.1572820683, 24.4854440121]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224911",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295224911,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1632912158966,24.482608437538147,118.16214859485626,24.482726454734802]",
+        "data_version": 1757573100740,
+        "length": "116.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "292.0",
+        "link_id": "5132731981940916540",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1569325179, 24.4854111741],
+          [118.1572498068, 24.4853742041]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264930",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264930,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16179990768433,24.482694268226624,118.16211640834808,24.482656717300415]",
+        "data_version": 1757573100740,
+        "length": "32.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "38.0",
+        "link_id": "5132731981940916313",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1569540231, 24.4854916928],
+          [118.1570239144, 24.4857600849]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295246468",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295246468,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16182136535645,24.48277473449707,118.16189110279083,24.48304295539856]",
+        "data_version": 1757573100740,
+        "length": "30.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "36.0",
+        "link_id": "5132731981940916322",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1572498068, 24.4853742041],
+          [118.1584275447, 24.4852690833]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264941",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264941,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16211640834808,24.482656717300415,118.1632912158966,24.48254942893982]",
+        "data_version": 1757573100740,
+        "length": "119.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "115.0",
+        "link_id": "5132731981940917421",
+        "speed": "37.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1572820683, 24.4854440121],
+          [118.1569540231, 24.4854916928]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264931",
+      "type": "Feature",
+      "properties": {
+        "road_name": "蔡岭路",
+        "gid": 10295264931,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16214859485626,24.482726454734802,118.16182136535645,24.48277473449707]",
+        "data_version": 1757573100740,
+        "length": "33.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "94.0",
+        "link_id": "5132731981940916316",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1542168477, 24.4847355296],
+          [118.1541738137, 24.4849232353]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264977",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264977,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15909087657928,24.4820237159729,118.15904796123505,24.482211470603943]",
+        "data_version": 1757573100740,
+        "length": "21.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919095",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541738137, 24.4849232353],
+          [118.1542168477, 24.4847355296]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224944",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224944,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15904796123505,24.482211470603943,118.15909087657928,24.4820237159729]",
+        "data_version": 1757573100740,
+        "length": "21.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088402743",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541522777, 24.4852826685],
+          [118.1541630531, 24.4849983293]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264953",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264953,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15902650356293,24.48257088661194,118.15903723239899,24.48228657245636]",
+        "data_version": 1757573100740,
+        "length": "31.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088401813",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541630531, 24.4849983293],
+          [118.1541738137, 24.4849232353]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264955",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264955,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15903723239899,24.48228657245636,118.15904796123505,24.482211470603943]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088401814",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541630531, 24.4849983293],
+          [118.1541522777, 24.4852826685]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224918",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224918,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15903723239899,24.48228657245636,118.15902650356293,24.48257088661194]",
+        "data_version": 1757573100740,
+        "length": "31.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940918165",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1542383657, 24.4846282635],
+          [118.1542168477, 24.4847355296]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264975",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264975,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1591123342514,24.481916427612305,118.15909087657928,24.4820237159729]",
+        "data_version": 1757573100740,
+        "length": "12.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919092",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1542168477, 24.4847355296],
+          [118.1542383657, 24.4846282635]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264976",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264976,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15909087657928,24.4820237159729,118.1591123342514,24.481916427612305]",
+        "data_version": 1757573100740,
+        "length": "12.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088402740",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154367468, 24.4840651463],
+          [118.1542383657, 24.4846282635]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224941",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295224941,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15924108028412,24.481353163719177,118.1591123342514,24.481916427612305]",
+        "data_version": 1757573100740,
+        "length": "63.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919070",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1542383657, 24.4846282635],
+          [118.154367468, 24.4840651463]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264971",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264971,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1591123342514,24.481916427612305,118.15924108028412,24.481353163719177]",
+        "data_version": 1757573100740,
+        "length": "63.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "107.0",
+        "link_id": "5132731984088402718",
+        "speed": "26.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1544105156, 24.4836896561],
+          [118.154367468, 24.4840651463]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264935",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264935,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15928399562836,24.480977654457092,118.15924108028412,24.481353163719177]",
+        "data_version": 1757573100740,
+        "length": "42.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "111.0",
+        "link_id": "5132731981940917602",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154367468, 24.4840651463],
+          [118.1544105156, 24.4836896561]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264936",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲西路",
+        "gid": 10295264936,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15924108028412,24.481353163719177,118.15928399562836,24.480977654457092]",
+        "data_version": 1757573100740,
+        "length": "42.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "53.0",
+        "link_id": "5132731984088401250",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1523563288, 24.48322988],
+          [118.1527004897, 24.4832036751]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254894",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254894,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15723478794098,24.48052167892456,118.15757811069489,24.48049485683441]",
+        "data_version": 1757573100740,
+        "length": "35.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "48.0",
+        "link_id": "5132731981940917446",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1527166169, 24.483278818],
+          [118.1523455685, 24.4833049743]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282532",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295282532,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15759420394897,24.48056995868683,118.15722405910492,24.480596780776978]",
+        "data_version": 1757573100740,
+        "length": "37.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "39.0",
+        "link_id": "5132731981940919576",
+        "speed": "34.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1537168527, 24.4830606556],
+          [118.1541685732, 24.4829970948]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282528",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295282528,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15859198570251,24.480350017547607,118.15904259681702,24.48028564453125]",
+        "data_version": 1757573100740,
+        "length": "46.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "59.0",
+        "link_id": "5132731981940919181",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1541685732, 24.4829970948],
+          [118.1543299024, 24.482975928]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295242926",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295242926,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15904259681702,24.48028564453125,118.15920352935791,24.48026418685913]",
+        "data_version": 1757573100740,
+        "length": "16.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "21.0",
+        "link_id": "5132731981940919182",
+        "speed": "28.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1543299024, 24.482975928],
+          [118.1548461574, 24.4829124881]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214814",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214814,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15920352935791,24.48026418685913,118.15971851348877,24.480199813842773]",
+        "data_version": 1757573100740,
+        "length": "52.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "63.0",
+        "link_id": "5132731981940917307",
+        "speed": "30.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1548622845, 24.4829929967],
+          [118.1543406519, 24.4830564267]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254893",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254893,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15973460674286,24.48028028011322,118.15921425819397,24.480344653129578]",
+        "data_version": 1757573100740,
+        "length": "53.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "60.0",
+        "link_id": "5132731981940917310",
+        "speed": "38.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1577017381, 24.4825582759],
+          [118.1576156932, 24.4825688469]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254943",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254943,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16256701946259,24.479840397834778,118.16248118877411,24.479851126670837]",
+        "data_version": 1757573100740,
+        "length": "8.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "13.0",
+        "link_id": "5132731981940919246",
+        "speed": "46.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1575888087, 24.4825097791],
+          [118.1571479478, 24.4809047445]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295283352",
+      "type": "Feature",
+      "properties": {
+        "road_name": null,
+        "gid": 10295283352,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16245436668396,24.47979211807251,118.16201448440552,24.478188157081604]",
+        "data_version": 1757573100740,
+        "length": "183.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "241.0",
+        "link_id": "5132731981940917895",
+        "speed": "25.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1571479478, 24.4809047445],
+          [118.1575888087, 24.4825097791]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264962",
+      "type": "Feature",
+      "properties": {
+        "road_name": null,
+        "gid": 10295264962,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16201448440552,24.478188157081604,118.16245436668396,24.47979211807251]",
+        "data_version": 1757573100740,
+        "length": "183.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088401543",
+        "speed": "33.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1602508816, 24.481667022],
+          [118.1624935091, 24.4809254535]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254881",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254881,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1651097536087,24.478944540023804,118.16734671592712,24.478198885917664]",
+        "data_version": 1757573100740,
+        "length": "241.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "253.0",
+        "link_id": "5132731981940916510",
+        "speed": "35.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1607564042, 24.4816089499],
+          [118.1602831426, 24.4817529268]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295282526",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295282526,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.1656140089035,24.478885531425476,118.16514194011688,24.47903037071228]",
+        "data_version": 1757573100740,
+        "length": "50.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "40.0",
+        "link_id": "5132731981940918993",
+        "speed": "44.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1625311468, 24.4810328299],
+          [118.1607564042, 24.4816089499]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295242921",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295242921,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16738426685333,24.47830617427826,118.1656140089035,24.478885531425476]",
+        "data_version": 1757573100740,
+        "length": "190.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "444.0",
+        "link_id": "5132731981940918994",
+        "speed": "45.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1599120623, 24.4818809999],
+          [118.1597668573, 24.4819290162]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254913",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254913,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16477179527283,24.479159116744995,118.16462695598602,24.479207396507263]",
+        "data_version": 1757573100740,
+        "length": "15.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "13.0",
+        "link_id": "5132731981940918711",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1553408219, 24.4840079095],
+          [118.154980519, 24.4840233449]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264974",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264974,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16021203994751,24.48129415512085,118.15985262393951,24.48131024837494]",
+        "data_version": 1757573100740,
+        "length": "36.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088402720",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154980519, 24.4840233449],
+          [118.1553408219, 24.4840079095]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264973",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264973,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15985262393951,24.48131024837494,118.16021203994751,24.48129415512085]",
+        "data_version": 1757573100740,
+        "length": "36.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919072",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154367468, 24.4840651463],
+          [118.154980519, 24.4840233449]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264970",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264970,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15924108028412,24.481353163719177,118.15985262393951,24.48131024837494]",
+        "data_version": 1757573100740,
+        "length": "62.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "83.0",
+        "link_id": "5132731981940919069",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.154980519, 24.4840233449],
+          [118.154367468, 24.4840651463]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224940",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295224940,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15985262393951,24.48131024837494,118.15924108028412,24.481353163719177]",
+        "data_version": 1757573100740,
+        "length": "62.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088402717",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1553408219, 24.4840079095],
+          [118.1561044519, 24.4839932171]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264972",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295264972,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16021203994751,24.48129415512085,118.16097378730774,24.48127806186676]",
+        "data_version": 1757573100740,
+        "length": "77.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731981940919071",
+        "speed": "22.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1561044519, 24.4839932171],
+          [118.1553408219, 24.4840079095]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224942",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中二路",
+        "gid": 10295224942,
+        "formway": 15,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16097378730774,24.48127806186676,118.16021203994751,24.48129415512085]",
+        "data_version": 1757573100740,
+        "length": "77.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "0.0",
+        "link_id": "5132731984088402719",
+        "speed": "40.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1597668573, 24.4819290162],
+          [118.1596808097, 24.4819610472]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254902",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254902,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16462695598602,24.479207396507263,118.16454112529755,24.479239583015442]",
+        "data_version": 1757573100740,
+        "length": "9.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "11.0",
+        "link_id": "5132731981940917749",
+        "speed": "42.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1591967935, 24.4821318332],
+          [118.1585460633, 24.4823559632],
+          [118.1579652523, 24.4825051119]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295214839",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295214839,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16405832767487,24.479411244392395,118.16340923309326,24.479636549949646,118.16282987594604,24.47978675365448]",
+        "data_version": 1757573100740,
+        "length": "131.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "136.0",
+        "link_id": "5132731981940918658",
+        "speed": "49.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1548461574, 24.4829124881],
+          [118.1550612644, 24.4828860556]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295254892",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲中路",
+        "gid": 10295254892,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.15971851348877,24.480199813842773,118.15993309020996,24.480172991752625]",
+        "data_version": 1757573100740,
+        "length": "22.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "26.0",
+        "link_id": "5132731981940917308",
+        "speed": "31.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1558948961, 24.4815516321],
+          [118.1559540341, 24.4817824479]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295224968",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295224968,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16076457500458,24.478837251663208,118.1608235836029,24.47906792163849]",
+        "data_version": 1757573100740,
+        "length": "26.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "33.0",
+        "link_id": "5132731981940919314",
+        "speed": "29.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1557282169, 24.4811489296],
+          [118.1556314499, 24.4807141639]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295243240",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295243240,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16059827804565,24.478434920310974,118.16050171852112,24.47800040245056]",
+        "data_version": 1757573100740,
+        "length": "49.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "118.0",
+        "link_id": "5132731981940918878",
+        "speed": "26.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1558948789, 24.4817930696],
+          [118.1557335927, 24.4811757659]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264957",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264957,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16076457500458,24.47907865047455,118.16060364246368,24.478461742401123]",
+        "data_version": 1757573100740,
+        "length": "70.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "147.0",
+        "link_id": "5132731981940918250",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1556583386, 24.480708848],
+          [118.1557766171, 24.4811329227]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264996",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264996,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16052854061127,24.47799503803253,118.16064655780792,24.478418827056885]",
+        "data_version": 1757573100740,
+        "length": "48.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "75.0",
+        "link_id": "5132731981940919349",
+        "speed": "27.0"
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [118.1557766171, 24.4811329227],
+          [118.1558948961, 24.4815516321]
+        ],
+        "type": "LineString"
+      },
+      "id": "gd_route_clean.10295264997",
+      "type": "Feature",
+      "properties": {
+        "road_name": "洪莲路",
+        "gid": 10295264997,
+        "formway": 1,
+        "create_time": "2025-09-11 14:45:00",
+        "coord_list": "[118.16064655780792,24.478418827056885,118.16076457500458,24.478837251663208]",
+        "data_version": 1757573100740,
+        "length": "47.0",
+        "roadclass": 5,
+        "state": 1,
+        "travel_time": "63.0",
+        "link_id": "5132731981940919350",
+        "speed": "26.0"
+      }
+    }
+  ],
+  "code": 0,
+  "type": "FeatureCollection",
+  "featureCount": 123
+}

@@ -274,6 +274,15 @@ const routes: Array<RouteRecordRaw> = [
       description: "遮罩",
     },
   },
+  {
+    path: "/traffic",
+    name: "traffic",
+    component: () => import("@/examples/traffic/index.vue"),
+    meta: {
+      title: "交通层",
+      description: "实时交通状况显示",
+    },
+  },
 ];
 
 const router = createRouter({
