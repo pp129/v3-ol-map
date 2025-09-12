@@ -75,6 +75,8 @@ export default defineConfig(({ command, mode }): any => {
     ],
     optimizeDeps: {
       include: ["core-js"],
+      exclude: ["ol-ext/filter/mask"],
+      force: true,
     },
     esbuild: {
       drop: command === "build" ? ["console", "debugger"] : [],

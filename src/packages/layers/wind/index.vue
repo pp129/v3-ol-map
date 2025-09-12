@@ -123,12 +123,12 @@ const init = () => {
   useBaseLayer(layer.value, props).onMounted();
 
   layer.value.setMap(map);
-  map.on("singleclick", (evt: MapBrowserEvent<UIEvent>) => {
+  map.on("singleclick", (evt: MapBrowserEvent<any>) => {
     const data = eventHandler(evt);
     const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
     emits("singleclick", <WindLayerEvent>{ ...event, data });
   });
-  map.on("pointermove", (evt: MapBrowserEvent<UIEvent>) => {
+  map.on("pointermove", (evt: MapBrowserEvent<any>) => {
     const data = eventHandler(evt);
     const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
     emits("pointermove", <WindLayerEvent>{ ...event, data });
@@ -136,7 +136,7 @@ const init = () => {
   emits("mount", layer.value);
 };
 
-const eventHandler = (evt: MapBrowserEvent<UIEvent>): WindData => {
+const eventHandler = (evt: MapBrowserEvent<any>): WindData => {
   console.log(evt);
   //@ts-ignore
   const field: Field = layer.value?.field;

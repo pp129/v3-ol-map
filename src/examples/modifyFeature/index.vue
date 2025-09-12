@@ -54,7 +54,8 @@ const geometryData = ref<FeatureGeometry[]>([
     },
   },
 ]);
-const onModifyEnd = (e: any) => {
+const onModifyEnd = (...args: any[]) => {
+  const [e] = args;
   console.log("onModify", e);
   const feature = e.features.getArray()[0];
   console.log(feature.getGeometry().getType());

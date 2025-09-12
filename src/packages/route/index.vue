@@ -6,7 +6,7 @@ import OlMap from "@/packages/lib";
 import { arrowLine } from "@/packages/lib/arrowLine";
 import { validObjKey } from "@/packages/utils";
 import type { Methods, Params, RouteOptions, StopPoint, Type } from "@/packages/types/Route";
-import type { Coordinate } from "ol/Coordinate";
+import type { Coordinate } from "ol/coordinate";
 import type { Position, Feature, Point } from "geojson";
 import type { OlVectorInstance, VectorLayerOptions, FeatureCollection } from "@/packages";
 import type { FeatureStyle } from "@/packages/types/Style";

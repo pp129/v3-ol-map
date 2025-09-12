@@ -1,6 +1,6 @@
 import { getCenter, getWidth, getHeight, getTopLeft, getTopRight } from "ol/extent.js";
 import { Circle, Geometry, LineString, Polygon } from "ol/geom";
-import Map from "ol/map";
+import Map from "ol/Map";
 import { AnimationOptions } from "ol/View";
 import { GeoJSON } from "ol/format";
 import { ReadOptions } from "ol/format/Feature";

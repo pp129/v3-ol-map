@@ -68,7 +68,7 @@ const getFeatureAtPixel = (pixel: any): Feature | null => {
   if (!coordinate) return null;
 
   // 设置容差值（单位：地图单位）
-  const tolerance = (map.value.map.getView().getResolution() || 1) * 10; // 10像素的容差
+  const tolerance = (map.value.map.getView().getResolution() || 1) * 5; // 10像素的容差
 
   // 检查每个交通要素是否在点击范围内
   for (const feature of trafficFeatures.value) {

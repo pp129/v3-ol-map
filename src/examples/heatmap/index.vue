@@ -72,7 +72,8 @@ const featchData = () => {
     });
 };
 
-const handleZoom = (event: any) => {
+const handleZoom = (...args: any[]) => {
+  const [event] = args;
   const { zoom } = event;
   // 实现效果：不同层级下的热力图效果相近，目前只能做到相近。。。
   // 实现以11级radius对应是3为基准，每大一级，radius的值增大，如果直接每级+3，颜色会太深，用曲线函数会比直线函数效果好，实验出效果比较好的公式：2 + (z - 11) * (z - 11)^1.5 ，指数的值是个玄学

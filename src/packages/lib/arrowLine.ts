@@ -2,7 +2,7 @@ import Feature from "ol/Feature";
 import Map from "ol/Map";
 import { Point } from "ol/geom";
 import { Icon, Style } from "ol/style";
-import { Coordinate } from "ol/Coordinate";
+import { Coordinate } from "ol/coordinate";
 import VectorSource from "ol/source/Vector";
 import { Options as IconOptions } from "ol/style/Icon";
 import VectorLayer from "ol/layer/Vector.js";

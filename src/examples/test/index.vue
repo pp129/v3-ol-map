@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, shallowRef } from "vue";
-import Map from "ol/Map.js";
+import Map from "ol/Map";
 import View from "ol/View.js";
 import TileLayer from "ol/layer/Tile.js";
 import VectorSource from "ol/source/Vector.js";

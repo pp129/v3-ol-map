@@ -164,7 +164,8 @@ let info = reactive({
   name: "",
 });
 let position = ref<Position>();
-const onClickLayer = (evt: any, feature?: any) => {
+const onClickLayer = (...args: any[]) => {
+  const [evt, feature] = args;
   if (feature) {
     const geom = feature.getGeometry() as SimpleGeometry;
     if (geom) {
@@ -193,19 +194,24 @@ const onSourceReady = () => {
   const layer = vectorRef.value?.getLayer();
   console.log(layer?.getSource());
 };
-const translateend = (evt: any) => {
+const translateend = (...args: any[]) => {
+  const [evt] = args;
   console.log(evt);
 };
-const onFeaturesLoadEnd = (e: any) => {
+const onFeaturesLoadEnd = (...args: any[]) => {
+  const [e] = args;
   console.log("load end", e);
 };
-const onFeaturesLoadStart = (e: any) => {
+const onFeaturesLoadStart = (...args: any[]) => {
+  const [e] = args;
   console.log("load start", e);
 };
-const changefeature = (e: any) => {
+const changefeature = (...args: any[]) => {
+  const [e] = args;
   console.log("feature change", e);
 };
-const onchange = (e: any) => {
+const onchange = (...args: any[]) => {
+  const [e] = args;
   console.log("change", e.target.getFeatures());
 };
 onMounted(() => {

@@ -151,7 +151,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
     }
   };
 
-  const eventHandler = (listenerKey: any, evt: MapObjectEventTypes<UIEvent>) => {
+  const eventHandler = (listenerKey: any, evt: MapObjectEventTypes<any>) => {
     const { pixel } = evt;
     const feature = getFeatureAtPixel(pixel);
     // const event = {
@@ -187,7 +187,7 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
     // 绑定事件
     eventList.forEach(listenerKey => {
       eventRender.value.push(
-        map.on(listenerKey, (evt: MapObjectEventTypes<UIEvent>) => {
+        map.on(listenerKey, (evt: MapObjectEventTypes<any>) => {
           eventHandler(listenerKey, evt);
         }),
       );

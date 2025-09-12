@@ -47,7 +47,8 @@ const jsonFeature: JSONFeature = {
     },
   },
 };
-const handleClick = (evt: any, feature?: any) => {
+const handleClick = (...args: any[]) => {
+  const [evt, feature] = args;
   if (feature) {
     const geo = feature.getGeometry();
   }

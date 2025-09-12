@@ -5,7 +5,7 @@ import type { Layer, Tile } from "ol/layer";
 import Mask from "ol-ext/filter/Mask";
 import type { MaskOptions } from "@/packages/types";
 import GeoJSON from "ol/format/GeoJSON.js";
-import FeatureLike from "ol/Feature";
+import type FeatureLike from "ol/Feature";
 
 defineOptions({
   name: "OlMask",

@@ -1,7 +1,7 @@
 import { defineComponent, inject, onMounted, PropType, Ref, unref, watch } from "vue";
 import { Circle as CircleStyle, Fill, RegularShape, Stroke, Style, Text } from "ol/style";
 import { getArea, getLength } from "ol/sphere";
-import Geometry from "ol/geom/geometry";
+import Geometry from "ol/geom/Geometry";
 import { Modify } from "ol/interaction";
 import { LineString, Point, Polygon } from "ol/geom";
 import VectorLayer from "ol/layer/Vector";

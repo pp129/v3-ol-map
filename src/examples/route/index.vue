@@ -115,10 +115,12 @@ const clearRoute = () => {
   route.stops = [{ index: 0, name: "途经点", coordinate: [] }];
   routeRef.value?.clear();
 };
-const onRouteResolve = (data: any) => {
+const onRouteResolve = (...args: any[]) => {
+  const [data] = args;
   console.log("onRouteResolve", data);
 };
-const handleClickMap = (event: any) => {
+const handleClickMap = (...args: any[]) => {
+  const [event] = args;
   if (pointPick.value === "start") {
     // route.start = event.coordinate.join(",");
     routeRef.value?.setStartPoint(event.coordinate).then(() => {

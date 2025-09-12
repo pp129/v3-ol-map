@@ -326,7 +326,7 @@ export default class vzPath {
 
     // 监听内容控制 ['singleclick', 'pointermove']
     this._traceEvent = mapObj?.on(["singleclick", "pointermove"], eve => {
-      this.eventListener(eve as MapBrowserEvent<UIEvent>);
+      this.eventListener(eve as MapBrowserEvent<any>);
     });
 
     /**
@@ -398,7 +398,7 @@ export default class vzPath {
 
     // 简化控制参数暂定2
     const res: SimplifyPoint[] = simplify(path, 2, false);
-    const reShape: Array<import("ol/coordinate.js").Coordinate> = [];
+    const reShape: Array<import("ol/coordinate").Coordinate> = [];
     const reNode: (number | undefined)[] = [];
     res.forEach(item => {
       reShape.push([item.x * resolution, item.y * resolution]);

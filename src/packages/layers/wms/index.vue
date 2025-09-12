@@ -48,7 +48,7 @@ const init = () => {
       const hit = data && data[3] > 0; // transparent pixels have zero for data[3]
       map.getTargetElement().style.cursor = hit ? "pointer" : "";
     });
-    map.on("singleclick", (evt: MapBrowserEvent<UIEvent>) => {
+    map.on("singleclick", (evt: MapBrowserEvent<any>) => {
       const view = map.getView();
       const viewResolution = view.getResolution();
       if (!viewResolution) return;

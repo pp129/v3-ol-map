@@ -49,14 +49,6 @@ const toggleTraffic = () => {
   trafficVisible.value = !trafficVisible.value;
 };
 
-const changeOpacity = (opacity: number) => {
-  trafficOpacity.value = opacity;
-};
-
-const changeUpdateInterval = (interval: number) => {
-  updateInterval.value = interval;
-};
-
 // 交通组件引用
 const trafficRef = ref();
 
