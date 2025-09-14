@@ -33,6 +33,7 @@ const emit = defineEmits<{
       feature_id: string;
     },
   ];
+  render: [args: any];
 }>();
 
 const map = inject("VMap") as ShallowRef<import("@/packages/lib").default>;
@@ -264,6 +265,7 @@ const getCurrentGeometryParam = (): string => {
 // 使用 useBaseLayer 处理基础图层属性
 watchEffect(() => {
   // @ts-ignore - 忽略ImageLayer类型兼容性问题
+  console.log("props.visible", props);
   useBaseLayer(trafficLayer.value, props);
 });
 
@@ -373,6 +375,10 @@ const loadTrafficDataFromJson = async (): Promise<Feature[]> => {
     });
 
     const data = await response.json();
+
+    // 触发数据渲染事件
+    emit("render", data);
+
     const features: Feature[] = [];
 
     if (data.features && Array.isArray(data.features)) {
@@ -441,8 +447,11 @@ const initTrafficLayer = () => {
 
   // 创建图像层
   trafficLayer.value = new ImageLayer({
+    ...props,
     source: imageCanvasSource,
   });
+
+  console.log("trafficLayer", trafficLayer.value.getZIndex());
 
   // 使用 useParent 添加到正确的父级组件
   // @ts-ignore - 忽略ImageLayer类型兼容性问题
