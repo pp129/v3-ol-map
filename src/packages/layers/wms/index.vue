@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, onMounted, ShallowRef, unref } from "vue";
+import { inject, onMounted, ShallowRef, unref, watch } from "vue";
 import OlMap from "@/packages/lib";
 import { WMSOptions } from "@/packages/types/WMS";
 import TileGrid from "ol/tilegrid/TileGrid.js";
@@ -66,6 +66,23 @@ const init = () => {
     });
   }
 };
+
+watch(
+  () => props.params,
+  newVal => {
+    if (newVal) {
+      updateParams(newVal);
+    }
+  },
+  { deep: true, immediate: false },
+);
+
+const updateParams = (params: any) => {
+  if (!layer.value) return;
+  const source = layer.value.getSource() as TileWMS;
+  source.updateParams(params);
+};
+
 onMounted(() => {
   init();
 });

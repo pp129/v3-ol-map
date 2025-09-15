@@ -1,13 +1,39 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import { VMap } from "@/packages";
+import { Ref, ref } from "vue";
+import { SourceOptions, TileType, VMap } from "@/packages";
 
 const view: VMap["view"] = {
   zoom: 13,
   center: [118.125827, 24.637526],
   projection: "EPSG:4326",
 };
-
+let tileType = ref<TileType>("AMAP");
+type TileTypeList = {
+  value: TileType;
+  label: string;
+};
+const tileTypeList: TileTypeList[] = [
+  { value: "AMAP", label: "高德地图" },
+  { value: "AMAP_SATELLITE", label: "高德地图-卫星图" },
+  { value: "BAIDU", label: "百度地图" },
+  { value: "BAIDU_SATELLITE", label: "百度地图-卫星图" },
+  { value: "TDT", label: "天地图" },
+  { value: "TDT_SATELLITE", label: "天地图-卫星图" },
+  { value: "TDT_TERRAIN", label: "天地图-地形图" },
+  { value: "XYZ", label: "自定义路径的栅格图层" },
+];
+const xyz: SourceOptions = {
+  url: "http://172.16.34.120:6080/arcgis/rest/services/xiamen/MapServer/tile/{z}/{y}/{x}",
+  projection: "EPSG:4326",
+};
+let source = ref<Ref<SourceOptions> | undefined>(undefined);
+const handleSelect = () => {
+  if (tileType.value === "XYZ") {
+    source.value = { ...xyz };
+  } else {
+    source.value = undefined;
+  }
+};
 const trafficVisible = ref(true);
 const trafficOpacity = ref(0.8);
 const updateInterval = ref(30000);
@@ -74,8 +100,13 @@ const handleTrafficClick = (featureInfo: any) => {
 
 <template>
   <div class="traffic-example">
+    <select v-model="tileType" class="tile-type-selections" @change="handleSelect">
+      <option v-for="item in tileTypeList" :key="item.value" :value="item.value">
+        {{ item.label }}
+      </option>
+    </select>
     <ol-map class="map-container" :view="view">
-      <ol-tile tile-type="BAIDU"></ol-tile>
+      <ol-tile :tile-type="tileType" :source="source"></ol-tile>
       <ol-traffic
         ref="trafficRef"
         :visible="trafficVisible"
@@ -258,10 +289,20 @@ const handleTrafficClick = (featureInfo: any) => {
   width: 100%;
   height: 100%;
 }
-
+.tile-type-selections {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em;
+}
 .control-panel {
   position: absolute;
-  top: 10px;
+  top: 80px;
   left: 10px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
   padding: 20px;
@@ -271,8 +312,8 @@ const handleTrafficClick = (featureInfo: any) => {
     0 2px 8px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   min-width: 280px;
-  max-width: 320px;
-  max-height: calc(100vh - 40px);
+  max-width: 340px;
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
   z-index: 1000;
   backdrop-filter: blur(20px);
