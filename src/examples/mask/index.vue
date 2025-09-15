@@ -29,6 +29,10 @@ const getVectorData = () => {
   };
 };
 
+const maskFill = ref({
+  color: "rgba(0, 0, 0, 0.6)",
+});
+
 // 更新遮罩数据，验证监听功能
 const updateMaskData = () => {
   getVectorData();
@@ -47,7 +51,7 @@ onMounted(() => {
     </div>
     <ol-map class="map-container" :view="view">
       <ol-tile tile-type="BAIDU">
-        <ol-mask :feature="geojsonData" :opacity="0.5"></ol-mask>
+        <ol-mask :feature="geojsonData" :shadow-width="50" :fill="maskFill"></ol-mask>
       </ol-tile>
     </ol-map>
   </div>
@@ -62,7 +66,8 @@ onMounted(() => {
 .control-panel {
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   background: rgba(255, 255, 255, 0.9);
   padding: 15px;

@@ -6,6 +6,7 @@ import Mask from "ol-ext/filter/Mask";
 import type { MaskOptions } from "@/packages/types";
 import GeoJSON from "ol/format/GeoJSON.js";
 import type FeatureLike from "ol/Feature";
+import { Fill } from "ol/style";
 
 defineOptions({
   name: "OlMask",
@@ -31,6 +32,9 @@ const init = () => {
       const mask = new Mask({
         ...props,
         feature: feature.value,
+        fill: new Fill({
+          ...props.fill,
+        }),
       });
 
       layer.value.addFilter(mask);
