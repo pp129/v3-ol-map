@@ -31,8 +31,10 @@ const tileLayer = ($props: BaseTileProps) => {
 
   const init = async (isOverviewMap?: boolean) => {
     overviewMap.value = isOverviewMap;
-    if (props.tileType) {
-      switch (props.tileType.toUpperCase()) {
+    const config = $OlMapConfig || defaultOlMapConfig;
+    const tileType = props.tileType ? props.tileType : config.tile?.tileType;
+    if (tileType) {
+      switch (tileType.toUpperCase()) {
         case "TDT":
           initTileTD();
           break;
@@ -91,8 +93,9 @@ const tileLayer = ($props: BaseTileProps) => {
 
   // 自定义XYZ
   const initTileCustomer = () => {
-    layer.value = tileRender(props, props.source);
-    console.log("xyz layer", layer.value);
+    const config = $OlMapConfig || defaultOlMapConfig;
+    const source = props.source ? props.source : config.tile?.source;
+    layer.value = tileRender(props, source);
     addToMap();
   };
   const initTile = (init: boolean = true) => {

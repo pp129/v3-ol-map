@@ -283,6 +283,15 @@ const routes: Array<RouteRecordRaw> = [
       description: "实时交通状况显示",
     },
   },
+  {
+    path: "/trafficWMS",
+    name: "trafficWMS",
+    component: () => import("@/examples/trafficWMS/index.vue"),
+    meta: {
+      title: "wms 路况图层",
+      description: "实时交通状况显示",
+    },
+  },
 ];
 
 const router = createRouter({

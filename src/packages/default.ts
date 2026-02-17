@@ -29,7 +29,7 @@ import OlEcharts from "./echarts/index.ts";
 import OlConfig from "./config/index.ts";
 import OlMask from "./ext/mask/index.ts";
 import OlTraffic from "./ext/traffic/index.ts";
-import { VMap } from "./types";
+import { VMap, BaseTileOptions } from "./types";
 
 const components: Plugin[] = [
   OlMap,
@@ -86,6 +86,7 @@ type AMap = {
 };
 export declare const configProviderProps: {
   map: VMap;
+  tile: BaseTileOptions;
   tdt: TDT;
   baidu: Baidu;
   amap: AMap;
@@ -148,12 +149,14 @@ export const makeInstaller = (components: Plugin[] = []) => {
         ...options.amap,
       };
       config.map = { ...options.map };
+      config.tile = { ...options.tile };
     }
     app.provide("$OlMapConfig", {
       map: config.map,
-      TDT: config.tdt,
-      Baidu: config.tdt,
-      AMap: config.tdt,
+      tdt: config.tdt,
+      baidu: config.baidu,
+      amap: config.amap,
+      tile: config.tile,
     });
   };
 

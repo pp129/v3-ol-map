@@ -6,6 +6,8 @@ import { GeoTIFF } from "ol/source";
 import GeoTIFFLayer from "ol/layer/WebGLTile";
 import { WebGLTileOptions } from "@/packages/types/Tile";
 import OlMap from "@/packages/lib";
+import { useParent } from "@/packages/hooks/parent.ts";
+const { addLayer } = useParent();
 
 defineOptions({
   name: "OlTiff",
@@ -30,7 +32,8 @@ watchEffect(() => {
 
 // console.log(baseLayer.props);
 onMounted(() => {
-  map.addLayer(layer);
+  // map.addLayer(layer);
+  addLayer(layer);
 });
 </script>
 

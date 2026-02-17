@@ -51,6 +51,14 @@ export default defineConfig(({ command, mode }): any => {
             return path.replace(regex, "");
           },
         },
+        "/wms-api": {
+          target: "http://36.248.238.35:8888/wms-api",
+          changeOrigin: true,
+          rewrite: (path: string) => {
+            const regex = new RegExp("wms-api", "g");
+            return path.replace(regex, "");
+          },
+        },
       },
     },
     publicDir: mode === "lib" ? false : "public",
@@ -60,6 +68,10 @@ export default defineConfig(({ command, mode }): any => {
         {
           find: "@",
           replacement: resolve(__dirname, "src"),
+        },
+        {
+          find: "v3-ol-map",
+          replacement: resolve(__dirname, "src/packages/index.ts"),
         },
       ],
     },

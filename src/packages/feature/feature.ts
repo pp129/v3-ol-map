@@ -8,6 +8,7 @@ import type VectorSource from "ol/source/Vector";
 import Feature from "ol/Feature.js";
 import type VectorLayer from "ol/layer/Vector";
 import { Projection } from "ol/proj.js";
+import { unByKey } from "ol/Observable.js";
 import {
   Circle,
   Geometry,
@@ -59,8 +60,10 @@ const OlFeature = defineComponent({
     const VMap = inject("VMap") as OlMap;
     const map = unref(VMap).map;
     const layer = inject("ParentLayer") as Ref<VectorLayer | Heatmap>;
+    const clusterUpdateKey = inject("ClusterUpdateKey", ref(0)) as Ref<number>; // 注入聚合更新键
     let clusters: Supercluster;
     let sourceFeatures = ref<Feature[]>();
+    let precomposeListener: any = null; // 保存 precompose 事件监听器
 
     // 添加feature
     const addFeatures = () => {
@@ -74,6 +77,12 @@ const OlFeature = defineComponent({
         // source.clear();
         const superCluster = layer.value.get("superCluster");
         if (superCluster) {
+          // 移除旧的 precompose 监听器
+          if (precomposeListener) {
+            unByKey(precomposeListener);
+            precomposeListener = null;
+          }
+
           clusters = new Supercluster(superCluster);
           let features: Feature[] = [];
           if (props.geoJson) {
@@ -104,7 +113,8 @@ const OlFeature = defineComponent({
             });
           source.addFeatures(olFeatures);
 
-          map.on("precompose", () => {
+          // 绑定新的 precompose 监听器
+          precomposeListener = map.on("precompose", () => {
             // this.$emit('changeresolution')
             const extent = map.getView().calculateExtent(map.getSize());
             const cluster = clusters.getClusters(extent as BBox, map.getView().getZoom() || 0);
@@ -284,13 +294,14 @@ const OlFeature = defineComponent({
     const resetFeatures = (value: TypeGeoJSON | FeatureGeometry[] | undefined) => {
       if (!layer) return;
       let source = layer.value.getSource();
-      if (layer.value.get("cluster")) {
-        // 如果是聚合图层，获取聚合图层的source
+      const isSuperCluster = layer.value.get("superCluster");
+
+      // SuperCluster 使用 layer 直接的 source
+      if (!isSuperCluster && layer.value.get("cluster")) {
+        // 普通聚合图层，获取聚合图层的 source
         if (layer.value.getSource()) source = (layer.value.getSource() as Cluster<Feature>).getSource();
       }
-      // if (sourceFeatures.value) {
-      //   source?.removeFeatures(sourceFeatures.value ?? []);
-      // }
+
       source?.clear();
       if (!value) return;
       addFeatures();
@@ -323,6 +334,18 @@ const OlFeature = defineComponent({
       },
       {
         deep: true,
+      },
+    );
+
+    // 监听父级 layer 的 superCluster 配置变化
+    watch(
+      () => clusterUpdateKey.value,
+      () => {
+        const superCluster = layer.value?.get("superCluster");
+        if (superCluster && (props.geoJson || props.geometries)) {
+          // superCluster 配置变化时，重新加载要素
+          addFeatures();
+        }
       },
     );
 

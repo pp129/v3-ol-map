@@ -1,0 +1,64 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+
+import * as OlConfig from "./OlConfig.stories";
+
+<Meta of={OlConfig} />
+
+# ol-config
+
+配置组件，用于为子组件提供配置上下文（天地图 ak、百度地图 ak、高德地图配置等）
+
+## 全局配置
+
+> 在`main.ts`中进行全局配置
+
+```js
+import { createApp } from "vue";
+import "@/style.css";
+import App from "@/App.vue";
+import router from "@/router";
+import olMap from "v3-ol-map";
+
+const app = createApp(App);
+app.use(router);
+// app.use(olMap); // 不配置TDTak加载不了在线天地图
+app.use(olMap, {
+  tdt: {
+    ak: "88e2f1d5ab64a7477a7361edd6b5f68a", // 天地图ak
+  },
+  baidu: {
+    ak: "5ieMMexWmzB9jivTq6oCRX9j",
+  },
+  // 配置默认map参数
+  map: {
+    view: {
+      zoom: 10,
+      center: [118.125827, 24.637526],
+    },
+  },
+  // 配置默认tile参数
+  tile: {
+    tileType: "XYZ",
+    source: {
+      url: import.meta.env.VITE_MAP_URL,
+      projection: "EPSG:4490",
+    },
+  },
+});
+app.mount("#app");
+```
+
+### 组件形式示例
+
+左侧地图使用 `OlConfig` 提供的天地图 ak，右侧地图使用全局配置的 ak：
+
+<Canvas of={OlConfig.Default} />
+
+### 配置优先级
+
+1. **高优先级**：`OlConfig` 组件的 props
+2. **低优先级**：全局安装时的配置
+
+## Docs
+
+<Controls />

@@ -1,0 +1,49 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+
+import * as OlCluster from "./OlCluster.stories";
+
+<Meta of={OlCluster} />
+
+# ol-cluster
+
+聚合图层组件，用于在地图上展示大量点位数据时进行聚合显示，提升性能和视觉效果
+
+```js
+import { OlMap, OlCluster, OlFeature } from "v3-ol-map";
+```
+
+## 功能特性
+
+- **点位聚合**：自动将相邻的点位聚合成一个点，显示数量
+- **动态聚合**：根据地图缩放级别动态调整聚合半径
+- **SuperCluster 支持**：高性能的点位聚合算法
+- **自定义样式**：支持单个点和聚合点的样式配置
+- **交互能力**：支持点击事件，可获取聚合点下的子集
+
+## 使用场景
+
+适用于大量点位数据的展示，如：
+
+- 监控摄像头分布
+- 商家门店位置
+- 设备设施分布
+- POI 点位展示
+
+## 示例
+
+<Canvas of={OlCluster.Default} />
+
+## 主要属性
+
+- **super-cluster**: SuperCluster 配置，包含 radius（聚合半径）等参数
+- **layer-style**: 单个点位的样式配置
+- **cluster-style**: 聚合点的样式配置
+
+## 事件
+
+- **singleclick**: 点击聚合点或单个点时触发
+- 通过 `ref` 获取实例后可调用 `getLeaves(id)` 方法获取聚合点下的子集
+
+## Docs
+
+<Controls />

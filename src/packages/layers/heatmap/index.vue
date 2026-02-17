@@ -9,6 +9,8 @@ import MapObjectEventTypes from "ol/MapBrowserEvent";
 import type { Pixel } from "ol/pixel";
 import { unByKey } from "ol/Observable.js";
 import type { HeatmapOptions } from "@/packages/types/Heatmap";
+import { useParent } from "@/packages/hooks/parent.ts";
+const { addLayer } = useParent();
 
 defineOptions({
   name: "OlHeatmap",
@@ -93,7 +95,8 @@ const init = () => {
   });
   const layerId = props.layerId || `heatmap-layer-${nanoid()}`;
   layer.value.set("id", layerId);
-  map.addLayer(layer.value);
+  // map.addLayer(layer.value);
+  addLayer(layer.value);
   // 绑定事件
   eventList.forEach(listenerKey => {
     eventRender.value.push(

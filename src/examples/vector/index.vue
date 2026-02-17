@@ -10,7 +10,12 @@ import {
   utils,
   Position,
   OlVectorInstance,
-} from "@/packages";
+  OlMap,
+  OlTile,
+  OlVector,
+  OlFeature,
+  OlOverlay,
+} from "v3-ol-map";
 import icon from "@/assets/vue.svg";
 import cluster2 from "@/assets/images/cluster2.png";
 import cluster3 from "@/assets/images/cluster3.png";

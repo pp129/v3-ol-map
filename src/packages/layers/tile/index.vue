@@ -8,7 +8,6 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<BaseTileProps>(), {
-  // tileType: "TDT",
   layerId: "",
   visible: true,
   source: undefined,

@@ -207,6 +207,7 @@ defineExpose({
   setCursor,
 });
 provide("VMap", map);
+provide("$OlMapConfig", $OlMapConfig || defaultOlMapConfig);
 </script>
 
 <template>

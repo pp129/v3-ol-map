@@ -52,12 +52,33 @@ const emit: any = defineEmits([
   "addfeature",
 ]);
 let layerReady = ref(false);
+let clusterUpdateKey = ref(0); // 用于触发 OlFeature 重新渲染
 
 provide("ParentLayer", layer);
+provide("ClusterUpdateKey", clusterUpdateKey); // 传递给 OlFeature
 
 watchEffect(() => {
   useBaseLayer(layer.value, props as BaseLayerOptions);
 });
+
+// 监听 superCluster 配置变化，重新渲染聚合
+watch(
+  () => props.superCluster,
+  (newVal, oldVal) => {
+    if (newVal && layer.value && props.superCluster && layerReady.value) {
+      // 通知 OlFeature 重新加载数据
+      layer.value.set("superCluster", newVal);
+      // 清空当前 source
+      const source = layer.value.getSource();
+      if (source) {
+        source.clear();
+      }
+      // 递增更新键，触发 OlFeature watch
+      clusterUpdateKey.value++;
+    }
+  },
+  { deep: true },
+);
 
 const clusterFeatureStyle = (style: ClusterStyle, text: string) => {
   const textStyle = { ...style.text, text };

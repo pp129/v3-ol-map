@@ -1,0 +1,39 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+
+import * as OlFeature from "./OlFeature.stories";
+
+<Meta of={OlFeature} />
+
+# ol-feature
+
+地图要素组件，用于在矢量图层中添加各种几何要素（点、线、面、圆等）
+
+```js
+import { OlMap, OlFeature } from "v3-ol-map";
+```
+
+## 参数类型
+
+OlFeature 支持两种参数类型：
+
+### 1. geo-json 参数
+
+使用标准的 GeoJSON 格式定义要素，支持 Point、LineString、Polygon 等类型。
+
+<Canvas of={OlFeature.GeoJson} />
+
+### 2. geometries 参数
+
+使用自定义的 geometries 格式定义要素，支持 Point、LineString、Polygon、Circle 等类型，Circle 类型仅 geometries 支持。
+
+<Canvas of={OlFeature.Geometries} />
+
+### 3. 样式定义
+
+通过 feature 的 properties.style 可以为单个要素定义自定义样式。
+
+<Canvas of={OlFeature.Default} />
+
+## Docs
+
+<Controls />

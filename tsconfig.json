@@ -27,6 +27,7 @@
     "baseUrl": "",
     "paths": {
       "@/*": ["src/*"],
+      "v3-ol-map": ["src/packages/index.ts"]
     },
 
     "typeRoots": [

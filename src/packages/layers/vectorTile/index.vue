@@ -6,6 +6,7 @@ import VectorTileLayer from "ol/layer/VectorTile";
 import { nanoid } from "nanoid";
 import OlMap from "@/packages/lib";
 import { VectorTileOptions } from "@/packages";
+import { useParent } from "@/packages/hooks/parent.ts";
 
 defineOptions({
   name: "OlVectorTile",
@@ -22,6 +23,8 @@ let layerReady = ref(false);
 let layer = shallowRef<VectorTileLayer>();
 let source = shallowRef<VectorTileSource>();
 provide("ParentLayer", layer);
+const { addLayer } = useParent();
+
 watchEffect(() => {
   useBaseLayer(layer.value, props);
 });
@@ -48,7 +51,8 @@ const init = () => {
   const layerId = props.layerId || `vectorTile-layer-${nanoid()}`;
   layer.value.set("id", layerId);
   layerReady.value = true;
-  map.addLayer(layer.value);
+  // map.addLayer(layer.value);
+  addLayer(layer.value);
   emit("sourceready", source.value);
 };
 

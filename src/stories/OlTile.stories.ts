@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { OlMap, OlTile } from "@/packages";
 import SwitchTile from "../examples/tile/index.vue";
+import SwitchTileRaw from "../examples/tile/index.vue?raw";
+import TileXYZ from "../examples/tileXYZ/index.vue";
+import TileXYZRaw from "../examples/tileXYZ/index.vue?raw";
 
 const meta = {
   title: "OlMap/Tile",
@@ -35,17 +38,32 @@ export const Default: Story = {
 };
 
 export const XYZ: Story = {
-  args: {
-    tileType: "XYZ",
-    source: {
-      url: "http://172.16.34.120:6080/arcgis/rest/services/xiamen/MapServer/tile/{z}/{y}/{x}",
-      projection: "EPSG:4490",
-      crossOrigin: "anonymous",
+  parameters: {
+    docs: {
+      source: {
+        code: TileXYZRaw,
+      },
     },
   },
+  render: args => ({
+    components: { TileXYZ },
+    setup() {
+      return {};
+    },
+    template: `
+        <tile-XYZ></tile-XYZ>
+    `,
+  }),
 };
 
 export const Switch: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: SwitchTileRaw,
+      },
+    },
+  },
   render: args => ({
     components: { SwitchTile },
     setup() {

@@ -2,19 +2,32 @@
 import { onMounted, reactive, ref } from "vue";
 import icon from "@/assets/vue.svg";
 import cluster4 from "@/assets/images/cluster4.png";
-import { ClusterLayerOptions, OlFeatureInstance, VMap, GeoJSONFeature, FeatureCollection } from "@/packages";
+import {
+  ClusterLayerOptions,
+  OlFeatureInstance,
+  VMap,
+  GeoJSONFeature,
+  FeatureCollection,
+  OlMap,
+  OlCluster,
+  OlOverlay,
+  OlTile,
+  OlFeature,
+} from "v3-ol-map";
 
+// 地图视图配置
 const view: VMap["view"] = {
   zoom: 8,
   center: [118.12582777425764, 24.637526109241485],
 };
-
+// 单个要素样式配置
 const layerStyle: ClusterLayerOptions["layerStyle"] = {
   icon: {
     src: icon,
     scale: 0.6,
   },
 };
+// 聚合样式配置
 const clusterStyle: ClusterLayerOptions["clusterStyle"] = {
   icon: {
     src: cluster4, //该聚合样式图标
@@ -50,6 +63,7 @@ const clusterOverlay = <OverlayClusterOptions>reactive({
 });
 
 let clusterRef = ref<OlFeatureInstance>();
+// 聚合层点击事件
 const onClickClusterLayer = (evt: any, feature: any) => {
   console.log("onClickClusterLayer", evt, feature);
   if (feature) {
@@ -85,7 +99,7 @@ const showClusterItem = (code: string) => {
 
 let loaded = ref(false);
 
-// 随机聚合点
+// 获取点位数据
 const getClusterData = () => {
   let features: GeoJSONFeature[] = [];
   fetch(

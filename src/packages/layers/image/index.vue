@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import OlMap from "@/packages/lib";
 import ImageLayer from "ol/layer/Image";
 import useBaseLayer from "@/packages/layers/baseLayer";
+import { useParent } from "@/packages/hooks/parent.ts";
 
 defineOptions({
   name: "OlImage",
@@ -33,6 +34,8 @@ watchEffect(() => {
   useBaseLayer(layer.value, props);
 });
 
+const { addLayer } = useParent();
+
 onMounted(() => {
   layer.value = new ImageLayer({
     ...props,
@@ -40,7 +43,8 @@ onMounted(() => {
   });
   layer.value.set("layerTypeName", "ImageLayer");
   provide("ParentTileLayer", layer);
-  map.addLayer(layer.value);
+  // map.addLayer(layer.value);
+  addLayer(layer.value);
   render.value = true;
 });
 </script>

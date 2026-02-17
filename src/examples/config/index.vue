@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { OlMap, OlTile, OlConfig } from "v3-ol-map";
 const config = {
   tdt: {
     ak: "316cf152e80bd8a121b23746a5803c8b",
@@ -16,7 +17,7 @@ const config = {
     </ol-config>
     <!-- 在main中设置的全局变量-->
     <ol-map target="map2" class="map" width="50%">
-      <ol-tile tile-type="TDT"></ol-tile>
+      <ol-tile></ol-tile>
     </ol-map>
   </div>
 </template>

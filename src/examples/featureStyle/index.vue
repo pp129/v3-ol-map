@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FeatureCollection, FeatureStyle, VMap } from "@/packages";
+import { FeatureCollection, FeatureStyle, VMap, OlMap, OlTile, OlVector, OlFeature } from "v3-ol-map";
 import icon from "@/assets/vue.svg";
 import { ref, onMounted } from "vue";
 const view: VMap["view"] = {
@@ -81,7 +81,7 @@ onMounted(() => {
         },
       },
     ];
-  }, 3000);
+  }, 1000);
 });
 </script>
 
