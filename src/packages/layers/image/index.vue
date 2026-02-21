@@ -12,7 +12,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<ImageLayerOptions>(), {
-  layerId: `image-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
   source: () => {
     return {
@@ -37,10 +37,12 @@ watchEffect(() => {
 const { addLayer } = useParent();
 
 onMounted(() => {
+  const layerId = props.layerId || `image-layer-${nanoid()}`;
   layer.value = new ImageLayer({
     ...props,
     source: undefined,
   });
+  layer.value.set("id", layerId);
   layer.value.set("layerTypeName", "ImageLayer");
   provide("ParentTileLayer", layer);
   // map.addLayer(layer.value);

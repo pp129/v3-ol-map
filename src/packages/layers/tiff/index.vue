@@ -14,7 +14,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<WebGLTileOptions>(), {
-  layerId: `tile-layer-${nanoid()}`,
+  layerId: "",
   visible: true,
 });
 
@@ -32,6 +32,8 @@ watchEffect(() => {
 
 // console.log(baseLayer.props);
 onMounted(() => {
+  const layerId = props.layerId || `tile-layer-${nanoid()}`;
+  layer.set("id", layerId);
   // map.addLayer(layer);
   addLayer(layer);
 });
