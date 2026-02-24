@@ -14,7 +14,7 @@ import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
 import { nanoid } from "nanoid";
 
-const tileLayer = ($props: BaseTileProps, $emit: TileLayerEmitFnType) => {
+const tileLayer = ($props: BaseTileProps, $emit?: TileLayerEmitFnType) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
   const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide", undefined);
@@ -270,10 +270,10 @@ const tileLayer = ($props: BaseTileProps, $emit: TileLayerEmitFnType) => {
       });
     } else {
       (layer.value as Layer).on("sourceready", evt => {
-        $emit("sourceready", evt);
+        if ($emit) $emit("sourceready", evt);
       });
       (layer.value as Layer).on("change:visible", evt => {
-        $emit("change:visible", evt);
+        if ($emit) $emit("change:visible", evt);
       });
       map?.addLayer(layer.value);
     }

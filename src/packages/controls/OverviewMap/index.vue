@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from "vue";
+import { watchEffect } from "vue";
 import { nanoid } from "nanoid";
 import useTileLayer from "../../layers/tile/useTile";
 import { OverviewMapOptions } from "@/packages";
