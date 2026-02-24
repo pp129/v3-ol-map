@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VMap, WFSOptions, FeatureStyle, OlMapEvent } from "@/packages";
+import { VMap, WFSOptions, FeatureStyle, MapBrowserEvent } from "@/packages";
 
 const view: VMap["view"] = {
   zoom: 11,

@@ -9,7 +9,7 @@ import type { View, VMap } from "@/packages/types/Map";
 import type { AnimationOptions } from "ol/View";
 import type Map from "ol/Map";
 import { ConfigProviderContext, defaultOlMapConfig } from "@/packages/default";
-import { OlMapEvent } from "@/packages/types/Map";
+import { MapBrowserEvent } from "@/packages/types/Map";
 
 defineOptions({
   name: "OlMap",
@@ -63,21 +63,21 @@ const events = [
   "movestart",
 ];
 
-type ChangeZoomEvtTyp = Partial<OlMapEvent & { zoom: number | undefined }>;
+type ChangeZoomEvtTyp = Partial<MapBrowserEvent & { zoom: number | undefined }>;
 export interface MapEmitsType {
   (e: "load"): void;
   (e: "changeZoom", evt: ChangeZoomEvtTyp, map: Map | undefined): void;
-  (e: "singleclick", evt: OlMapEvent): void;
-  (e: "click", evt: OlMapEvent): void;
-  (e: "dblclick", evt: OlMapEvent): void;
-  (e: "pointerdrag", evt: OlMapEvent): void;
-  (e: "contextmenu", evt: OlMapEvent): void;
-  (e: "precompose", evt: OlMapEvent): void;
-  (e: "postrender", evt: OlMapEvent): void;
-  (e: "loadend", evt: OlMapEvent): void;
-  (e: "loadstart", evt: OlMapEvent): void;
-  (e: "moveend", evt: OlMapEvent): void;
-  (e: "movestart", evt: OlMapEvent): void;
+  (e: "singleclick", evt: MapBrowserEvent): void;
+  (e: "click", evt: MapBrowserEvent): void;
+  (e: "dblclick", evt: MapBrowserEvent): void;
+  (e: "pointerdrag", evt: MapBrowserEvent): void;
+  (e: "contextmenu", evt: MapBrowserEvent): void;
+  (e: "precompose", evt: MapBrowserEvent): void;
+  (e: "postrender", evt: MapBrowserEvent): void;
+  (e: "loadend", evt: MapBrowserEvent): void;
+  (e: "loadstart", evt: MapBrowserEvent): void;
+  (e: "moveend", evt: MapBrowserEvent): void;
+  (e: "movestart", evt: MapBrowserEvent): void;
 }
 const emit = defineEmits<MapEmitsType>();
 const init = () => {
@@ -116,7 +116,7 @@ const setCursor = (type: string) => {
 // 绑定事件
 const eventBinding = () => {
   // 鼠标移动事件 图层有要素时显示手型
-  map.value?.map.on("pointermove", (evt: OlMapEvent) => {
+  map.value?.map.on("pointermove", (evt: MapBrowserEvent) => {
     if (forceCursor.value) {
       cursor.value = forceCursor.value;
       return;
@@ -147,8 +147,8 @@ const eventBinding = () => {
     });
   });
 };
-const zoomEnd = (evt: OlMapEvent) => {
-  const params: Partial<OlMapEvent> & { zoom: number | undefined } = {
+const zoomEnd = (evt: MapBrowserEvent) => {
+  const params: Partial<MapBrowserEvent> & { zoom: number | undefined } = {
     ...evt,
     zoom: map.value?.map.getView().getZoom(),
   };

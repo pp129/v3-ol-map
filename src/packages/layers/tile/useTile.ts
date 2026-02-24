@@ -8,13 +8,13 @@ import type TileLayer from "ol/layer/Tile";
 import OlMap from "../../lib/index.ts";
 import type { Options as GeoTIFFOptions } from "ol/source/GeoTIFF.js";
 import type { Options as XYZOptions } from "ol/source/XYZ.js";
-import { defaultOlMapConfig, type ConfigProviderContext, type BaseTileProps } from "@/packages";
+import { defaultOlMapConfig, type ConfigProviderContext, type BaseTileProps, TileLayerEmitFnType } from "@/packages";
 import type { Options as OverviewMapOptions } from "ol/control/OverviewMap";
 import Map from "ol/Map";
 import BaseLayer from "ol/layer/Base";
 import { nanoid } from "nanoid";
 
-const tileLayer = ($props: BaseTileProps) => {
+const tileLayer = ($props: BaseTileProps, $emit: TileLayerEmitFnType) => {
   const VMap = inject("VMap") as OlMap;
   const map: Map = unref(VMap).map;
   const configProvider: ConfigProviderContext | undefined = inject("ConfigProvide", undefined);
@@ -269,6 +269,12 @@ const tileLayer = ($props: BaseTileProps) => {
         map?.addLayer(layer);
       });
     } else {
+      (layer.value as Layer).on("sourceready", evt => {
+        $emit("sourceready", evt);
+      });
+      (layer.value as Layer).on("change:visible", evt => {
+        $emit("change:visible", evt);
+      });
       map?.addLayer(layer.value);
     }
   };

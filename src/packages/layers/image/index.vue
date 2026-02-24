@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { inject, onMounted, provide, ref, shallowRef, unref, watchEffect } from "vue";
-import { ImageLayerOptions } from "@/packages/types/Tile";
+import { onMounted, provide, ref, shallowRef, watchEffect } from "vue";
+import { ImageLayerOptions, TileLayerEmitFnType } from "@/packages/types/Tile";
 import { nanoid } from "nanoid";
-import OlMap from "@/packages/lib";
 import ImageLayer from "ol/layer/Image";
 import useBaseLayer from "@/packages/layers/baseLayer";
 import { useParent } from "@/packages/hooks/parent.ts";
+import { BaseEvent, ObjectEvent } from "@/packages";
 
 defineOptions({
   name: "OlImage",
@@ -24,9 +24,9 @@ const props = withDefaults(defineProps<ImageLayerOptions>(), {
   },
 });
 
-const VMap = inject("VMap") as OlMap;
-const map = unref(VMap).map;
 let layer = shallowRef<any>();
+
+const emit = defineEmits<TileLayerEmitFnType>();
 
 let render = ref(false);
 
@@ -44,8 +44,13 @@ onMounted(() => {
   });
   layer.value.set("id", layerId);
   layer.value.set("layerTypeName", "ImageLayer");
+  layer.value.on("sourceready", (e: BaseEvent) => {
+    emit("sourceready", e);
+  });
+  layer.value.on("change:visible", (e: ObjectEvent) => {
+    emit("change:visible", e);
+  });
   provide("ParentTileLayer", layer);
-  // map.addLayer(layer.value);
   addLayer(layer.value);
   render.value = true;
 });

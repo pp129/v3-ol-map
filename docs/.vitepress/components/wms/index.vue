@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  OlMap,
-  OlTile,
-  OlImage,
-  OlWms,
-  OlMapEvent,
-  SourceImageWMSOptions,
-  VMap
-} from "v3-ol-map";
+import { OlMap, OlTile, OlImage, OlWms, MapBrowserEvent, SourceImageWMSOptions, VMap } from "v3-ol-map";
 
 const view: VMap["view"] = {
   zoom: 12,
@@ -27,7 +19,7 @@ const wms: SourceImageWMSOptions = {
   ratio: 1,
   crossOrigin: "anonymous",
 };
-const handleClick = (e: OlMapEvent, data: any) => {
+const handleClick = (e: MapBrowserEvent, data: any) => {
   if (data) {
     const { features } = data;
     if (features && features.length > 0) {

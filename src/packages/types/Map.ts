@@ -1,9 +1,7 @@
 import OlMap from "../map/index.vue";
-import MapBrowserEvent from "ol/MapBrowserEvent";
 import { ViewOptions } from "ol/View";
 
 type defMapOptions = Omit<import("ol/Map").MapOptions, "controls" | "interactions" | "view" | "target">;
-
 export interface View extends ViewOptions {
   city?: string;
 }
@@ -15,7 +13,9 @@ export declare type VMap = defMapOptions & {
   target?: string;
 };
 
-export declare type OlMapEvent = MapBrowserEvent<any>;
+export declare type MapBrowserEvent = import("ol/MapBrowserEvent").default<any>;
+export declare type ObjectEvent = import("ol/Object").ObjectEvent;
+export declare type BaseEvent = import("ol/events/Event").default;
 
 export declare type ExposeMap = {
   map: import("ol/Map").default;

@@ -18,7 +18,7 @@ const layer = inject("ParentTileLayer") as ShallowRef<ImageLayer<import("ol/sour
 
 const props = withDefaults(defineProps<WMSOptions>(), {});
 
-const emit = defineEmits(["singleclick"]);
+const emit = defineEmits(["singleclick", "dblclick", "pointermove"]);
 
 const init = () => {
   if (layer.value) {
@@ -40,30 +40,44 @@ const init = () => {
 
     if (!source) return;
 
-    map.on("pointermove", function (evt) {
+    map.on("pointermove", async function (evt) {
       if (evt.dragging) {
         return;
       }
       const data: any = layer.value.getData(evt.pixel);
       const hit = data && data[3] > 0; // transparent pixels have zero for data[3]
       map.getTargetElement().style.cursor = hit ? "pointer" : "";
+      const featureInfo = await handleGetFeatureInfo(evt, source);
+      emit("pointermove", evt, featureInfo);
     });
-    map.on("singleclick", (evt: MapBrowserEvent<any>) => {
-      const view = map.getView();
-      const viewResolution = view.getResolution();
-      if (!viewResolution) return;
-      const url = source?.getFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection().getCode(), {
-        INFO_FORMAT: "application/json",
+    map.on("singleclick", async (evt: MapBrowserEvent<any>) => {
+      const featureInfo = await handleGetFeatureInfo(evt, source);
+      emit("singleclick", evt, featureInfo);
+    });
+    map.on("dblclick", async (evt: MapBrowserEvent<any>) => {
+      const featureInfo = await handleGetFeatureInfo(evt, source);
+      emit("dblclick", evt, featureInfo);
+    });
+  }
+};
+
+const handleGetFeatureInfo = async (evt: MapBrowserEvent<any>, source: TileWMS | ImageWMS) => {
+  const view = map.getView();
+  const viewResolution = view.getResolution();
+  if (!viewResolution) return;
+  const url = source?.getFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection().getCode(), {
+    INFO_FORMAT: "application/json",
+  });
+  if (url) {
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data;
+      })
+      .catch(error => {
+        console.error("Error fetching feature info:", error);
+        return null;
       });
-      if (url) {
-        fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            // console.log(data);
-            emit("singleclick", evt, data);
-          });
-      }
-    });
   }
 };
 
@@ -79,7 +93,7 @@ watch(
 
 const updateParams = (params: any) => {
   if (!layer.value) return;
-  const source = layer.value.getSource() as TileWMS;
+  const source = layer.value.getSource() as TileWMS | ImageWMS;
   source.updateParams(params);
 };
 

@@ -169,9 +169,27 @@ let info = reactive({
   name: "",
 });
 let position = ref<Position>();
-const onClickLayer = (...args: any[]) => {
+const onClickLayer1 = (...args: any[]) => {
   const [evt, feature] = args;
   if (feature) {
+    console.log(feature);
+    const geom = feature.getGeometry() as SimpleGeometry;
+    if (geom) {
+      const type = geom.getType();
+      info.name = feature.get("name");
+      if (type === "Point") {
+        position.value = geom.getCoordinates() || evt.coordinate;
+      } else {
+        const { topCenter } = utils.calculateCenter(geom);
+        position.value = topCenter;
+      }
+    }
+  }
+};
+const onClickLayer2 = (...args: any[]) => {
+  const [evt, feature] = args;
+  if (feature) {
+    console.log(feature);
     const geom = feature.getGeometry() as SimpleGeometry;
     if (geom) {
       const type = geom.getType();
@@ -231,7 +249,7 @@ onMounted(() => {
       ref="vectorRef"
       :layer-style="layerStyle"
       :z-index="1"
-      @singleclick="onClickLayer"
+      @singleclick="onClickLayer1"
       @sourceready="onSourceReady"
       @featuresloadend="onFeaturesLoadEnd"
       @featuresloadstart="onFeaturesLoadStart"
@@ -244,7 +262,7 @@ onMounted(() => {
       :layer-style="layerStyle"
       :z-index="1"
       :translate="true"
-      @singleclick="onClickLayer"
+      @singleclick="onClickLayer2"
       @sourceready="onSourceReady"
       @translateend="translateend"
     >

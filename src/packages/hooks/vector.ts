@@ -47,7 +47,6 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
   let translateObj = shallowRef<Translate | undefined>(undefined);
   let eventRender = ref<any[]>([]);
   const eventList: ["singleclick", "pointermove"] = ["singleclick", "pointermove"];
-  let layerReady = ref(false);
 
   watch(
     () => props.visible,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import useTileLayer from "./useTile";
-import type { BaseTileProps } from "@/packages/types/Tile";
+import type { BaseTileProps, TileLayerEmitFnType } from "@/packages/types/Tile";
 
 defineOptions({
   name: "OlTile",
@@ -12,8 +12,10 @@ const props = withDefaults(defineProps<BaseTileProps>(), {
   visible: true,
   source: undefined,
 });
-const { init, resetTile, getLayer, clearTile } = useTileLayer(props);
+const emit = defineEmits<TileLayerEmitFnType>();
+const { init, resetTile, getLayer, clearTile } = useTileLayer(props, emit);
 let render = ref(false);
+
 watch(
   () => props.tileType,
   (nVal, oVal) => {

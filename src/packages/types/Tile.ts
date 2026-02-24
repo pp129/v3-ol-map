@@ -7,6 +7,8 @@ import type { Options as XYZOptions } from "ol/source/XYZ";
 import type { Options as OSMOptions } from "ol/source/OSM";
 import type { Options as ImageStaticOptions } from "ol/source/ImageStatic";
 import type { Options as ImageTileOptions } from "ol/layer/BaseImage";
+import BaseEvent from "ol/events/Event";
+import { ObjectEvent } from "ol/Object";
 
 export enum enumTile {
   TDT = "天地图",
@@ -57,6 +59,11 @@ type ImageLayer = Omit<ImageTileOptions<ImageSourceType>, "source">;
 export interface ImageLayerOptions extends ImageLayer {
   source?: ImageStaticOptions | undefined;
 }
+
+export type TileLayerEmitFnType = {
+  (event: "sourceready", ...args: BaseEvent[]): void;
+  (event: "change:visible", ...args: ObjectEvent[]): void;
+};
 
 type VectorTileLayer = Omit<import("ol/layer/VectorTile").Options, "source" | "style">;
 export interface VectorTileOptions extends VectorTileLayer {
