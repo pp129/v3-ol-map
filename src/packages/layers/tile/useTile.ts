@@ -284,7 +284,8 @@ const tileLayer = ($props: BaseTileProps, $emit?: TileLayerEmitFnType) => {
       ...OverviewMapOptions.value,
       layers: [layer.value],
     });
-    overviewMapTarget.value.setMap(unref(VMap).map);
+    // overviewMapTarget.value.setMap(unref(VMap).map);
+    unref(VMap).map.addControl(overviewMapTarget.value);
   };
   const setOverviewMapOptions = async (options: OverviewMapOptions) => {
     OverviewMapOptions.value = options;
@@ -293,7 +294,7 @@ const tileLayer = ($props: BaseTileProps, $emit?: TileLayerEmitFnType) => {
   const resetOverviewMap = () => {
     if (overviewMapTarget.value) {
       unref(VMap).map.removeControl(overviewMapTarget.value);
-      addOverviewMap();
+      init(true);
     }
   };
 

@@ -42,6 +42,15 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "overviewMap",
+    path: "/overviewMap",
+    component: () => import("@/examples/overview/index.vue"),
+    meta: {
+      title: "OverviewMap",
+      description: "鹰眼图示例",
+    },
+  },
+  {
     name: "vectorJson",
     path: "/vectorJson",
     component: () => import("@/examples/vectorJson/index.vue"),

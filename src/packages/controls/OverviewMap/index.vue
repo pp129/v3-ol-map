@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watchEffect } from "vue";
+import { onMounted, watchEffect } from "vue";
 import { nanoid } from "nanoid";
 import useTileLayer from "../../layers/tile/useTile";
 import { OverviewMapOptions } from "@/packages";
@@ -16,9 +16,17 @@ const props = withDefaults(defineProps<OverviewMapOptions>(), {
   collapsible: true,
 });
 
-const { init, setOverviewMapOptions } = useTileLayer(props);
+const { init, setOverviewMapOptions, resetOverviewMap } = useTileLayer(props);
 
 watchEffect(() => {
+  setOverviewMapOptions({
+    ...props,
+  }).then(() => {
+    resetOverviewMap();
+  });
+});
+
+onMounted(() => {
   setOverviewMapOptions({
     ...props,
   }).then(() => {
