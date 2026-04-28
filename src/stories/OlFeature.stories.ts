@@ -8,6 +8,7 @@ import ExampleFeatureGeometries from "../examples/featureGeometries/index.vue";
 import ExampleFeatureGeometriesRaw from "../examples/featureGeometries/index.vue?raw";
 
 const meta = {
+  id: "1-5",
   title: "OlMap/Feature",
   component: OlFeature,
   tags: ["!dev"],

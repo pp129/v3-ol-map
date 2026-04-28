@@ -4,6 +4,7 @@ import ExampleOverlay from "../examples/overlay/index.vue";
 import ExampleOverlayRaw from "../examples/overlay/index.vue?raw";
 
 const meta = {
+  id: "1-6",
   title: "OlMap/Overlay",
   component: OlOverlay,
   tags: ["!dev"],

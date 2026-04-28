@@ -1,16 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { OlMap } from "@/packages";
+import { OlMap } from "v3-ol-map";
+import ExampleMap from "../examples/map/index.vue";
+import ExampleMapRaw from "../examples/map/index.vue?raw";
+import { generateViewArgType } from "./utils/generateArgTypes";
 
 const meta = {
+  id: "1-2",
   title: "OlMap/Map",
   component: OlMap,
-  tags: ["autodocs", "!dev"],
+  tags: ["!dev"],
+  argTypes: generateViewArgType(),
   render: args => ({
-    components: { OlMap },
-    setup() {
-      return { args };
-    },
-    template: `<ol-map v-bind="args" />`,
+    components: { ExampleMap },
+    template: `<example-map />`,
   }),
 } satisfies Meta<typeof OlMap>;
 
@@ -18,5 +20,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: ExampleMapRaw,
+      },
+    },
+  },
+  render: args => ({
+    components: { ExampleMap },
+    template: `<example-map />`,
+  }),
 };

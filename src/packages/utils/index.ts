@@ -154,7 +154,7 @@ export const readFeature = (options: ReadFeaturesOptions) => {
   return format.readFeature(options.source, { ...options.options });
 };
 
-export const readGeometry = (options: ReadFeaturesOptions) => {
+export const readGeometry = (options: ReadFeaturesOptions): Geometry => {
   const format = new GeoJSON({ ...options.format });
   return format.readGeometry(options.source, { ...options.options });
 };

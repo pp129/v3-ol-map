@@ -21,8 +21,9 @@ const tileTypeList: TileTypeList[] = [
   { value: "XYZ", label: "自定义路径的栅格图层" },
 ];
 const xyz: SourceOptions = {
-  url: "http://172.16.34.120:6080/arcgis/rest/services/xiamen/MapServer/tile/{z}/{y}/{x}",
-  projection: "EPSG:4326",
+  url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+  projection: "EPSG:3857",
+  crossOrigin: "anonymous",
 };
 let source = ref<Ref<SourceOptions> | undefined>(undefined);
 const handleSelect = () => {

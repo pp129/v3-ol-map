@@ -4,6 +4,7 @@ import ExampleConfig from "../examples/config/index.vue";
 import ExampleConfigRaw from "../examples/config/index.vue?raw";
 
 const meta = {
+  id: "1-1",
   title: "OlMap/Config",
   component: OlConfig,
   tags: ["!dev"],

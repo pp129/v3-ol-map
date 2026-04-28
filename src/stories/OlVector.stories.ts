@@ -4,6 +4,7 @@ import ExampleVector from "../examples/vector/index.vue";
 import ExampleVectorRaw from "../examples/vector/index.vue?raw";
 
 const meta = {
+  id: "1-4",
   title: "OlMap/Vector",
   component: OlVector,
   tags: ["!dev"],

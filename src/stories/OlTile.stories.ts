@@ -6,6 +6,7 @@ import TileXYZ from "../examples/tileXYZ/index.vue";
 import TileXYZRaw from "../examples/tileXYZ/index.vue?raw";
 
 const meta = {
+  id: "1-3",
   title: "OlMap/Tile",
   component: OlTile,
   tags: ["!dev"],
