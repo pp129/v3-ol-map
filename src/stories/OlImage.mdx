@@ -1,0 +1,25 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+
+import * as OlImage from "./OlImage.stories";
+
+<Meta of={OlImage} />
+
+# ol-image
+
+图片图层
+
+```js
+import { OlMap, OlImage } from "v3-ol-map";
+```
+
+## 基于Image的WMS图层（海量点）
+
+<Canvas of={OlImage.Default} />
+
+## 基于Images的WMS图层（路况）
+
+<Canvas of={OlImage.TrafficWms} />
+
+## Docs
+
+<Controls />

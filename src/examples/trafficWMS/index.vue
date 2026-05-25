@@ -1,6 +1,16 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { SourceImageWMSOptions, TileType, VMap, MapBrowserEvent, ObjectEvent } from "@/packages";
+import {
+  SourceImageWMSOptions,
+  TileType,
+  VMap,
+  MapBrowserEvent,
+  ObjectEvent,
+  OlMap,
+  OlImage,
+  OlWms,
+  OlTile,
+} from "v3-ol-map";
 const view: VMap["view"] = {
   zoom: 13,
   center: [118.125827, 24.637526],
@@ -9,7 +19,7 @@ const view: VMap["view"] = {
 let tileType = ref<TileType>("AMAP");
 
 const wms = ref<SourceImageWMSOptions>({
-  url: "/wms-api/xm/wms",
+  url: "http://36.248.238.35:8888/wms-api/xm/wms",
   params: {
     VERSION: "1.1.1",
     FORMAT: "image/png",
@@ -31,7 +41,7 @@ const handleClick = (e: MapBrowserEvent, data: any) => {
 };
 
 const handlePointerMove = (e: MapBrowserEvent, data: any) => {
-  if (data.numberReturned > 0) {
+  if (data && data.numberReturned > 0) {
     console.log(data.features);
     console.log(e);
   }
