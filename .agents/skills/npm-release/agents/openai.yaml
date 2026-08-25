@@ -1,7 +1,7 @@
 interface:
   display_name: "NPM 安全发布"
-  short_description: "自动判定语义版本、提交推送源码并安全发布 npm 软件包"
-  default_prompt: "Use $npm-release to version, commit, push, and publish the current package changes."
+  short_description: "自动判定版本、提交推送，并用持久令牌免 OTP 发布"
+  default_prompt: "Use $npm-release to version, commit, push, and publish the current package changes with persistent npm authentication."
 
 policy:
   allow_implicit_invocation: false
