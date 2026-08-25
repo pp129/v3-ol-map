@@ -8,9 +8,12 @@ import { Fill, Icon, Stroke, Style, Text } from "ol/style";
 import OlMap from "@/packages/lib";
 import { Pixel } from "ol/pixel";
 import type { Layer } from "ol/layer";
+import { useDisposables } from "@/packages/hooks/disposables";
+import { unByKey } from "ol/Observable";
 
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
+const { addDisposable } = useDisposables();
 const layer = inject("ParentLayer") as Ref<VectorLayer>;
 
 type PinOptions = {
@@ -119,7 +122,7 @@ const getFeatureAtPixel = (pixel: Pixel) => {
 
 onMounted(() => {
   if (layer.value) {
-    map.on("singleclick", (e: any) => {
+    const listenerKey = map.on("singleclick", (e: any) => {
       const feature = getFeatureAtPixel(e.pixel);
       if (feature) {
         saveFeature.value = feature as Feature;
@@ -134,6 +137,7 @@ onMounted(() => {
         if (feature.get("position")) position.value = feature.get("position");
       }
     });
+    addDisposable(() => unByKey(listenerKey));
   }
 });
 </script>

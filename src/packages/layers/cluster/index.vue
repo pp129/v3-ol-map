@@ -17,6 +17,7 @@ import type { FeatureStyle, StyleOptions } from "@/packages";
 import type { Layer } from "ol/layer";
 import type { Pixel } from "ol/pixel";
 import type { ClusterLayerOptions, ClusterStyle } from "@/packages/types/Cluster";
+import { useParent } from "@/packages/hooks/parent";
 
 defineOptions({
   name: "OlCluster",
@@ -38,6 +39,7 @@ const props = withDefaults(defineProps<ClusterLayerOptions>(), {
 });
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
+const { addLayer } = useParent();
 let layer = shallowRef<VectorLayer>();
 let vector_source = shallowRef<VectorSource>();
 let cluster_source = shallowRef<Cluster<Feature>>();
@@ -237,7 +239,7 @@ const init = () => {
   }
   const layerId = props.layerId || `vector-layer-${nanoid()}`;
   layer.value.set("id", layerId);
-  map.addLayer(layer.value);
+  addLayer(layer.value);
   // 绑定事件
   eventList.forEach(listenerKey => {
     eventRender.value.push(

@@ -307,6 +307,10 @@ const tileLayer = ($props: BaseTileProps, $emit?: TileLayerEmitFnType) => {
   };
 
   const clearTile = () => {
+    if (overviewMapTarget.value) {
+      unref(VMap).map.removeControl(overviewMapTarget.value);
+      overviewMapTarget.value = undefined;
+    }
     if (layer.value?.get("group")) {
       const layerGroup = layer.value as LayerGroup;
       const layers: BaseLayer[] = layerGroup.getLayers().getArray();

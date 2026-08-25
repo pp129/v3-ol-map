@@ -7,6 +7,8 @@ import type { Layer, Tile } from "ol/layer";
 import { ImageWMS, TileWMS } from "ol/source.js";
 import MapBrowserEvent from "ol/MapBrowserEvent";
 import ImageLayer from "ol/layer/Image";
+import { useDisposables } from "@/packages/hooks/disposables";
+import { unByKey } from "ol/Observable";
 
 defineOptions({
   name: "OlWms",
@@ -14,6 +16,7 @@ defineOptions({
 
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
+const { addDisposable } = useDisposables();
 const layer = inject("ParentTileLayer") as ShallowRef<ImageLayer<import("ol/source/Image.js").default> | Tile | Layer>;
 
 const props = withDefaults(defineProps<WMSOptions>(), {});
@@ -40,7 +43,7 @@ const init = () => {
 
     if (!source) return;
 
-    map.on("pointermove", async function (evt) {
+    const pointerMoveKey = map.on("pointermove", async function (evt) {
       if (evt.dragging) {
         return;
       }
@@ -50,14 +53,15 @@ const init = () => {
       const featureInfo = await handleGetFeatureInfo(evt, source);
       emit("pointermove", evt, featureInfo);
     });
-    map.on("singleclick", async (evt: MapBrowserEvent<any>) => {
+    const singleClickKey = map.on("singleclick", async (evt: MapBrowserEvent<any>) => {
       const featureInfo = await handleGetFeatureInfo(evt, source);
       emit("singleclick", evt, featureInfo);
     });
-    map.on("dblclick", async (evt: MapBrowserEvent<any>) => {
+    const doubleClickKey = map.on("dblclick", async (evt: MapBrowserEvent<any>) => {
       const featureInfo = await handleGetFeatureInfo(evt, source);
       emit("dblclick", evt, featureInfo);
     });
+    addDisposable(() => unByKey([pointerMoveKey, singleClickKey, doubleClickKey]));
   }
 };
 

@@ -7,6 +7,8 @@ import { WindData, WindLayerEvent, WindLayerOptions } from "@/packages/types/Win
 import { Vector, Field } from "wind-core";
 import useBaseLayer from "@/packages/layers/baseLayer";
 import MapBrowserEvent from "ol/MapBrowserEvent";
+import { useDisposables } from "@/packages/hooks/disposables";
+import { unByKey } from "ol/Observable";
 
 defineOptions({
   name: "OlWind",
@@ -14,6 +16,7 @@ defineOptions({
 
 const VMap = inject("VMap") as OlMap;
 const map: Map = unref(VMap).map;
+const { addDisposable } = useDisposables();
 const props = withDefaults(defineProps<WindLayerOptions>(), {
   forceRender: true,
 });
@@ -123,16 +126,17 @@ const init = () => {
   useBaseLayer(layer.value, props).onMounted();
 
   layer.value.setMap(map);
-  map.on("singleclick", (evt: MapBrowserEvent<any>) => {
+  const singleClickKey = map.on("singleclick", (evt: MapBrowserEvent<any>) => {
     const data = eventHandler(evt);
     const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
     emits("singleclick", <WindLayerEvent>{ ...event, data });
   });
-  map.on("pointermove", (evt: MapBrowserEvent<any>) => {
+  const pointerMoveKey = map.on("pointermove", (evt: MapBrowserEvent<any>) => {
     const data = eventHandler(evt);
     const event = Object.assign({}, { ...evt }, { coordinate: evt.coordinate, pixel: evt.pixel });
     emits("pointermove", <WindLayerEvent>{ ...event, data });
   });
+  addDisposable(() => unByKey([singleClickKey, pointerMoveKey]));
   emits("mount", layer.value);
 };
 
@@ -186,7 +190,7 @@ watchEffect(() => {
   useBaseLayer(layer.value, props);
 });
 const destroy = () => {
-  map?.removeLayer(layer.value as any);
+  layer.value?.setMap(null);
   layer.value = null;
 };
 const getData = () => {

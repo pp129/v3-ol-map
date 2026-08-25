@@ -4,12 +4,14 @@ import OlMap from "@/packages/lib";
 import { MousePosition } from "ol/control";
 import { MousePositionOptions } from "@/packages/types/MousePosition.ts";
 import { createStringXY } from "ol/coordinate";
+import { useDisposables } from "@/packages/hooks/disposables";
 
 defineOptions({
   name: "OlMousePosition",
 });
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
+const { addDisposable } = useDisposables();
 const props = withDefaults(defineProps<MousePositionOptions>(), {
   coordinateFormat: 6,
 });
@@ -21,7 +23,9 @@ const init = () => {
     ...props,
     coordinateFormat: createStringXY(Number(props.coordinateFormat)),
   });
-  map.addControl(mousePosition.value);
+  const control = mousePosition.value;
+  map.addControl(control);
+  addDisposable(() => map.removeControl(control));
   mousePositionRef.value?.remove();
 };
 

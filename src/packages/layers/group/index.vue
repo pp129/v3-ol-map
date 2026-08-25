@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { inject, onMounted, provide, Ref, ref, shallowRef, unref, watchEffect } from "vue";
+import { onMounted, provide, ref, shallowRef, watchEffect } from "vue";
 import { nanoid } from "nanoid";
 import LayerGroup, { type Options } from "ol/layer/Group";
-import OlMap from "@/packages/lib";
 import useBaseLayer from "@/packages/layers/baseLayer";
+import { useParent } from "@/packages/hooks/parent";
 
 defineOptions({
   name: "OlGroupLayer",
@@ -15,7 +15,7 @@ type GroupOptions = Partial<Options> & {
 const props = withDefaults(defineProps<GroupOptions>(), {
   id: "",
 });
-const VMap = inject<Ref<OlMap> | undefined>("VMap", undefined);
+const { addLayer } = useParent();
 
 const layer = shallowRef<LayerGroup>();
 let layerReady = ref(false);
@@ -24,12 +24,8 @@ const init = () => {
   layer.value = new LayerGroup(props);
   const layerId = props.id ?? `group-layer-${nanoid()}`;
   layer.value.set("id", layerId);
-  if (VMap) {
-    const map = unref(VMap).map;
-    console.log(layer.value);
-    map?.addLayer(layer.value);
-    layerReady.value = true;
-  }
+  addLayer(layer.value);
+  layerReady.value = true;
 };
 
 watchEffect(() => {

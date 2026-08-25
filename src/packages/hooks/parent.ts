@@ -4,6 +4,7 @@ import LayerGroup from "ol/layer/Group";
 import BaseLayer from "ol/layer/Base";
 import Collection from "ol/Collection";
 import OlMap from "@/packages/lib";
+import { useDisposables } from "./disposables";
 const useParent = () => {
   const instance = getCurrentInstance();
   const parent: ComponentInternalInstance | null | undefined = instance?.parent;
@@ -11,6 +12,7 @@ const useParent = () => {
   const map: Map | undefined = unref(VMap)?.map;
   const injectGroup = inject<Ref<LayerGroup> | undefined>("GroupLayer", undefined);
   const groupLayer = unref(injectGroup);
+  const { addDisposable } = useDisposables();
 
   const findParent = (parentComp: ComponentInternalInstance | null | undefined): string => {
     // 向上递归查询，直到找到OlMap或OlGroupLayer
@@ -28,6 +30,7 @@ const useParent = () => {
     if (parentName === "OlMap") {
       try {
         map?.addLayer(layer);
+        addDisposable(() => map?.removeLayer(layer));
       } catch (e) {
         throw new Error(e?.toString());
       }
@@ -40,6 +43,7 @@ const useParent = () => {
         } else {
           const layers = groupLayer?.getLayersArray() || [];
           groupLayer?.setLayers(new Collection([...layers, layer], { unique: true }));
+          addDisposable(() => groupLayer?.getLayers().remove(layer));
         }
       } catch (e) {
         throw new Error(e?.toString());

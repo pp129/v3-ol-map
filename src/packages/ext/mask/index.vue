@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { inject, onMounted, ShallowRef, ref, watch } from "vue";
+import { inject, onBeforeUnmount, onMounted, ShallowRef, ref, shallowRef, watch } from "vue";
 import ImageLayer from "ol/layer/Image";
 import type { Layer, Tile } from "ol/layer";
 import Mask from "ol-ext/filter/Mask";
@@ -16,20 +16,16 @@ const layer = inject("ParentTileLayer") as ShallowRef<ImageLayer<import("ol/sour
 
 const props = withDefaults(defineProps<MaskOptions>(), {});
 const feature = ref<FeatureLike>();
+const filter = shallowRef<Mask>();
 
 const init = () => {
   if (layer.value) {
     // 如果已经存在遮罩，先移除
-    const filters = layer.value.getFilters();
-    if (filters && filters.length) {
-      filters.forEach(filter => {
-        layer.value.removeFilter(filter);
-      });
-    }
+    if (filter.value) layer.value.removeFilter(filter.value);
 
     if (props.feature) {
       feature.value = new GeoJSON().readFeature(props.feature) as FeatureLike;
-      const mask = new Mask({
+      filter.value = new Mask({
         ...props,
         feature: feature.value,
         fill: new Fill({
@@ -37,7 +33,7 @@ const init = () => {
         }),
       });
 
-      layer.value.addFilter(mask);
+      layer.value.addFilter(filter.value);
     }
   }
 };
@@ -53,6 +49,10 @@ watch(
 
 onMounted(() => {
   init();
+});
+
+onBeforeUnmount(() => {
+  if (filter.value) layer.value?.removeFilter(filter.value);
 });
 </script>
 

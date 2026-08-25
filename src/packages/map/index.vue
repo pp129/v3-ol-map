@@ -10,6 +10,7 @@ import type { AnimationOptions } from "ol/View";
 import type Map from "ol/Map";
 import { ConfigProviderContext, defaultOlMapConfig } from "@/packages/default";
 import { MapBrowserEvent } from "@/packages/types/Map";
+import type { EventsKey } from "ol/events";
 
 defineOptions({
   name: "OlMap",
@@ -67,6 +68,7 @@ type ChangeZoomEvtTyp = Partial<MapBrowserEvent & { zoom: number | undefined }>;
 export interface MapEmitsType {
   (e: "load"): void;
   (e: "changeZoom", evt: ChangeZoomEvtTyp, map: Map | undefined): void;
+  (e: "pointermove", evt: MapBrowserEvent, map: Map | undefined): void;
   (e: "singleclick", evt: MapBrowserEvent): void;
   (e: "click", evt: MapBrowserEvent): void;
   (e: "dblclick", evt: MapBrowserEvent): void;
@@ -80,6 +82,10 @@ export interface MapEmitsType {
   (e: "movestart", evt: MapBrowserEvent): void;
 }
 const emit = defineEmits<MapEmitsType>();
+const eventKeys: EventsKey[] = [];
+const registerEventKey = (key: EventsKey | undefined) => {
+  if (key) eventKeys.push(key);
+};
 const init = () => {
   return new Promise((resolve, reject) => {
     const config = $OlMapConfig || defaultOlMapConfig;
@@ -116,35 +122,42 @@ const setCursor = (type: string) => {
 // 绑定事件
 const eventBinding = () => {
   // 鼠标移动事件 图层有要素时显示手型
-  map.value?.map.on("pointermove", (evt: MapBrowserEvent) => {
-    if (forceCursor.value) {
-      cursor.value = forceCursor.value;
-      return;
-    }
-    if (evt.dragging) {
-      cursor.value = "";
-      return;
-    }
-    const pixel = map.value?.map.getEventPixel(evt.originalEvent);
-    if (pixel) {
-      const hit = map.value?.map.hasFeatureAtPixel(pixel);
-      const ele = map.value?.map?.getTargetElement();
-      if (ele) cursor.value = hit ? "pointer" : "";
-    }
-  });
+  registerEventKey(
+    map.value?.map.on("pointermove", (evt: MapBrowserEvent) => {
+      if (forceCursor.value) {
+        cursor.value = forceCursor.value;
+      } else if (evt.dragging) {
+        cursor.value = "";
+      } else {
+        const pixel = map.value?.map.getEventPixel(evt.originalEvent);
+        if (pixel) {
+          const hit = map.value?.map.hasFeatureAtPixel(pixel);
+          const ele = map.value?.map?.getTargetElement();
+          if (ele) cursor.value = hit ? "pointer" : "";
+        }
+      }
+      emit("pointermove", evt, map.value?.map);
+    }),
+  );
   // 层级变化
-  map.value?.map.getView().once("change:resolution", () => {
-    map.value?.map.once("moveend", (evt: any) => {
-      zoomEnd(evt);
-    });
-  });
+  registerEventKey(
+    map.value?.map.getView().once("change:resolution", () => {
+      registerEventKey(
+        map.value?.map.once("moveend", (evt: any) => {
+          zoomEnd(evt);
+        }),
+      );
+    }),
+  );
   // 无特殊处理的遍历绑定
   events.forEach(event => {
-    //@ts-ignore
-    map.value?.map.on(event, (evt: any) => {
-      //@ts-ignore
-      emit(event, evt, map.value?.map);
-    });
+    registerEventKey(
+      // @ts-expect-error OpenLayers event overload does not accept a runtime event list.
+      map.value?.map.on(event, (evt: any) => {
+        //@ts-ignore
+        emit(event, evt, map.value?.map);
+      }),
+    );
   });
 };
 const zoomEnd = (evt: MapBrowserEvent) => {
@@ -153,15 +166,16 @@ const zoomEnd = (evt: MapBrowserEvent) => {
     zoom: map.value?.map.getView().getZoom(),
   };
   emit("changeZoom", params, map.value?.map);
-  map.value?.map.once("moveend", (event: any) => {
-    zoomEnd(event);
-  });
+  registerEventKey(
+    map.value?.map.once("moveend", (event: any) => {
+      zoomEnd(event);
+    }),
+  );
 };
 const dispose = () => {
-  // 移除事件
-  events.forEach((listenerKey: any) => {
-    unByKey(listenerKey);
-  });
+  unByKey(eventKeys);
+  eventKeys.length = 0;
+  map.value?.map.setTarget(undefined);
 };
 const getLayerById = (id: string) => {
   const layers = map.value?.map.getLayers().getArray();

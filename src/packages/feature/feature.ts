@@ -1,4 +1,4 @@
-import { defineComponent, inject, onMounted, PropType, Ref, unref, watch, ref } from "vue";
+import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref, unref, watch, ref } from "vue";
 import GeoJSON from "ol/format/GeoJSON.js";
 import { Heatmap } from "ol/layer.js";
 import Cluster from "ol/source/Cluster.js";
@@ -39,6 +39,7 @@ import {
 } from "../types";
 import { ExposeFeature } from "../types";
 import { setFeatureStyle } from "../utils/style.ts";
+import { replaceOwnedFeatures } from "./source";
 
 const OlFeature = defineComponent({
   name: "OlFeature",
@@ -62,7 +63,7 @@ const OlFeature = defineComponent({
     const layer = inject("ParentLayer") as Ref<VectorLayer | Heatmap>;
     const clusterUpdateKey = inject("ClusterUpdateKey", ref(0)) as Ref<number>; // 注入聚合更新键
     let clusters: Supercluster;
-    let sourceFeatures = ref<Feature[]>();
+    let sourceFeatures: Feature[] = [];
     let precomposeListener: any = null; // 保存 precompose 事件监听器
 
     // 添加feature
@@ -111,7 +112,7 @@ const OlFeature = defineComponent({
               }
               return feature;
             });
-          source.addFeatures(olFeatures);
+          sourceFeatures = replaceOwnedFeatures(source as VectorSource, sourceFeatures, olFeatures);
 
           // 绑定新的 precompose 监听器
           precomposeListener = map.on("precompose", () => {
@@ -124,24 +125,22 @@ const OlFeature = defineComponent({
             };
             const source = layer.value.getSource();
             if (source) {
-              source.clear();
-              source.addFeatures(
-                new GeoJSON().readFeatures(features).map(feature => {
-                  const properties = feature.get("properties");
-                  if (properties && typeof properties === "object") {
-                    for (const i in properties) {
-                      if (Object.prototype.hasOwnProperty.call(properties, i)) {
-                        feature.set(i, properties[i]);
-                      }
+              const clusterFeatures = new GeoJSON().readFeatures(features).map(feature => {
+                const properties = feature.get("properties");
+                if (properties && typeof properties === "object") {
+                  for (const i in properties) {
+                    if (Object.prototype.hasOwnProperty.call(properties, i)) {
+                      feature.set(i, properties[i]);
                     }
                   }
-                  const style = feature.get("style");
-                  if (style) {
-                    setFeatureStyle(feature, style, map);
-                  }
-                  return feature;
-                }),
-              );
+                }
+                const style = feature.get("style");
+                if (style) {
+                  setFeatureStyle(feature, style, map);
+                }
+                return feature;
+              });
+              sourceFeatures = replaceOwnedFeatures(source as VectorSource, sourceFeatures, clusterFeatures);
             }
           });
           // console.log(this.clusters);
@@ -161,7 +160,7 @@ const OlFeature = defineComponent({
       // console.log(features);
       console.log(source);
       if (features && features.length > 0) {
-        sourceFeatures.value = features;
+        sourceFeatures.push(...features);
         source.addFeatures(features);
       }
     };
@@ -221,7 +220,7 @@ const OlFeature = defineComponent({
     const addFeaturesByGeometries = (source: VectorSource, onlyType?: Type) => {
       const features = getFeaturesByGeometries(onlyType);
       if (features && features.length > 0) {
-        sourceFeatures.value = features;
+        sourceFeatures.push(...features);
         source.addFeatures(features);
       }
     };
@@ -302,7 +301,7 @@ const OlFeature = defineComponent({
         if (layer.value.getSource()) source = (layer.value.getSource() as Cluster<Feature>).getSource();
       }
 
-      source?.clear();
+      if (source) sourceFeatures = replaceOwnedFeatures(source as VectorSource, sourceFeatures, []);
       if (!value) return;
       addFeatures();
     };
@@ -353,6 +352,13 @@ const OlFeature = defineComponent({
       if (layer) {
         resetFeatures(props.geoJson || props.geometries);
       }
+    });
+
+    onBeforeUnmount(() => {
+      let source = layer.value?.getSource();
+      if (layer.value?.get("cluster") && source) source = (source as Cluster<Feature>).getSource();
+      if (source) replaceOwnedFeatures(source as VectorSource, sourceFeatures, []);
+      if (precomposeListener) unByKey(precomposeListener);
     });
 
     expose({

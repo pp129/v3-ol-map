@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, onBeforeMount, ref, shallowRef, unref, watchEffect } from "vue";
+import { computed, inject, onBeforeMount, onBeforeUnmount, ref, shallowRef, unref, watchEffect } from "vue";
 import { OlVector, OlFeature, GeoJSONFeatureLineString } from "@/packages";
 import qs from "qs";
 import OlMap from "@/packages/lib";
@@ -11,6 +11,7 @@ import type { Position, Feature, Point } from "geojson";
 import type { OlVectorInstance, VectorLayerOptions, FeatureCollection } from "@/packages";
 import type { FeatureStyle } from "@/packages/types/Style";
 import { unByKey } from "ol/Observable.js";
+import { requestRouteData } from "./request";
 
 defineOptions({
   name: "OlRoute",
@@ -165,63 +166,19 @@ const emit = defineEmits<{
   (e: "resolve", data: any): void;
 }>();
 
-const getData = async (url: string, params: Params<Type, "get">) => {
-  return fetch(url + "?" + params, { method: "get" })
-    .then(res => res.json())
-    .then(res => {
-      return Promise.resolve(res);
-    })
-    .catch(err => {
-      console.log(err);
-      return Promise.reject(err);
-    });
-};
-const postData = async (url: string, params: Params<Type, "post">) => {
-  return fetch(url, {
-    method: "post",
-    body: JSON.stringify(params),
-  })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res);
-      return Promise.resolve(res);
-    })
-    .catch(err => {
-      console.log(err);
-      return Promise.reject(err);
-    });
-};
 const fetchData = async (params: Params<Type, Methods>) => {
-  if (!props.url) return;
-  if (props.method.toUpperCase() === "GET") {
-    return getData(props.url, params)
-      .then(res => {
-        emit("resolve", {
-          type: props.type,
-          method: props.method,
-          ...res,
-        });
-        return Promise.resolve(res);
-      })
-      .catch(err => {
-        console.log(err);
-        return Promise.reject(err);
-      });
-  } else if (props.method.toUpperCase() === "POST") {
-    return postData(props.url, params)
-      .then(res => res.json())
-      .then(res => {
-        emit("resolve", {
-          type: props.type,
-          method: props.method,
-          ...res,
-        });
-        return Promise.resolve(res);
-      })
-      .catch(err => {
-        console.log(err);
-        return Promise.reject(err);
-      });
+  if (!props.url) throw new Error("Route URL is required");
+  try {
+    const res = await requestRouteData<Record<string, any>>(props.url, props.method, params);
+    emit("resolve", {
+      type: props.type,
+      method: props.method,
+      ...res,
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
   }
 };
 const getArcgisParams = () => {
@@ -255,7 +212,7 @@ const getArcgisParams = () => {
 };
 const getArcgisRouteData = async () => {
   const params = getArcgisParams();
-  if (!params) return;
+  if (!params) return {};
   return fetchData(params);
 };
 const setArcgisRoute = async () => {
@@ -302,7 +259,7 @@ const setGraphhopperRoute = async () => {
 };
 const getGraphhopperRouteData = async () => {
   const params = getGraphhopperParams();
-  if (!params) return;
+  if (!params) return {};
   return fetchData(params);
 };
 const getGraphhopperParams = () => {
@@ -490,6 +447,11 @@ const clear = () => {
   stopPointSet.value = false;
   routeFeaturesCollection.value.features = [];
 };
+
+onBeforeUnmount(() => {
+  unByKey(eventRender.value);
+  eventRender.value = [];
+});
 
 defineExpose({
   setStartPoint: setStartPoint,

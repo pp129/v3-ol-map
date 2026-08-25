@@ -10,6 +10,7 @@ import OlMap from "@/packages/lib";
 import type { FeatureLike } from "ol/Feature";
 import type { ExposeMeasure, MeasureType } from "@/packages/types/Measure";
 import type VectorSource from "ol/source/Vector";
+import { useDisposables } from "@/packages/hooks/disposables";
 
 const OlMeasure = defineComponent({
   name: "OlMeasure",
@@ -30,6 +31,7 @@ const OlMeasure = defineComponent({
   setup(props, { expose, emit }) {
     const VMap = inject("VMap") as OlMap;
     const map = unref(VMap).map;
+    const { addDisposable } = useDisposables();
     const layer = inject("ParentLayer") as Ref<VectorLayer>;
     const source = unref(layer).getSource() as VectorSource;
     const style = new Style({
@@ -246,7 +248,9 @@ const OlMeasure = defineComponent({
         tip = idleTip;
       });
       modify.setActive(true);
-      map.addInteraction(draw);
+      const drawInteraction = draw;
+      map.addInteraction(drawInteraction);
+      addDisposable(() => map.removeInteraction(drawInteraction));
     };
 
     const init = () => {
@@ -256,7 +260,9 @@ const OlMeasure = defineComponent({
       layer.value.setStyle(feature => {
         return styleFunction(feature, props.showSegments);
       });
-      map.addInteraction(modify);
+      const modifyInteraction = modify;
+      map.addInteraction(modifyInteraction);
+      addDisposable(() => map.removeInteraction(modifyInteraction));
       if (props.type) {
         addInteraction();
       }

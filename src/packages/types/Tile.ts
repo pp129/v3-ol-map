@@ -50,6 +50,7 @@ export declare type BaseTileOptions = BaseTileProps;
 
 type WebGLTileLayer = Omit<Options, "source" | "style">;
 export interface WebGLTileOptions extends WebGLTileLayer {
+  layerId?: string;
   source: GeoTIFFOptions;
   layerStyle?: Options["style"];
 }
@@ -57,6 +58,7 @@ export interface WebGLTileOptions extends WebGLTileLayer {
 type ImageLayer = Omit<ImageTileOptions<ImageSourceType>, "source">;
 
 export interface ImageLayerOptions extends ImageLayer {
+  layerId?: string;
   source?: ImageStaticOptions | undefined;
 }
 

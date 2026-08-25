@@ -5,6 +5,7 @@ import { Overlay } from "ol";
 import OlMap from "@/packages/lib";
 import type { OverlayOptions } from "@/packages/types/Overlay";
 import type { Options } from "ol/Overlay";
+import { useDisposables } from "@/packages/hooks/disposables";
 
 defineOptions({
   name: "OlOverlay",
@@ -23,6 +24,7 @@ const props = withDefaults(defineProps<OverlayOptions>(), {
 let overlay = shallowRef();
 const VMap = inject("VMap") as OlMap;
 const map = unref(VMap).map;
+const { addDisposable } = useDisposables();
 const emit: any = defineEmits(["load"]);
 const elmId = `overlay-el-${nanoid()}`;
 watch(
@@ -44,6 +46,7 @@ const init = () => {
     }
   }
   map.addOverlay(overlay.value);
+  addDisposable(() => map.removeOverlay(overlay.value));
   emit("load", overlay.value, map);
 };
 onMounted(() => {

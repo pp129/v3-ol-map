@@ -10,6 +10,7 @@ import type VectorSource from "ol/source/Vector";
 import type { DrawType } from "@/packages/types/Draw";
 import { ExposeDraw } from "../../types";
 import { ModifyEvent } from "ol/interaction/Modify";
+import { useDisposables } from "@/packages/hooks/disposables";
 
 const OlDraw = defineComponent({
   name: "OlDraw",
@@ -76,6 +77,7 @@ const OlDraw = defineComponent({
   setup(props, { expose, emit }) {
     const VMap = inject("VMap") as OlMap;
     const map = unref(VMap).map;
+    const { addDisposable } = useDisposables();
     const layer = inject("ParentLayer") as Ref<VectorLayer>;
     let draw = shallowRef<Draw | undefined>();
     let modify: Modify;
@@ -142,19 +144,25 @@ const OlDraw = defineComponent({
           };
         }
         draw.value = new Draw(drawOptions);
-        draw.value.set("interactions_name", "Draw");
-        map.addInteraction(draw.value);
-        drawEventsHandler(draw.value);
+        const drawInteraction = draw.value;
+        drawInteraction.set("interactions_name", "Draw");
+        map.addInteraction(drawInteraction);
+        addDisposable(() => map.removeInteraction(drawInteraction));
+        drawEventsHandler(drawInteraction);
         if (props.snap) {
           snap = new Snap({ source });
-          snap.set("interactions_name", "Snap");
-          map.addInteraction(snap);
+          const snapInteraction = snap;
+          snapInteraction.set("interactions_name", "Snap");
+          map.addInteraction(snapInteraction);
+          addDisposable(() => map.removeInteraction(snapInteraction));
         }
         if (props.modify) {
           modify = new Modify({ source });
-          modify.set("interactions_name", "Modify");
-          map.addInteraction(modify);
-          modifyEventsHandler(modify);
+          const modifyInteraction = modify;
+          modifyInteraction.set("interactions_name", "Modify");
+          map.addInteraction(modifyInteraction);
+          addDisposable(() => map.removeInteraction(modifyInteraction));
+          modifyEventsHandler(modifyInteraction);
         }
       }
     };

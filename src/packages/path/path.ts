@@ -1,4 +1,14 @@
-import { defineComponent, inject, onMounted, PropType, shallowRef, unref, watch, ShallowRef } from "vue";
+import {
+  defineComponent,
+  inject,
+  onBeforeUnmount,
+  onMounted,
+  PropType,
+  shallowRef,
+  unref,
+  watch,
+  ShallowRef,
+} from "vue";
 import OlMap from "@/packages/lib";
 import VzPath, { Operators, PathInfo } from "@/packages/lib/path";
 import type { VzPathOptions } from "@/packages";
@@ -105,7 +115,7 @@ const OlPath = defineComponent({
             emit(event as any, e);
           });
         });
-        emit("load", pathObj);
+        emit("load", pathObj.value);
         if (props.autoPlay) {
           start();
         }
@@ -159,6 +169,10 @@ const OlPath = defineComponent({
 
     onMounted(() => {
       init();
+    });
+
+    onBeforeUnmount(() => {
+      destroy();
     });
 
     expose({

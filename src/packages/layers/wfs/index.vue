@@ -3,6 +3,7 @@ import { inject, onMounted, ShallowRef, unref } from "vue";
 import VectorLayer from "ol/layer/Vector.js";
 import { WFS, GeoJSON } from "ol/format.js";
 import type { WFSOptions } from "@/packages/types/WFS";
+import { useDisposables } from "@/packages/hooks/disposables";
 
 defineOptions({
   name: "OlWfs",
@@ -21,6 +22,9 @@ const props = withDefaults(defineProps<WFSOptions>(), {
     };
   },
 });
+const abortController = new AbortController();
+const { addDisposable } = useDisposables();
+addDisposable(() => abortController.abort());
 
 const addFeatures = () => {
   // generate a GetFeature request
@@ -33,6 +37,7 @@ const addFeatures = () => {
   fetch(props.options.featureNS, {
     method: "POST",
     body: new XMLSerializer().serializeToString(featureRequest),
+    signal: abortController.signal,
   })
     .then(function (response) {
       return response.json();
@@ -43,6 +48,9 @@ const addFeatures = () => {
         const source = unref(layer)?.getSource();
         if (source) source.addFeatures(features);
       }
+    })
+    .catch(error => {
+      if (error.name !== "AbortError") console.error("WFS request failed:", error);
     });
 };
 

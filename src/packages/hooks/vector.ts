@@ -58,24 +58,28 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
   );
 
   const modifyEventsHandler = (modify: Modify) => {
-    modify.on("modifyend", event => {
-      emit("modifyend", { ...event, metersPerUnit });
-    });
-    modify.on("modifystart", event => {
-      emit("modifystart", { ...event, metersPerUnit });
-    });
+    eventRender.value.push(
+      modify.on("modifyend", event => {
+        emit("modifyend", { ...event, metersPerUnit });
+      }),
+      modify.on("modifystart", event => {
+        emit("modifystart", { ...event, metersPerUnit });
+      }),
+    );
   };
 
   const translateEventsHandler = (translate: Translate) => {
-    translate.on("translateend", event => {
-      emit("translateend", { ...event, metersPerUnit });
-    });
-    translate.on("translatestart", event => {
-      emit("translatestart", { ...event, metersPerUnit });
-    });
-    translate.on("translating", event => {
-      emit("translating", { ...event, metersPerUnit });
-    });
+    eventRender.value.push(
+      translate.on("translateend", event => {
+        emit("translateend", { ...event, metersPerUnit });
+      }),
+      translate.on("translatestart", event => {
+        emit("translatestart", { ...event, metersPerUnit });
+      }),
+      translate.on("translating", event => {
+        emit("translating", { ...event, metersPerUnit });
+      }),
+    );
   };
 
   const setModify = () => {
@@ -175,6 +179,11 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
   };
 
   const dispose = () => {
+    clearModify();
+    if (translateObj.value) map.removeInteraction(translateObj.value);
+    if (selectObj.value) map.removeInteraction(selectObj.value);
+    translateObj.value = undefined;
+    selectObj.value = undefined;
     // 移除事件
     eventRender.value.forEach(listenerKey => {
       unByKey(listenerKey);
@@ -197,37 +206,41 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
         setTranslate();
       }, 0);
     }
-    layer.on("sourceready", evt => {
-      emit("sourceready", evt);
-    });
+    eventRender.value.push(
+      layer.on("sourceready", evt => {
+        emit("sourceready", evt);
+      }),
+    );
     // map.addLayer(layer);
   };
 
   const initSourceFeatureLisenter = () => {
-    source.value?.on("addfeature", feature => {
+    const addFeatureKey = source.value?.on("addfeature", feature => {
       emit("addfeature", feature);
     });
     // changefeature
-    source.value?.on("changefeature", feature => {
+    const changeFeatureKey = source.value?.on("changefeature", feature => {
       emit("changefeature", feature);
     });
     // removefeature
     // source.value?.on("removefeature", feature => {
     //   emit("removefeature", feature);
     // });
-    source.value?.on("featuresloadstart", features => {
+    const loadStartKey = source.value?.on("featuresloadstart", features => {
       emit("featuresloadstart", features);
     });
-    source.value?.on("featuresloadend", features => {
+    const loadEndKey = source.value?.on("featuresloadend", features => {
       emit("featuresloadend", features);
     });
+    eventRender.value.push(...[addFeatureKey, changeFeatureKey, loadStartKey, loadEndKey].filter(Boolean));
   };
 
   const initVectorLayer = async () => {
     source.value = setSource();
-    source.value?.on("change", e => {
+    const changeKey = source.value?.on("change", e => {
       emit("change", e);
     });
+    if (changeKey) eventRender.value.push(changeKey);
     initSourceFeatureLisenter();
     const styleOptions = props.layerStyle as LayerOptions["style"] | DefaultStyle;
     if (!styleOptions || Object.keys(styleOptions).length === 0) {
@@ -254,9 +267,10 @@ const useVectorLayer = (props: VectorLayerOptions, emit: VectorEmitsFnType) => {
 
   const initWebglLayer = () => {
     source.value = setSource();
-    source.value?.on("change", e => {
+    const changeKey = source.value?.on("change", e => {
       emit("change", e);
     });
+    if (changeKey) eventRender.value.push(changeKey);
     initSourceFeatureLisenter();
     const styleOptions = props.layerStyle as WebGLStyle;
     if (!styleOptions || Object.keys(styleOptions).length === 0) {
