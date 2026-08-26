@@ -1,4 +1,4 @@
-import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref, unref, watch, ref } from "vue";
+import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref, unref, watch, ref, toRaw } from "vue";
 import GeoJSON from "ol/format/GeoJSON.js";
 import { Heatmap } from "ol/layer.js";
 import Cluster from "ol/source/Cluster.js";
@@ -39,7 +39,7 @@ import {
 } from "../types";
 import { ExposeFeature } from "../types";
 import { setFeatureStyle } from "../utils/style.ts";
-import { replaceOwnedFeatures } from "./source";
+import { appendFeatures, replaceOwnedFeatures } from "./source";
 
 const OlFeature = defineComponent({
   name: "OlFeature",
@@ -56,6 +56,10 @@ const OlFeature = defineComponent({
       type: Object as PropType<GeoJsonReadOptions> | undefined,
       default: undefined,
     },
+    shallowWatch: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { expose }) {
     const VMap = inject("VMap") as OlMap;
@@ -68,7 +72,6 @@ const OlFeature = defineComponent({
 
     // 添加feature
     const addFeatures = () => {
-      console.log("addFeatures", layer.value);
       let source = layer.value.getSource();
       if (layer.value.get("cluster")) {
         // 如果是聚合图层，获取聚合图层的source
@@ -87,10 +90,10 @@ const OlFeature = defineComponent({
           clusters = new Supercluster(superCluster);
           let features: Feature[] = [];
           if (props.geoJson) {
-            features.push(...getFeaturesByGeoJson("Point"));
+            appendFeatures(features, getFeaturesByGeoJson("Point"));
           }
           if (props.geometries && props.geometries.length > 0) {
-            features.push(...getFeaturesByGeometries("Point"));
+            appendFeatures(features, getFeaturesByGeometries("Point"));
           }
           const geoFeatures = new GeoJSON().writeFeaturesObject(features);
           clusters.load(geoFeatures.features as Array<Supercluster.PointFeature<Supercluster.AnyProps>>);
@@ -157,10 +160,8 @@ const OlFeature = defineComponent({
     // 根据geojson添加feature
     const addFeaturesByGeoJson = (source: VectorSource, onlyType?: Type) => {
       const features = getFeaturesByGeoJson(onlyType);
-      // console.log(features);
-      console.log(source);
       if (features && features.length > 0) {
-        sourceFeatures.push(...features);
+        appendFeatures(sourceFeatures, features);
         source.addFeatures(features);
       }
     };
@@ -220,7 +221,7 @@ const OlFeature = defineComponent({
     const addFeaturesByGeometries = (source: VectorSource, onlyType?: Type) => {
       const features = getFeaturesByGeometries(onlyType);
       if (features && features.length > 0) {
-        sourceFeatures.push(...features);
+        appendFeatures(sourceFeatures, features);
         source.addFeatures(features);
       }
     };
@@ -248,7 +249,7 @@ const OlFeature = defineComponent({
     };
 
     const getFeaturesByGeometries = (onlyType?: Type): Feature[] => {
-      const geometries = props.geometries;
+      const geometries = props.geometries ? toRaw(props.geometries) : undefined;
       if (!geometries) return [];
       let features: Feature[] = [];
       geometries.forEach(geometry => {
@@ -327,13 +328,9 @@ const OlFeature = defineComponent({
     // });
 
     watch(
-      [() => props.geoJson, () => props.geometries],
-      ([newFirst, newLast], [oldFirst, oldLast]) => {
-        resetFeatures(props.geoJson || props.geometries);
-      },
-      {
-        deep: true,
-      },
+      () => props.geoJson || props.geometries,
+      value => resetFeatures(value),
+      { deep: !props.shallowWatch },
     );
 
     // 监听父级 layer 的 superCluster 配置变化

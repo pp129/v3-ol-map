@@ -1,16 +1,62 @@
 import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
 import { createServer as createHttpServer } from "node:http";
+import { resolve } from "node:path";
 import Feature from "ol/Feature.js";
+import VectorLayer from "ol/layer/Vector.js";
 import VectorSource from "ol/source/Vector.js";
-import { effectScope } from "vue";
+import { createRenderer, effectScope, h, nextTick, ref, shallowRef } from "vue";
 import { createServer as createViteServer } from "vite";
 
 let vite;
 
+const renderer = createRenderer({
+  patchProp() {},
+  insert(child, parent) {
+    parent.children ||= [];
+    parent.children.push(child);
+    child.parent = parent;
+  },
+  remove() {},
+  createElement: type => ({ type, children: [] }),
+  createText: text => ({ text }),
+  createComment: text => ({ text }),
+  setText(node, text) {
+    node.text = text;
+  },
+  setElementText(node, text) {
+    node.text = text;
+  },
+  parentNode: node => node.parent,
+  nextSibling: () => null,
+});
+
+const point = coordinate => ({
+  type: "Point",
+  geometry: { coordinates: [coordinate, coordinate] },
+});
+
+const mountOlFeature = async ({ component, geometries, shallowWatch }) => {
+  const source = new VectorSource({ useSpatialIndex: false });
+  const layer = new VectorLayer({ source });
+  const app = renderer.createApp({
+    setup: () => () =>
+      h(component, {
+        geometries: geometries.value,
+        ...(shallowWatch === undefined ? {} : { shallowWatch }),
+      }),
+  });
+  app.provide("VMap", { map: {} });
+  app.provide("ParentLayer", shallowRef(layer));
+  app.mount({ children: [] });
+  await nextTick();
+  return { app, source };
+};
+
 before(async () => {
   vite = await createViteServer({
     configFile: false,
+    resolve: { alias: { "@": resolve(process.cwd(), "src") } },
     server: { middlewareMode: true, hmr: false },
   });
 });
@@ -59,6 +105,49 @@ test("replacing one OlFeature instance keeps sibling features in the shared sour
 
   assert.deepEqual(source.getFeatures(), [sibling, next]);
   assert.deepEqual(owned, [next]);
+});
+
+test("appending 300,000 owned features does not exceed the JavaScript argument limit", async () => {
+  const { appendFeatures } = await vite.ssrLoadModule("/src/packages/feature/source.ts");
+  const target = [];
+  const features = Array.from({ length: 300_000 }, (_, index) => ({ index }));
+
+  appendFeatures(target, features);
+
+  assert.equal(target.length, 300_000);
+  assert.equal(target[299_999], features[299_999]);
+});
+
+test("shallowWatch skips in-place geometry mutations and reacts to array replacement", async () => {
+  const { default: OlFeature } = await vite.ssrLoadModule("/src/packages/feature/feature.ts");
+  const geometries = ref([point(1)]);
+  const { app, source } = await mountOlFeature({ component: OlFeature, geometries, shallowWatch: true });
+
+  try {
+    geometries.value.push(point(2));
+    await nextTick();
+    assert.equal(source.getFeatures().length, 1);
+
+    geometries.value = [point(3), point(4)];
+    await nextTick();
+    assert.equal(source.getFeatures().length, 2);
+  } finally {
+    app.unmount();
+  }
+});
+
+test("the default deep watch still reacts to in-place geometry mutations", async () => {
+  const { default: OlFeature } = await vite.ssrLoadModule("/src/packages/feature/feature.ts");
+  const geometries = ref([point(1)]);
+  const { app, source } = await mountOlFeature({ component: OlFeature, geometries });
+
+  try {
+    geometries.value.push(point(2));
+    await nextTick();
+    assert.equal(source.getFeatures().length, 2);
+  } finally {
+    app.unmount();
+  }
 });
 
 test("registered OpenLayers resources are disposed once when their Vue scope stops", async () => {

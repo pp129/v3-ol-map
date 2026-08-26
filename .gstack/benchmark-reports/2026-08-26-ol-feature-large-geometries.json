@@ -1,0 +1,41 @@
+{
+  "date": "2026-08-26",
+  "node": "20.19.0",
+  "runsPerSize": 3,
+  "scenario": "OlFeature shallowWatch with reactive geometries and OpenLayers Cluster",
+  "results": [
+    {
+      "count": 10000,
+      "initializationMedianMs": 38.0,
+      "replacementMedianMs": 49.1,
+      "initializationHeapMb": 26.4,
+      "peakRssMedianMb": 190.3,
+      "finalFeatureCount": 10000
+    },
+    {
+      "count": 100000,
+      "initializationMedianMs": 229.4,
+      "replacementMedianMs": 379.5,
+      "initializationHeapMb": 259.9,
+      "peakRssMedianMb": 819.9,
+      "finalFeatureCount": 100000
+    },
+    {
+      "count": 300000,
+      "initializationMedianMs": 591.0,
+      "replacementMedianMs": 1243.3,
+      "initializationHeapMb": 781.5,
+      "peakRssMedianMb": 2242.3,
+      "finalFeatureCount": 300000
+    }
+  ],
+  "preRawIteration300k": {
+    "initializationMs": 1142.1,
+    "replacementMs": 3183.5,
+    "initializationHeapMb": 850.2,
+    "peakRssMb": 2455.8
+  },
+  "v1_2_10": {
+    "spreadCountsThatRaisedRangeError": [285000, 300000]
+  }
+}
