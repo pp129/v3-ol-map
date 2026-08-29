@@ -12,9 +12,13 @@ const view: VMap["view"] = {
 const handleClick = () => {
   console.log(mapContainer.value);
 };
+const exportPNG = () => {
+  mapContainer.value?.exportPNG("map-export");
+};
 </script>
 
 <template>
+  <button type="button" @click="exportPNG">导出 PNG</button>
   <ol-map ref="mapContainer" class="mapContainer" :view="view" @singleclick="handleClick">
     <ol-tile :z-index="0" tile-type="BAIDU" :preload="Infinity"></ol-tile>
   </ol-map>

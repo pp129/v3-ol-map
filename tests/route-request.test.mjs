@@ -166,3 +166,121 @@ test("registered OpenLayers resources are disposed once when their Vue scope sto
 
   assert.deepEqual(disposed, ["layer", "interaction"]);
 });
+
+test("exportPNG composes map canvases and downloads a normalized PNG filename", async () => {
+  const { exportPNG } = await vite.ssrLoadModule("/src/packages/utils/index.ts");
+  const operations = [];
+  const outputContext = {
+    globalAlpha: 1,
+    fillStyle: "",
+    setTransform: (...matrix) => operations.push(["transform", ...matrix]),
+    fillRect: (...rectangle) => operations.push(["fill", ...rectangle]),
+    drawImage: canvas => operations.push(["draw", canvas.id, outputContext.globalAlpha]),
+  };
+  const outputCanvas = {
+    width: 0,
+    height: 0,
+    getContext: () => outputContext,
+    toDataURL: () => "data:image/png;base64,map",
+  };
+  const link = {
+    clickCount: 0,
+    click() {
+      this.clickCount++;
+    },
+  };
+  const mapCanvases = [
+    {
+      id: "base",
+      width: 100,
+      height: 80,
+      style: { opacity: "", transform: "matrix(1, 0, 0, 1, 0, 0)" },
+      parentElement: { style: { opacity: "0.5", backgroundColor: "rgb(1, 2, 3)" } },
+    },
+    {
+      id: "vector",
+      width: 100,
+      height: 80,
+      style: { opacity: "0.75", transform: "", width: "50px", height: "40px" },
+      parentElement: { style: { opacity: "0.25", backgroundColor: "" } },
+    },
+  ];
+  const originalDocument = globalThis.document;
+  globalThis.document = {
+    createElement: tag => (tag === "canvas" ? outputCanvas : link),
+    body: {
+      appendChild: node => operations.push(["append", node]),
+      removeChild: node => operations.push(["remove", node]),
+    },
+  };
+  let renderComplete;
+  const map = {
+    once(event, listener) {
+      assert.equal(event, "rendercomplete");
+      renderComplete = listener;
+    },
+    renderSync() {
+      renderComplete();
+    },
+    getSize: () => [200, 100],
+    getViewport: () => ({ querySelectorAll: () => mapCanvases }),
+    getTargetElement: () => ({ id: "map-1" }),
+  };
+
+  try {
+    exportPNG(map, "traffic-map");
+  } finally {
+    globalThis.document = originalDocument;
+  }
+
+  assert.deepEqual([outputCanvas.width, outputCanvas.height], [200, 100]);
+  assert.deepEqual(
+    operations.filter(([operation]) => operation === "draw"),
+    [
+      ["draw", "base", 0.5],
+      ["draw", "vector", 0.25],
+    ],
+  );
+  assert.deepEqual(
+    operations.filter(([operation]) => operation === "transform"),
+    [
+      ["transform", 1, 0, 0, 1, 0, 0],
+      ["transform", 0.5, 0, 0, 0.5, 0, 0],
+    ],
+  );
+  assert.equal(link.download, "traffic-map.png");
+  assert.equal(link.href, "data:image/png;base64,map");
+  assert.equal(link.clickCount, 1);
+});
+
+test("exportPNG derives the default filename from the map target", async () => {
+  const { exportPNG } = await vite.ssrLoadModule("/src/packages/utils/index.ts");
+  const outputCanvas = {
+    getContext: () => ({ globalAlpha: 1 }),
+    toDataURL: () => "data:image/png;base64,map",
+  };
+  const link = { click() {} };
+  const originalDocument = globalThis.document;
+  globalThis.document = {
+    createElement: tag => (tag === "canvas" ? outputCanvas : link),
+    body: { appendChild() {}, removeChild() {} },
+  };
+  let renderComplete;
+  const map = {
+    once: (event, listener) => {
+      renderComplete = listener;
+    },
+    renderSync: () => renderComplete(),
+    getSize: () => [200, 100],
+    getViewport: () => ({ querySelectorAll: () => [] }),
+    getTargetElement: () => ({ id: "map-42" }),
+  };
+
+  try {
+    exportPNG(map);
+  } finally {
+    globalThis.document = originalDocument;
+  }
+
+  assert.equal(link.download, "map-export-map-42.png");
+});

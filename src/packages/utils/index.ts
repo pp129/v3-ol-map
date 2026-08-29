@@ -138,6 +138,63 @@ export const flyTo = (map: Map, param: flyAnimationOptions) => {
   );
 };
 
+export const exportPNG = (map: Map, downloadName?: string): void => {
+  map.once("rendercomplete", () => {
+    const size = map.getSize();
+    if (!size) return;
+
+    const mapCanvas = document.createElement("canvas");
+    mapCanvas.width = size[0];
+    mapCanvas.height = size[1];
+    const context = mapCanvas.getContext("2d");
+    if (!context) return;
+
+    map
+      .getViewport()
+      .querySelectorAll<HTMLCanvasElement>(".ol-layer canvas, canvas.ol-layer")
+      .forEach(canvas => {
+        if (canvas.width === 0) return;
+
+        const parentStyle = canvas.parentElement?.style;
+        const opacity = parentStyle?.opacity || canvas.style.opacity;
+        context.globalAlpha = opacity ? Number(opacity) : 1;
+
+        const matrix = canvas.style.transform
+          .match(/^matrix\(([^)]*)\)$/)?.[1]
+          .split(",")
+          .map(Number);
+        const scaleX = parseFloat(canvas.style.width) / canvas.width;
+        const scaleY = parseFloat(canvas.style.height) / canvas.height;
+        const transform = matrix || [
+          Number.isFinite(scaleX) ? scaleX : 1,
+          0,
+          0,
+          Number.isFinite(scaleY) ? scaleY : 1,
+          0,
+          0,
+        ];
+        context.setTransform(...(transform as [number, number, number, number, number, number]));
+
+        if (parentStyle?.backgroundColor) {
+          context.fillStyle = parentStyle.backgroundColor;
+          context.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        context.drawImage(canvas, 0, 0);
+      });
+
+    context.globalAlpha = 1;
+    const link = document.createElement("a");
+    const targetId = map.getTargetElement()?.id;
+    const filename = downloadName || (targetId ? `map-export-${targetId}` : "map-export");
+    link.download = filename.toLowerCase().endsWith(".png") ? filename : `${filename}.png`;
+    link.href = mapCanvas.toDataURL("image/png");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+  map.renderSync();
+};
+
 export interface ReadFeaturesOptions {
   source: ArrayBuffer | Document | Element | object | string;
   format?: Options;

@@ -35,6 +35,7 @@ export declare type ExposeMap = {
   getMap: () => import("ol/Map").default;
   getLayerById: (id: string) => import("ol/layer/Base").default;
   panTo: (params: import("ol/View").AnimationOptions) => void;
+  exportPNG: (downloadName?: string) => void;
 };
 
 export declare type OlMapInstance = InstanceType<typeof OlMap>;

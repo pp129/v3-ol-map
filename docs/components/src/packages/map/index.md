@@ -54,6 +54,29 @@
 
 >
 
+### exportPNG
+
+> 将当前地图各 Canvas 图层合成为 PNG 并触发下载。`downloadName` 可省略 `.png`；未传时使用地图目标 ID 生成文件名。
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import type { OlMapInstance } from "v3-ol-map";
+
+const mapRef = ref<OlMapInstance>();
+const exportMap = () => mapRef.value?.exportPNG("map-export");
+</script>
+
+<template>
+  <button type="button" @click="exportMap">导出 PNG</button>
+  <ol-map ref="mapRef">
+    <ol-tile tile-type="BAIDU" />
+  </ol-map>
+</template>
+```
+
+跨域瓦片或图片必须允许 Canvas 跨域访问，否则浏览器会阻止生成 PNG。
+
 ### readFeatures
 
 >

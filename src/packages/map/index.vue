@@ -2,7 +2,13 @@
 import { onMounted, ref, computed, provide, shallowRef, onBeforeUnmount, inject, onBeforeMount } from "vue";
 import OlMap from "@/packages/lib";
 import { nanoid } from "nanoid";
-import { panTo as PanTo, readFeatures, flyTo as FlyTo, flyAnimationOptions } from "@/packages/utils";
+import {
+  panTo as PanTo,
+  readFeatures,
+  flyTo as FlyTo,
+  flyAnimationOptions,
+  exportPNG as ExportPNG,
+} from "@/packages/utils";
 import { unByKey } from "ol/Observable.js";
 import BaseLayer from "ol/layer/Base";
 import type { View, VMap } from "@/packages/types/Map";
@@ -190,6 +196,9 @@ const panTo = (params: AnimationOptions) => {
 const flyTo = (params: flyAnimationOptions) => {
   if (map.value?.map) FlyTo(map.value?.map, params);
 };
+const exportPNG = (downloadName?: string) => {
+  if (map.value?.map) ExportPNG(map.value.map, downloadName);
+};
 onMounted(() => {
   init().then(() => {
     eventBinding();
@@ -217,6 +226,11 @@ defineExpose({
    */
   panTo: panTo,
   flyTo,
+  /**
+   * 将当前地图导出为 PNG
+   * @param downloadName 下载文件名，省略 .png 时自动补全
+   */
+  exportPNG,
   readFeatures,
   setCursor,
 });
