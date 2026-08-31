@@ -1,16 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import {
-  SourceImageWMSOptions,
-  TileType,
-  VMap,
-  MapBrowserEvent,
-  ObjectEvent,
-  OlMap,
-  OlImage,
-  OlWms,
-  OlTile,
-} from "v3-ol-map";
+import { SourceImageWMSOptions, TileType, VMap, ObjectEvent, OlMap, OlImage, OlWms, OlTile } from "v3-ol-map";
 const view: VMap["view"] = {
   zoom: 13,
   center: [118.125827, 24.637526],
@@ -34,17 +24,9 @@ const wms = ref<SourceImageWMSOptions>({
 const visible = ref(true);
 const filter = ref<boolean>(false);
 
-const handleClick = (e: MapBrowserEvent, data: any) => {
-  console.log(data);
+const handleClick = () => {
   filter.value = !filter.value;
   wms.value.params.CQL_FILTER = filter.value ? `state in (2,3,4)` : ``;
-};
-
-const handlePointerMove = (e: MapBrowserEvent, data: any) => {
-  if (data && data.numberReturned > 0) {
-    console.log(data.features);
-    console.log(e);
-  }
 };
 
 const handleSourceReady = () => {
@@ -61,7 +43,7 @@ const handleChangeVisible = (evt: ObjectEvent) => {
 <template>
   <div class="traffic-example">
     <button class="change-visible-btn" @click="visible = !visible">change visible</button>
-    <ol-map class="map-container" :view="view">
+    <ol-map class="map-container" :view="view" @dblclick="handleClick">
       <ol-tile :tile-type="tileType" :z-index="0"></ol-tile>
       <ol-image :visible="visible" :z-index="1" @sourceready="handleSourceReady" @change:visible="handleChangeVisible">
         <ol-wms
@@ -70,8 +52,7 @@ const handleChangeVisible = (evt: ObjectEvent) => {
           :cross-origin="wms.crossOrigin"
           :params="wms.params"
           :server-type="wms.serverType"
-          @dblclick="handleClick"
-          @pointermove="handlePointerMove"
+          :feature-info-enabled="false"
         ></ol-wms>
       </ol-image>
     </ol-map>

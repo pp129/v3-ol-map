@@ -6,10 +6,14 @@ export type SourceTileWMS = Omit<TileWMSOptions, "tileGrid">;
 export type SourceImageWMS = Omit<ImageWMSOptions, "tileGrid" | "params">;
 export interface SourceTileWMSOptions extends SourceTileWMS {
   tileGrid?: TileGridOptions;
+  /** 是否启用 GetFeatureInfo 查询，默认 true。 */
+  featureInfoEnabled?: boolean;
 }
 export interface SourceImageWMSOptions extends SourceImageWMS {
   tileGrid?: TileGridOptions;
   params: SourceTileWMS["params"];
+  /** 是否启用 GetFeatureInfo 查询，默认 true。 */
+  featureInfoEnabled?: boolean;
 }
 export declare type WMSOptions = SourceTileWMSOptions | SourceImageWMSOptions;
 
