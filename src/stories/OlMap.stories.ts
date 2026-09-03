@@ -32,3 +32,8 @@ export const Default: Story = {
     template: `<example-map />`,
   }),
 };
+
+export const ExportPNG: Story = {
+  ...Default,
+  name: "地图截图导出",
+};
